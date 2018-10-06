@@ -6,23 +6,23 @@
 
 ## PRIMEIRO TRABALHO PRÁTICO
 
-Projetar e desenvolver um sistema operacional embarcado que contemple os seguintes itens:
+Projetar e desenvolver um sistema operacional embarcado que contemple os seguintes itens:  **Desenvolvido**
 
-* Estrutura de dados para controle de TCBs (Task Control Block);
+* Estrutura de dados para controle de TCBs (Task Control Block);  **Desenvolvido**
 
-* Implementar os algoritmos de escalonamento de tarefas Round Robin e prioridades;
+* Implementar os algoritmos de escalonamento de tarefas Round Robin e prioridades;  **Desenvolvido**
 
-* Projetar e desenvolver um despachante que deverá salvar e restaurar o contexto das tarefas;
+* Projetar e desenvolver um despachante que deverá salvar e restaurar o contexto das tarefas;  **Desenvolvido**
 
-* Implementar um mecanismo de sincronização de tarefas (semáforo ou mutex);
+* Implementar um mecanismo de sincronização de tarefas (semáforo ou mutex);  **Desenvolvido**
 
-* Implementar um mecanismo de troca de mensagens entre tarefas (fila de mensagens, PIPE etc);
+* Implementar um mecanismo de troca de mensagens entre tarefas (fila de mensagens, PIPE etc);  **Em desenvolvimento, falta tasks usando pipe**
 
 * Permitir o gerenciamento de memória de dados e pilha com funções para a alocação e a liberação de
-memória de maneira dinâmica;
+memória de maneira dinâmica;  **Falta desenvolver**
 
 * Considerar na alocação dinâmica um dos seguintes algoritmos de alocação de segmentos de memória:
-best-fit, worst-fit ou first-fit, caso seja utilizado contígua; alocação baseada em paginação
+best-fit, worst-fit ou first-fit, caso seja utilizado contígua; alocação baseada em paginação  **Falta desenvolver**
 
 
 ### Informações
