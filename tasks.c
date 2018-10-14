@@ -8,9 +8,9 @@
 #include "kernel.h"
 #include "semaphore.h"
 #include "pipe.h"
-
 sem_t s;
 
+pipe_t pipe;
 
 void task_one()
 {
@@ -51,33 +51,35 @@ void task_thre()
   }
 }
 
-void read_pipee()
+
+void task_one_pipe()
 {
-  char msg_recebida;
-
-}
-
-
-void writee_pipe()
-{   
-  // Configura portas
-    /*
-  TRISDbits.RD0 = 0;                                                         
+  TRISDbits.RD0 = 0;
   PORTDbits.RD0 = 0;
-  TRISDbits.RD1 = 0;                                                         
-  PORTDbits.RD1 = 0;
-  TRISDbits.RD2 = 0;                                                         
-  PORTDbits.RD2 = 0;
- 
-  char dados[2] = {'R', 'Y'};
-  u_int index_send = 0;
-
-    while(1)
-    {
-    PORTDbits.RD2 = ~LATDbits.LD2;
-    pipe_write(&msg, dados[index_send]);
-    index_send = (index_send+1) % 2;    
-    // Aguarda por 200 ms
-    delay(200);
-    }*/
+  
+  create_pipe(&pipe);
+  
+  
+  while (1) {
+    //sem_wait(&s);
+    write_pipe(&pipe, 'a');
+    PORTDbits.RD0 = ~PORTDbits.RD0;
+    //sem_post(&s);
+    delay(100);    
+  }
+}
+void task_one_read()
+{
+  TRISDbits.RD0 = 0;
+  PORTDbits.RD0 = 0;
+  byte dado;
+  
+  
+  while (1) {
+    //sem_wait(&s);
+    dado = read_pipe(&pipe);
+    PORTDbits.RD0 = ~PORTDbits.RD0;
+    //sem_post(&s);
+    delay(100);    
+  }
 }

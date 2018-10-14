@@ -13,6 +13,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _task_thre `(v ~T0 @X0 0 ef ]
 "21 kernel.h
 [v _start_os `(v ~T0 @X0 0 ef ]
+[v F3059 `(*uc ~T0 @X0 1 tf1`Nuc ]
+"22 memory.h
+[v _SRAMalloc `NF3059 ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2830,43 +2833,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tasks.h: 9: void task_one();
 [; ;tasks.h: 10: void task_two();
 [; ;tasks.h: 11: void task_thre();
-[; ;tasks.h: 13: void writee_pipe();
-[; ;tasks.h: 14: void read_pipee();
-"10 main.c
-[; ;main.c: 10: asm("GLOBAL _task_idle, _task_one, _task_two, _task_thre");
+[; ;tasks.h: 12: void task_one_read();
+[; ;tasks.h: 13: void task_one_pipe();
+[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
+[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
+[; ;memory.h: 24: void SRAMInitHeap(void);
+"11 main.c
+[; ;main.c: 11: asm("GLOBAL _task_idle, _task_one, _task_two, _task_thre");
 [; <" GLOBAL _task_idle, _task_one, _task_two, _task_thre ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"12
+"13
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 12: void main(void) {
+[; ;main.c: 13: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 14: setupOS();
-"14
+[; ;main.c: 15: setupOS();
+"15
 [e ( _setupOS ..  ]
-[; ;main.c: 17: create_task(2, 3, &task_one);
-"17
-[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _task_one ]
-[; ;main.c: 18: create_task(3, 3, &task_two);
+[; ;main.c: 18: create_task(2, 3, &task_one);
 "18
-[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _task_two ]
-[; ;main.c: 19: create_task(4, 3, &task_thre);
+[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _task_one ]
+[; ;main.c: 19: create_task(3, 3, &task_two);
 "19
+[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _task_two ]
+[; ;main.c: 20: create_task(4, 3, &task_thre);
+"20
 [e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _task_thre ]
-[; ;main.c: 22: start_os();
-"22
-[e ( _start_os ..  ]
-[; ;main.c: 24: while (1);
+[; ;main.c: 24: start_os();
 "24
+[e ( _start_os ..  ]
+"28
+[v _mem `*uc ~T0 @X0 1 a ]
+[; ;main.c: 28: byte *mem = SRAMalloc(100);
+[e = _mem ( _SRAMalloc (1 -> -> 100 `i `uc ]
+[; ;main.c: 30: while (1);
+"30
 [e :U 281 ]
 [e :U 280 ]
 [e $U 281  ]
 [e :U 282 ]
-[; ;main.c: 26: return;
-"26
+[; ;main.c: 32: return;
+"32
 [e $UE 279  ]
-[; ;main.c: 27: }
-"27
+[; ;main.c: 33: }
+"33
 [e :UE 279 ]
 }

@@ -1,16 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"13 pipe.h
-[s S281 `ui -> 5 `i `ui 1 `ui 1 ]
-[n S281 pipe_bloqued_queue b_queue b_queue_pos_out b_queue_pos_in ]
-"20
-[s S282 `uc -> 4 `i `S281 1 `ui 1 `ui 1 `ui 1 ]
-[n S282 pipe pipe_queue pipe_bloqued pos_read_pipe pos_write_pipe pipe_items ]
 "11 semaphore.h
 [s S279 `ui -> 5 `i `ui 1 `ui 1 ]
 [n S279 sem_queue s_queue s_queue_pos_in s_queue_pos_out ]
 "17
 [s S280 `i 1 `S279 1 ]
 [n S280 sem contador queue ]
+"19 pipe.h
+[s S282 `uc -> 4 `i `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S282 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
 "2152 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S73 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
@@ -45,6 +42,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _sem_wait `(v ~T0 @X0 0 ef1`*S280 ]
 "16 kernel.h
 [v _delay `(v ~T0 @X0 0 ef1`ui ]
+"32 pipe.h
+[v _create_pipe `(v ~T0 @X0 0 ef1`*S282 ]
+"33
+[v _write_pipe `(v ~T0 @X0 0 ef2`*S282`uc ]
+"34
+[v _read_pipe `(uc ~T0 @X0 0 ef1`*S282 ]
 [; ;pic18f4520.h: 50: extern volatile unsigned char PORTA @ 0xF80;
 "52 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [; ;pic18f4520.h: 52: asm("PORTA equ 0F80h");
@@ -2814,8 +2817,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tasks.h: 9: void task_one();
 [; ;tasks.h: 10: void task_two();
 [; ;tasks.h: 11: void task_thre();
-[; ;tasks.h: 13: void writee_pipe();
-[; ;tasks.h: 14: void read_pipee();
+[; ;tasks.h: 12: void task_one_read();
+[; ;tasks.h: 13: void task_one_pipe();
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2879,25 +2882,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;semaphore.h: 25: int sem_get_value(sem_t s);
 [; ;pipe.h: 13: typedef struct pipe_bloqued_queue {
 [; ;pipe.h: 14: u_int b_queue[5];
-[; ;pipe.h: 15: u_int b_queue_pos_out;
-[; ;pipe.h: 16: u_int b_queue_pos_in;
+[; ;pipe.h: 15: u_int b_queue_pos_in;
+[; ;pipe.h: 16: u_int b_queue_pos_out;
 [; ;pipe.h: 17: } pipe_bloqued_queue_t;
-[; ;pipe.h: 20: typedef struct pipe {
-[; ;pipe.h: 21: byte pipe_queue[4];
-[; ;pipe.h: 22: pipe_bloqued_queue_t pipe_bloqued;
-[; ;pipe.h: 23: u_int pos_read_pipe;
-[; ;pipe.h: 24: u_int pos_write_pipe;
-[; ;pipe.h: 25: u_int pipe_items;
-[; ;pipe.h: 26: } pipe_t;
-"28 pipe.h
-[v _msg `S282 ~T0 @X0 1 e ]
-[; ;pipe.h: 28: pipe_t msg;
-[; ;pipe.h: 30: void create_pipe(pipe_t *pipe);
-[; ;pipe.h: 31: void write_pipe(pipe_t *pipe, byte data);
-[; ;pipe.h: 32: byte read_pipe(pipe_t *pipe);
-"12 tasks.c
+[; ;pipe.h: 19: typedef struct pipe {
+[; ;pipe.h: 20: byte pipe_queue[4];
+[; ;pipe.h: 22: u_int pos_read_pipe;
+[; ;pipe.h: 23: u_int pos_write_pipe;
+[; ;pipe.h: 24: u_int pipe_itens;
+[; ;pipe.h: 27: u_int pos_bloqued_read;
+[; ;pipe.h: 28: u_int pos_bloqued_write;
+[; ;pipe.h: 30: } pipe_t;
+[; ;pipe.h: 32: void create_pipe(pipe_t *pipe);
+[; ;pipe.h: 33: void write_pipe(pipe_t *pipe, byte data);
+[; ;pipe.h: 34: byte read_pipe(pipe_t *pipe);
+"11 tasks.c
 [v _s `S280 ~T0 @X0 1 e ]
-[; ;tasks.c: 12: sem_t s;
+[; ;tasks.c: 11: sem_t s;
+"13
+[v _pipe `S282 ~T0 @X0 1 e ]
+[; ;tasks.c: 13: pipe_t pipe;
 "15
 [v _task_one `(v ~T0 @X0 1 ef ]
 "16
@@ -3009,30 +3013,85 @@ Version 3.2 HI-TECH Software Intermediate Code
 "52
 [e :UE 291 ]
 }
-"54
-[v _read_pipee `(v ~T0 @X0 1 ef ]
 "55
-{
-[; ;tasks.c: 54: void read_pipee()
-[; ;tasks.c: 55: {
-[e :U _read_pipee ]
-[f ]
+[v _task_one_pipe `(v ~T0 @X0 1 ef ]
 "56
-[v _msg_recebida `uc ~T0 @X0 1 a ]
-[; ;tasks.c: 56: char msg_recebida;
-[; ;tasks.c: 58: }
+{
+[; ;tasks.c: 55: void task_one_pipe()
+[; ;tasks.c: 56: {
+[e :U _task_one_pipe ]
+[f ]
+[; ;tasks.c: 57: TRISDbits.RD0 = 0;
+"57
+[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 58: PORTDbits.RD0 = 0;
 "58
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 60: create_pipe(&pipe);
+"60
+[e ( _create_pipe (1 &U _pipe ]
+[; ;tasks.c: 63: while (1) {
+"63
+[e :U 297 ]
+{
+[; ;tasks.c: 65: write_pipe(&pipe, 'a');
+"65
+[e ( _write_pipe (2 , &U _pipe -> -> 97 `ui `uc ]
+[; ;tasks.c: 66: PORTDbits.RD0 = ~PORTDbits.RD0;
+"66
+[e = . . _PORTDbits 0 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
+[; ;tasks.c: 68: delay(100);
+"68
+[e ( _delay (1 -> -> 100 `i `ui ]
+"69
+}
+[e :U 296 ]
+"63
+[e $U 297  ]
+[e :U 298 ]
+[; ;tasks.c: 69: }
+[; ;tasks.c: 70: }
+"70
 [e :UE 295 ]
 }
-"61
-[v _writee_pipe `(v ~T0 @X0 1 ef ]
-"62
+"71
+[v _task_one_read `(v ~T0 @X0 1 ef ]
+"72
 {
-[; ;tasks.c: 61: void writee_pipe()
-[; ;tasks.c: 62: {
-[e :U _writee_pipe ]
+[; ;tasks.c: 71: void task_one_read()
+[; ;tasks.c: 72: {
+[e :U _task_one_read ]
 [f ]
-[; ;tasks.c: 83: }
+[; ;tasks.c: 73: TRISDbits.RD0 = 0;
+"73
+[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 74: PORTDbits.RD0 = 0;
+"74
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+"75
+[v _dado `uc ~T0 @X0 1 a ]
+[; ;tasks.c: 75: byte dado;
+[; ;tasks.c: 78: while (1) {
+"78
+[e :U 301 ]
+{
+[; ;tasks.c: 80: dado = read_pipe(&pipe);
+"80
+[e = _dado ( _read_pipe (1 &U _pipe ]
+[; ;tasks.c: 81: PORTDbits.RD0 = ~PORTDbits.RD0;
+"81
+[e = . . _PORTDbits 0 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
+[; ;tasks.c: 83: delay(100);
 "83
-[e :UE 296 ]
+[e ( _delay (1 -> -> 100 `i `ui ]
+"84
+}
+[e :U 300 ]
+"78
+[e $U 301  ]
+[e :U 302 ]
+[; ;tasks.c: 84: }
+[; ;tasks.c: 85: }
+"85
+[e :UE 299 ]
 }

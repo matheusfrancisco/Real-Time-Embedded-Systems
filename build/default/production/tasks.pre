@@ -3790,9 +3790,8 @@ extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 void task_one();
 void task_two();
 void task_thre();
-
-void writee_pipe();
-void read_pipee();
+void task_one_read();
+void task_one_pipe();
 
 # 26 "/opt/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3896,28 +3895,31 @@ int sem_get_value(sem_t s);
 # 13 "pipe.h"
 typedef struct pipe_bloqued_queue {
 u_int b_queue[5];
-u_int b_queue_pos_out;
 u_int b_queue_pos_in;
+u_int b_queue_pos_out;
 } pipe_bloqued_queue_t;
-
 
 typedef struct pipe {
 byte pipe_queue[4];
-pipe_bloqued_queue_t pipe_bloqued;
+
 u_int pos_read_pipe;
 u_int pos_write_pipe;
-u_int pipe_items;
-} pipe_t;
+u_int pipe_itens;
 
-pipe_t msg;
+
+u_int pos_bloqued_read;
+u_int pos_bloqued_write;
+
+} pipe_t;
 
 void create_pipe(pipe_t *pipe);
 void write_pipe(pipe_t *pipe, byte data);
 byte read_pipe(pipe_t *pipe);
 
-# 12 "tasks.c"
+# 11 "tasks.c"
 sem_t s;
 
+pipe_t pipe;
 
 void task_one()
 {
@@ -3958,15 +3960,35 @@ delay(100);
 }
 }
 
-void read_pipee()
-{
-char msg_recebida;
 
+void task_one_pipe()
+{
+TRISDbits.RD0 = 0;
+PORTDbits.RD0 = 0;
+
+create_pipe(&pipe);
+
+
+while (1) {
+
+write_pipe(&pipe, 'a');
+PORTDbits.RD0 = ~PORTDbits.RD0;
+
+delay(100);
 }
-
-
-void writee_pipe()
+}
+void task_one_read()
 {
+TRISDbits.RD0 = 0;
+PORTDbits.RD0 = 0;
+byte dado;
 
-# 83
+
+while (1) {
+
+dado = read_pipe(&pipe);
+PORTDbits.RD0 = ~PORTDbits.RD0;
+
+delay(100);
+}
 }

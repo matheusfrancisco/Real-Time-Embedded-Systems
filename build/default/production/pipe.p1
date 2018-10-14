@@ -1,10 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"13 pipe.h
-[s S279 `ui -> 5 `i `ui 1 `ui 1 ]
-[n S279 pipe_bloqued_queue b_queue b_queue_pos_out b_queue_pos_in ]
-"20
-[s S280 `uc -> 4 `i `S279 1 `ui 1 `ui 1 `ui 1 ]
-[n S280 pipe pipe_queue pipe_bloqued pos_read_pipe pos_write_pipe pipe_items ]
+"19 pipe.h
+[s S280 `uc -> 4 `i `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S280 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
 "6696 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S270 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -21,7 +18,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS269 ~T0 @X0 0 e@4082 ]
 "12 kernel.h
 [v _task_running `ui ~T0 @X0 0 e ]
-"25 pipe.c
+"29 pipe.c
 [c E3007 1 2 3 4 5 6 7 .. ]
 [n E3007 . READY RUNNING SLEEPING WAITING WAITING_SEM WAITING_PIPE FINISHED  ]
 "17 kernel.h
@@ -2844,22 +2841,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;types.h: 43: } tcb_t;
 [; ;pipe.h: 13: typedef struct pipe_bloqued_queue {
 [; ;pipe.h: 14: u_int b_queue[5];
-[; ;pipe.h: 15: u_int b_queue_pos_out;
-[; ;pipe.h: 16: u_int b_queue_pos_in;
+[; ;pipe.h: 15: u_int b_queue_pos_in;
+[; ;pipe.h: 16: u_int b_queue_pos_out;
 [; ;pipe.h: 17: } pipe_bloqued_queue_t;
-[; ;pipe.h: 20: typedef struct pipe {
-[; ;pipe.h: 21: byte pipe_queue[4];
-[; ;pipe.h: 22: pipe_bloqued_queue_t pipe_bloqued;
-[; ;pipe.h: 23: u_int pos_read_pipe;
-[; ;pipe.h: 24: u_int pos_write_pipe;
-[; ;pipe.h: 25: u_int pipe_items;
-[; ;pipe.h: 26: } pipe_t;
-"28 pipe.h
-[v _msg `S280 ~T0 @X0 1 e ]
-[; ;pipe.h: 28: pipe_t msg;
-[; ;pipe.h: 30: void create_pipe(pipe_t *pipe);
-[; ;pipe.h: 31: void write_pipe(pipe_t *pipe, byte data);
-[; ;pipe.h: 32: byte read_pipe(pipe_t *pipe);
+[; ;pipe.h: 19: typedef struct pipe {
+[; ;pipe.h: 20: byte pipe_queue[4];
+[; ;pipe.h: 22: u_int pos_read_pipe;
+[; ;pipe.h: 23: u_int pos_write_pipe;
+[; ;pipe.h: 24: u_int pipe_itens;
+[; ;pipe.h: 27: u_int pos_bloqued_read;
+[; ;pipe.h: 28: u_int pos_bloqued_write;
+[; ;pipe.h: 30: } pipe_t;
+[; ;pipe.h: 32: void create_pipe(pipe_t *pipe);
+[; ;pipe.h: 33: void write_pipe(pipe_t *pipe, byte data);
+[; ;pipe.h: 34: byte read_pipe(pipe_t *pipe);
 [; ;kernel.h: 11: extern tcb_t F_APTOS[5];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -2883,172 +2878,142 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;pipe.c: 11: pipe->pos_read_pipe = 0;
 "11
-[e = . *U _pipe 2 -> -> 0 `i `ui ]
+[e = . *U _pipe 1 -> -> 0 `i `ui ]
 [; ;pipe.c: 12: pipe->pos_write_pipe = 0;
 "12
-[e = . *U _pipe 3 -> -> 0 `i `ui ]
-[; ;pipe.c: 13: pipe->pipe_bloqued.b_queue_pos_in = 0;
+[e = . *U _pipe 2 -> -> 0 `i `ui ]
+[; ;pipe.c: 13: pipe->pipe_itens = 0;
 "13
-[e = . . *U _pipe 1 2 -> -> 0 `i `ui ]
-[; ;pipe.c: 14: pipe->pipe_bloqued.b_queue_pos_out;
-"14
-[e . . *U _pipe 1 1 ]
-[; ;pipe.c: 15: pipe->pipe_items = 0;
-"15
-[e = . *U _pipe 4 -> -> 0 `i `ui ]
-[; ;pipe.c: 16: }
+[e = . *U _pipe 3 -> -> 0 `i `ui ]
+[; ;pipe.c: 16: pipe->pos_bloqued_read = 0;
 "16
+[e = . *U _pipe 4 -> -> 0 `i `ui ]
+[; ;pipe.c: 17: pipe->pos_bloqued_write =0;
+"17
+[e = . *U _pipe 5 -> -> 0 `i `ui ]
+[; ;pipe.c: 18: }
+"18
 [e :UE 281 ]
 }
-"17
+"20
 [v _write_pipe `(v ~T0 @X0 1 ef2`*S280`uc ]
-"18
+"21
 {
-[; ;pipe.c: 17: void write_pipe(pipe_t *pipe, byte data)
-[; ;pipe.c: 18: {
+[; ;pipe.c: 20: void write_pipe(pipe_t *pipe, byte data)
+[; ;pipe.c: 21: {
 [e :U _write_pipe ]
-"17
+"20
 [v _pipe `*S280 ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
-"18
-[f ]
-[; ;pipe.c: 19: (INTCONbits.GIE = 0);
-"19
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;pipe.c: 21: if( pipe->pipe_items == 4 )
 "21
-[e $ ! == . *U _pipe 4 -> -> 4 `i `ui 283  ]
-[; ;pipe.c: 22: {
+[f ]
+[; ;pipe.c: 22: (INTCONbits.GIE = 0);
 "22
-{
-[; ;pipe.c: 23: pipe->pipe_bloqued.b_queue[pipe->pipe_bloqued.b_queue_pos_in] = task_running;
-"23
-[e = *U + &U . . *U _pipe 1 0 * -> . . *U _pipe 1 2 `ux -> -> # *U &U . . *U _pipe 1 0 `ui `ux _task_running ]
-[; ;pipe.c: 24: pipe->pipe_bloqued.b_queue_pos_in = ((pipe->pipe_bloqued.b_queue_pos_in + 1) % 5);
-"24
-[e = . . *U _pipe 1 2 % + . . *U _pipe 1 2 -> -> 1 `i `ui -> -> 5 `i `ui ]
-[; ;pipe.c: 25: dispatcher(WAITING_PIPE);
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;pipe.c: 25: if (pipe->pipe_itens == 4) {
 "25
-[e ( _dispatcher (1 . `E3007 5 ]
-"26
-}
-[; ;pipe.c: 26: }else{
-[e $U 284  ]
-[e :U 283 ]
+[e $ ! == . *U _pipe 3 -> -> 4 `i `ui 283  ]
 {
-[; ;pipe.c: 28: pipe->pipe_queue[pipe->pos_write_pipe] = data;
+[; ;pipe.c: 28: pipe->pos_bloqued_write = task_running;
 "28
-[e = *U + &U . *U _pipe 0 * -> . *U _pipe 3 `ux -> -> # *U &U . *U _pipe 0 `ui `ux _data ]
-[; ;pipe.c: 29: pipe->pos_write_pipe = ((pipe->pos_write_pipe + 1) % 4);
+[e = . *U _pipe 5 _task_running ]
+[; ;pipe.c: 29: dispatcher(WAITING_PIPE);
 "29
-[e = . *U _pipe 3 % + . *U _pipe 3 -> -> 1 `i `ui -> -> 4 `i `ui ]
-[; ;pipe.c: 30: pipe->pipe_items++;
+[e ( _dispatcher (1 . `E3007 5 ]
 "30
-[e ++ . *U _pipe 4 -> -> 1 `i `ui ]
-[; ;pipe.c: 32: for (int i = 0; i < 4; i++)
-"32
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 285  ]
-[e $U 286  ]
-"33
-[e :U 285 ]
-[; ;pipe.c: 33: if (F_APTOS[i].task_state == WAITING_PIPE)
-[e $ ! == -> . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 `i -> . `E3007 5 `i 288  ]
-[; ;pipe.c: 34: F_APTOS[i].task_state = READY;
-"34
-[e = . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 0 ]
-[e :U 288 ]
-"32
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 285  ]
-[e :U 286 ]
-"35
 }
+[e :U 283 ]
+[; ;pipe.c: 30: }
+[; ;pipe.c: 32: pipe->pipe_queue[pipe->pos_write_pipe] = data;
+"32
+[e = *U + &U . *U _pipe 0 * -> . *U _pipe 2 `ux -> -> # *U &U . *U _pipe 0 `ui `ux _data ]
+[; ;pipe.c: 33: pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 4;
+"33
+[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui -> -> 4 `i `ui ]
+[; ;pipe.c: 34: pipe->pipe_itens++;
+"34
+[e ++ . *U _pipe 3 -> -> 1 `i `ui ]
+[; ;pipe.c: 37: if(pipe->pos_bloqued_read > 0 )
+"37
+[e $ ! > . *U _pipe 4 -> -> 0 `i `ui 284  ]
+[; ;pipe.c: 38: {
+"38
+{
+[; ;pipe.c: 40: F_APTOS[pipe->pos_bloqued_read].task_state = READY;
+"40
+[e = . *U + &U _F_APTOS * -> . *U _pipe 4 `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 0 ]
+[; ;pipe.c: 41: pipe->pos_bloqued_read = 0;
+"41
+[e = . *U _pipe 4 -> -> 0 `i `ui ]
+"46
 }
 [e :U 284 ]
-[; ;pipe.c: 35: }
-[; ;pipe.c: 37: (INTCONbits.GIE = 1);
-"37
+[; ;pipe.c: 46: }
+[; ;pipe.c: 48: (INTCONbits.GIE = 1);
+"48
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;pipe.c: 38: }
-"38
+[; ;pipe.c: 49: }
+"49
 [e :UE 282 ]
 }
-"40
-[v _read_pipe `(uc ~T0 @X0 1 ef1`*S280 ]
-"41
-{
-[; ;pipe.c: 40: byte read_pipe(pipe_t *pipe)
-[; ;pipe.c: 41: {
-[e :U _read_pipe ]
-"40
-[v _pipe `*S280 ~T0 @X0 1 r1 ]
-"41
-[f ]
-"42
-[v _dado `uc ~T0 @X0 1 a ]
-[; ;pipe.c: 42: byte dado;
-[; ;pipe.c: 44: if (pipe->pipe_items == 0) {
-"44
-[e $ ! == . *U _pipe 4 -> -> 0 `i `ui 290  ]
-{
-[; ;pipe.c: 45: pipe->pipe_bloqued.b_queue[pipe->pipe_bloqued.b_queue_pos_in] = task_running;
-"45
-[e = *U + &U . . *U _pipe 1 0 * -> . . *U _pipe 1 2 `ux -> -> # *U &U . . *U _pipe 1 0 `ui `ux _task_running ]
-[; ;pipe.c: 46: pipe->pipe_bloqued.b_queue_pos_in = (pipe->pipe_bloqued.b_queue_pos_in + 1) % 5;
-"46
-[e = . . *U _pipe 1 2 % + . . *U _pipe 1 2 -> -> 1 `i `ui -> -> 5 `i `ui ]
-[; ;pipe.c: 47: dispatcher(WAITING_PIPE);
-"47
-[e ( _dispatcher (1 . `E3007 5 ]
-"48
-}
-[; ;pipe.c: 48: }
-[e $U 291  ]
-"49
-[e :U 290 ]
-[; ;pipe.c: 49: else{
-{
-[; ;pipe.c: 51: dado = pipe->pipe_queue[pipe->pos_read_pipe];
 "51
-[e = _dado *U + &U . *U _pipe 0 * -> . *U _pipe 2 `ux -> -> # *U &U . *U _pipe 0 `ui `ux ]
-[; ;pipe.c: 52: pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
+[v _read_pipe `(uc ~T0 @X0 1 ef1`*S280 ]
 "52
-[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui -> -> 4 `i `ui ]
-[; ;pipe.c: 53: pipe->pipe_items--;
-"53
-[e -- . *U _pipe 4 -> -> 1 `i `ui ]
-[; ;pipe.c: 55: for (int i = 0; i < 4; i++)
-"55
 {
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 292  ]
-[e $U 293  ]
+[; ;pipe.c: 51: byte read_pipe(pipe_t *pipe)
+[; ;pipe.c: 52: {
+[e :U _read_pipe ]
+"51
+[v _pipe `*S280 ~T0 @X0 1 r1 ]
+"52
+[f ]
+"53
+[v _dado `uc ~T0 @X0 1 a ]
+[; ;pipe.c: 53: byte dado;
+[; ;pipe.c: 56: if (pipe->pipe_itens == 0) {
 "56
-[e :U 292 ]
-[; ;pipe.c: 56: if (F_APTOS[i].task_state == WAITING_PIPE)
-[e $ ! == -> . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 `i -> . `E3007 5 `i 295  ]
-[; ;pipe.c: 57: F_APTOS[i].task_state = READY;
-"57
-[e = . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 0 ]
-[e :U 295 ]
-"55
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 292  ]
-[e :U 293 ]
-"58
-}
-}
-[e :U 291 ]
-[; ;pipe.c: 58: }
-[; ;pipe.c: 61: return dado;
+[e $ ! == . *U _pipe 3 -> -> 0 `i `ui 286  ]
+{
+[; ;pipe.c: 59: pipe->pos_bloqued_read = task_running;
+"59
+[e = . *U _pipe 4 _task_running ]
+[; ;pipe.c: 60: dispatcher(WAITING_PIPE);
+"60
+[e ( _dispatcher (1 . `E3007 5 ]
 "61
+}
+[e :U 286 ]
+[; ;pipe.c: 61: }
+[; ;pipe.c: 63: dado = pipe->pipe_queue[pipe->pos_read_pipe];
+"63
+[e = _dado *U + &U . *U _pipe 0 * -> . *U _pipe 1 `ux -> -> # *U &U . *U _pipe 0 `ui `ux ]
+[; ;pipe.c: 64: pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
+"64
+[e = . *U _pipe 1 % + . *U _pipe 1 -> -> 1 `i `ui -> -> 4 `i `ui ]
+[; ;pipe.c: 65: pipe->pipe_itens--;
+"65
+[e -- . *U _pipe 3 -> -> 1 `i `ui ]
+[; ;pipe.c: 68: if(pipe->pos_bloqued_write > 0)
+"68
+[e $ ! > . *U _pipe 5 -> -> 0 `i `ui 287  ]
+[; ;pipe.c: 69: {
+"69
+{
+[; ;pipe.c: 70: F_APTOS[pipe->pos_bloqued_write].task_state = READY;
+"70
+[e = . *U + &U _F_APTOS * -> . *U _pipe 5 `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 0 ]
+[; ;pipe.c: 71: pipe->pos_bloqued_write = 0;
+"71
+[e = . *U _pipe 5 -> -> 0 `i `ui ]
+"76
+}
+[e :U 287 ]
+[; ;pipe.c: 76: }
+[; ;pipe.c: 77: return dado;
+"77
 [e ) _dado ]
-[e $UE 289  ]
-[; ;pipe.c: 62: }
-"62
-[e :UE 289 ]
+[e $UE 285  ]
+[; ;pipe.c: 78: }
+"78
+[e :UE 285 ]
 }

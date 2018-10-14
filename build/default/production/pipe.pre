@@ -3858,20 +3858,22 @@ byte WORK_register;
 # 13 "pipe.h"
 typedef struct pipe_bloqued_queue {
 u_int b_queue[5];
-u_int b_queue_pos_out;
 u_int b_queue_pos_in;
+u_int b_queue_pos_out;
 } pipe_bloqued_queue_t;
-
 
 typedef struct pipe {
 byte pipe_queue[4];
-pipe_bloqued_queue_t pipe_bloqued;
+
 u_int pos_read_pipe;
 u_int pos_write_pipe;
-u_int pipe_items;
-} pipe_t;
+u_int pipe_itens;
 
-pipe_t msg;
+
+u_int pos_bloqued_read;
+u_int pos_bloqued_write;
+
+} pipe_t;
 
 void create_pipe(pipe_t *pipe);
 void write_pipe(pipe_t *pipe, byte data);
@@ -3895,28 +3897,37 @@ void create_pipe(pipe_t *pipe)
 {
 pipe->pos_read_pipe = 0;
 pipe->pos_write_pipe = 0;
-pipe->pipe_bloqued.b_queue_pos_in = 0;
-pipe->pipe_bloqued.b_queue_pos_out;
-pipe->pipe_items = 0;
+pipe->pipe_itens = 0;
+
+
+pipe->pos_bloqued_read = 0;
+pipe->pos_bloqued_write =0;
 }
+
 void write_pipe(pipe_t *pipe, byte data)
 {
 (INTCONbits.GIE = 0);
 
-if( pipe->pipe_items == 4 )
-{
-pipe->pipe_bloqued.b_queue[pipe->pipe_bloqued.b_queue_pos_in] = task_running;
-pipe->pipe_bloqued.b_queue_pos_in = ((pipe->pipe_bloqued.b_queue_pos_in + 1) % 5);
+
+if (pipe->pipe_itens == 4) {
+
+
+pipe->pos_bloqued_write = task_running;
 dispatcher(WAITING_PIPE);
-}else{
+}
 
 pipe->pipe_queue[pipe->pos_write_pipe] = data;
-pipe->pos_write_pipe = ((pipe->pos_write_pipe + 1) % 4);
-pipe->pipe_items++;
+pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 4;
+pipe->pipe_itens++;
 
-for (int i = 0; i < 4; i++)
-if (F_APTOS[i].task_state == WAITING_PIPE)
-F_APTOS[i].task_state = READY;
+
+if(pipe->pos_bloqued_read > 0 )
+{
+
+F_APTOS[pipe->pos_bloqued_read].task_state = READY;
+pipe->pos_bloqued_read = 0;
+
+# 46
 }
 
 (INTCONbits.GIE = 1);
@@ -3926,22 +3937,25 @@ byte read_pipe(pipe_t *pipe)
 {
 byte dado;
 
-if (pipe->pipe_items == 0) {
-pipe->pipe_bloqued.b_queue[pipe->pipe_bloqued.b_queue_pos_in] = task_running;
-pipe->pipe_bloqued.b_queue_pos_in = (pipe->pipe_bloqued.b_queue_pos_in + 1) % 5;
+
+if (pipe->pipe_itens == 0) {
+
+
+pipe->pos_bloqued_read = task_running;
 dispatcher(WAITING_PIPE);
 }
-else{
 
 dado = pipe->pipe_queue[pipe->pos_read_pipe];
 pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
-pipe->pipe_items--;
+pipe->pipe_itens--;
 
-for (int i = 0; i < 4; i++)
-if (F_APTOS[i].task_state == WAITING_PIPE)
-F_APTOS[i].task_state = READY;
+
+if(pipe->pos_bloqued_write > 0)
+{
+F_APTOS[pipe->pos_bloqued_write].task_state = READY;
+pipe->pos_bloqued_write = 0;
+
+# 76
 }
-
-
 return dado;
 }

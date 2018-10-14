@@ -3872,11 +3872,15 @@ void start_os();
 void task_one();
 void task_two();
 void task_thre();
+void task_one_read();
+void task_one_pipe();
 
-void writee_pipe();
-void read_pipee();
+# 22 "memory.h"
+unsigned char * near SRAMalloc(near unsigned char nBytes);
+void SRAMfree(unsigned char * near pSRAM);
+void SRAMInitHeap(void);
 
-# 10 "main.c"
+# 11 "main.c"
 asm("GLOBAL _task_idle, _task_one, _task_two, _task_thre");
 
 void main(void) {
@@ -3889,7 +3893,12 @@ create_task(3, 3, &task_two);
 create_task(4, 3, &task_thre);
 
 
+
 start_os();
+
+
+
+byte *mem = SRAMalloc(100);
 
 while (1);
 

@@ -9,9 +9,9 @@
 void task_one();
 void task_two();
 void task_thre();
+void task_one_read();
+void task_one_pipe();
 
-void writee_pipe();
-void read_pipee();
 
 #endif	/* TASKS_H */
 

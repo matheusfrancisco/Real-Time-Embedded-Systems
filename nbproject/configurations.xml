@@ -10,6 +10,8 @@
       <itemPath>scheduler.h</itemPath>
       <itemPath>semaphore.h</itemPath>
       <itemPath>pipe.h</itemPath>
+      <itemPath>memory.h</itemPath>
+      <itemPath>config.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +26,7 @@
       <itemPath>scheduler.c</itemPath>
       <itemPath>semaphore.c</itemPath>
       <itemPath>pipe.c</itemPath>
+      <itemPath>memory.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -31,6 +34,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -514,7 +520,7 @@
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
-        <property key="stack-type" value="compiled"/>
+        <property key="stack-type" value="hybrid"/>
       </XC8-config-global>
     </conf>
   </confs>

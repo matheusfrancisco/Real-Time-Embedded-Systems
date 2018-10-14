@@ -5,6 +5,9 @@
 
 #include "kernel.h"
 #include "scheduler.h"
+#include "memory.h"
+#include "config.h"
+
 
 #define QUANTUM 4
 
@@ -35,9 +38,13 @@ void dispatcher(state_t state)
   // Salva o contexto da tarefa que sairá de execução
   SAVE_CONTEXT(state);
   
+#if RR_SCH
   // Escolhe a tarefa que será executada
   task_running = rr_scheduler();
-  
+#else
+   task_running = prior_scheduler();
+
+#endif
   // Restaura o contexto da tarefa que entrará em execução
   RESTORE_CONTEXT();
   
@@ -87,6 +94,8 @@ void setupOS()
   create_task(1,5, &task_idle);  
  
   //dispatcher(READY);
+  
+  SRAMInitHeap();
   
   ei();
 }
