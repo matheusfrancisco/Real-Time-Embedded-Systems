@@ -16,10 +16,10 @@ Projetar e desenvolver um sistema operacional embarcado que contemple os seguint
 
 * Implementar um mecanismo de sincronização de tarefas (semáforo ou mutex);  **Desenvolvido**
 
-* Implementar um mecanismo de troca de mensagens entre tarefas (fila de mensagens, PIPE etc);  **Em desenvolvimento, falta tasks usando pipe**
+* Implementar um mecanismo de troca de mensagens entre tarefas (fila de mensagens, PIPE etc);  **Desenvolvido**
 
 * Permitir o gerenciamento de memória de dados e pilha com funções para a alocação e a liberação de
-memória de maneira dinâmica;  **Falta desenvolver**
+memória de maneira dinâmica;  **Desenvolvido**
 
 * Considerar na alocação dinâmica um dos seguintes algoritmos de alocação de segmentos de memória:
 best-fit, worst-fit ou first-fit, caso seja utilizado contígua; alocação baseada em paginação  **Falta desenvolver**
