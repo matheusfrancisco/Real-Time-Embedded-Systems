@@ -22,7 +22,7 @@ Projetar e desenvolver um sistema operacional embarcado que contemple os seguint
 memória de maneira dinâmica;  **Desenvolvido**
 
 * Considerar na alocação dinâmica um dos seguintes algoritmos de alocação de segmentos de memória:
-best-fit, worst-fit ou first-fit, caso seja utilizado contígua; alocação baseada em paginação  **Falta desenvolver**
+best-fit, worst-fit ou first-fit, caso seja utilizado contígua; alocação baseada em paginação  **Desenvolvido**
 
 
 ### Informações

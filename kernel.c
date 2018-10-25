@@ -8,7 +8,6 @@
 #include "memory.h"
 #include "config.h"
 
-
 #define QUANTUM 4
 
 u_int quantum = QUANTUM;
@@ -38,13 +37,13 @@ void dispatcher(state_t state)
   // Salva o contexto da tarefa que sairá de execução
   SAVE_CONTEXT(state);
   
-#if RR_SCH
   // Escolhe a tarefa que será executada
+#if RR_SCH
   task_running = rr_scheduler();
 #else
-   task_running = prior_scheduler();
-
-#endif
+  task_running = prior_scheduler();
+#endif  
+  
   // Restaura o contexto da tarefa que entrará em execução
   RESTORE_CONTEXT();
   

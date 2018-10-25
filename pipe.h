@@ -22,11 +22,9 @@ typedef struct pipe {
     u_int pos_read_pipe;
     u_int pos_write_pipe;
     u_int pipe_itens;
-    //bloqued
-    
-    u_int  pos_bloqued_read;
-    u_int pos_bloqued_write;
-    
+    // Posição dos processos bloqueados
+    u_int pos_bloqued_read;
+    u_int pos_bloqued_write;    
 } pipe_t;
 
 void create_pipe(pipe_t *pipe);

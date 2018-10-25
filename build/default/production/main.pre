@@ -3872,8 +3872,6 @@ void start_os();
 void task_one();
 void task_two();
 void task_thre();
-void task_one_read();
-void task_one_pipe();
 
 # 22 "memory.h"
 unsigned char * near SRAMalloc(near unsigned char nBytes);

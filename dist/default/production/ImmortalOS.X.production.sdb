@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F4520 ]
 [d frameptr 4065 ]
-"16 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
+"15 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
 [e E3007 . `uc
 READY 1
 RUNNING 2
@@ -33,7 +33,7 @@ WAITING_SEM 5
 WAITING_PIPE 6
 FINISHED 7
 ]
-"29 /home/evohc/MPLABXProjects/ImmortalOS.X/pipe.c
+"30 /home/evohc/MPLABXProjects/ImmortalOS.X/pipe.c
 [e E3007 . `uc
 READY 1
 RUNNING 2
@@ -67,45 +67,41 @@ FINISHED 7
 [v ___wmul __wmul `R(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"20 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
+"19 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
 [v _create_task create_task `(v  1 e 1 0 ]
-"34
+"33
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
-"59
+"58
 [v _delay delay `R(v  1 e 1 0 ]
-"69
+"68
 [v _task_idle task_idle `R(v  1 e 1 0 ]
-"80
+"79
 [v _setupOS setupOS `(v  1 e 1 0 ]
-"103
+"102
 [v _int_high int_high `II(v  1 e 1 0 ]
-"128
+"127
 [v _start_os start_os `(v  1 e 1 0 ]
 "13 /home/evohc/MPLABXProjects/ImmortalOS.X/main.c
 [v _main main `(v  1 e 1 0 ]
-"181 /home/evohc/MPLABXProjects/ImmortalOS.X/memory.c
+"178 /home/evohc/MPLABXProjects/ImmortalOS.X/memory.c
 [v _SRAMalloc SRAMalloc `N(*.39uc  1 e 2 0 ]
-"303
+"300
 [v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
-"349
+"346
 [v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
-"9 /home/evohc/MPLABXProjects/ImmortalOS.X/pipe.c
-[v _create_pipe create_pipe `(v  1 e 1 0 ]
-"20
-[v _write_pipe write_pipe `(v  1 e 1 0 ]
-"51
-[v _read_pipe read_pipe `(uc  1 e 1 0 ]
+"10 /home/evohc/MPLABXProjects/ImmortalOS.X/pipe.c
+[v _create_pipe create_pipe `R(v  1 e 1 0 ]
+"21
+[v _write_pipe write_pipe `R(v  1 e 1 0 ]
+"50
+[v _read_pipe read_pipe `R(uc  1 e 1 0 ]
 "12 /home/evohc/MPLABXProjects/ImmortalOS.X/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
-"6 /home/evohc/MPLABXProjects/ImmortalOS.X/semaphore.c
-[v _sem_init sem_init `R(v  1 e 1 0 ]
-"17
-[v _sem_wait sem_wait `R(v  1 e 1 0 ]
-"15 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
+"16 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
 [v _task_one task_one `R(v  1 e 1 0 ]
-"30
+"33
 [v _task_two task_two `R(v  1 e 1 0 ]
-"43
+"49
 [v _task_thre task_thre `R(v  1 e 1 0 ]
 [s S157 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
@@ -208,25 +204,21 @@ FINISHED 7
 [v _TOSH TOSH `VEuc  1 e 1 @4094 ]
 "6997
 [v _TOSU TOSU `VEuc  1 e 1 @4095 ]
-"14 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
+"13 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
 [v _quantum quantum `ui  1 e 2 0 ]
 [s S70 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
-"16
+"15
 [s S74 stack 98 `[32]S70 1 STACK 96 0 `ui 1 stack_size 2 96 ]
 [s S77 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3007 1 task_state 1 8 `S74 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
 [v _F_APTOS F_APTOS `[5]S77  1 e 550 0 ]
-"17
+"16
 [v _tasks_installed tasks_installed `ui  1 e 2 0 ]
-"18
+"17
 [v _task_running task_running `ui  1 e 2 0 ]
-"134 /home/evohc/MPLABXProjects/ImmortalOS.X/memory.c
+"131 /home/evohc/MPLABXProjects/ImmortalOS.X/memory.c
 [v __uDynamicHeap _uDynamicHeap `[512]uc  1 e 512 0 ]
-[s S378 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
-"11 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
-[s S382 sem 16 `i 1 contador 2 0 `S378 1 queue 14 2 ]
-[v _s s `S382  1 e 16 0 ]
 [s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
-"13
+"13 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
 [v _pipe pipe `S385  1 e 14 0 ]
 "13 /home/evohc/MPLABXProjects/ImmortalOS.X/main.c
 [v _main main `(v  1 e 1 0 ]
@@ -235,29 +227,29 @@ FINISHED 7
 [v main@mem mem `*.39uc  1 a 2 36 ]
 "33
 } 0
-"128 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
+"127 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
 [v _start_os start_os `(v  1 e 1 0 ]
 {
-"134
+"133
 } 0
-"80
+"79
 [v _setupOS setupOS `(v  1 e 1 0 ]
 {
-"101
+"100
 } 0
-"20
+"19
 [v _create_task create_task `(v  1 e 1 0 ]
 {
 [s S70 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
-"22
+"21
 [s S74 stack 98 `[32]S70 1 STACK 96 0 `ui 1 stack_size 2 96 ]
 [s S77 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3007 1 task_state 1 8 `S74 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
 [v create_task@task task `S77  1 a 110 0 ]
-"20
+"19
 [v create_task@id id `ui  1 p 2 17 ]
 [v create_task@prior prior `ui  1 p 2 19 ]
 [v create_task@task_f task_f `*.37R(v  1 p 2 21 ]
-"32
+"31
 } 0
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul16.c
 [v ___wmul __wmul `R(ui  1 e 2 0 ]
@@ -269,87 +261,78 @@ FINISHED 7
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 -4 ]
 "53
 } 2
-"303 /home/evohc/MPLABXProjects/ImmortalOS.X/memory.c
+"300 /home/evohc/MPLABXProjects/ImmortalOS.X/memory.c
 [v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
 {
-"306
+"303
 [v SRAMInitHeap@count count `ui  1 a 2 17 ]
-"305
+"302
 [v SRAMInitHeap@pHeap pHeap `N*.39uc  1 a 2 19 ]
-"326
+"323
 } 0
-"181
+"178
 [v _SRAMalloc SRAMalloc `N(*.39uc  1 e 2 0 ]
 {
 [v SRAMalloc@nBytes nBytes `Nuc  1 a 1 wreg ]
-[s S709 _BITS 1 `uc 1 count 1 0 :7:0 
+[s S696 _BITS 1 `uc 1 count 1 0 :7:0 
 `uc 1 alloc 1 0 :1:7 
 ]
-"183
-[u S712 _SALLOC 1 `uc 1 byte 1 0 `S709 1 bits 1 0 ]
-[v SRAMalloc@pHeap pHeap `N*.39S712  1 a 2 34 ]
-"184
-[v SRAMalloc@temp temp `N*.39S712  1 a 2 31 ]
-"185
-[v SRAMalloc@segHeader segHeader `S712  1 a 1 30 ]
-"186
-[v SRAMalloc@segLen segLen `uc  1 a 1 29 ]
+"180
+[u S699 _SALLOC 1 `uc 1 byte 1 0 `S696 1 bits 1 0 ]
+[v SRAMalloc@pHeap pHeap `N*.39S699  1 a 2 34 ]
 "181
+[v SRAMalloc@temp temp `N*.39S699  1 a 2 31 ]
+"182
+[v SRAMalloc@segHeader segHeader `S699  1 a 1 30 ]
+"183
+[v SRAMalloc@segLen segLen `uc  1 a 1 29 ]
+"178
 [v SRAMalloc@nBytes nBytes `Nuc  1 a 1 wreg ]
-"189
+"186
 [v SRAMalloc@nBytes nBytes `Nuc  1 a 1 33 ]
-"253
+"250
 } 0
-"349
+"346
 [v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
 {
-[s S709 _BITS 1 `uc 1 count 1 0 :7:0 
+[s S696 _BITS 1 `uc 1 count 1 0 :7:0 
 `uc 1 alloc 1 0 :1:7 
 ]
-"351
-[u S712 _SALLOC 1 `uc 1 byte 1 0 `S709 1 bits 1 0 ]
-[v __SRAMmerge@pSegB pSegB `N*.39S712  1 a 2 23 ]
-"352
-[v __SRAMmerge@uSegB uSegB `S712  1 a 1 22 ]
-[v __SRAMmerge@uSegA uSegA `S712  1 a 1 21 ]
-[v __SRAMmerge@uSum uSum `S712  1 a 1 20 ]
+"348
+[u S699 _SALLOC 1 `uc 1 byte 1 0 `S696 1 bits 1 0 ]
+[v __SRAMmerge@pSegB pSegB `N*.39S699  1 a 2 23 ]
 "349
-[v __SRAMmerge@pSegA pSegA `N*.39S712  1 p 2 17 ]
-"393
+[v __SRAMmerge@uSegB uSegB `S699  1 a 1 22 ]
+[v __SRAMmerge@uSegA uSegA `S699  1 a 1 21 ]
+[v __SRAMmerge@uSum uSum `S699  1 a 1 20 ]
+"346
+[v __SRAMmerge@pSegA pSegA `N*.39S699  1 p 2 17 ]
+"390
 } 0
-"15 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
+"16 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
 [v _task_one task_one `R(v  1 e 1 0 ]
 {
-"28
+"31
 } 0
-"17 /home/evohc/MPLABXProjects/ImmortalOS.X/semaphore.c
-[v _sem_wait sem_wait `R(v  1 e 1 0 ]
+"21 /home/evohc/MPLABXProjects/ImmortalOS.X/pipe.c
+[v _write_pipe write_pipe `R(v  1 e 1 0 ]
 {
-[s S378 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
-[s S382 sem 16 `i 1 contador 2 0 `S378 1 queue 14 2 ]
-[v sem_wait@s s `*.39S382  1 p 2 -2 ]
-"30
+[s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
+[v write_pipe@pipe pipe `*.39S385  1 p 2 -2 ]
+[v write_pipe@data data `uc  1 p 1 -3 ]
+"48
 } 0
-"6
-[v _sem_init sem_init `R(v  1 e 1 0 ]
-{
-[s S378 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
-[s S382 sem 16 `i 1 contador 2 0 `S378 1 queue 14 2 ]
-[v sem_init@s s `*.39S382  1 p 2 -2 ]
-[v sem_init@value value `i  1 p 2 -4 ]
-"15
-} 0
-"59 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
+"58 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
 [v _delay delay `R(v  1 e 1 0 ]
 {
 [v delay@time_ms time_ms `ui  1 p 2 -2 ]
-"67
+"66
 } 0
-"34
+"33
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
 {
 [v dispatcher@state state `E3007  1 p 1 -1 ]
-"52
+"51
 } 0
 "12 /home/evohc/MPLABXProjects/ImmortalOS.X/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
@@ -368,25 +351,42 @@ FINISHED 7
 [v ___lwmod@divisor divisor `ui  1 p 2 -4 ]
 "26
 } 1
-"30 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
+"10 /home/evohc/MPLABXProjects/ImmortalOS.X/pipe.c
+[v _create_pipe create_pipe `R(v  1 e 1 0 ]
+{
+[s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
+[v create_pipe@pipe pipe `*.39S385  1 p 2 -2 ]
+"19
+} 0
+"33 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
 [v _task_two task_two `R(v  1 e 1 0 ]
 {
-"41
+"47
 } 0
-"43
-[v _task_thre task_thre `R(v  1 e 1 0 ]
+"50 /home/evohc/MPLABXProjects/ImmortalOS.X/pipe.c
+[v _read_pipe read_pipe `R(uc  1 e 1 0 ]
 {
 "52
+[v read_pipe@dado dado `uc  1 a 1 0 ]
+[s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
+"50
+[v read_pipe@pipe pipe `*.39S385  1 p 2 -2 ]
+"76
+} 1
+"49 /home/evohc/MPLABXProjects/ImmortalOS.X/tasks.c
+[v _task_thre task_thre `R(v  1 e 1 0 ]
+{
+"58
 } 0
-"69 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
+"68 /home/evohc/MPLABXProjects/ImmortalOS.X/kernel.c
 [v _task_idle task_idle `R(v  1 e 1 0 ]
 {
-"77
+"76
 } 0
-"103
+"102
 [v _int_high int_high `II(v  1 e 1 0 ]
 {
-"105
+"104
 [v int_high@i i `ui  1 a 2 15 ]
-"126
+"125
 } 0

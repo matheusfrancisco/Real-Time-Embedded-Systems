@@ -36,17 +36,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S23 . . . . . ]
 "667
 [v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
-"22 semaphore.h
-[v _sem_init `(v ~T0 @X0 0 ef2`*S280`i ]
-"23
-[v _sem_wait `(v ~T0 @X0 0 ef1`*S280 ]
+"30 pipe.h
+[v _create_pipe `(v ~T0 @X0 0 ef1`*S282 ]
+"31
+[v _write_pipe `(v ~T0 @X0 0 ef2`*S282`uc ]
 "16 kernel.h
 [v _delay `(v ~T0 @X0 0 ef1`ui ]
 "32 pipe.h
-[v _create_pipe `(v ~T0 @X0 0 ef1`*S282 ]
-"33
-[v _write_pipe `(v ~T0 @X0 0 ef2`*S282`uc ]
-"34
 [v _read_pipe `(uc ~T0 @X0 0 ef1`*S282 ]
 [; ;pic18f4520.h: 50: extern volatile unsigned char PORTA @ 0xF80;
 "52 /opt/microchip/xc8/v1.45/include/pic18f4520.h
@@ -2817,8 +2813,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tasks.h: 9: void task_one();
 [; ;tasks.h: 10: void task_two();
 [; ;tasks.h: 11: void task_thre();
-[; ;tasks.h: 12: void task_one_read();
-[; ;tasks.h: 13: void task_one_pipe();
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2890,208 +2884,132 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.h: 22: u_int pos_read_pipe;
 [; ;pipe.h: 23: u_int pos_write_pipe;
 [; ;pipe.h: 24: u_int pipe_itens;
-[; ;pipe.h: 27: u_int pos_bloqued_read;
-[; ;pipe.h: 28: u_int pos_bloqued_write;
-[; ;pipe.h: 30: } pipe_t;
-[; ;pipe.h: 32: void create_pipe(pipe_t *pipe);
-[; ;pipe.h: 33: void write_pipe(pipe_t *pipe, byte data);
-[; ;pipe.h: 34: byte read_pipe(pipe_t *pipe);
-"11 tasks.c
+[; ;pipe.h: 26: u_int pos_bloqued_read;
+[; ;pipe.h: 27: u_int pos_bloqued_write;
+[; ;pipe.h: 28: } pipe_t;
+[; ;pipe.h: 30: void create_pipe(pipe_t *pipe);
+[; ;pipe.h: 31: void write_pipe(pipe_t *pipe, byte data);
+[; ;pipe.h: 32: byte read_pipe(pipe_t *pipe);
+"12 tasks.c
 [v _s `S280 ~T0 @X0 1 e ]
-[; ;tasks.c: 11: sem_t s;
+[; ;tasks.c: 12: sem_t s;
 "13
 [v _pipe `S282 ~T0 @X0 1 e ]
 [; ;tasks.c: 13: pipe_t pipe;
-"15
-[v _task_one `(v ~T0 @X0 1 ef ]
 "16
+[v _task_one `(v ~T0 @X0 1 ef ]
+"17
 {
-[; ;tasks.c: 15: void task_one()
-[; ;tasks.c: 16: {
+[; ;tasks.c: 16: void task_one()
+[; ;tasks.c: 17: {
 [e :U _task_one ]
 [f ]
-[; ;tasks.c: 17: TRISDbits.RD0 = 0;
-"17
-[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 18: PORTDbits.RD0 = 0;
+[; ;tasks.c: 18: TRISDbits.RD0 = 0;
 "18
+[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 19: PORTDbits.RD0 = 0;
+"19
 [e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 20: sem_init(&s, 1);
-"20
-[e ( _sem_init (2 , &U _s -> 1 `i ]
-[; ;tasks.c: 22: while (1) {
+[; ;tasks.c: 22: create_pipe(&pipe);
 "22
+[e ( _create_pipe (1 &U _pipe ]
+[; ;tasks.c: 24: while (1) {
+"24
 [e :U 285 ]
 {
-[; ;tasks.c: 23: sem_wait(&s);
-"23
-[e ( _sem_wait (1 &U _s ]
-[; ;tasks.c: 24: PORTDbits.RD0 = ~PORTDbits.RD0;
-"24
-[e = . . _PORTDbits 0 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-[; ;tasks.c: 26: delay(100);
+[; ;tasks.c: 26: write_pipe(&pipe, 'a');
 "26
-[e ( _delay (1 -> -> 100 `i `ui ]
+[e ( _write_pipe (2 , &U _pipe -> -> 97 `ui `uc ]
+[; ;tasks.c: 27: PORTDbits.RD0 = ~PORTDbits.RD0;
 "27
+[e = . . _PORTDbits 0 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
+[; ;tasks.c: 29: delay(100);
+"29
+[e ( _delay (1 -> -> 100 `i `ui ]
+"30
 }
 [e :U 284 ]
-"22
+"24
 [e $U 285  ]
 [e :U 286 ]
-[; ;tasks.c: 27: }
-[; ;tasks.c: 28: }
-"28
+[; ;tasks.c: 30: }
+[; ;tasks.c: 31: }
+"31
 [e :UE 283 ]
 }
-"30
+"33
 [v _task_two `(v ~T0 @X0 1 ef ]
-"31
+"34
 {
-[; ;tasks.c: 30: void task_two()
-[; ;tasks.c: 31: {
+[; ;tasks.c: 33: void task_two()
+[; ;tasks.c: 34: {
 [e :U _task_two ]
 [f ]
-[; ;tasks.c: 32: TRISDbits.RD1 = 0;
-"32
-[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 33: PORTDbits.RD1 = 0;
-"33
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 35: while (1) {
 "35
+[v _dado `uc ~T0 @X0 1 a ]
+[; ;tasks.c: 35: byte dado;
+[; ;tasks.c: 37: TRISDbits.RD1 = 0;
+"37
+[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
+[; ;tasks.c: 38: PORTDbits.RD1 = 0;
+"38
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
+[; ;tasks.c: 40: while (1) {
+"40
 [e :U 289 ]
 {
-[; ;tasks.c: 37: PORTDbits.RD1 = ~PORTDbits.RD1;
-"37
+[; ;tasks.c: 42: dado = read_pipe(&pipe);
+"42
+[e = _dado ( _read_pipe (1 &U _pipe ]
+[; ;tasks.c: 43: PORTDbits.RD1 = ~PORTDbits.RD1;
+"43
 [e = . . _PORTDbits 0 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
-[; ;tasks.c: 38: delay(100);
-"38
+[; ;tasks.c: 44: delay(100);
+"44
 [e ( _delay (1 -> -> 100 `i `ui ]
-"40
+"46
 }
 [e :U 288 ]
-"35
+"40
 [e $U 289  ]
 [e :U 290 ]
-[; ;tasks.c: 40: }
-[; ;tasks.c: 41: }
-"41
+[; ;tasks.c: 46: }
+[; ;tasks.c: 47: }
+"47
 [e :UE 287 ]
 }
-"43
+"49
 [v _task_thre `(v ~T0 @X0 1 ef ]
-"44
+"50
 {
-[; ;tasks.c: 43: void task_thre()
-[; ;tasks.c: 44: {
+[; ;tasks.c: 49: void task_thre()
+[; ;tasks.c: 50: {
 [e :U _task_thre ]
 [f ]
-[; ;tasks.c: 45: TRISDbits.RD3 = 0;
-"45
+[; ;tasks.c: 51: TRISDbits.RD3 = 0;
+"51
 [e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
-[; ;tasks.c: 46: PORTDbits.RD3 = 0;
-"46
+[; ;tasks.c: 52: PORTDbits.RD3 = 0;
+"52
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-[; ;tasks.c: 48: while (1) {
-"48
+[; ;tasks.c: 54: while (1) {
+"54
 [e :U 293 ]
 {
-[; ;tasks.c: 49: PORTDbits.RD3 = ~PORTDbits.RD3;
-"49
+[; ;tasks.c: 55: PORTDbits.RD3 = ~PORTDbits.RD3;
+"55
 [e = . . _PORTDbits 0 3 -> ~ -> . . _PORTDbits 0 3 `i `uc ]
-[; ;tasks.c: 50: delay(100);
-"50
+[; ;tasks.c: 56: delay(100);
+"56
 [e ( _delay (1 -> -> 100 `i `ui ]
-"51
+"57
 }
 [e :U 292 ]
-"48
+"54
 [e $U 293  ]
 [e :U 294 ]
-[; ;tasks.c: 51: }
-[; ;tasks.c: 52: }
-"52
-[e :UE 291 ]
-}
-"55
-[v _task_one_pipe `(v ~T0 @X0 1 ef ]
-"56
-{
-[; ;tasks.c: 55: void task_one_pipe()
-[; ;tasks.c: 56: {
-[e :U _task_one_pipe ]
-[f ]
-[; ;tasks.c: 57: TRISDbits.RD0 = 0;
-"57
-[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 58: PORTDbits.RD0 = 0;
+[; ;tasks.c: 57: }
+[; ;tasks.c: 58: }
 "58
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 60: create_pipe(&pipe);
-"60
-[e ( _create_pipe (1 &U _pipe ]
-[; ;tasks.c: 63: while (1) {
-"63
-[e :U 297 ]
-{
-[; ;tasks.c: 65: write_pipe(&pipe, 'a');
-"65
-[e ( _write_pipe (2 , &U _pipe -> -> 97 `ui `uc ]
-[; ;tasks.c: 66: PORTDbits.RD0 = ~PORTDbits.RD0;
-"66
-[e = . . _PORTDbits 0 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-[; ;tasks.c: 68: delay(100);
-"68
-[e ( _delay (1 -> -> 100 `i `ui ]
-"69
-}
-[e :U 296 ]
-"63
-[e $U 297  ]
-[e :U 298 ]
-[; ;tasks.c: 69: }
-[; ;tasks.c: 70: }
-"70
-[e :UE 295 ]
-}
-"71
-[v _task_one_read `(v ~T0 @X0 1 ef ]
-"72
-{
-[; ;tasks.c: 71: void task_one_read()
-[; ;tasks.c: 72: {
-[e :U _task_one_read ]
-[f ]
-[; ;tasks.c: 73: TRISDbits.RD0 = 0;
-"73
-[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 74: PORTDbits.RD0 = 0;
-"74
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-"75
-[v _dado `uc ~T0 @X0 1 a ]
-[; ;tasks.c: 75: byte dado;
-[; ;tasks.c: 78: while (1) {
-"78
-[e :U 301 ]
-{
-[; ;tasks.c: 80: dado = read_pipe(&pipe);
-"80
-[e = _dado ( _read_pipe (1 &U _pipe ]
-[; ;tasks.c: 81: PORTDbits.RD0 = ~PORTDbits.RD0;
-"81
-[e = . . _PORTDbits 0 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-[; ;tasks.c: 83: delay(100);
-"83
-[e ( _delay (1 -> -> 100 `i `ui ]
-"84
-}
-[e :U 300 ]
-"78
-[e $U 301  ]
-[e :U 302 ]
-[; ;tasks.c: 84: }
-[; ;tasks.c: 85: }
-"85
-[e :UE 299 ]
+[e :UE 291 ]
 }

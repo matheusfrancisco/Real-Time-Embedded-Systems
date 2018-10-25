@@ -8,27 +8,31 @@
 #include "kernel.h"
 #include "semaphore.h"
 #include "pipe.h"
-sem_t s;
 
+sem_t *s;
 pipe_t pipe;
 
-void task_one()
+
+void aviao1()
 {
   TRISDbits.RD0 = 0;
   PORTDbits.RD0 = 0;
   
-  sem_init(&s, 1);
+  //sem_init(&s, 1);
+  create_pipe(&pipe);
   
   while (1) {
-    sem_wait(&s);
+    //sem_wait(&s);
     PORTDbits.RD0 = ~PORTDbits.RD0;
     //sem_post(&s);
     delay(100);    
   }
 }
 
-void task_two()
+void aviao2()
 {
+  byte dado;
+  
   TRISDbits.RD1 = 0;
   PORTDbits.RD1 = 0;
 
@@ -40,7 +44,7 @@ void task_two()
   }
 }
 
-void task_thre()
+void aviao2()
 {
   TRISDbits.RD3 = 0;
   PORTDbits.RD3 = 0;
@@ -52,34 +56,27 @@ void task_thre()
 }
 
 
-void task_one_pipe()
+void ControledePista()
 {
-  TRISDbits.RD0 = 0;
-  PORTDbits.RD0 = 0;
+  TRISDbits.RD4 = 0;
+  PORTDbits.RD4 = 0;
   
   create_pipe(&pipe);
-  
-  
-  while (1) {
-    //sem_wait(&s);
-    write_pipe(&pipe, 'a');
-    PORTDbits.RD0 = ~PORTDbits.RD0;
-    //sem_post(&s);
-    delay(100);    
+
+  while(1)
+  {
+
   }
+
+
 }
-void task_one_read()
+
+void trafegoAereo()
 {
-  TRISDbits.RD0 = 0;
-  PORTDbits.RD0 = 0;
-  byte dado;
-  
-  
-  while (1) {
-    //sem_wait(&s);
-    dado = read_pipe(&pipe);
-    PORTDbits.RD0 = ~PORTDbits.RD0;
-    //sem_post(&s);
-    delay(100);    
+
+  while(1)
+  {
+
   }
+
 }

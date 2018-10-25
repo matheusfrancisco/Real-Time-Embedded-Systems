@@ -13,9 +13,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _task_thre `(v ~T0 @X0 0 ef ]
 "21 kernel.h
 [v _start_os `(v ~T0 @X0 0 ef ]
-[v F3059 `(*uc ~T0 @X0 1 tf1`Nuc ]
+[v F3057 `(*uc ~T0 @X0 1 tf1`Nuc ]
 "22 memory.h
-[v _SRAMalloc `NF3059 ~T0 @X0 0 e ]
+[v _SRAMalloc `NF3057 ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2833,8 +2833,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tasks.h: 9: void task_one();
 [; ;tasks.h: 10: void task_two();
 [; ;tasks.h: 11: void task_thre();
-[; ;tasks.h: 12: void task_one_read();
-[; ;tasks.h: 13: void task_one_pipe();
 [; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
 [; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
 [; ;memory.h: 24: void SRAMInitHeap(void);

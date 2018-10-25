@@ -18,18 +18,18 @@ unsigned alloc:1;
 }SALLOC;
 
 
-# 133
+# 130
 #pragma udata _SRAM_ALLOC_HEAP
 unsigned char _uDynamicHeap[0x200];
 
 
-# 141
+# 138
 #pragma udata access _SRAM_ALLOC
 
-# 151
+# 148
 near unsigned char _SRAMmerge(SALLOC * near pSegA);
 
-# 181
+# 178
 unsigned char * near SRAMalloc(near unsigned char nBytes)
 {
 SALLOC * near pHeap;
@@ -104,14 +104,14 @@ pHeap += segHeader.bits.count;
 }
 }
 
-# 277
+# 274
 void SRAMfree(unsigned char * near pSRAM)
 {
 
 (*(SALLOC *)(pSRAM - 1)).bits.alloc = 0;
 }
 
-# 303
+# 300
 void SRAMInitHeap(void)
 {
 unsigned char * near pHeap;
@@ -137,7 +137,7 @@ return;
 }
 }
 
-# 349
+# 346
 near unsigned char _SRAMmerge(SALLOC * near pSegA)
 {
 SALLOC * near pSegB;
@@ -163,7 +163,7 @@ if (uSegA.bits.count == 0x7F) return (0);
 
 uSum.byte = uSegA.byte + uSegB.byte;
 
-# 378
+# 375
 if ((uSum.byte) > 0x7F)
 {
 (*pSegA).byte = 0x7F;

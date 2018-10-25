@@ -3869,10 +3869,8 @@ u_int pos_read_pipe;
 u_int pos_write_pipe;
 u_int pipe_itens;
 
-
 u_int pos_bloqued_read;
 u_int pos_bloqued_write;
-
 } pipe_t;
 
 void create_pipe(pipe_t *pipe);
@@ -3892,7 +3890,7 @@ void setupOS();
 void interrupt int_high();
 void start_os();
 
-# 9 "pipe.c"
+# 10 "pipe.c"
 void create_pipe(pipe_t *pipe)
 {
 pipe->pos_read_pipe = 0;
@@ -3901,7 +3899,7 @@ pipe->pipe_itens = 0;
 
 
 pipe->pos_bloqued_read = 0;
-pipe->pos_bloqued_write =0;
+pipe->pos_bloqued_write = 0;
 }
 
 void write_pipe(pipe_t *pipe, byte data)
@@ -3911,8 +3909,8 @@ void write_pipe(pipe_t *pipe, byte data)
 
 if (pipe->pipe_itens == 4) {
 
-
 pipe->pos_bloqued_write = task_running;
+
 dispatcher(WAITING_PIPE);
 }
 
@@ -3921,14 +3919,13 @@ pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 4;
 pipe->pipe_itens++;
 
 
-if(pipe->pos_bloqued_read > 0 )
-{
-
+if (pipe->pos_bloqued_read > 0) {
 F_APTOS[pipe->pos_bloqued_read].task_state = READY;
 pipe->pos_bloqued_read = 0;
 
-# 46
+# 44
 }
+
 
 (INTCONbits.GIE = 1);
 }
@@ -3950,12 +3947,12 @@ pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
 pipe->pipe_itens--;
 
 
-if(pipe->pos_bloqued_write > 0)
-{
+if (pipe->pos_bloqued_write > 0) {
 F_APTOS[pipe->pos_bloqued_write].task_state = READY;
 pipe->pos_bloqued_write = 0;
 
-# 76
+# 73
 }
+
 return dado;
 }
