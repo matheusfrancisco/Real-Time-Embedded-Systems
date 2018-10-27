@@ -8,16 +8,16 @@
 #include "tasks.h"
 #include "memory.h"
 
-asm("GLOBAL _task_idle, _task_one, _task_two, _task_thre");
+asm("GLOBAL _task_idle, _aviao2, _aviao3, _ctpista");
 
 void main(void) {
   
   setupOS();
   
   // Criar as tarefas
-  create_task(2, 3, &task_one);
-  create_task(3, 3, &task_two);
-  create_task(4, 3, &task_thre);
+  create_task(2, 3, &ctpista);
+  create_task(3, 3, &aviao2);
+  create_task(4, 3, &aviao3);
   
    
   // Incializa o escalonador de tarefas

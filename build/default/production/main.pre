@@ -3869,9 +3869,9 @@ void interrupt int_high();
 void start_os();
 
 # 9 "tasks.h"
-void task_one();
-void task_two();
-void task_thre();
+void aviao2();
+void aviao3();
+void ctpista();
 
 # 22 "memory.h"
 unsigned char * near SRAMalloc(near unsigned char nBytes);
@@ -3879,16 +3879,16 @@ void SRAMfree(unsigned char * near pSRAM);
 void SRAMInitHeap(void);
 
 # 11 "main.c"
-asm("GLOBAL _task_idle, _task_one, _task_two, _task_thre");
+asm("GLOBAL _task_idle, _aviao2, _aviao3, _ctpista");
 
 void main(void) {
 
 setupOS();
 
 
-create_task(2, 3, &task_one);
-create_task(3, 3, &task_two);
-create_task(4, 3, &task_thre);
+create_task(2, 3, &ctpista);
+create_task(3, 3, &aviao2);
+create_task(4, 3, &aviao3);
 
 
 

@@ -5,12 +5,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F3005 `(v ~T0 @X0 0 tf ]
 "14
 [v _create_task `(v ~T0 @X0 0 ef3`ui`ui`*F3005 ]
-"9 tasks.h
-[v _task_one `(v ~T0 @X0 0 ef ]
+"11 tasks.h
+[v _ctpista `(v ~T0 @X0 0 ef ]
+"9
+[v _aviao2 `(v ~T0 @X0 0 ef ]
 "10
-[v _task_two `(v ~T0 @X0 0 ef ]
-"11
-[v _task_thre `(v ~T0 @X0 0 ef ]
+[v _aviao3 `(v ~T0 @X0 0 ef ]
 "21 kernel.h
 [v _start_os `(v ~T0 @X0 0 ef ]
 [v F3057 `(*uc ~T0 @X0 1 tf1`Nuc ]
@@ -2830,15 +2830,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.h: 19: void setupOS();
 [; ;kernel.h: 20: void interrupt int_high();
 [; ;kernel.h: 21: void start_os();
-[; ;tasks.h: 9: void task_one();
-[; ;tasks.h: 10: void task_two();
-[; ;tasks.h: 11: void task_thre();
+[; ;tasks.h: 9: void aviao2();
+[; ;tasks.h: 10: void aviao3();
+[; ;tasks.h: 11: void ctpista();
 [; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
 [; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
 [; ;memory.h: 24: void SRAMInitHeap(void);
 "11 main.c
-[; ;main.c: 11: asm("GLOBAL _task_idle, _task_one, _task_two, _task_thre");
-[; <" GLOBAL _task_idle, _task_one, _task_two, _task_thre ;# ">
+[; ;main.c: 11: asm("GLOBAL _task_idle, _aviao2, _aviao3, _ctpista");
+[; <" GLOBAL _task_idle, _aviao2, _aviao3, _ctpista ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
 "13
 [v _main `(v ~T0 @X0 1 ef ]
@@ -2849,15 +2849,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 15: setupOS();
 "15
 [e ( _setupOS ..  ]
-[; ;main.c: 18: create_task(2, 3, &task_one);
+[; ;main.c: 18: create_task(2, 3, &ctpista);
 "18
-[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _task_one ]
-[; ;main.c: 19: create_task(3, 3, &task_two);
+[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _ctpista ]
+[; ;main.c: 19: create_task(3, 3, &aviao2);
 "19
-[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _task_two ]
-[; ;main.c: 20: create_task(4, 3, &task_thre);
+[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _aviao2 ]
+[; ;main.c: 20: create_task(4, 3, &aviao3);
 "20
-[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _task_thre ]
+[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _aviao3 ]
 [; ;main.c: 24: start_os();
 "24
 [e ( _start_os ..  ]

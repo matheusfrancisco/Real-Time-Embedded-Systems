@@ -6,9 +6,9 @@
 #ifndef TASKS_H
 #define	TASKS_H
 
-void task_one();
-void task_two();
-void task_thre();
+void aviao2();
+void aviao3();
+void ctpista();
 
 #endif	/* TASKS_H */
 

@@ -3787,9 +3787,9 @@ extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 # 9 "tasks.h"
-void task_one();
-void task_two();
-void task_thre();
+void aviao2();
+void aviao3();
+void ctpista();
 
 # 26 "/opt/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3913,50 +3913,57 @@ void write_pipe(pipe_t *pipe, byte data);
 byte read_pipe(pipe_t *pipe);
 
 # 12 "tasks.c"
-sem_t s;
+sem_t *s;
 pipe_t pipe;
 
 
-void task_one()
-{
-TRISDbits.RD0 = 0;
-PORTDbits.RD0 = 0;
 
-
-create_pipe(&pipe);
-
-while (1) {
-
-write_pipe(&pipe, 'a');
-PORTDbits.RD0 = ~PORTDbits.RD0;
-
-delay(100);
-}
-}
-
-void task_two()
+void aviao2()
 {
 byte dado;
 
 TRISDbits.RD1 = 0;
 PORTDbits.RD1 = 0;
-
+create_pipe(&pipe);
 while (1) {
 
-dado = read_pipe(&pipe);
-PORTDbits.RD1 = ~PORTDbits.RD1;
-delay(100);
+
+
+write_pipe(&pipe, 2);
+
 
 }
 }
 
-void task_thre()
+void aviao3()
 {
 TRISDbits.RD3 = 0;
 PORTDbits.RD3 = 0;
 
 while (1) {
-PORTDbits.RD3 = ~PORTDbits.RD3;
+
+write_pipe(&pipe, 3);
 delay(100);
+
+}
+}
+
+void ctpista()
+{
+while(1)
+{
+int dado = read_pipe(&pipe);
+if(dado== 2)
+{
+sem_post(&s);
+PORTDbits.RD3 = ~PORTDbits.RD3;
+sem_wait(&s);
+
+}else
+{
+sem_post(&s);
+PORTDbits.RD2 = ~PORTDbits.RD2;
+sem_wait(&s);
+}
 }
 }

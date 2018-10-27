@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/ImmortalOS.X.production.hex">
+  <executable name="dist/default/production/S.O-Embarcados.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
-      <used>4224</used>
-      <free>28544</free>
+      <used>4786</used>
+      <free>27982</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>1536</length>
-      <used>1258</used>
-      <free>278</free>
+      <used>1244</used>
+      <free>292</free>
     </memory>
   </executable>
 </project>
