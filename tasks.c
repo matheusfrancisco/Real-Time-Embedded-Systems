@@ -40,7 +40,7 @@ void aviao2()
     //sem_wait(&s);
     PORTDbits.RD1 = ~PORTDbits.RD1;    
     delay(100);
-    //sem_post(&s);
+    sem_wait(&s);
   }
 }
 
