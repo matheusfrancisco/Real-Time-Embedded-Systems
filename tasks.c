@@ -53,12 +53,15 @@ void ctpista()
         {
             sem_post(&s);
             PORTDbits.RD3 = ~PORTDbits.RD3;
+            delay(1000);
             sem_wait(&s);
             
-        }else
+        }
+        if(dado==3)
         {
             sem_post(&s);
             PORTDbits.RD2 = ~PORTDbits.RD2;
+            delay(1000);
             sem_wait(&s);
         }
     }
