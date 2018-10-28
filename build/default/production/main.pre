@@ -3823,7 +3823,12 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 14 "types.h"
+# 22 "memory.h"
+unsigned char * near SRAMalloc(near unsigned char nBytes);
+void SRAMfree(unsigned char * near pSRAM);
+void SRAMInitHeap(void);
+
+# 15 "types.h"
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -3868,27 +3873,58 @@ void setupOS();
 void interrupt int_high();
 void start_os();
 
-# 9 "tasks.h"
+# 11 "semaphore.h"
+typedef struct sem_queue {
+u_int s_queue[5];
+u_int s_queue_pos_in;
+u_int s_queue_pos_out;
+} sem_queue_t;
+
+typedef struct sem {
+int contador;
+sem_queue_t queue;
+} sem_t;
+
+void sem_init(sem_t *s, int value);
+void sem_wait(sem_t *s);
+void sem_post(sem_t *s);
+int sem_get_value(sem_t s);
+
+# 11 "tasks.h"
+typedef struct aviao{
+u_int numero;
+u_int tempo_v;
+u_int tempo_p;
+}aviao_t;
+
+typedef struct pista{
+aviao_t aviaozinho;
+u_int status;
+sem_t s;
+
+}pista_t;
+
+aviao_t createAviao(aviao_t *av, u_int tempo_v, u_int tempo_p, u_int numero );
+void aviao1();
 void aviao2();
-void aviao3();
 void ctpista();
 
-# 22 "memory.h"
-unsigned char * near SRAMalloc(near unsigned char nBytes);
-void SRAMfree(unsigned char * near pSRAM);
-void SRAMInitHeap(void);
-
 # 11 "main.c"
-asm("GLOBAL _task_idle, _aviao2, _aviao3, _ctpista");
+asm("GLOBAL _task_idle, _aviao1, _aviao2, _ctpista");
+
+sem_t semafaro;
 
 void main(void) {
 
 setupOS();
+SRAMInitHeap();
+sem_init(&semafaro, 0);
+
 
 
 create_task(2, 3, &ctpista);
-create_task(3, 3, &aviao2);
-create_task(4, 3, &aviao3);
+create_task(3, 3, &aviao1);
+create_task(4, 3, &aviao2);
 
 
 

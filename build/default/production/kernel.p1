@@ -1,16 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F3005 `(v ~T0 @X0 0 tf ]
+[v F3013 `(v ~T0 @X0 0 tf ]
 "15 kernel.c
-[c E3007 1 2 3 4 5 6 7 .. ]
-[n E3007 . READY RUNNING SLEEPING WAITING WAITING_SEM WAITING_PIPE FINISHED  ]
-"20 types.h
+[c E3015 1 2 3 4 5 6 7 .. ]
+[n E3015 . READY RUNNING SLEEPING WAITING WAITING_SEM WAITING_PIPE FINISHED  ]
+"21 types.h
 [s S276 `uc 1 `uc 1 `uc 1 ]
 [n S276 stack_data TOSU_register TOSL_register TOSH_register ]
-"26
+"27
 [s S277 `S276 -> 32 `i `ui 1 ]
 [n S277 stack STACK stack_size ]
-"31
-[s S278 `ui 1 `ui 1 `**F3005 1 `ui 1 `E3007 1 `S277 1 `uc 1 `uc 1 `uc 1 ]
+"32
+[s S278 `ui 1 `ui 1 `**F3013 1 `ui 1 `E3015 1 `S277 1 `uc 1 `uc 1 `uc 1 ]
 [n S278 tcb task_id task_prior task_f delay_time task_state task_stack BSR_register STATUS_register WORK_register ]
 "6696 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2870,30 +2870,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;types.h: 14: typedef unsigned int u_int;
-[; ;types.h: 15: typedef unsigned char byte;
-[; ;types.h: 16: typedef void(*f_ptr)(void);
-[; ;types.h: 18: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 20: typedef struct stack_data {
-[; ;types.h: 21: byte TOSU_register;
-[; ;types.h: 22: byte TOSL_register;
-[; ;types.h: 23: byte TOSH_register;
-[; ;types.h: 24: } stack_data_t;
-[; ;types.h: 26: typedef struct stack {
-[; ;types.h: 27: stack_data_t STACK[32];
-[; ;types.h: 28: u_int stack_size;
-[; ;types.h: 29: } stack_t;
-[; ;types.h: 31: typedef struct tcb {
-[; ;types.h: 33: u_int task_id;
-[; ;types.h: 34: u_int task_prior;
-[; ;types.h: 35: f_ptr *task_f;
-[; ;types.h: 36: u_int delay_time;
-[; ;types.h: 38: state_t task_state;
-[; ;types.h: 39: stack_t task_stack;
-[; ;types.h: 40: byte BSR_register;
-[; ;types.h: 41: byte STATUS_register;
-[; ;types.h: 42: byte WORK_register;
-[; ;types.h: 43: } tcb_t;
+[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
+[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
+[; ;memory.h: 24: void SRAMInitHeap(void);
+[; ;types.h: 15: typedef unsigned int u_int;
+[; ;types.h: 16: typedef unsigned char byte;
+[; ;types.h: 17: typedef void(*f_ptr)(void);
+[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 21: typedef struct stack_data {
+[; ;types.h: 22: byte TOSU_register;
+[; ;types.h: 23: byte TOSL_register;
+[; ;types.h: 24: byte TOSH_register;
+[; ;types.h: 25: } stack_data_t;
+[; ;types.h: 27: typedef struct stack {
+[; ;types.h: 28: stack_data_t STACK[32];
+[; ;types.h: 29: u_int stack_size;
+[; ;types.h: 30: } stack_t;
+[; ;types.h: 32: typedef struct tcb {
+[; ;types.h: 34: u_int task_id;
+[; ;types.h: 35: u_int task_prior;
+[; ;types.h: 36: f_ptr *task_f;
+[; ;types.h: 37: u_int delay_time;
+[; ;types.h: 39: state_t task_state;
+[; ;types.h: 40: stack_t task_stack;
+[; ;types.h: 41: byte BSR_register;
+[; ;types.h: 42: byte STATUS_register;
+[; ;types.h: 43: byte WORK_register;
+[; ;types.h: 44: } tcb_t;
 [; ;kernel.h: 11: extern tcb_t F_APTOS[5];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -2906,9 +2909,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.h: 21: void start_os();
 [; ;scheduler.h: 11: u_int rr_scheduler();
 [; ;scheduler.h: 12: u_int prior_scheduler();
-[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
-[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
-[; ;memory.h: 24: void SRAMInitHeap(void);
 "13 kernel.c
 [v _quantum `ui ~T0 @X0 1 e ]
 [i _quantum
@@ -2931,7 +2931,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;kernel.c: 17: u_int task_running = 0;
 "19
-[v _create_task `(v ~T0 @X0 1 ef3`ui`ui`*F3005 ]
+[v _create_task `(v ~T0 @X0 1 ef3`ui`ui`*F3013 ]
 "20
 {
 [; ;kernel.c: 19: void create_task(u_int id, u_int prior, f_ptr task_f)
@@ -2940,7 +2940,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "19
 [v _id `ui ~T0 @X0 1 r1 ]
 [v _prior `ui ~T0 @X0 1 r2 ]
-[v _task_f `*F3005 ~T0 @X0 1 r3 ]
+[v _task_f `*F3013 ~T0 @X0 1 r3 ]
 "20
 [f ]
 "21
@@ -2954,13 +2954,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _task 1 _prior ]
 [; ;kernel.c: 25: task.task_f = task_f;
 "25
-[e = . _task 2 -> _task_f `**F3005 ]
+[e = . _task 2 -> _task_f `**F3013 ]
 [; ;kernel.c: 26: task.task_stack.stack_size = 0;
 "26
 [e = . . _task 5 1 -> -> 0 `i `ui ]
 [; ;kernel.c: 27: task.task_state = READY;
 "27
-[e = . _task 4 . `E3007 0 ]
+[e = . _task 4 . `E3015 0 ]
 [; ;kernel.c: 29: F_APTOS[tasks_installed] = task;
 "29
 [e = *U + &U _F_APTOS * -> _tasks_installed `ux -> -> # *U &U _F_APTOS `ui `ux _task ]
@@ -2972,14 +2972,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 279 ]
 }
 "33
-[v _dispatcher `(v ~T0 @X0 1 ef1`E3007 ]
+[v _dispatcher `(v ~T0 @X0 1 ef1`E3015 ]
 "34
 {
 [; ;kernel.c: 33: void dispatcher(state_t state)
 [; ;kernel.c: 34: {
 [e :U _dispatcher ]
 "33
-[v _state `E3007 ~T0 @X0 1 r1 ]
+[v _state `E3015 ~T0 @X0 1 r1 ]
 "34
 [f ]
 [; ;kernel.c: 35: (INTCONbits.GIE = 0);
@@ -3031,7 +3031,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 287 ]
 }
 [e :U 285 ]
-[e = . *U + &U _F_APTOS * -> _task_running `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 1 ]
+[e = . *U + &U _F_APTOS * -> _task_running `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3015 1 ]
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 [; ;kernel.c: 50: (INTCONbits.GIE = 1);
 "50
@@ -3078,7 +3078,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . *U + &U _F_APTOS * -> _task_running `ux -> -> # *U &U _F_APTOS `ui `ux 3 _time_ms ]
 [; ;kernel.c: 63: dispatcher(SLEEPING);
 "63
-[e ( _dispatcher (1 . `E3007 2 ]
+[e ( _dispatcher (1 . `E3015 2 ]
 [; ;kernel.c: 65: (INTCONbits.GIE = 1);
 "65
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
@@ -3158,9 +3158,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 295 ]
 }
 [v $root$_int_high `(v ~T0 @X0 0 e ]
-[v F3051 `(v ~T0 @X0 1 tf ]
+[v F3059 `(v ~T0 @X0 1 tf ]
 "102
-[v _int_high `IF3051 ~T0 @X0 1 e ]
+[v _int_high `IF3059 ~T0 @X0 1 e ]
 "103
 {
 [; ;kernel.c: 102: void interrupt int_high()
@@ -3189,7 +3189,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;kernel.c: 111: if (F_APTOS[i].task_state == SLEEPING) {
 "111
-[e $ ! == -> . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 4 `i -> . `E3007 2 `i 302  ]
+[e $ ! == -> . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 4 `i -> . `E3015 2 `i 302  ]
 {
 [; ;kernel.c: 112: F_APTOS[i].delay_time--;
 "112
@@ -3200,7 +3200,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;kernel.c: 114: F_APTOS[i].task_state = READY;
 "114
-[e = . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 0 ]
+[e = . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3015 0 ]
 "115
 }
 [e :U 303 ]
@@ -3231,7 +3231,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _quantum -> -> 4 `i `ui ]
 [; ;kernel.c: 122: dispatcher(READY);
 "122
-[e ( _dispatcher (1 . `E3007 0 ]
+[e ( _dispatcher (1 . `E3015 0 ]
 "123
 }
 [e :U 304 ]

@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 18F4520 ]
 [d frameptr 4065 ]
-"15 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/kernel.c
-[e E3007 . `uc
+"15 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/kernel.c
+[e E3015 . `uc
 READY 1
 RUNNING 2
 SLEEPING 3
@@ -13,8 +13,8 @@ WAITING_SEM 5
 WAITING_PIPE 6
 FINISHED 7
 ]
-"18 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/scheduler.c
-[e E3007 . `uc
+"18 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/scheduler.c
+[e E3015 . `uc
 READY 1
 RUNNING 2
 SLEEPING 3
@@ -23,8 +23,8 @@ WAITING_SEM 5
 WAITING_PIPE 6
 FINISHED 7
 ]
-"26 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/semaphore.c
-[e E3007 . `uc
+"26 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/semaphore.c
+[e E3015 . `uc
 READY 1
 RUNNING 2
 SLEEPING 3
@@ -33,8 +33,8 @@ WAITING_SEM 5
 WAITING_PIPE 6
 FINISHED 7
 ]
-"30 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/pipe.c
-[e E3007 . `uc
+"30 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/pipe.c
+[e E3015 . `uc
 READY 1
 RUNNING 2
 SLEEPING 3
@@ -67,7 +67,7 @@ FINISHED 7
 [v ___wmul __wmul `R(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"19 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/kernel.c
+"19 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/kernel.c
 [v _create_task create_task `(v  1 e 1 0 ]
 "33
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
@@ -81,33 +81,39 @@ FINISHED 7
 [v _int_high int_high `II(v  1 e 1 0 ]
 "127
 [v _start_os start_os `(v  1 e 1 0 ]
-"13 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/main.c
+"15 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/main.c
 [v _main main `(v  1 e 1 0 ]
-"178 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/memory.c
-[v _SRAMalloc SRAMalloc `N(*.39uc  1 e 2 0 ]
+"178 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/memory.c
+[v _SRAMalloc SRAMalloc `NR(*.39uc  1 e 2 0 ]
 "300
 [v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
 "346
-[v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
-"10 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/pipe.c
+[v __SRAMmerge _SRAMmerge `NR(uc  1 e 1 0 ]
+"10 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/pipe.c
 [v _create_pipe create_pipe `R(v  1 e 1 0 ]
 "21
 [v _write_pipe write_pipe `R(v  1 e 1 0 ]
 "50
 [v _read_pipe read_pipe `R(uc  1 e 1 0 ]
-"12 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/scheduler.c
+"12 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
-"17 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/semaphore.c
+"6 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/semaphore.c
+[v _sem_init sem_init `(v  1 e 1 0 ]
+"17
 [v _sem_wait sem_wait `R(v  1 e 1 0 ]
 "32
 [v _sem_post sem_post `R(v  1 e 1 0 ]
-"17 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/tasks.c
-[v _aviao2 aviao2 `R(v  1 e 1 0 ]
-"34
-[v _aviao3 aviao3 `R(v  1 e 1 0 ]
+"11 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.h
+[s S405 aviao 6 `ui 1 numero 2 0 `ui 1 tempo_v 2 2 `ui 1 tempo_p 2 4 ]
+"17 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+[v _createAviao createAviao `R(S405  1 e 6 0 ]
+"27
+[v _aviao1 aviao1 `R(v  1 e 1 0 ]
 "47
+[v _aviao2 aviao2 `R(v  1 e 1 0 ]
+"70
 [v _ctpista ctpista `R(v  1 e 1 0 ]
-[s S157 . 1 `uc 1 RD0 1 0 :1:0 
+[s S180 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -117,7 +123,7 @@ FINISHED 7
 `uc 1 RD7 1 0 :1:7 
 ]
 "667 /opt/microchip/xc8/v1.45/include/pic18f4520.h
-[s S197 . 1 `uc 1 PSP0 1 0 :1:0 
+[s S220 . 1 `uc 1 PSP0 1 0 :1:0 
 `uc 1 PSP1 1 0 :1:1 
 `uc 1 PSP2 1 0 :1:2 
 `uc 1 PSP3 1 0 :1:3 
@@ -126,17 +132,17 @@ FINISHED 7
 `uc 1 PSP6 1 0 :1:6 
 `uc 1 PSP7 1 0 :1:7 
 ]
-[s S206 . 1 `uc 1 . 1 0 :5:0 
+[s S229 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 P1B 1 0 :1:5 
 `uc 1 P1C 1 0 :1:6 
 `uc 1 P1D 1 0 :1:7 
 ]
-[s S211 . 1 `uc 1 . 1 0 :7:0 
+[s S234 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S214 . 1 `S157 1 . 1 0 `S197 1 . 1 0 `S206 1 . 1 0 `S211 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES214  1 e 1 @3971 ]
-[s S148 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S237 . 1 `S180 1 . 1 0 `S220 1 . 1 0 `S229 1 . 1 0 `S234 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES237  1 e 1 @3971 ]
+[s S171 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -146,9 +152,9 @@ FINISHED 7
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "2173
-[u S166 . 1 `S148 1 . 1 0 `S157 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES166  1 e 1 @3989 ]
-[s S250 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S189 . 1 `S171 1 . 1 0 `S180 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES189  1 e 1 @3989 ]
+[s S273 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -156,15 +162,15 @@ FINISHED 7
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "6189
-[s S257 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S280 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 `uc 1 . 1 0 :2:4 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S264 . 1 `S250 1 . 1 0 `S257 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES264  1 e 1 @4053 ]
+[u S287 . 1 `S273 1 . 1 0 `S280 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES287  1 e 1 @4053 ]
 "6256
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6270
@@ -173,7 +179,7 @@ FINISHED 7
 [v _BSR BSR `VEuc  1 e 1 @4064 ]
 "6460
 [v _WREG WREG `VEuc  1 e 1 @4072 ]
-[s S87 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S110 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -183,7 +189,7 @@ FINISHED 7
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6722
-[s S96 . 1 `uc 1 . 1 0 :1:0 
+[s S119 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -192,12 +198,12 @@ FINISHED 7
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S105 . 1 `uc 1 . 1 0 :6:0 
+[s S128 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S109 . 1 `S87 1 . 1 0 `S96 1 . 1 0 `S105 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES109  1 e 1 @4082 ]
+[u S132 . 1 `S110 1 . 1 0 `S119 1 . 1 0 `S128 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES132  1 e 1 @4082 ]
 "6902
 [v _STKPTR STKPTR `VEuc  1 e 1 @4092 ]
 "6975
@@ -208,34 +214,42 @@ FINISHED 7
 [v _TOSH TOSH `VEuc  1 e 1 @4094 ]
 "6997
 [v _TOSU TOSU `VEuc  1 e 1 @4095 ]
-"13 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/kernel.c
+"13 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/kernel.c
 [v _quantum quantum `ui  1 e 2 0 ]
-[s S70 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
+[s S93 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
 "15
-[s S74 stack 98 `[32]S70 1 STACK 96 0 `ui 1 stack_size 2 96 ]
-[s S77 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3007 1 task_state 1 8 `S74 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
-[v _F_APTOS F_APTOS `[5]S77  1 e 550 0 ]
+[s S97 stack 98 `[32]S93 1 STACK 96 0 `ui 1 stack_size 2 96 ]
+[s S100 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3015 1 task_state 1 8 `S97 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
+[v _F_APTOS F_APTOS `[5]S100  1 e 550 0 ]
 "16
 [v _tasks_installed tasks_installed `ui  1 e 2 0 ]
 "17
 [v _task_running task_running `ui  1 e 2 0 ]
-"131 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/memory.c
+[s S21 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
+"13 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/main.c
+[s S25 sem 16 `i 1 contador 2 0 `S21 1 queue 14 2 ]
+[v _semafaro semafaro `S25  1 e 16 0 ]
+"131 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/memory.c
 [v __uDynamicHeap _uDynamicHeap `[512]uc  1 e 512 0 ]
-[s S378 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
-"12 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/tasks.c
-[s S382 sem 16 `i 1 contador 2 0 `S378 1 queue 14 2 ]
-[v _s s `*.2S382  1 e 2 0 ]
-[s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
+[s S398 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
+"12 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+[v _pipe1 pipe1 `S398  1 e 11 0 ]
+[s S405 aviao 6 `ui 1 numero 2 0 `ui 1 tempo_v 2 2 `ui 1 tempo_p 2 4 ]
 "13
-[v _pipe pipe `S385  1 e 14 0 ]
-"13 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/main.c
+[v _aviaozinho1 aviaozinho1 `S405  1 e 6 0 ]
+"14
+[v _aviaozinho2 aviaozinho2 `S405  1 e 6 0 ]
+"15
+[s S416 pista 24 `S405 1 aviaozinho 6 0 `ui 1 status 2 6 `S25 1 s 16 8 ]
+[v _pista pista `S416  1 e 24 0 ]
+"15 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"28
-[v main@mem mem `*.39uc  1 a 2 36 ]
 "33
+[v main@mem mem `*.39uc  1 a 2 23 ]
+"38
 } 0
-"127 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/kernel.c
+"127 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/kernel.c
 [v _start_os start_os `(v  1 e 1 0 ]
 {
 "133
@@ -248,11 +262,11 @@ FINISHED 7
 "19
 [v _create_task create_task `(v  1 e 1 0 ]
 {
-[s S70 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
+[s S93 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
 "21
-[s S74 stack 98 `[32]S70 1 STACK 96 0 `ui 1 stack_size 2 96 ]
-[s S77 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3007 1 task_state 1 8 `S74 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
-[v create_task@task task `S77  1 a 110 0 ]
+[s S97 stack 98 `[32]S93 1 STACK 96 0 `ui 1 stack_size 2 96 ]
+[s S100 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3015 1 task_state 1 8 `S97 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
+[v create_task@task task `S100  1 a 110 0 ]
 "19
 [v create_task@id id `ui  1 p 2 17 ]
 [v create_task@prior prior `ui  1 p 2 19 ]
@@ -269,7 +283,7 @@ FINISHED 7
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 -4 ]
 "53
 } 2
-"300 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/memory.c
+"300 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/memory.c
 [v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
 {
 "303
@@ -278,65 +292,71 @@ FINISHED 7
 [v SRAMInitHeap@pHeap pHeap `N*.39uc  1 a 2 19 ]
 "323
 } 0
-"178
-[v _SRAMalloc SRAMalloc `N(*.39uc  1 e 2 0 ]
+"6 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/semaphore.c
+[v _sem_init sem_init `(v  1 e 1 0 ]
 {
-[v SRAMalloc@nBytes nBytes `Nuc  1 a 1 wreg ]
-[s S702 _BITS 1 `uc 1 count 1 0 :7:0 
+[s S21 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
+[s S25 sem 16 `i 1 contador 2 0 `S21 1 queue 14 2 ]
+[v sem_init@s s `*.39S25  1 p 2 17 ]
+[v sem_init@value value `i  1 p 2 19 ]
+"15
+} 0
+"178 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/memory.c
+[v _SRAMalloc SRAMalloc `NR(*.39uc  1 e 2 0 ]
+{
+[s S765 _BITS 1 `uc 1 count 1 0 :7:0 
 `uc 1 alloc 1 0 :1:7 
 ]
 "180
-[u S705 _SALLOC 1 `uc 1 byte 1 0 `S702 1 bits 1 0 ]
-[v SRAMalloc@pHeap pHeap `N*.39S705  1 a 2 34 ]
+[u S768 _SALLOC 1 `uc 1 byte 1 0 `S765 1 bits 1 0 ]
+[v SRAMalloc@pHeap pHeap `N*.39S768  1 a 2 0 ]
 "181
-[v SRAMalloc@temp temp `N*.39S705  1 a 2 31 ]
+[v SRAMalloc@temp temp `N*.39S768  1 a 2 2 ]
 "182
-[v SRAMalloc@segHeader segHeader `S705  1 a 1 30 ]
+[v SRAMalloc@segHeader segHeader `S768  1 a 1 4 ]
 "183
-[v SRAMalloc@segLen segLen `uc  1 a 1 29 ]
+[v SRAMalloc@segLen segLen `uc  1 a 1 5 ]
 "178
-[v SRAMalloc@nBytes nBytes `Nuc  1 a 1 wreg ]
-"186
-[v SRAMalloc@nBytes nBytes `Nuc  1 a 1 33 ]
+[v SRAMalloc@nBytes nBytes `Nuc  1 p 1 -1 ]
 "250
-} 0
+} 6
 "346
-[v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
+[v __SRAMmerge _SRAMmerge `NR(uc  1 e 1 0 ]
 {
-[s S702 _BITS 1 `uc 1 count 1 0 :7:0 
+[s S765 _BITS 1 `uc 1 count 1 0 :7:0 
 `uc 1 alloc 1 0 :1:7 
 ]
 "348
-[u S705 _SALLOC 1 `uc 1 byte 1 0 `S702 1 bits 1 0 ]
-[v __SRAMmerge@pSegB pSegB `N*.39S705  1 a 2 23 ]
+[u S768 _SALLOC 1 `uc 1 byte 1 0 `S765 1 bits 1 0 ]
+[v __SRAMmerge@pSegB pSegB `N*.39S768  1 a 2 0 ]
 "349
-[v __SRAMmerge@uSegB uSegB `S705  1 a 1 22 ]
-[v __SRAMmerge@uSegA uSegA `S705  1 a 1 21 ]
-[v __SRAMmerge@uSum uSum `S705  1 a 1 20 ]
+[v __SRAMmerge@uSegB uSegB `S768  1 a 1 2 ]
+[v __SRAMmerge@uSegA uSegA `S768  1 a 1 3 ]
+[v __SRAMmerge@uSum uSum `S768  1 a 1 4 ]
 "346
-[v __SRAMmerge@pSegA pSegA `N*.39S705  1 p 2 17 ]
+[v __SRAMmerge@pSegA pSegA `N*.39S768  1 p 2 -2 ]
 "390
-} 0
-"17 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/tasks.c
-[v _aviao2 aviao2 `R(v  1 e 1 0 ]
+} 5
+"27 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+[v _aviao1 aviao1 `R(v  1 e 1 0 ]
 {
-"32
+"45
 } 0
-"21 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/pipe.c
+"21 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/pipe.c
 [v _write_pipe write_pipe `R(v  1 e 1 0 ]
 {
-[s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
-[v write_pipe@pipe pipe `*.39S385  1 p 2 -2 ]
+[s S398 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
+[v write_pipe@pipe pipe `*.39S398  1 p 2 -2 ]
 [v write_pipe@data data `uc  1 p 1 -3 ]
 "48
 } 0
-"33 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/kernel.c
+"33 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/kernel.c
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
 {
-[v dispatcher@state state `E3007  1 p 1 -1 ]
+[v dispatcher@state state `E3015  1 p 1 -1 ]
 "51
 } 0
-"12 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/scheduler.c
+"12 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
 {
 "14
@@ -353,58 +373,81 @@ FINISHED 7
 [v ___lwmod@divisor divisor `ui  1 p 2 -4 ]
 "26
 } 1
-"10 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/pipe.c
+"10 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/pipe.c
 [v _create_pipe create_pipe `R(v  1 e 1 0 ]
 {
-[s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
-[v create_pipe@pipe pipe `*.39S385  1 p 2 -2 ]
+[s S398 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
+[v create_pipe@pipe pipe `*.39S398  1 p 2 -2 ]
 "19
 } 0
-"34 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/tasks.c
-[v _aviao3 aviao3 `R(v  1 e 1 0 ]
+"11 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.h
+[s S405 aviao 6 `ui 1 numero 2 0 `ui 1 tempo_v 2 2 `ui 1 tempo_p 2 4 ]
+"17 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+[v _createAviao createAviao `R(S405  1 e 6 0 ]
 {
-"45
+[v createAviao@av av `*.39S405  1 p 2 -2 ]
+[v createAviao@tempo_v tempo_v `ui  1 p 2 -4 ]
+[v createAviao@tempo_p tempo_p `ui  1 p 2 -6 ]
+[v createAviao@numero numero `ui  1 p 2 -8 ]
+"25
 } 0
-"58 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/kernel.c
-[v _delay delay `R(v  1 e 1 0 ]
+"47
+[v _aviao2 aviao2 `R(v  1 e 1 0 ]
 {
-[v delay@time_ms time_ms `ui  1 p 2 -2 ]
-"66
+"68
 } 0
-"47 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/tasks.c
+"70
 [v _ctpista ctpista `R(v  1 e 1 0 ]
 {
-"51
-[v ctpista@dado dado `i  1 a 2 0 ]
-"65
-} 2
-"17 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/semaphore.c
+"104
+[v ctpista@tp_549 tp `ui  1 a 2 0 ]
+"103
+[v ctpista@tv_548 tv `ui  1 a 2 2 ]
+"102
+[v ctpista@n_547 n `ui  1 a 2 4 ]
+"84
+[v ctpista@tp tp `ui  1 a 2 6 ]
+"83
+[v ctpista@tv tv `ui  1 a 2 8 ]
+"82
+[v ctpista@n n `ui  1 a 2 10 ]
+"76
+[v ctpista@dado dado `uc  1 a 1 12 ]
+"116
+} 13
+"17 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/semaphore.c
 [v _sem_wait sem_wait `R(v  1 e 1 0 ]
 {
-[s S378 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
-[s S382 sem 16 `i 1 contador 2 0 `S378 1 queue 14 2 ]
-[v sem_wait@s s `*.39S382  1 p 2 -2 ]
+[s S21 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
+[s S25 sem 16 `i 1 contador 2 0 `S21 1 queue 14 2 ]
+[v sem_wait@s s `*.39S25  1 p 2 -2 ]
 "30
 } 0
 "32
 [v _sem_post sem_post `R(v  1 e 1 0 ]
 {
-[s S378 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
-[s S382 sem 16 `i 1 contador 2 0 `S378 1 queue 14 2 ]
-[v sem_post@s s `*.39S382  1 p 2 -2 ]
+[s S21 sem_queue 14 `[5]ui 1 s_queue 10 0 `ui 1 s_queue_pos_in 2 10 `ui 1 s_queue_pos_out 2 12 ]
+[s S25 sem 16 `i 1 contador 2 0 `S21 1 queue 14 2 ]
+[v sem_post@s s `*.39S25  1 p 2 -2 ]
 "44
 } 0
-"50 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/pipe.c
+"50 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/pipe.c
 [v _read_pipe read_pipe `R(uc  1 e 1 0 ]
 {
 "52
 [v read_pipe@dado dado `uc  1 a 1 0 ]
-[s S385 pipe 14 `[4]uc 1 pipe_queue 4 0 `ui 1 pos_read_pipe 2 4 `ui 1 pos_write_pipe 2 6 `ui 1 pipe_itens 2 8 `ui 1 pos_bloqued_read 2 10 `ui 1 pos_bloqued_write 2 12 ]
+[s S398 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
 "50
-[v read_pipe@pipe pipe `*.39S385  1 p 2 -2 ]
+[v read_pipe@pipe pipe `*.39S398  1 p 2 -2 ]
 "76
 } 1
-"68 /home/evohc/Files/ENC/9th Semester/SOE/Trabalho Final/S.O-Embarcados/kernel.c
+"58 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/kernel.c
+[v _delay delay `R(v  1 e 1 0 ]
+{
+[v delay@time_ms time_ms `ui  1 p 2 -2 ]
+"66
+} 0
+"68
 [v _task_idle task_idle `R(v  1 e 1 0 ]
 {
 "76

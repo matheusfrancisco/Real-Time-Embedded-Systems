@@ -3823,7 +3823,12 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 14 "types.h"
+# 22 "memory.h"
+unsigned char * near SRAMalloc(near unsigned char nBytes);
+void SRAMfree(unsigned char * near pSRAM);
+void SRAMInitHeap(void);
+
+# 15 "types.h"
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);

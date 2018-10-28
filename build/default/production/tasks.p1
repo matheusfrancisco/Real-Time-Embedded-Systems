@@ -1,13 +1,28 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"19 pipe.h
+[s S284 `uc -> -> 1 `i `ux `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S284 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
+"11 tasks.h
+[s S281 `ui 1 `ui 1 `ui 1 ]
+[n S281 aviao numero tempo_v tempo_p ]
 "11 semaphore.h
 [s S279 `ui -> 5 `i `ui 1 `ui 1 ]
 [n S279 sem_queue s_queue s_queue_pos_in s_queue_pos_out ]
 "17
 [s S280 `i 1 `S279 1 ]
 [n S280 sem contador queue ]
-"19 pipe.h
-[s S282 `uc -> 4 `i `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S282 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
+"17 tasks.h
+[s S282 `S281 1 `ui 1 `S280 1 ]
+[n S282 pista aviaozinho status s ]
+[v F3003 `(*uc ~T0 @X0 1 tf1`Nuc ]
+"22 memory.h
+[v _SRAMalloc `NF3003 ~T0 @X0 0 e ]
+"30 pipe.h
+[v _create_pipe `(v ~T0 @X0 0 ef1`*S284 ]
+"31
+[v _write_pipe `(v ~T0 @X0 0 ef2`*S284`uc ]
+"32
+[v _read_pipe `(uc ~T0 @X0 0 ef1`*S284 ]
 "2152 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S73 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
@@ -36,18 +51,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S23 . . . . . ]
 "667
 [v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
-"30 pipe.h
-[v _create_pipe `(v ~T0 @X0 0 ef1`*S282 ]
-"31
-[v _write_pipe `(v ~T0 @X0 0 ef2`*S282`uc ]
+"23 semaphore.h
+[v _sem_wait `(v ~T0 @X0 0 ef1`*S280 ]
 "16 kernel.h
 [v _delay `(v ~T0 @X0 0 ef1`ui ]
-"32 pipe.h
-[v _read_pipe `(uc ~T0 @X0 0 ef1`*S282 ]
 "24 semaphore.h
 [v _sem_post `(v ~T0 @X0 0 ef1`*S280 ]
-"23
-[v _sem_wait `(v ~T0 @X0 0 ef1`*S280 ]
 [; ;pic18f4520.h: 50: extern volatile unsigned char PORTA @ 0xF80;
 "52 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [; ;pic18f4520.h: 52: asm("PORTA equ 0F80h");
@@ -2814,9 +2823,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18f4520.h: 8233: extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 [; ;pic18f4520.h: 8235: extern volatile __bit nWR @ (((unsigned) &PORTE)*8) + 1;
 [; ;pic18f4520.h: 8237: extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
-[; ;tasks.h: 9: void aviao2();
-[; ;tasks.h: 10: void aviao3();
-[; ;tasks.h: 11: void ctpista();
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2831,40 +2837,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;types.h: 14: typedef unsigned int u_int;
-[; ;types.h: 15: typedef unsigned char byte;
-[; ;types.h: 16: typedef void(*f_ptr)(void);
-[; ;types.h: 18: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 20: typedef struct stack_data {
-[; ;types.h: 21: byte TOSU_register;
-[; ;types.h: 22: byte TOSL_register;
-[; ;types.h: 23: byte TOSH_register;
-[; ;types.h: 24: } stack_data_t;
-[; ;types.h: 26: typedef struct stack {
-[; ;types.h: 27: stack_data_t STACK[32];
-[; ;types.h: 28: u_int stack_size;
-[; ;types.h: 29: } stack_t;
-[; ;types.h: 31: typedef struct tcb {
-[; ;types.h: 33: u_int task_id;
-[; ;types.h: 34: u_int task_prior;
-[; ;types.h: 35: f_ptr *task_f;
-[; ;types.h: 36: u_int delay_time;
-[; ;types.h: 38: state_t task_state;
-[; ;types.h: 39: stack_t task_stack;
-[; ;types.h: 40: byte BSR_register;
-[; ;types.h: 41: byte STATUS_register;
-[; ;types.h: 42: byte WORK_register;
-[; ;types.h: 43: } tcb_t;
-[; ;kernel.h: 11: extern tcb_t F_APTOS[5];
-[; ;kernel.h: 12: extern u_int task_running;
-[; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
-[; ;kernel.h: 15: u_int get_id(u_int task_ptr);
-[; ;kernel.h: 16: void delay(u_int time_ms);
-[; ;kernel.h: 17: void dispatcher(state_t state);
-[; ;kernel.h: 18: void task_idle();
-[; ;kernel.h: 19: void setupOS();
-[; ;kernel.h: 20: void interrupt int_high();
-[; ;kernel.h: 21: void start_os();
+[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
+[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
+[; ;memory.h: 24: void SRAMInitHeap(void);
+[; ;types.h: 15: typedef unsigned int u_int;
+[; ;types.h: 16: typedef unsigned char byte;
+[; ;types.h: 17: typedef void(*f_ptr)(void);
+[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 21: typedef struct stack_data {
+[; ;types.h: 22: byte TOSU_register;
+[; ;types.h: 23: byte TOSL_register;
+[; ;types.h: 24: byte TOSH_register;
+[; ;types.h: 25: } stack_data_t;
+[; ;types.h: 27: typedef struct stack {
+[; ;types.h: 28: stack_data_t STACK[32];
+[; ;types.h: 29: u_int stack_size;
+[; ;types.h: 30: } stack_t;
+[; ;types.h: 32: typedef struct tcb {
+[; ;types.h: 34: u_int task_id;
+[; ;types.h: 35: u_int task_prior;
+[; ;types.h: 36: f_ptr *task_f;
+[; ;types.h: 37: u_int delay_time;
+[; ;types.h: 39: state_t task_state;
+[; ;types.h: 40: stack_t task_stack;
+[; ;types.h: 41: byte BSR_register;
+[; ;types.h: 42: byte STATUS_register;
+[; ;types.h: 43: byte WORK_register;
+[; ;types.h: 44: } tcb_t;
 [; ;semaphore.h: 11: typedef struct sem_queue {
 [; ;semaphore.h: 12: u_int s_queue[5];
 [; ;semaphore.h: 13: u_int s_queue_pos_in;
@@ -2878,13 +2877,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;semaphore.h: 23: void sem_wait(sem_t *s);
 [; ;semaphore.h: 24: void sem_post(sem_t *s);
 [; ;semaphore.h: 25: int sem_get_value(sem_t s);
+[; ;tasks.h: 11: typedef struct aviao{
+[; ;tasks.h: 12: u_int numero;
+[; ;tasks.h: 13: u_int tempo_v;
+[; ;tasks.h: 14: u_int tempo_p;
+[; ;tasks.h: 15: }aviao_t;
+[; ;tasks.h: 17: typedef struct pista{
+[; ;tasks.h: 18: aviao_t aviaozinho;
+[; ;tasks.h: 19: u_int status;
+[; ;tasks.h: 20: sem_t s;
+[; ;tasks.h: 22: }pista_t;
+[; ;tasks.h: 24: aviao_t createAviao(aviao_t *av, u_int tempo_v, u_int tempo_p, u_int numero );
+[; ;tasks.h: 25: void aviao1();
+[; ;tasks.h: 26: void aviao2();
+[; ;tasks.h: 27: void ctpista();
+[; ;kernel.h: 11: extern tcb_t F_APTOS[5];
+[; ;kernel.h: 12: extern u_int task_running;
+[; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
+[; ;kernel.h: 15: u_int get_id(u_int task_ptr);
+[; ;kernel.h: 16: void delay(u_int time_ms);
+[; ;kernel.h: 17: void dispatcher(state_t state);
+[; ;kernel.h: 18: void task_idle();
+[; ;kernel.h: 19: void setupOS();
+[; ;kernel.h: 20: void interrupt int_high();
+[; ;kernel.h: 21: void start_os();
 [; ;pipe.h: 13: typedef struct pipe_bloqued_queue {
 [; ;pipe.h: 14: u_int b_queue[5];
 [; ;pipe.h: 15: u_int b_queue_pos_in;
 [; ;pipe.h: 16: u_int b_queue_pos_out;
 [; ;pipe.h: 17: } pipe_bloqued_queue_t;
 [; ;pipe.h: 19: typedef struct pipe {
-[; ;pipe.h: 20: byte pipe_queue[4];
+[; ;pipe.h: 20: byte pipe_queue[1];
 [; ;pipe.h: 22: u_int pos_read_pipe;
 [; ;pipe.h: 23: u_int pos_write_pipe;
 [; ;pipe.h: 24: u_int pipe_itens;
@@ -2895,146 +2918,241 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.h: 31: void write_pipe(pipe_t *pipe, byte data);
 [; ;pipe.h: 32: byte read_pipe(pipe_t *pipe);
 "12 tasks.c
-[v _s `*S280 ~T0 @X0 1 e ]
-[; ;tasks.c: 12: sem_t *s;
+[v _pipe1 `S284 ~T0 @X0 1 e ]
+[; ;tasks.c: 12: pipe_t pipe1 ;
 "13
-[v _pipe `S282 ~T0 @X0 1 e ]
-[; ;tasks.c: 13: pipe_t pipe;
+[v _aviaozinho1 `S281 ~T0 @X0 1 e ]
+[; ;tasks.c: 13: aviao_t aviaozinho1 ;
+"14
+[v _aviaozinho2 `S281 ~T0 @X0 1 e ]
+[; ;tasks.c: 14: aviao_t aviaozinho2 ;
+"15
+[v _pista `S282 ~T0 @X0 1 e ]
+[; ;tasks.c: 15: pista_t pista ;
 "17
-[v _aviao2 `(v ~T0 @X0 1 ef ]
+[v _createAviao `(S281 ~T0 @X0 1 ef4`*S281`ui`ui`ui ]
 "18
 {
-[; ;tasks.c: 17: void aviao2()
+[; ;tasks.c: 17: aviao_t createAviao(aviao_t *av, u_int tempo_v, u_int tempo_p, u_int numero )
 [; ;tasks.c: 18: {
-[e :U _aviao2 ]
+[e :U _createAviao ]
+"17
+[v _av `*S281 ~T0 @X0 1 r1 ]
+[v _tempo_v `ui ~T0 @X0 1 r2 ]
+[v _tempo_p `ui ~T0 @X0 1 r3 ]
+[v _numero `ui ~T0 @X0 1 r4 ]
+"18
 [f ]
+[; ;tasks.c: 19: av = (aviao_t*) SRAMalloc(sizeof(aviao_t));
 "19
-[v _dado `uc ~T0 @X0 1 a ]
-[; ;tasks.c: 19: byte dado;
-[; ;tasks.c: 21: TRISDbits.RD1 = 0;
+[e = _av -> ( _SRAMalloc (1 -> -> # `S281 `ui `uc `*S281 ]
+[; ;tasks.c: 21: av->numero =numero;
 "21
-[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 22: PORTDbits.RD1 = 0;
+[e = . *U _av 0 _numero ]
+[; ;tasks.c: 22: av->tempo_p = tempo_p;
 "22
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 23: create_pipe(&pipe);
+[e = . *U _av 2 _tempo_p ]
+[; ;tasks.c: 23: av->tempo_v = tempo_v;
 "23
-[e ( _create_pipe (1 &U _pipe ]
-[; ;tasks.c: 24: while (1) {
-"24
-[e :U 285 ]
-{
-[; ;tasks.c: 28: write_pipe(&pipe, 2);
+[e = . *U _av 1 _tempo_v ]
+[; ;tasks.c: 25: }
+"25
+[e :UE 285 ]
+}
+"27
+[v _aviao1 `(v ~T0 @X0 1 ef ]
 "28
-[e ( _write_pipe (2 , &U _pipe -> -> 2 `i `uc ]
-"31
-}
-[e :U 284 ]
-"24
-[e $U 285  ]
-[e :U 286 ]
-[; ;tasks.c: 31: }
-[; ;tasks.c: 32: }
-"32
-[e :UE 283 ]
-}
-"34
-[v _aviao3 `(v ~T0 @X0 1 ef ]
-"35
 {
-[; ;tasks.c: 34: void aviao3()
-[; ;tasks.c: 35: {
-[e :U _aviao3 ]
+[; ;tasks.c: 27: void aviao1()
+[; ;tasks.c: 28: {
+[e :U _aviao1 ]
 [f ]
-[; ;tasks.c: 36: TRISDbits.RD3 = 0;
+[; ;tasks.c: 30: createAviao(&aviaozinho1,100,100, 1);
+"30
+[e ( _createAviao (4 , , , &U _aviaozinho1 -> -> 100 `i `ui -> -> 100 `i `ui -> -> 1 `i `ui ]
+[; ;tasks.c: 36: create_pipe(&pipe1);
 "36
-[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
-[; ;tasks.c: 37: PORTDbits.RD3 = 0;
+[e ( _create_pipe (1 &U _pipe1 ]
+[; ;tasks.c: 37: while (1) {
 "37
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-[; ;tasks.c: 39: while (1) {
-"39
-[e :U 289 ]
+[e :U 288 ]
 {
-[; ;tasks.c: 41: write_pipe(&pipe, 3);
+[; ;tasks.c: 41: write_pipe(&pipe1, 'l');
 "41
-[e ( _write_pipe (2 , &U _pipe -> -> 3 `i `uc ]
-[; ;tasks.c: 42: delay(100);
-"42
-[e ( _delay (1 -> -> 100 `i `ui ]
+[e ( _write_pipe (2 , &U _pipe1 -> -> 108 `ui `uc ]
 "44
 }
-[e :U 288 ]
-"39
-[e $U 289  ]
-[e :U 290 ]
+[e :U 287 ]
+"37
+[e $U 288  ]
+[e :U 289 ]
 [; ;tasks.c: 44: }
 [; ;tasks.c: 45: }
 "45
-[e :UE 287 ]
+[e :UE 286 ]
 }
 "47
-[v _ctpista `(v ~T0 @X0 1 ef ]
+[v _aviao2 `(v ~T0 @X0 1 ef ]
 "48
 {
-[; ;tasks.c: 47: void ctpista()
+[; ;tasks.c: 47: void aviao2()
 [; ;tasks.c: 48: {
+[e :U _aviao2 ]
+[f ]
+[; ;tasks.c: 51: createAviao(&aviaozinho2,1000,200, 1);
+"51
+[e ( _createAviao (4 , , , &U _aviaozinho2 -> -> 1000 `i `ui -> -> 200 `i `ui -> -> 1 `i `ui ]
+[; ;tasks.c: 59: create_pipe(&pipe1);
+"59
+[e ( _create_pipe (1 &U _pipe1 ]
+[; ;tasks.c: 60: while (1) {
+"60
+[e :U 292 ]
+{
+[; ;tasks.c: 64: write_pipe(&pipe1, 'm');
+"64
+[e ( _write_pipe (2 , &U _pipe1 -> -> 109 `ui `uc ]
+"67
+}
+[e :U 291 ]
+"60
+[e $U 292  ]
+[e :U 293 ]
+[; ;tasks.c: 67: }
+[; ;tasks.c: 68: }
+"68
+[e :UE 290 ]
+}
+"70
+[v _ctpista `(v ~T0 @X0 1 ef ]
+"71
+{
+[; ;tasks.c: 70: void ctpista()
+[; ;tasks.c: 71: {
 [e :U _ctpista ]
 [f ]
-[; ;tasks.c: 49: while(1)
-"49
-[e :U 293 ]
-[; ;tasks.c: 50: {
-"50
-{
-"51
-[v _dado `i ~T0 @X0 1 a ]
-[; ;tasks.c: 51: int dado = read_pipe(&pipe);
-[e = _dado -> ( _read_pipe (1 &U _pipe `i ]
-[; ;tasks.c: 52: if(dado== 2)
-"52
-[e $ ! == _dado -> 2 `i 295  ]
-[; ;tasks.c: 53: {
-"53
-{
-[; ;tasks.c: 54: sem_post(&s);
-"54
-[e ( _sem_post (1 -> &U _s `*S280 ]
-[; ;tasks.c: 55: PORTDbits.RD3 = ~PORTDbits.RD3;
-"55
-[e = . . _PORTDbits 0 3 -> ~ -> . . _PORTDbits 0 3 `i `uc ]
-[; ;tasks.c: 56: sem_wait(&s);
-"56
-[e ( _sem_wait (1 -> &U _s `*S280 ]
-"58
-}
-[; ;tasks.c: 58: }else
-[e $U 296  ]
-[e :U 295 ]
-[; ;tasks.c: 59: {
-"59
-{
-[; ;tasks.c: 60: sem_post(&s);
-"60
-[e ( _sem_post (1 -> &U _s `*S280 ]
-[; ;tasks.c: 61: PORTDbits.RD2 = ~PORTDbits.RD2;
-"61
-[e = . . _PORTDbits 0 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
-[; ;tasks.c: 62: sem_wait(&s);
-"62
-[e ( _sem_wait (1 -> &U _s `*S280 ]
-"63
-}
+[; ;tasks.c: 74: while(1)
+"74
 [e :U 296 ]
-"64
+[; ;tasks.c: 75: {
+"75
+{
+"76
+[v _dado `uc ~T0 @X0 1 a ]
+[; ;tasks.c: 76: byte dado = read_pipe(&pipe1);
+[e = _dado ( _read_pipe (1 &U _pipe1 ]
+[; ;tasks.c: 77: if(dado== 'l')
+"77
+[e $ ! == -> _dado `ui -> 108 `ui 298  ]
+[; ;tasks.c: 78: {
+"78
+{
+[; ;tasks.c: 80: TRISDbits.RD1 = 0;
+"80
+[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
+[; ;tasks.c: 81: PORTDbits.RD1 = 0;
+"81
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
+"82
+[v _n `ui ~T0 @X0 1 a ]
+[; ;tasks.c: 82: u_int n = aviaozinho1.numero;
+[e = _n . _aviaozinho1 0 ]
+"83
+[v _tv `ui ~T0 @X0 1 a ]
+[; ;tasks.c: 83: u_int tv = aviaozinho1.tempo_v;
+[e = _tv . _aviaozinho1 1 ]
+"84
+[v _tp `ui ~T0 @X0 1 a ]
+[; ;tasks.c: 84: u_int tp = aviaozinho1.tempo_p;
+[e = _tp . _aviaozinho1 2 ]
+[; ;tasks.c: 85: PORTDbits.RD1 = ~PORTDbits.RD1;
+"85
+[e = . . _PORTDbits 0 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
+[; ;tasks.c: 86: pista.aviaozinho.numero=n;
+"86
+[e = . . _pista 0 0 _n ]
+[; ;tasks.c: 87: pista.status = 1;
+"87
+[e = . _pista 1 -> -> 1 `i `ui ]
+[; ;tasks.c: 88: sem_wait(&pista.s);
+"88
+[e ( _sem_wait (1 &U . _pista 2 ]
+[; ;tasks.c: 89: delay(tv+tp);
+"89
+[e ( _delay (1 + _tv _tp ]
+[; ;tasks.c: 90: sem_post(&pista.s);
+"90
+[e ( _sem_post (1 &U . _pista 2 ]
+[; ;tasks.c: 91: pista.status = 0;
+"91
+[e = . _pista 1 -> -> 0 `i `ui ]
+[; ;tasks.c: 92: pista.aviaozinho.numero= 0;
+"92
+[e = . . _pista 0 0 -> -> 0 `i `ui ]
+"97
 }
-[e :U 292 ]
-"49
-[e $U 293  ]
-[e :U 294 ]
-[; ;tasks.c: 63: }
-[; ;tasks.c: 64: }
-[; ;tasks.c: 65: }
-"65
-[e :UE 291 ]
+[e :U 298 ]
+[; ;tasks.c: 97: }
+[; ;tasks.c: 98: if(dado=='m')
+"98
+[e $ ! == -> _dado `ui -> 109 `ui 299  ]
+[; ;tasks.c: 99: {
+"99
+{
+[; ;tasks.c: 100: TRISDbits.RD2 = 0;
+"100
+[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
+[; ;tasks.c: 101: PORTDbits.RD2 = 0;
+"101
+[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
+"102
+[v _n `ui ~T0 @X0 1 a ]
+[; ;tasks.c: 102: u_int n = aviaozinho2.numero;
+[e = _n . _aviaozinho2 0 ]
+"103
+[v _tv `ui ~T0 @X0 1 a ]
+[; ;tasks.c: 103: u_int tv = aviaozinho2.tempo_v;
+[e = _tv . _aviaozinho2 1 ]
+"104
+[v _tp `ui ~T0 @X0 1 a ]
+[; ;tasks.c: 104: u_int tp = aviaozinho2.tempo_p;
+[e = _tp . _aviaozinho2 2 ]
+[; ;tasks.c: 105: PORTDbits.RD2 = ~PORTDbits.RD2;
+"105
+[e = . . _PORTDbits 0 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
+[; ;tasks.c: 106: pista.aviaozinho.numero=n;
+"106
+[e = . . _pista 0 0 _n ]
+[; ;tasks.c: 107: pista.status = 1;
+"107
+[e = . _pista 1 -> -> 1 `i `ui ]
+[; ;tasks.c: 108: sem_wait(&pista.s);
+"108
+[e ( _sem_wait (1 &U . _pista 2 ]
+[; ;tasks.c: 109: delay(tv+tp);
+"109
+[e ( _delay (1 + _tv _tp ]
+[; ;tasks.c: 110: sem_post(&pista.s);
+"110
+[e ( _sem_post (1 &U . _pista 2 ]
+[; ;tasks.c: 111: pista.status = 0;
+"111
+[e = . _pista 1 -> -> 0 `i `ui ]
+[; ;tasks.c: 112: pista.aviaozinho.numero= 0;
+"112
+[e = . . _pista 0 0 -> -> 0 `i `ui ]
+"114
+}
+[e :U 299 ]
+"115
+}
+[e :U 295 ]
+"74
+[e $U 296  ]
+[e :U 297 ]
+[; ;tasks.c: 114: }
+[; ;tasks.c: 115: }
+[; ;tasks.c: 116: }
+"116
+[e :UE 294 ]
 }
