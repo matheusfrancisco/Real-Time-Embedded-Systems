@@ -3868,7 +3868,7 @@ u_int b_queue_pos_out;
 } pipe_bloqued_queue_t;
 
 typedef struct pipe {
-byte pipe_queue[1];
+byte pipe_queue[4];
 
 u_int pos_read_pipe;
 u_int pos_write_pipe;
@@ -3912,7 +3912,7 @@ void write_pipe(pipe_t *pipe, byte data)
 (INTCONbits.GIE = 0);
 
 
-if (pipe->pipe_itens == 1) {
+if (pipe->pipe_itens == 4) {
 
 pipe->pos_bloqued_write = task_running;
 
@@ -3920,7 +3920,7 @@ dispatcher(WAITING_PIPE);
 }
 
 pipe->pipe_queue[pipe->pos_write_pipe] = data;
-pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 1;
+pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 4;
 pipe->pipe_itens++;
 
 
@@ -3948,7 +3948,7 @@ dispatcher(WAITING_PIPE);
 }
 
 dado = pipe->pipe_queue[pipe->pos_read_pipe];
-pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 1;
+pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
 pipe->pipe_itens--;
 
 

@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "19 pipe.h
-[s S284 `uc -> -> 1 `i `ux `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[s S284 `uc -> 4 `i `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S284 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
 "11 tasks.h
 [s S281 `ui 1 `ui 1 `ui 1 ]
@@ -2907,7 +2907,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.h: 16: u_int b_queue_pos_out;
 [; ;pipe.h: 17: } pipe_bloqued_queue_t;
 [; ;pipe.h: 19: typedef struct pipe {
-[; ;pipe.h: 20: byte pipe_queue[1];
+[; ;pipe.h: 20: byte pipe_queue[4];
 [; ;pipe.h: 22: u_int pos_read_pipe;
 [; ;pipe.h: 23: u_int pos_write_pipe;
 [; ;pipe.h: 24: u_int pipe_itens;
@@ -2999,9 +2999,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tasks.c: 48: {
 [e :U _aviao2 ]
 [f ]
-[; ;tasks.c: 51: createAviao(&aviaozinho2,1000,200, 1);
+[; ;tasks.c: 51: createAviao(&aviaozinho2,1000,200, 2);
 "51
-[e ( _createAviao (4 , , , &U _aviaozinho2 -> -> 1000 `i `ui -> -> 200 `i `ui -> -> 1 `i `ui ]
+[e ( _createAviao (4 , , , &U _aviaozinho2 -> -> 1000 `i `ui -> -> 200 `i `ui -> -> 2 `i `ui ]
 [; ;tasks.c: 59: create_pipe(&pipe1);
 "59
 [e ( _create_pipe (1 &U _pipe1 ]

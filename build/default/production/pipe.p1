@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "19 pipe.h
-[s S280 `uc -> -> 1 `i `ux `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[s S280 `uc -> 4 `i `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S280 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
 "6696 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2848,7 +2848,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.h: 16: u_int b_queue_pos_out;
 [; ;pipe.h: 17: } pipe_bloqued_queue_t;
 [; ;pipe.h: 19: typedef struct pipe {
-[; ;pipe.h: 20: byte pipe_queue[1];
+[; ;pipe.h: 20: byte pipe_queue[4];
 [; ;pipe.h: 22: u_int pos_read_pipe;
 [; ;pipe.h: 23: u_int pos_write_pipe;
 [; ;pipe.h: 24: u_int pipe_itens;
@@ -2913,9 +2913,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.c: 23: (INTCONbits.GIE = 0);
 "23
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;pipe.c: 26: if (pipe->pipe_itens == 1) {
+[; ;pipe.c: 26: if (pipe->pipe_itens == 4) {
 "26
-[e $ ! == . *U _pipe 3 -> -> 1 `i `ui 283  ]
+[e $ ! == . *U _pipe 3 -> -> 4 `i `ui 283  ]
 {
 [; ;pipe.c: 28: pipe->pos_bloqued_write = task_running;
 "28
@@ -2930,9 +2930,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.c: 33: pipe->pipe_queue[pipe->pos_write_pipe] = data;
 "33
 [e = *U + &U . *U _pipe 0 * -> . *U _pipe 2 `ux -> -> # *U &U . *U _pipe 0 `ui `ux _data ]
-[; ;pipe.c: 34: pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 1;
+[; ;pipe.c: 34: pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 4;
 "34
-[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui -> -> 1 `i `ui ]
+[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui -> -> 4 `i `ui ]
 [; ;pipe.c: 35: pipe->pipe_itens++;
 "35
 [e ++ . *U _pipe 3 -> -> 1 `i `ui ]
@@ -2988,9 +2988,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.c: 62: dado = pipe->pipe_queue[pipe->pos_read_pipe];
 "62
 [e = _dado *U + &U . *U _pipe 0 * -> . *U _pipe 1 `ux -> -> # *U &U . *U _pipe 0 `ui `ux ]
-[; ;pipe.c: 63: pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 1;
+[; ;pipe.c: 63: pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
 "63
-[e = . *U _pipe 1 % + . *U _pipe 1 -> -> 1 `i `ui -> -> 1 `i `ui ]
+[e = . *U _pipe 1 % + . *U _pipe 1 -> -> 1 `i `ui -> -> 4 `i `ui ]
 [; ;pipe.c: 64: pipe->pipe_itens--;
 "64
 [e -- . *U _pipe 3 -> -> 1 `i `ui ]

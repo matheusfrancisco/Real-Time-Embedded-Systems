@@ -8,7 +8,7 @@
 
 #include "types.h"
 
-#define MAX_PIPE_SIZE 1
+#define MAX_PIPE_SIZE 4
 
 typedef struct pipe_bloqued_queue {
     u_int b_queue[MAX_TASKS];

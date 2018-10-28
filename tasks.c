@@ -48,7 +48,7 @@ void aviao2()
 {
     // ideia é criar um aviao
     //aviaozinho2 = (aviao_t*) SRAMalloc(sizeof(aviao_t));
-   createAviao(&aviaozinho2,1000,200, 1);
+   createAviao(&aviaozinho2,1000,200, 2);
   // criar um pipe que seria a comunicacao do aviao
    //pipe_t  pipe2 = (pipe2*) SRAMalloc(sizeof(pipe2));
    

@@ -3917,7 +3917,7 @@ u_int b_queue_pos_out;
 } pipe_bloqued_queue_t;
 
 typedef struct pipe {
-byte pipe_queue[1];
+byte pipe_queue[4];
 
 u_int pos_read_pipe;
 u_int pos_write_pipe;
@@ -3968,7 +3968,7 @@ void aviao2()
 {
 
 
-createAviao(&aviaozinho2,1000,200, 1);
+createAviao(&aviaozinho2,1000,200, 2);
 
 # 59
 create_pipe(&pipe1);
