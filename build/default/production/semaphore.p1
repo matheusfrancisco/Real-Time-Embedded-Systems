@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "11 semaphore.h
-[s S279 `ui -> 5 `i `ui 1 `ui 1 ]
+[s S279 `ui -> 4 `i `ui 1 `ui 1 ]
 [n S279 sem_queue s_queue s_queue_pos_in s_queue_pos_out ]
 "17
 [s S280 `i 1 `S279 1 ]
@@ -22,19 +22,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "12 kernel.h
 [v _task_running `ui ~T0 @X0 0 e ]
 "26 semaphore.c
-[c E3015 1 2 3 4 5 6 7 .. ]
-[n E3015 . READY RUNNING SLEEPING WAITING WAITING_SEM WAITING_PIPE FINISHED  ]
+[c E3007 1 2 3 4 5 6 7 .. ]
+[n E3007 . READY RUNNING SLEEPING WAITING WAITING_SEM WAITING_PIPE FINISHED  ]
 "17 kernel.h
-[v _dispatcher `(v ~T0 @X0 0 ef1`E3015 ]
-[v F3013 `(v ~T0 @X0 0 tf ]
-"21 types.h
+[v _dispatcher `(v ~T0 @X0 0 ef1`E3007 ]
+[v F3005 `(v ~T0 @X0 0 tf ]
+"20 types.h
 [s S276 `uc 1 `uc 1 `uc 1 ]
 [n S276 stack_data TOSU_register TOSL_register TOSH_register ]
-"27
+"26
 [s S277 `S276 -> 32 `i `ui 1 ]
 [n S277 stack STACK stack_size ]
-"32
-[s S278 `ui 1 `ui 1 `**F3013 1 `ui 1 `E3015 1 `S277 1 `uc 1 `uc 1 `uc 1 ]
+"31
+[s S278 `ui 1 `ui 1 `**F3005 1 `ui 1 `E3007 1 `S277 1 `uc 1 `uc 1 `uc 1 ]
 [n S278 tcb task_id task_prior task_f delay_time task_state task_stack BSR_register STATUS_register WORK_register ]
 "11 kernel.h
 [v _F_APTOS `S278 ~T0 @X0 -> 0 `x e ]
@@ -2818,35 +2818,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
-[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
-[; ;memory.h: 24: void SRAMInitHeap(void);
-[; ;types.h: 15: typedef unsigned int u_int;
-[; ;types.h: 16: typedef unsigned char byte;
-[; ;types.h: 17: typedef void(*f_ptr)(void);
-[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 21: typedef struct stack_data {
-[; ;types.h: 22: byte TOSU_register;
-[; ;types.h: 23: byte TOSL_register;
-[; ;types.h: 24: byte TOSH_register;
-[; ;types.h: 25: } stack_data_t;
-[; ;types.h: 27: typedef struct stack {
-[; ;types.h: 28: stack_data_t STACK[32];
-[; ;types.h: 29: u_int stack_size;
-[; ;types.h: 30: } stack_t;
-[; ;types.h: 32: typedef struct tcb {
-[; ;types.h: 34: u_int task_id;
-[; ;types.h: 35: u_int task_prior;
-[; ;types.h: 36: f_ptr *task_f;
-[; ;types.h: 37: u_int delay_time;
-[; ;types.h: 39: state_t task_state;
-[; ;types.h: 40: stack_t task_stack;
-[; ;types.h: 41: byte BSR_register;
-[; ;types.h: 42: byte STATUS_register;
-[; ;types.h: 43: byte WORK_register;
-[; ;types.h: 44: } tcb_t;
+[; ;types.h: 14: typedef unsigned int u_int;
+[; ;types.h: 15: typedef unsigned char byte;
+[; ;types.h: 16: typedef void(*f_ptr)(void);
+[; ;types.h: 18: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 20: typedef struct stack_data {
+[; ;types.h: 21: byte TOSU_register;
+[; ;types.h: 22: byte TOSL_register;
+[; ;types.h: 23: byte TOSH_register;
+[; ;types.h: 24: } stack_data_t;
+[; ;types.h: 26: typedef struct stack {
+[; ;types.h: 27: stack_data_t STACK[32];
+[; ;types.h: 28: u_int stack_size;
+[; ;types.h: 29: } stack_t;
+[; ;types.h: 31: typedef struct tcb {
+[; ;types.h: 33: u_int task_id;
+[; ;types.h: 34: u_int task_prior;
+[; ;types.h: 35: f_ptr *task_f;
+[; ;types.h: 36: u_int delay_time;
+[; ;types.h: 38: state_t task_state;
+[; ;types.h: 39: stack_t task_stack;
+[; ;types.h: 40: byte BSR_register;
+[; ;types.h: 41: byte STATUS_register;
+[; ;types.h: 42: byte WORK_register;
+[; ;types.h: 43: } tcb_t;
 [; ;semaphore.h: 11: typedef struct sem_queue {
-[; ;semaphore.h: 12: u_int s_queue[5];
+[; ;semaphore.h: 12: u_int s_queue[4];
 [; ;semaphore.h: 13: u_int s_queue_pos_in;
 [; ;semaphore.h: 14: u_int s_queue_pos_out;
 [; ;semaphore.h: 15: } sem_queue_t;
@@ -2858,7 +2855,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;semaphore.h: 23: void sem_wait(sem_t *s);
 [; ;semaphore.h: 24: void sem_post(sem_t *s);
 [; ;semaphore.h: 25: int sem_get_value(sem_t s);
-[; ;kernel.h: 11: extern tcb_t F_APTOS[5];
+[; ;kernel.h: 11: extern tcb_t F_APTOS[4];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
 [; ;kernel.h: 15: u_int get_id(u_int task_ptr);
@@ -2924,12 +2921,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;semaphore.c: 24: s->queue.s_queue[s->queue.s_queue_pos_in] = task_running;
 "24
 [e = *U + &U . . *U _s 1 0 * -> . . *U _s 1 1 `ux -> -> # *U &U . . *U _s 1 0 `ui `ux _task_running ]
-[; ;semaphore.c: 25: s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 5;
+[; ;semaphore.c: 25: s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 4;
 "25
-[e = . . *U _s 1 1 % + . . *U _s 1 1 -> -> 1 `i `ui -> -> 5 `i `ui ]
+[e = . . *U _s 1 1 % + . . *U _s 1 1 -> -> 1 `i `ui -> -> 4 `i `ui ]
 [; ;semaphore.c: 26: dispatcher(WAITING_SEM);
 "26
-[e ( _dispatcher (1 . `E3015 4 ]
+[e ( _dispatcher (1 . `E3007 4 ]
 "27
 }
 [e :U 283 ]
@@ -2964,13 +2961,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;semaphore.c: 38: F_APTOS[s->queue.s_queue[s->queue.s_queue_pos_out]].task_state = READY;
 "38
-[e = . *U + &U _F_APTOS * -> *U + &U . . *U _s 1 0 * -> . . *U _s 1 2 `ux -> -> # *U &U . . *U _s 1 0 `ui `ux `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3015 0 ]
+[e = . *U + &U _F_APTOS * -> *U + &U . . *U _s 1 0 * -> . . *U _s 1 2 `ux -> -> # *U &U . . *U _s 1 0 `ui `ux `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 0 ]
 [; ;semaphore.c: 39: s->queue.s_queue_pos_out = (s->queue.s_queue_pos_out + 1) % s->queue.s_queue_pos_in;
 "39
 [e = . . *U _s 1 2 % + . . *U _s 1 2 -> -> 1 `i `ui . . *U _s 1 1 ]
 [; ;semaphore.c: 40: dispatcher(READY);
 "40
-[e ( _dispatcher (1 . `E3015 0 ]
+[e ( _dispatcher (1 . `E3007 0 ]
 "41
 }
 [e :U 285 ]

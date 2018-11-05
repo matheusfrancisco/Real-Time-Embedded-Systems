@@ -1,31 +1,30 @@
 Version 3.2 HI-TECH Software Intermediate Code
+[p mainexit ]
+"19 kernel.h
+[v _setupOS `(v ~T0 @X0 0 ef ]
 "11 semaphore.h
-[s S279 `ui -> 5 `i `ui 1 `ui 1 ]
+[s S279 `ui -> 4 `i `ui 1 `ui 1 ]
 [n S279 sem_queue s_queue s_queue_pos_in s_queue_pos_out ]
 "17
 [s S280 `i 1 `S279 1 ]
 [n S280 sem contador queue ]
-[p mainexit ]
-"19 kernel.h
-[v _setupOS `(v ~T0 @X0 0 ef ]
-"24 memory.h
-[v _SRAMInitHeap `(v ~T0 @X0 0 ef ]
-"22 semaphore.h
+"22
 [v _sem_init `(v ~T0 @X0 0 ef2`*S280`i ]
-[v F3013 `(v ~T0 @X0 0 tf ]
+"12 main.c
+[v _spista `S280 ~T0 @X0 0 e ]
+[v F3005 `(v ~T0 @X0 0 tf ]
 "14 kernel.h
-[v _create_task `(v ~T0 @X0 0 ef3`ui`ui`*F3013 ]
-"27 tasks.h
-[v _ctpista `(v ~T0 @X0 0 ef ]
-"25
+[v _create_task `(v ~T0 @X0 0 ef3`ui`ui`*F3005 ]
+"16 tasks.h
 [v _aviao1 `(v ~T0 @X0 0 ef ]
-"26
+"17
 [v _aviao2 `(v ~T0 @X0 0 ef ]
+"21
+[v _tluzesescreve `(v ~T0 @X0 0 ef ]
+"22
+[v _tluzes `(v ~T0 @X0 0 ef ]
 "21 kernel.h
 [v _start_os `(v ~T0 @X0 0 ef ]
-[v F3003 `(*uc ~T0 @X0 1 tf1`Nuc ]
-"22 memory.h
-[v _SRAMalloc `NF3003 ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2806,34 +2805,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
-[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
-[; ;memory.h: 24: void SRAMInitHeap(void);
-[; ;types.h: 15: typedef unsigned int u_int;
-[; ;types.h: 16: typedef unsigned char byte;
-[; ;types.h: 17: typedef void(*f_ptr)(void);
-[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 21: typedef struct stack_data {
-[; ;types.h: 22: byte TOSU_register;
-[; ;types.h: 23: byte TOSL_register;
-[; ;types.h: 24: byte TOSH_register;
-[; ;types.h: 25: } stack_data_t;
-[; ;types.h: 27: typedef struct stack {
-[; ;types.h: 28: stack_data_t STACK[32];
-[; ;types.h: 29: u_int stack_size;
-[; ;types.h: 30: } stack_t;
-[; ;types.h: 32: typedef struct tcb {
-[; ;types.h: 34: u_int task_id;
-[; ;types.h: 35: u_int task_prior;
-[; ;types.h: 36: f_ptr *task_f;
-[; ;types.h: 37: u_int delay_time;
-[; ;types.h: 39: state_t task_state;
-[; ;types.h: 40: stack_t task_stack;
-[; ;types.h: 41: byte BSR_register;
-[; ;types.h: 42: byte STATUS_register;
-[; ;types.h: 43: byte WORK_register;
-[; ;types.h: 44: } tcb_t;
-[; ;kernel.h: 11: extern tcb_t F_APTOS[5];
+[; ;types.h: 14: typedef unsigned int u_int;
+[; ;types.h: 15: typedef unsigned char byte;
+[; ;types.h: 16: typedef void(*f_ptr)(void);
+[; ;types.h: 18: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 20: typedef struct stack_data {
+[; ;types.h: 21: byte TOSU_register;
+[; ;types.h: 22: byte TOSL_register;
+[; ;types.h: 23: byte TOSH_register;
+[; ;types.h: 24: } stack_data_t;
+[; ;types.h: 26: typedef struct stack {
+[; ;types.h: 27: stack_data_t STACK[32];
+[; ;types.h: 28: u_int stack_size;
+[; ;types.h: 29: } stack_t;
+[; ;types.h: 31: typedef struct tcb {
+[; ;types.h: 33: u_int task_id;
+[; ;types.h: 34: u_int task_prior;
+[; ;types.h: 35: f_ptr *task_f;
+[; ;types.h: 36: u_int delay_time;
+[; ;types.h: 38: state_t task_state;
+[; ;types.h: 39: stack_t task_stack;
+[; ;types.h: 40: byte BSR_register;
+[; ;types.h: 41: byte STATUS_register;
+[; ;types.h: 42: byte WORK_register;
+[; ;types.h: 43: } tcb_t;
+[; ;kernel.h: 11: extern tcb_t F_APTOS[4];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
 [; ;kernel.h: 15: u_int get_id(u_int task_ptr);
@@ -2844,7 +2840,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.h: 20: void interrupt int_high();
 [; ;kernel.h: 21: void start_os();
 [; ;semaphore.h: 11: typedef struct sem_queue {
-[; ;semaphore.h: 12: u_int s_queue[5];
+[; ;semaphore.h: 12: u_int s_queue[4];
 [; ;semaphore.h: 13: u_int s_queue_pos_in;
 [; ;semaphore.h: 14: u_int s_queue_pos_out;
 [; ;semaphore.h: 15: } sem_queue_t;
@@ -2856,26 +2852,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;semaphore.h: 23: void sem_wait(sem_t *s);
 [; ;semaphore.h: 24: void sem_post(sem_t *s);
 [; ;semaphore.h: 25: int sem_get_value(sem_t s);
-[; ;tasks.h: 11: typedef struct aviao{
-[; ;tasks.h: 12: u_int numero;
-[; ;tasks.h: 13: u_int tempo_v;
-[; ;tasks.h: 14: u_int tempo_p;
-[; ;tasks.h: 15: }aviao_t;
-[; ;tasks.h: 17: typedef struct pista{
-[; ;tasks.h: 18: aviao_t aviaozinho;
-[; ;tasks.h: 19: u_int status;
-[; ;tasks.h: 20: sem_t s;
-[; ;tasks.h: 22: }pista_t;
-[; ;tasks.h: 24: aviao_t createAviao(aviao_t *av, u_int tempo_v, u_int tempo_p, u_int numero );
-[; ;tasks.h: 25: void aviao1();
-[; ;tasks.h: 26: void aviao2();
-[; ;tasks.h: 27: void ctpista();
+[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
+[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
+[; ;memory.h: 24: void SRAMInitHeap(void);
+[; ;tasks.h: 16: void aviao1();
+[; ;tasks.h: 17: void aviao2();
+[; ;tasks.h: 21: void tluzesescreve();
+[; ;tasks.h: 22: void tluzes();
 "11 main.c
-[; ;main.c: 11: asm("GLOBAL _task_idle, _aviao1, _aviao2, _ctpista");
-[; <" GLOBAL _task_idle, _aviao1, _aviao2, _ctpista ;# ">
-"13
-[v _semafaro `S280 ~T0 @X0 1 e ]
-[; ;main.c: 13: sem_t semafaro;
+[; ;main.c: 11: asm("GLOBAL _task_idle, _aviao1,_aviao2, _tluzesescreve, _tluzes");
+[; <" GLOBAL _task_idle, _aviao1,_aviao2, _tluzesescreve, _tluzes ;# ">
+[; ;main.c: 12: extern sem_t spista;
+[; ;main.c: 13: extern sem_t saviao1;
 [v $root$_main `(v ~T0 @X0 0 e ]
 "15
 [v _main `(v ~T0 @X0 1 ef ]
@@ -2886,38 +2874,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 17: setupOS();
 "17
 [e ( _setupOS ..  ]
-[; ;main.c: 18: SRAMInitHeap();
+[; ;main.c: 18: sem_init(&spista, 1);
 "18
-[e ( _SRAMInitHeap ..  ]
-[; ;main.c: 19: sem_init(&semafaro, 0);
-"19
-[e ( _sem_init (2 , &U _semafaro -> 0 `i ]
-[; ;main.c: 23: create_task(2, 3, &ctpista);
-"23
-[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _ctpista ]
-[; ;main.c: 24: create_task(3, 3, &aviao1);
+[e ( _sem_init (2 , &U _spista -> 1 `i ]
+[; ;main.c: 21: create_task(1, 3, &aviao1);
+"21
+[e ( _create_task (3 , , -> -> 1 `i `ui -> -> 3 `i `ui &U _aviao1 ]
+[; ;main.c: 22: create_task(5, 3, &aviao2);
+"22
+[e ( _create_task (3 , , -> -> 5 `i `ui -> -> 3 `i `ui &U _aviao2 ]
+[; ;main.c: 24: create_task(2, 3, &tluzesescreve);
 "24
-[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _aviao1 ]
-[; ;main.c: 25: create_task(4, 3, &aviao2);
+[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _tluzesescreve ]
+[; ;main.c: 25: create_task(3, 3, &tluzes);
 "25
-[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _aviao2 ]
-[; ;main.c: 29: start_os();
-"29
-[e ( _start_os ..  ]
+[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _tluzes ]
+[; ;main.c: 33: start_os();
 "33
-[v _mem `*uc ~T0 @X0 1 a ]
-[; ;main.c: 33: byte *mem = SRAMalloc(100);
-[e = _mem ( _SRAMalloc (1 -> -> 100 `i `uc ]
-[; ;main.c: 35: while (1);
-"35
-[e :U 285 ]
+[e ( _start_os ..  ]
+[; ;main.c: 39: while (1);
+"39
+[e :U 283 ]
+[e :U 282 ]
+[e $U 283  ]
 [e :U 284 ]
-[e $U 285  ]
-[e :U 286 ]
-[; ;main.c: 37: return;
-"37
-[e $UE 283  ]
-[; ;main.c: 38: }
-"38
-[e :UE 283 ]
+[; ;main.c: 41: return;
+"41
+[e $UE 281  ]
+[; ;main.c: 42: }
+"42
+[e :UE 281 ]
 }

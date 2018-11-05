@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Sun Oct 28 00:26:53 2018
+                                                                                               Mon Oct 29 01:02:11 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	18F4520
@@ -3659,76 +3659,76 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3611                           ;tasks.c: 81: PORTDbits.RD1 = 0;
   3612  00057E  9283               	bcf	3971,1,c	;volatile
   3613                           
-  3614                           ;tasks.c: 82: u_int n = aviaozinho1.numero;
-  3615  000580  C041  F061         	movff	_aviaozinho1,btemp+1
-  3616  000584  C042  F062         	movff	_aviaozinho1+1,btemp+2
-  3617                           
-  3618                           ;stkvar	ctpista@n @ sp[(-13)+10]
-  3619  000588  0EFD               	movlw	-3
-  3620  00058A  C061  FFE3         	movff	btemp+1,plusw1
-  3621  00058E  0EFE               	movlw	-2
-  3622  000590  C062  FFE3         	movff	btemp+2,plusw1
-  3623                           
-  3624                           ;tasks.c: 83: u_int tv = aviaozinho1.tempo_v;
-  3625  000594  EE20  F043         	lfsr	2,_aviaozinho1+2
-  3626  000598  CFDE F061          	movff	postinc2,btemp+1
-  3627  00059C  CFDD F062          	movff	postdec2,btemp+2
-  3628                           
-  3629                           ;stkvar	ctpista@tv @ sp[(-13)+8]
-  3630  0005A0  0EFB               	movlw	-5
-  3631  0005A2  C061  FFE3         	movff	btemp+1,plusw1
-  3632  0005A6  0EFC               	movlw	-4
-  3633  0005A8  C062  FFE3         	movff	btemp+2,plusw1
-  3634                           
-  3635                           ;tasks.c: 84: u_int tp = aviaozinho1.tempo_p;
-  3636  0005AC  EE20  F045         	lfsr	2,_aviaozinho1+4
-  3637  0005B0  CFDE F061          	movff	postinc2,btemp+1
-  3638  0005B4  CFDD F062          	movff	postdec2,btemp+2
-  3639                           
-  3640                           ;stkvar	ctpista@tp @ sp[(-13)+6]
-  3641  0005B8  0EF9               	movlw	-7
-  3642  0005BA  C061  FFE3         	movff	btemp+1,plusw1
-  3643  0005BE  0EFA               	movlw	-6
-  3644  0005C0  C062  FFE3         	movff	btemp+2,plusw1
-  3645                           
-  3646                           ;tasks.c: 85: PORTDbits.RD1 = ~PORTDbits.RD1;
-  3647  0005C4  A283               	btfss	3971,1,c	;volatile
-  3648  0005C6  D002               	goto	u58_20
-  3649  0005C8  0E01               	movlw	1
-  3650  0005CA  D001               	goto	u58_26
-  3651  0005CC                     u58_20:
-  3652  0005CC  0E00               	movlw	0
-  3653  0005CE                     u58_26:
-  3654  0005CE  0AFF               	xorlw	255
-  3655  0005D0  6E6B               	movwf	btemp+11,c
-  3656  0005D2  466B               	rlncf	btemp+11,f,c
-  3657  0005D4  5083               	movf	3971,w,c	;volatile
-  3658  0005D6  186B               	xorwf	btemp+11,w,c
-  3659  0005D8  0BFD               	andlw	-3
-  3660  0005DA  186B               	xorwf	btemp+11,w,c
-  3661  0005DC  6E83               	movwf	3971,c	;volatile
-  3662                           
-  3663                           ;tasks.c: 86: pista.aviaozinho.numero=n;
-  3664                           ;stkvar	ctpista@n @ sp[(-13)+10]
-  3665  0005DE  0EFD               	movlw	-3
-  3666  0005E0  CFE3 F005          	movff	plusw1,_pista
-  3667  0005E4  0EFE               	movlw	-2
-  3668  0005E6  CFE3 F006          	movff	plusw1,_pista+1
+  3614                           ;tasks.c: 82: sem_wait(&pista.s);
+  3615  000580  0E0D               	movlw	low (_pista+8)
+  3616  000582  6EE6               	movwf	postinc1,c
+  3617  000584  0E00               	movlw	high (_pista+8)
+  3618  000586  6EE6               	movwf	postinc1,c
+  3619  000588  ECD0  F007         	call	_sem_wait	;wreg free
+  3620                           
+  3621                           ;tasks.c: 84: u_int n = aviaozinho1.numero;
+  3622  00058C  C041  F061         	movff	_aviaozinho1,btemp+1
+  3623  000590  C042  F062         	movff	_aviaozinho1+1,btemp+2
+  3624                           
+  3625                           ;stkvar	ctpista@n @ sp[(-13)+10]
+  3626  000594  0EFD               	movlw	-3
+  3627  000596  C061  FFE3         	movff	btemp+1,plusw1
+  3628  00059A  0EFE               	movlw	-2
+  3629  00059C  C062  FFE3         	movff	btemp+2,plusw1
+  3630                           
+  3631                           ;tasks.c: 85: u_int tv = aviaozinho1.tempo_v;
+  3632  0005A0  EE20  F043         	lfsr	2,_aviaozinho1+2
+  3633  0005A4  CFDE F061          	movff	postinc2,btemp+1
+  3634  0005A8  CFDD F062          	movff	postdec2,btemp+2
+  3635                           
+  3636                           ;stkvar	ctpista@tv @ sp[(-13)+8]
+  3637  0005AC  0EFB               	movlw	-5
+  3638  0005AE  C061  FFE3         	movff	btemp+1,plusw1
+  3639  0005B2  0EFC               	movlw	-4
+  3640  0005B4  C062  FFE3         	movff	btemp+2,plusw1
+  3641                           
+  3642                           ;tasks.c: 86: u_int tp = aviaozinho1.tempo_p;
+  3643  0005B8  EE20  F045         	lfsr	2,_aviaozinho1+4
+  3644  0005BC  CFDE F061          	movff	postinc2,btemp+1
+  3645  0005C0  CFDD F062          	movff	postdec2,btemp+2
+  3646                           
+  3647                           ;stkvar	ctpista@tp @ sp[(-13)+6]
+  3648  0005C4  0EF9               	movlw	-7
+  3649  0005C6  C061  FFE3         	movff	btemp+1,plusw1
+  3650  0005CA  0EFA               	movlw	-6
+  3651  0005CC  C062  FFE3         	movff	btemp+2,plusw1
+  3652                           
+  3653                           ;tasks.c: 87: PORTDbits.RD1 = ~PORTDbits.RD1;
+  3654  0005D0  A283               	btfss	3971,1,c	;volatile
+  3655  0005D2  D002               	goto	u58_20
+  3656  0005D4  0E01               	movlw	1
+  3657  0005D6  D001               	goto	u58_26
+  3658  0005D8                     u58_20:
+  3659  0005D8  0E00               	movlw	0
+  3660  0005DA                     u58_26:
+  3661  0005DA  0AFF               	xorlw	255
+  3662  0005DC  6E6B               	movwf	btemp+11,c
+  3663  0005DE  466B               	rlncf	btemp+11,f,c
+  3664  0005E0  5083               	movf	3971,w,c	;volatile
+  3665  0005E2  186B               	xorwf	btemp+11,w,c
+  3666  0005E4  0BFD               	andlw	-3
+  3667  0005E6  186B               	xorwf	btemp+11,w,c
+  3668  0005E8  6E83               	movwf	3971,c	;volatile
   3669                           
-  3670                           ;tasks.c: 87: pista.status = 1;
-  3671  0005EA  0E00               	movlw	0
-  3672  0005EC  6E0C               	movwf	_pista+7,c
-  3673  0005EE  0E01               	movlw	1
-  3674  0005F0  6E0B               	movwf	_pista+6,c
-  3675                           
-  3676                           ;tasks.c: 88: sem_wait(&pista.s);
-  3677  0005F2  0E0D               	movlw	low (_pista+8)
-  3678  0005F4  6EE6               	movwf	postinc1,c
-  3679  0005F6  0E00               	movlw	high (_pista+8)
-  3680  0005F8  6EE6               	movwf	postinc1,c
-  3681  0005FA  ECD0  F007         	call	_sem_wait	;wreg free
+  3670                           ;tasks.c: 88: pista.aviaozinho.numero=n;
+  3671                           ;stkvar	ctpista@n @ sp[(-13)+10]
+  3672  0005EA  0EFD               	movlw	-3
+  3673  0005EC  CFE3 F005          	movff	plusw1,_pista
+  3674  0005F0  0EFE               	movlw	-2
+  3675  0005F2  CFE3 F006          	movff	plusw1,_pista+1
+  3676                           
+  3677                           ;tasks.c: 89: pista.status = 1;
+  3678  0005F6  0E00               	movlw	0
+  3679  0005F8  6E0C               	movwf	_pista+7,c
+  3680  0005FA  0E01               	movlw	1
+  3681  0005FC  6E0B               	movwf	_pista+6,c
   3682                           
-  3683                           ;tasks.c: 89: delay(tv+tp);
+  3683                           ;tasks.c: 90: delay(tv+tp);
   3684                           ;stkvar	ctpista@tp @ sp[(-13)+6]
   3685                           ;stkvar	ctpista@tv @ sp[(-13)+8]
   3686  0005FE  0EFB               	movlw	-5
@@ -3745,24 +3745,24 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3697  00061A  C062  FFE6         	movff	btemp+2,postinc1
   3698  00061E  EC67  F00A         	call	_delay	;wreg free
   3699                           
-  3700                           ;tasks.c: 90: sem_post(&pista.s);
+  3700                           ;tasks.c: 91: sem_post(&pista.s);
   3701  000622  0E0D               	movlw	low (_pista+8)
   3702  000624  6EE6               	movwf	postinc1,c
   3703  000626  0E00               	movlw	high (_pista+8)
   3704  000628  6EE6               	movwf	postinc1,c
   3705  00062A  EC3A  F007         	call	_sem_post	;wreg free
   3706                           
-  3707                           ;tasks.c: 91: pista.status = 0;
+  3707                           ;tasks.c: 92: pista.status = 0;
   3708  00062E  6A0B               	clrf	_pista+6,c
   3709  000630  6A0C               	clrf	_pista+7,c
   3710                           
-  3711                           ;tasks.c: 92: pista.aviaozinho.numero= 0;
+  3711                           ;tasks.c: 93: pista.aviaozinho.numero= 0;
   3712  000632  6A05               	clrf	_pista,c
   3713  000634  6A06               	clrf	_pista+1,c
   3714  000636                     l1581:
   3715                           
-  3716                           ;tasks.c: 97: }
-  3717                           ;tasks.c: 98: if(dado=='m')
+  3716                           ;tasks.c: 98: }
+  3717                           ;tasks.c: 99: if(dado=='m')
   3718                           ;stkvar	ctpista@dado @ sp[(-13)+12]
   3719  000636  0EFF               	movlw	-1
   3720  000638  CFE3 F060          	movff	plusw1,btemp
@@ -3771,84 +3771,84 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3723  000640  A4D8               	btfss	status,2,c
   3724  000642  D78C               	goto	l154
   3725                           
-  3726                           ;tasks.c: 99: {
-  3727                           ;tasks.c: 100: TRISDbits.RD2 = 0;
+  3726                           ;tasks.c: 100: {
+  3727                           ;tasks.c: 101: TRISDbits.RD2 = 0;
   3728  000644  9495               	bcf	3989,2,c	;volatile
   3729                           
-  3730                           ;tasks.c: 101: PORTDbits.RD2 = 0;
+  3730                           ;tasks.c: 102: PORTDbits.RD2 = 0;
   3731  000646  9483               	bcf	3971,2,c	;volatile
   3732                           
-  3733                           ;tasks.c: 102: u_int n = aviaozinho2.numero;
-  3734  000648  C03B  F061         	movff	_aviaozinho2,btemp+1
-  3735  00064C  C03C  F062         	movff	_aviaozinho2+1,btemp+2
-  3736                           
-  3737                           ;stkvar	ctpista@n_547 @ sp[(-13)+4]
-  3738  000650  0EF7               	movlw	-9
-  3739  000652  C061  FFE3         	movff	btemp+1,plusw1
-  3740  000656  0EF8               	movlw	-8
-  3741  000658  C062  FFE3         	movff	btemp+2,plusw1
-  3742                           
-  3743                           ;tasks.c: 103: u_int tv = aviaozinho2.tempo_v;
-  3744  00065C  EE20  F03D         	lfsr	2,_aviaozinho2+2
-  3745  000660  CFDE F061          	movff	postinc2,btemp+1
-  3746  000664  CFDD F062          	movff	postdec2,btemp+2
-  3747                           
-  3748                           ;stkvar	ctpista@tv_548 @ sp[(-13)+2]
-  3749  000668  0EF5               	movlw	-11
-  3750  00066A  C061  FFE3         	movff	btemp+1,plusw1
-  3751  00066E  0EF6               	movlw	-10
-  3752  000670  C062  FFE3         	movff	btemp+2,plusw1
-  3753                           
-  3754                           ;tasks.c: 104: u_int tp = aviaozinho2.tempo_p;
-  3755  000674  EE20  F03F         	lfsr	2,_aviaozinho2+4
-  3756  000678  CFDE F061          	movff	postinc2,btemp+1
-  3757  00067C  CFDD F062          	movff	postdec2,btemp+2
-  3758                           
-  3759                           ;stkvar	ctpista@tp_549 @ sp[(-13)+0]
-  3760  000680  0EF3               	movlw	-13
-  3761  000682  C061  FFE3         	movff	btemp+1,plusw1
-  3762  000686  0EF4               	movlw	-12
-  3763  000688  C062  FFE3         	movff	btemp+2,plusw1
-  3764                           
-  3765                           ;tasks.c: 105: PORTDbits.RD2 = ~PORTDbits.RD2;
-  3766  00068C  A483               	btfss	3971,2,c	;volatile
-  3767  00068E  D002               	goto	u60_20
-  3768  000690  0E01               	movlw	1
-  3769  000692  D001               	goto	u60_26
-  3770  000694                     u60_20:
-  3771  000694  0E00               	movlw	0
-  3772  000696                     u60_26:
-  3773  000696  0AFF               	xorlw	255
-  3774  000698  6E6B               	movwf	btemp+11,c
-  3775  00069A  466B               	rlncf	btemp+11,f,c
-  3776  00069C  466B               	rlncf	btemp+11,f,c
-  3777  00069E  5083               	movf	3971,w,c	;volatile
-  3778  0006A0  186B               	xorwf	btemp+11,w,c
-  3779  0006A2  0BFB               	andlw	-5
-  3780  0006A4  186B               	xorwf	btemp+11,w,c
-  3781  0006A6  6E83               	movwf	3971,c	;volatile
-  3782                           
-  3783                           ;tasks.c: 106: pista.aviaozinho.numero=n;
-  3784                           ;stkvar	ctpista@n_547 @ sp[(-13)+4]
-  3785  0006A8  0EF7               	movlw	-9
-  3786  0006AA  CFE3 F005          	movff	plusw1,_pista
-  3787  0006AE  0EF8               	movlw	-8
-  3788  0006B0  CFE3 F006          	movff	plusw1,_pista+1
+  3733                           ;tasks.c: 103: sem_wait(&pista.s);
+  3734  000648  0E0D               	movlw	low (_pista+8)
+  3735  00064A  6EE6               	movwf	postinc1,c
+  3736  00064C  0E00               	movlw	high (_pista+8)
+  3737  00064E  6EE6               	movwf	postinc1,c
+  3738  000650  ECD0  F007         	call	_sem_wait	;wreg free
+  3739                           
+  3740                           ;tasks.c: 105: u_int n = aviaozinho2.numero;
+  3741  000654  C03B  F061         	movff	_aviaozinho2,btemp+1
+  3742  000658  C03C  F062         	movff	_aviaozinho2+1,btemp+2
+  3743                           
+  3744                           ;stkvar	ctpista@n_547 @ sp[(-13)+4]
+  3745  00065C  0EF7               	movlw	-9
+  3746  00065E  C061  FFE3         	movff	btemp+1,plusw1
+  3747  000662  0EF8               	movlw	-8
+  3748  000664  C062  FFE3         	movff	btemp+2,plusw1
+  3749                           
+  3750                           ;tasks.c: 106: u_int tv = aviaozinho2.tempo_v;
+  3751  000668  EE20  F03D         	lfsr	2,_aviaozinho2+2
+  3752  00066C  CFDE F061          	movff	postinc2,btemp+1
+  3753  000670  CFDD F062          	movff	postdec2,btemp+2
+  3754                           
+  3755                           ;stkvar	ctpista@tv_548 @ sp[(-13)+2]
+  3756  000674  0EF5               	movlw	-11
+  3757  000676  C061  FFE3         	movff	btemp+1,plusw1
+  3758  00067A  0EF6               	movlw	-10
+  3759  00067C  C062  FFE3         	movff	btemp+2,plusw1
+  3760                           
+  3761                           ;tasks.c: 107: u_int tp = aviaozinho2.tempo_p;
+  3762  000680  EE20  F03F         	lfsr	2,_aviaozinho2+4
+  3763  000684  CFDE F061          	movff	postinc2,btemp+1
+  3764  000688  CFDD F062          	movff	postdec2,btemp+2
+  3765                           
+  3766                           ;stkvar	ctpista@tp_549 @ sp[(-13)+0]
+  3767  00068C  0EF3               	movlw	-13
+  3768  00068E  C061  FFE3         	movff	btemp+1,plusw1
+  3769  000692  0EF4               	movlw	-12
+  3770  000694  C062  FFE3         	movff	btemp+2,plusw1
+  3771                           
+  3772                           ;tasks.c: 108: PORTDbits.RD2 = ~PORTDbits.RD2;
+  3773  000698  A483               	btfss	3971,2,c	;volatile
+  3774  00069A  D002               	goto	u60_20
+  3775  00069C  0E01               	movlw	1
+  3776  00069E  D001               	goto	u60_26
+  3777  0006A0                     u60_20:
+  3778  0006A0  0E00               	movlw	0
+  3779  0006A2                     u60_26:
+  3780  0006A2  0AFF               	xorlw	255
+  3781  0006A4  6E6B               	movwf	btemp+11,c
+  3782  0006A6  466B               	rlncf	btemp+11,f,c
+  3783  0006A8  466B               	rlncf	btemp+11,f,c
+  3784  0006AA  5083               	movf	3971,w,c	;volatile
+  3785  0006AC  186B               	xorwf	btemp+11,w,c
+  3786  0006AE  0BFB               	andlw	-5
+  3787  0006B0  186B               	xorwf	btemp+11,w,c
+  3788  0006B2  6E83               	movwf	3971,c	;volatile
   3789                           
-  3790                           ;tasks.c: 107: pista.status = 1;
-  3791  0006B4  0E00               	movlw	0
-  3792  0006B6  6E0C               	movwf	_pista+7,c
-  3793  0006B8  0E01               	movlw	1
-  3794  0006BA  6E0B               	movwf	_pista+6,c
-  3795                           
-  3796                           ;tasks.c: 108: sem_wait(&pista.s);
-  3797  0006BC  0E0D               	movlw	low (_pista+8)
-  3798  0006BE  6EE6               	movwf	postinc1,c
-  3799  0006C0  0E00               	movlw	high (_pista+8)
-  3800  0006C2  6EE6               	movwf	postinc1,c
-  3801  0006C4  ECD0  F007         	call	_sem_wait	;wreg free
+  3790                           ;tasks.c: 109: pista.aviaozinho.numero=n;
+  3791                           ;stkvar	ctpista@n_547 @ sp[(-13)+4]
+  3792  0006B4  0EF7               	movlw	-9
+  3793  0006B6  CFE3 F005          	movff	plusw1,_pista
+  3794  0006BA  0EF8               	movlw	-8
+  3795  0006BC  CFE3 F006          	movff	plusw1,_pista+1
+  3796                           
+  3797                           ;tasks.c: 110: pista.status = 1;
+  3798  0006C0  0E00               	movlw	0
+  3799  0006C2  6E0C               	movwf	_pista+7,c
+  3800  0006C4  0E01               	movlw	1
+  3801  0006C6  6E0B               	movwf	_pista+6,c
   3802                           
-  3803                           ;tasks.c: 109: delay(tv+tp);
+  3803                           ;tasks.c: 111: delay(tv+tp);
   3804                           ;stkvar	ctpista@tp_549 @ sp[(-13)+0]
   3805                           ;stkvar	ctpista@tv_548 @ sp[(-13)+2]
   3806  0006C8  0EF5               	movlw	-11
@@ -3865,18 +3865,18 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   3817  0006E4  C062  FFE6         	movff	btemp+2,postinc1
   3818  0006E8  EC67  F00A         	call	_delay	;wreg free
   3819                           
-  3820                           ;tasks.c: 110: sem_post(&pista.s);
+  3820                           ;tasks.c: 112: sem_post(&pista.s);
   3821  0006EC  0E0D               	movlw	low (_pista+8)
   3822  0006EE  6EE6               	movwf	postinc1,c
   3823  0006F0  0E00               	movlw	high (_pista+8)
   3824  0006F2  6EE6               	movwf	postinc1,c
   3825  0006F4  EC3A  F007         	call	_sem_post	;wreg free
   3826                           
-  3827                           ;tasks.c: 111: pista.status = 0;
+  3827                           ;tasks.c: 113: pista.status = 0;
   3828  0006F8  6A0B               	clrf	_pista+6,c
   3829  0006FA  6A0C               	clrf	_pista+7,c
   3830                           
-  3831                           ;tasks.c: 112: pista.aviaozinho.numero= 0;
+  3831                           ;tasks.c: 114: pista.aviaozinho.numero= 0;
   3832  0006FC  6A05               	clrf	_pista,c
   3833  0006FE  6A06               	clrf	_pista+1,c
   3834  000700  D72D               	goto	l154
@@ -5988,7 +5988,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Sun Oct 28 00:26:53 2018
+Symbol Table                                                                                   Mon Oct 29 01:02:11 2018
 
                      l25 1394                       l78 0358                       u10 0D88  
                     l154 055C                      l229 089A                      l246 1482  
@@ -6012,9 +6012,9 @@ Symbol Table                                                                    
                   ?_main 0047          _tasks_installed 0003                    i2l101 0CC2  
                   i2l102 0C04                    i2l104 0CBE          __end_of___lwmod 1138  
                   i2l106 0CEC                    _TMR0L 000FD6                    u51_20 0EA6  
-                  u28_20 1656                    u60_20 0694                    u28_26 1658  
-                  u60_26 0696                    u45_20 0528                    u58_20 05CC  
-                  u58_26 05CE               __SRAMmerge 0D22                    _delay 14CE  
+                  u28_20 1656                    u60_20 06A0                    u28_26 1658  
+                  u60_26 06A2                    u45_20 0528                    u58_20 05D8  
+                  u58_26 05DA               __SRAMmerge 0D22                    _delay 14CE  
         __end_of_ctpista 0702                    _pipe1 002D                    _pista 0005  
         create_task@task 0080       __size_of_SRAMalloc 01A2                    tablat 000FF5  
                   ltemp0 0060                    ltemp1 0064                    ltemp2 0068  

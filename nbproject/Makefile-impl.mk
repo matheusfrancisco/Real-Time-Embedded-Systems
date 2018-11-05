@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=S.O-Embarcados
+PROJECTNAME=Versao_Final_
 
 # Active Configuration
 DEFAULTCONF=default

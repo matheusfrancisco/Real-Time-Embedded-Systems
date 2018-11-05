@@ -3823,12 +3823,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 22 "memory.h"
-unsigned char * near SRAMalloc(near unsigned char nBytes);
-void SRAMfree(unsigned char * near pSRAM);
-void SRAMInitHeap(void);
-
-# 15 "types.h"
+# 14 "types.h"
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -3861,7 +3856,7 @@ byte WORK_register;
 } tcb_t;
 
 # 11 "kernel.h"
-extern tcb_t F_APTOS[5];
+extern tcb_t F_APTOS[4];
 extern u_int task_running;
 
 void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -3875,7 +3870,7 @@ void start_os();
 
 # 11 "semaphore.h"
 typedef struct sem_queue {
-u_int s_queue[5];
+u_int s_queue[4];
 u_int s_queue_pos_in;
 u_int s_queue_pos_out;
 } sem_queue_t;
@@ -3890,50 +3885,41 @@ void sem_wait(sem_t *s);
 void sem_post(sem_t *s);
 int sem_get_value(sem_t s);
 
-# 11 "tasks.h"
-typedef struct aviao{
-u_int numero;
-u_int tempo_v;
-u_int tempo_p;
-}aviao_t;
+# 22 "memory.h"
+unsigned char * near SRAMalloc(near unsigned char nBytes);
+void SRAMfree(unsigned char * near pSRAM);
+void SRAMInitHeap(void);
 
-typedef struct pista{
-aviao_t aviaozinho;
-u_int status;
-sem_t s;
-
-}pista_t;
-
-aviao_t createAviao(aviao_t *av, u_int tempo_v, u_int tempo_p, u_int numero );
+# 16 "tasks.h"
 void aviao1();
 void aviao2();
-void ctpista();
+
+
+
+void tluzesescreve();
+void tluzes();
 
 # 11 "main.c"
-asm("GLOBAL _task_idle, _aviao1, _aviao2, _ctpista");
-
-sem_t semafaro;
+asm("GLOBAL _task_idle, _aviao1,_aviao2, _tluzesescreve, _tluzes");
+extern sem_t spista;
+extern sem_t saviao1;
 
 void main(void) {
 
 setupOS();
-SRAMInitHeap();
-sem_init(&semafaro, 0);
+sem_init(&spista, 1);
 
 
+create_task(1, 3, &aviao1);
+create_task(5, 3, &aviao2);
 
-create_task(2, 3, &ctpista);
-create_task(3, 3, &aviao1);
-create_task(4, 3, &aviao2);
+create_task(2, 3, &tluzesescreve);
+create_task(3, 3, &tluzes);
 
-
-
+# 33
 start_os();
 
-
-
-byte *mem = SRAMalloc(100);
-
+# 39
 while (1);
 
 return;

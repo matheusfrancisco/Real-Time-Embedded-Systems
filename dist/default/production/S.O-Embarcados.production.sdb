@@ -399,21 +399,21 @@ FINISHED 7
 "70
 [v _ctpista ctpista `R(v  1 e 1 0 ]
 {
-"104
+"107
 [v ctpista@tp_549 tp `ui  1 a 2 0 ]
-"103
+"106
 [v ctpista@tv_548 tv `ui  1 a 2 2 ]
-"102
+"105
 [v ctpista@n_547 n `ui  1 a 2 4 ]
-"84
+"86
 [v ctpista@tp tp `ui  1 a 2 6 ]
-"83
+"85
 [v ctpista@tv tv `ui  1 a 2 8 ]
-"82
+"84
 [v ctpista@n n `ui  1 a 2 10 ]
 "76
 [v ctpista@dado dado `uc  1 a 1 12 ]
-"116
+"118
 } 13
 "17 /home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/semaphore.c
 [v _sem_wait sem_wait `R(v  1 e 1 0 ]

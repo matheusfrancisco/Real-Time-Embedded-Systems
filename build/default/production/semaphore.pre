@@ -3823,12 +3823,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 22 "memory.h"
-unsigned char * near SRAMalloc(near unsigned char nBytes);
-void SRAMfree(unsigned char * near pSRAM);
-void SRAMInitHeap(void);
-
-# 15 "types.h"
+# 14 "types.h"
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -3862,7 +3857,7 @@ byte WORK_register;
 
 # 11 "semaphore.h"
 typedef struct sem_queue {
-u_int s_queue[5];
+u_int s_queue[4];
 u_int s_queue_pos_in;
 u_int s_queue_pos_out;
 } sem_queue_t;
@@ -3878,7 +3873,7 @@ void sem_post(sem_t *s);
 int sem_get_value(sem_t s);
 
 # 11 "kernel.h"
-extern tcb_t F_APTOS[5];
+extern tcb_t F_APTOS[4];
 extern u_int task_running;
 
 void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -3912,7 +3907,7 @@ void sem_wait(sem_t *s)
 s->contador--;
 if (s->contador < 0) {
 s->queue.s_queue[s->queue.s_queue_pos_in] = task_running;
-s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 5;
+s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 4;
 dispatcher(WAITING_SEM);
 }
 

@@ -7,24 +7,23 @@
 #define	TASKS_H
 
 #include "semaphore.h"
+#include "types.h"
+#include "memory.h"
 
-typedef struct aviao{
-    u_int numero;
-    u_int tempo_v;
-    u_int tempo_p;
-}aviao_t;
 
-typedef struct pista{
-    aviao_t aviaozinho;
-    u_int status;
-    sem_t s;
 
-}pista_t;
 
-aviao_t createAviao(aviao_t *av, u_int tempo_v, u_int tempo_p, u_int numero );
 void aviao1();
 void aviao2();
-void ctpista();
+//void aviao3();
+//void aviao4();
+//void Tluzes();
+void tluzesescreve();
+void tluzes();
 
+
+//void task_one_pipe();
+
+//pista1[10] = SRAMalloc(sizeof(pista));
 #endif	/* TASKS_H */
 

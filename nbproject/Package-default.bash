@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/S.O-Embarcados.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=S.O-Embarcados.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=s.o-embarcados/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Versao_Final_.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=Versao_Final_.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=versaofinal/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/s.o-embarcados/bin
+makeDirectory ${TMPDIR}/versaofinal/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/s.o-embarcados.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/versaofinal.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/s.o-embarcados.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/versaofinal.tar *
 checkReturnCode
 
 # Cleanup

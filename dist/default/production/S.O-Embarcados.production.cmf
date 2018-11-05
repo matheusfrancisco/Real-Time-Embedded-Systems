@@ -11,6 +11,12 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$/tmp/xcXYVdO96.obj
+idloc IDLOC 0 200000 200000 8 1
+stack STACK 2 514 514 EC 1
+init CODE 0 C C 8 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 300000 300000 E 1
 $dist/default/production/S.O-Embarcados.production.obj
 cinit CODE 0 159A 159A 3E 1
 intcode_body CODE 0 BB6 BB6 16C 1
@@ -45,12 +51,6 @@ intcode CODE 0 8 8 4 1
 dataCOMRAM COMRAM 1 6C 6C 2 1
 bssBIGRAM BIGRAM 1 EE EE 426 1
 bssCOMRAM COMRAM 1 1 1 46 1
-$/tmp/xcXJLO41j.obj
-idloc IDLOC 0 200000 200000 8 1
-stack STACK 2 514 514 EC 1
-init CODE 0 C C 8 1
-reset_vec CODE 0 0 0 4 1
-config CONFIG 0 300000 300000 E 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -150,30 +150,30 @@ FC6 text18 CODE >24:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcado
 57C text17 CODE >80:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
 57E text17 CODE >81:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
 580 text17 CODE >82:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-594 text17 CODE >83:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-5AC text17 CODE >84:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-5C4 text17 CODE >85:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-5DE text17 CODE >86:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-5EA text17 CODE >87:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-5F2 text17 CODE >88:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-5FE text17 CODE >89:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-622 text17 CODE >90:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-62E text17 CODE >91:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-632 text17 CODE >92:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-636 text17 CODE >98:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-644 text17 CODE >100:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-646 text17 CODE >101:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-648 text17 CODE >102:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-65C text17 CODE >103:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-674 text17 CODE >104:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-68C text17 CODE >105:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-6A8 text17 CODE >106:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-6B4 text17 CODE >107:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-6BC text17 CODE >108:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-6C8 text17 CODE >109:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-6EC text17 CODE >110:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-6F8 text17 CODE >111:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
-6FC text17 CODE >112:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+58C text17 CODE >84:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+5A0 text17 CODE >85:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+5B8 text17 CODE >86:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+5D0 text17 CODE >87:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+5EA text17 CODE >88:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+5F6 text17 CODE >89:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+5FE text17 CODE >90:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+622 text17 CODE >91:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+62E text17 CODE >92:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+632 text17 CODE >93:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+636 text17 CODE >99:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+644 text17 CODE >101:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+646 text17 CODE >102:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+648 text17 CODE >103:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+654 text17 CODE >105:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+668 text17 CODE >106:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+680 text17 CODE >107:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+698 text17 CODE >108:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+6B4 text17 CODE >109:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+6C0 text17 CODE >110:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+6C8 text17 CODE >111:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+6EC text17 CODE >112:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+6F8 text17 CODE >113:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
+6FC text17 CODE >114:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
 1558 text16 CODE >47:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
 1558 text16 CODE >51:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
 157C text16 CODE >59:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/tasks.c
@@ -326,37 +326,37 @@ E6A text8 CODE >390:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcado
 1380 text0 CODE >29:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/main.c
 1384 text0 CODE >33:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/main.c
 1394 text0 CODE >35:/home/evohc/Files-notSync/ENC/9th Semester/SOE/S.O-Embarcados/main.c
-159A cinit CODE >1917:/tmp/xcXwbOINb
-159A cinit CODE >1919:/tmp/xcXwbOINb
-159A cinit CODE >1922:/tmp/xcXwbOINb
-159A cinit CODE >1970:/tmp/xcXwbOINb
-159C cinit CODE >1971:/tmp/xcXwbOINb
-159E cinit CODE >1972:/tmp/xcXwbOINb
-15A0 cinit CODE >1973:/tmp/xcXwbOINb
-15A2 cinit CODE >1974:/tmp/xcXwbOINb
-15A4 cinit CODE >1975:/tmp/xcXwbOINb
-15A6 cinit CODE >1976:/tmp/xcXwbOINb
-15A8 cinit CODE >1977:/tmp/xcXwbOINb
-15AC cinit CODE >1978:/tmp/xcXwbOINb
-15AE cinit CODE >1979:/tmp/xcXwbOINb
-15B2 cinit CODE >1983:/tmp/xcXwbOINb
-15B6 cinit CODE >1984:/tmp/xcXwbOINb
-15BA cinit CODE >1985:/tmp/xcXwbOINb
-15BA cinit CODE >1986:/tmp/xcXwbOINb
-15BC cinit CODE >1987:/tmp/xcXwbOINb
-15BE cinit CODE >1988:/tmp/xcXwbOINb
-15C0 cinit CODE >1989:/tmp/xcXwbOINb
-15C2 cinit CODE >1990:/tmp/xcXwbOINb
-15C4 cinit CODE >1991:/tmp/xcXwbOINb
-15C6 cinit CODE >1994:/tmp/xcXwbOINb
-15CA cinit CODE >1995:/tmp/xcXwbOINb
-15CC cinit CODE >1996:/tmp/xcXwbOINb
-15CC cinit CODE >1997:/tmp/xcXwbOINb
-15CE cinit CODE >1998:/tmp/xcXwbOINb
-15D0 cinit CODE >1999:/tmp/xcXwbOINb
-15D2 cinit CODE >2005:/tmp/xcXwbOINb
-15D2 cinit CODE >2007:/tmp/xcXwbOINb
-15D4 cinit CODE >2008:/tmp/xcXwbOINb
+159A cinit CODE >1917:/tmp/xcXw63Zcl
+159A cinit CODE >1919:/tmp/xcXw63Zcl
+159A cinit CODE >1922:/tmp/xcXw63Zcl
+159A cinit CODE >1970:/tmp/xcXw63Zcl
+159C cinit CODE >1971:/tmp/xcXw63Zcl
+159E cinit CODE >1972:/tmp/xcXw63Zcl
+15A0 cinit CODE >1973:/tmp/xcXw63Zcl
+15A2 cinit CODE >1974:/tmp/xcXw63Zcl
+15A4 cinit CODE >1975:/tmp/xcXw63Zcl
+15A6 cinit CODE >1976:/tmp/xcXw63Zcl
+15A8 cinit CODE >1977:/tmp/xcXw63Zcl
+15AC cinit CODE >1978:/tmp/xcXw63Zcl
+15AE cinit CODE >1979:/tmp/xcXw63Zcl
+15B2 cinit CODE >1983:/tmp/xcXw63Zcl
+15B6 cinit CODE >1984:/tmp/xcXw63Zcl
+15BA cinit CODE >1985:/tmp/xcXw63Zcl
+15BA cinit CODE >1986:/tmp/xcXw63Zcl
+15BC cinit CODE >1987:/tmp/xcXw63Zcl
+15BE cinit CODE >1988:/tmp/xcXw63Zcl
+15C0 cinit CODE >1989:/tmp/xcXw63Zcl
+15C2 cinit CODE >1990:/tmp/xcXw63Zcl
+15C4 cinit CODE >1991:/tmp/xcXw63Zcl
+15C6 cinit CODE >1994:/tmp/xcXw63Zcl
+15CA cinit CODE >1995:/tmp/xcXw63Zcl
+15CC cinit CODE >1996:/tmp/xcXw63Zcl
+15CC cinit CODE >1997:/tmp/xcXw63Zcl
+15CE cinit CODE >1998:/tmp/xcXw63Zcl
+15D0 cinit CODE >1999:/tmp/xcXw63Zcl
+15D2 cinit CODE >2005:/tmp/xcXw63Zcl
+15D2 cinit CODE >2007:/tmp/xcXw63Zcl
+15D4 cinit CODE >2008:/tmp/xcXw63Zcl
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -376,7 +376,7 @@ __Hspace_2 600 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
 _ctpista 554 0 CODE 0 text17 dist/default/production/S.O-Embarcados.production.obj
 __end_of_write_pipe BB6 0 CODE 0 text10 dist/default/production/S.O-Embarcados.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production/S.O-Embarcados.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXJLO41j.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXYVdO96.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/S.O-Embarcados.production.obj
 ltemp0 60 0 COMRAM 1 temp dist/default/production/S.O-Embarcados.production.obj
 ltemp1 64 0 COMRAM 1 temp dist/default/production/S.O-Embarcados.production.obj
@@ -386,12 +386,12 @@ _TOSH FFE 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
 _TOSL FFD 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
 _TOSU FFF 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
 _WREG FE8 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
-___sp 514 0 STACK 2 stack /tmp/xcXJLO41j.obj
+___sp 514 0 STACK 2 stack /tmp/xcXYVdO96.obj
 _main 1310 0 CODE 0 text0 dist/default/production/S.O-Embarcados.production.obj
 btemp 60 0 COMRAM 1 temp dist/default/production/S.O-Embarcados.production.obj
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/S.O-Embarcados.production.obj
 __size_of_SRAMInitHeap 0 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
-start C 0 CODE 0 init /tmp/xcXJLO41j.obj
+start C 0 CODE 0 init /tmp/xcXYVdO96.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
 __size_of___lwmod 0 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/S.O-Embarcados.production.obj
@@ -410,11 +410,11 @@ __LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/S.O-Embarcados.producti
 __end_of_SRAMInitHeap 14CE 0 CODE 0 text5 dist/default/production/S.O-Embarcados.production.obj
 __end_of_start_os 1670 0 CODE 0 text1 dist/default/production/S.O-Embarcados.production.obj
 sem_init@s 58 0 COMRAM 1 cstackCOMRAM dist/default/production/S.O-Embarcados.production.obj
-__accesstop 80 0 ABS 0 - /tmp/xcXJLO41j.obj
-intlevel0 0 0 CODE 0 text /tmp/xcXJLO41j.obj
-intlevel1 0 0 CODE 0 text /tmp/xcXJLO41j.obj
-intlevel2 0 0 CODE 0 text /tmp/xcXJLO41j.obj
-intlevel3 0 0 CODE 0 text /tmp/xcXJLO41j.obj
+__accesstop 80 0 ABS 0 - /tmp/xcXYVdO96.obj
+intlevel0 0 0 CODE 0 text /tmp/xcXYVdO96.obj
+intlevel1 0 0 CODE 0 text /tmp/xcXYVdO96.obj
+intlevel2 0 0 CODE 0 text /tmp/xcXYVdO96.obj
+intlevel3 0 0 CODE 0 text /tmp/xcXYVdO96.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/S.O-Embarcados.production.obj
 __size_of_setupOS 0 0 ABS 0 - dist/default/production/S.O-Embarcados.production.obj
 _task_running 1 0 COMRAM 1 bssCOMRAM dist/default/production/S.O-Embarcados.production.obj
@@ -433,8 +433,8 @@ _createAviao 11DE 0 CODE 0 text15 dist/default/production/S.O-Embarcados.product
 _create_pipe 1138 0 CODE 0 text14 dist/default/production/S.O-Embarcados.production.obj
 _create_task 141A 0 CODE 0 text3 dist/default/production/S.O-Embarcados.production.obj
 _tasks_installed 3 0 COMRAM 1 bssCOMRAM dist/default/production/S.O-Embarcados.production.obj
-___inthi_sp 564 0 STACK 2 stack /tmp/xcXJLO41j.obj
-___intlo_sp 5B2 0 STACK 2 stack /tmp/xcXJLO41j.obj
+___inthi_sp 564 0 STACK 2 stack /tmp/xcXYVdO96.obj
+___intlo_sp 5B2 0 STACK 2 stack /tmp/xcXYVdO96.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/S.O-Embarcados.production.obj
 create_task@task_f 5C 0 COMRAM 1 cstackCOMRAM dist/default/production/S.O-Embarcados.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/S.O-Embarcados.production.obj
@@ -493,7 +493,7 @@ __Htext8 0 0 ABS 0 text8 dist/default/production/S.O-Embarcados.production.obj
 __Htext9 0 0 ABS 0 text9 dist/default/production/S.O-Embarcados.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production/S.O-Embarcados.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production/S.O-Embarcados.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXJLO41j.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXYVdO96.obj
 sem_init@value 5A 0 COMRAM 1 cstackCOMRAM dist/default/production/S.O-Embarcados.production.obj
 _SRAMalloc 702 0 CODE 0 text7 dist/default/production/S.O-Embarcados.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production/S.O-Embarcados.production.obj
@@ -617,8 +617,8 @@ __end_of_rr_scheduler 141A 0 CODE 0 text12 dist/default/production/S.O-Embarcado
 __end_of_ctpista 702 0 CODE 0 text17 dist/default/production/S.O-Embarcados.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production/S.O-Embarcados.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production/S.O-Embarcados.production.obj
-stackhi 5FF 0 ABS 0 - /tmp/xcXJLO41j.obj
-stacklo 514 0 ABS 0 - /tmp/xcXJLO41j.obj
+stackhi 5FF 0 ABS 0 - /tmp/xcXYVdO96.obj
+stacklo 514 0 ABS 0 - /tmp/xcXYVdO96.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production/S.O-Embarcados.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production/S.O-Embarcados.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production/S.O-Embarcados.production.obj
@@ -671,7 +671,7 @@ __Ltext19 0 0 ABS 0 text19 dist/default/production/S.O-Embarcados.production.obj
 __Ltext20 0 0 ABS 0 text20 dist/default/production/S.O-Embarcados.production.obj
 __Ltext21 0 0 ABS 0 text21 dist/default/production/S.O-Embarcados.production.obj
 __Ltext22 0 0 ABS 0 text22 dist/default/production/S.O-Embarcados.production.obj
-__ramtop 600 0 RAM 0 ramtop /tmp/xcXXRO5eL.obj
+__ramtop 600 0 RAM 0 ramtop /tmp/xcXYVdO96.obj
 create_task@task 80 0 BANK0 1 cstackBANK0 dist/default/production/S.O-Embarcados.production.obj
 __Lpowerup C 0 CODE 0 powerup dist/default/production/S.O-Embarcados.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/S.O-Embarcados.production.obj

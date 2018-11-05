@@ -6,111 +6,199 @@
 #include <pic18f4520.h>
 #include "tasks.h"
 #include "kernel.h"
-//#include "semaphore.h"
 #include "pipe.h"
+#include "lcd.h"
+#include "memory.h"
+//sem_t saviao2;
+//sem_t saviao3;
 
-pipe_t  pipe1 ;
-aviao_t aviaozinho1 ;
-aviao_t aviaozinho2 ;
-pista_t pista ;
 
-aviao_t createAviao(aviao_t *av, u_int tempo_v, u_int tempo_p, u_int numero )
-{
- av = (aviao_t*) SRAMalloc(sizeof(aviao_t));
+sem_t spista;
+///sem_init(&spista, 0);
+//pista1.status = 0;
 
- av->numero =numero;
- av->tempo_p = tempo_p;
- av->tempo_v = tempo_v;
- //return av;
-}
+pipe_t pipeluzes;
 
 void aviao1()
 {
-    // ideia é criar um aviao
-   createAviao(&aviaozinho1,100,100, 1);
-  // criar um pipe que seria a comunicacao do aviao
-   
-  //TRISDbits.RD1 = 0;
-  //PORTDbits.RD1 = 0;
- //  pipe1 = (pipe1*) SRAMalloc(sizeof(pipe1));
-  create_pipe(&pipe1);
+  TRISCbits.RC5 = 0;
+  PORTCbits.RC5 = 0;
+  
+  TRISDbits.RD1 = 0;
+  PORTDbits.RD1 = 0;
+  
+  TRISDbits.RD0 = 0;
+  PORTDbits.RD0 = 0;
+  
+  
+  
+  
+  u_int tempo_v1 = 5000;
+  u_int tempo_p1 = 1000;
+  
+  
+  //LCD_Init();
+  //LCD_PutChar('a');
+  
   while (1) {
-    //sem_wait(&s);
-
-    //PORTDbits.RD1 = ~PORTDbits.RD1;    
-      write_pipe(&pipe1, 'l');
-     //delay(100);
-    //sem_wait(&s);
-  }
+    PORTDbits.RD1 = 1;
+    delay(tempo_v1);
+    
+    sem_wait(&spista);
+    //pista1->status = 1;
+    PORTDbits.RD1 = 0;
+    PORTCbits.RC5 = 1;
+    
+    
+    
+    delay(tempo_p1);
+    //pista1->status = 0;
+    PORTCbits.RC5 = 0;
+    delay(2000);
+    
+    sem_post(&spista); 
+    
+    delay(600);
+    sem_wait(&spista);
+    
+    PORTDbits.RD0 = 1;
+    delay(5200);
+    PORTDbits.RD0 = 0;
+    delay(2500);
+    sem_post(&spista);
+    delay(2340);
+   }
 }
 
 void aviao2()
 {
-    // ideia é criar um aviao
-    //aviaozinho2 = (aviao_t*) SRAMalloc(sizeof(aviao_t));
-   createAviao(&aviaozinho2,1000,200, 2);
-  // criar um pipe que seria a comunicacao do aviao
-   //pipe_t  pipe2 = (pipe2*) SRAMalloc(sizeof(pipe2));
-   
-  //TRISDbits.RD1 = 0;
-  //PORTDbits.RD1 = 0;
-   //pipe1 = (pipe1*) SRAMalloc(sizeof(pipe1));
-
-  create_pipe(&pipe1);
+  // TRISCbits.RC5 = 0;
+  //PORTCbits.RC5 = 0;
+  
+  
+  TRISDbits.RD2 = 0;
+  PORTDbits.RD2 = 0;
+  
+  //TRISDbits.RD0 = 0;
+  //PORTDbits.RD0 = 0;
+  
+  u_int tempo_p2 = 1000;
+  u_int tempo_v2 = 6000;
   while (1) {
-    //sem_wait(&s);
+    PORTDbits.RD2 = 1;
+      
+    delay(tempo_v2);
+    sem_wait(&spista);
+    //pista1->status = 1;
+    PORTDbits.RD2 = 0;
+  
+    PORTCbits.RC5 = 1;
+    
+    delay(tempo_p2);
 
-    //PORTDbits.RD1 = ~PORTDbits.RD1;    
-      write_pipe(&pipe1, 'm');
-     //delay(100);
-    //sem_wait(&s);
+    
+    PORTCbits.RC5 = 0;
+     delay(600);
+
+    sem_post(&spista);    
+    
+    delay(600);
+    sem_wait(&spista);
+    
+    PORTDbits.RD0 = 1;
+    delay(4200);
+    
+    PORTDbits.RD0 = 0;
+    delay(1250);
+    sem_post(&spista);
+    delay(2300);
+   }
+}
+/*
+void aviao3()
+{
+ //TRISCbits.RC5 = 0;
+  //PORTCbits.RC5 = 0;
+  
+  TRISDbits.RD3 = 0;
+  PORTDbits.RD3 = 0;
+  
+  
+ // TRISDbits.RD0 = 0;
+//  PORTDbits.RD0 = 0;
+  
+  u_int tempo_v = 7000;
+  u_int tempo_p = 1000;
+  
+  
+  while (1) {
+    PORTDbits.RD3 = 1;
+      
+    delay(tempo_v);
+    sem_wait(&spista);
+    //pista1->status = 1;
+    PORTDbits.RD3 = 0;
+  
+    PORTCbits.RC5 = 1;
+    
+    delay(tempo_p);
+    //pista1->status = 0;
+    
+    PORTCbits.RC5 = 0;
+    delay(600);
+    sem_post(&spista);    
+    
+    
+    delay(600);
+    sem_wait(&spista);
+    
+    PORTDbits.RD0 = 1;
+    delay(7500);
+    PORTDbits.RD0 = 0;
+    delay(1500);
+    sem_post(&spista);
+    delay(1000);
+   }
+}
+*/
+void tluzes()
+{
+  TRISDbits.RD6 = 0;
+  PORTDbits.RD6 = 0;
+
+//  byte dado;
+//  dado = (byte*)SRAMalloc(sizeof(byte*) );
+  
+  while(1)
+  {
+    byte dado;
+    dado = (byte*)SRAMalloc(sizeof(byte*) );
+  
+      dado = read_pipe(&pipeluzes);
+      
+      if (dado == 'a')
+      {
+          
+           PORTDbits.RD6 = 1;
+           delay(1000);
+           PORTDbits.RD6 = 0;
+ 
+      }
+      SRAMfree(dado);
   }
+    
 }
 
-void ctpista()
+void tluzesescreve()
 {
-    //pista = (pista_t*) SRAMalloc(sizeof(pista_t));
+
+  create_pipe(&pipeluzes);
+  while(1)
+  {
+      delay(3000);
+      write_pipe(&pipeluzes,'a');
+      //delay(2000);
+     // write_pipe(&pipeluzes,'b');
+  }
     
-    while(1)
-    {
-        byte dado = read_pipe(&pipe1);
-        if(dado== 'l')
-        {
-            
-            TRISDbits.RD1 = 0;
-            PORTDbits.RD1 = 0;
-            u_int n = aviaozinho1.numero;
-            u_int tv = aviaozinho1.tempo_v;
-            u_int tp = aviaozinho1.tempo_p;
-            PORTDbits.RD1 = ~PORTDbits.RD1;
-            pista.aviaozinho.numero=n;
-            pista.status = 1;
-            sem_wait(&pista.s);
-            delay(tv+tp);
-            sem_post(&pista.s);
-            pista.status = 0;
-            pista.aviaozinho.numero= 0;
-            //SRAMfree(pipe1);
-            //delay(tv+tp);
-            
-            
-        }
-        if(dado=='m')
-        {
-            TRISDbits.RD2 = 0;
-            PORTDbits.RD2 = 0;
-            u_int n = aviaozinho2.numero;
-            u_int tv = aviaozinho2.tempo_v;
-            u_int tp = aviaozinho2.tempo_p;
-            PORTDbits.RD2 = ~PORTDbits.RD2;
-            pista.aviaozinho.numero=n;
-            pista.status = 1;
-            sem_wait(&pista.s);
-            delay(tv+tp);
-            sem_post(&pista.s);
-            pista.status = 0;
-            pista.aviaozinho.numero= 0;
-            //SRAMfree(pipe1);
-        }
-    }
 }

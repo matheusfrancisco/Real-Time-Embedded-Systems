@@ -7,10 +7,9 @@
 #define	TYPES_H
 
 #include <xc.h>
-#include "memory.h"
 
 #define STACK_SIZE 32
-#define MAX_TASKS   5
+#define MAX_TASKS  4
 
 typedef unsigned int u_int;
 typedef unsigned char byte;
@@ -42,7 +41,6 @@ typedef struct tcb {
   byte STATUS_register;
   byte WORK_register;
 } tcb_t;
-
 
 #endif	/* TYPES_H */
 
