@@ -21,7 +21,6 @@ void interrupt int_high();
 void start_os();
 
 // Macros para salvamento de contexto
-//di();
 
 #define SAVE_CONTEXT(STATE) \    
     F_APTOS[task_running].task_state = STATE; \
@@ -35,8 +34,7 @@ void start_os();
       F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSH_register = TOSH; \
       F_APTOS[task_running].task_stack.stack_size++; \
       asm("POP");\      
-    } while (STKPTR);
-    
+    } while (STKPTR);            
             
 #define RESTORE_CONTEXT()\\
     STKPTR = 0;\\    
@@ -56,7 +54,8 @@ void start_os();
           TOSH = F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSH_register;\\
         } while (F_APTOS[task_running].task_stack.stack_size);\\            
     }\\
-    F_APTOS[task_running].task_state = RUNNING;\
+    F_APTOS[task_running].task_state = RUNNING;\\
+    ei();\
             
 #endif	/* KERNEL_H */
 

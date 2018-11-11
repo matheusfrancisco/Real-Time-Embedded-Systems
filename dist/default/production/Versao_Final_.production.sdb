@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F4520 ]
 [d frameptr 4065 ]
-"16 /home/evohc/Files/ENC/SOE/Versao_Final_/kernel.c
+"17 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [e E3007 . `uc
 READY 1
 RUNNING 2
@@ -13,7 +13,7 @@ WAITING_SEM 5
 WAITING_PIPE 6
 FINISHED 7
 ]
-"18 /home/evohc/Files/ENC/SOE/Versao_Final_/scheduler.c
+"18 /home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
 [e E3007 . `uc
 READY 1
 RUNNING 2
@@ -23,7 +23,7 @@ WAITING_SEM 5
 WAITING_PIPE 6
 FINISHED 7
 ]
-"26 /home/evohc/Files/ENC/SOE/Versao_Final_/semaphore.c
+"26 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
 [e E3007 . `uc
 READY 1
 RUNNING 2
@@ -33,7 +33,7 @@ WAITING_SEM 5
 WAITING_PIPE 6
 FINISHED 7
 ]
-"29 /home/evohc/Files/ENC/SOE/Versao_Final_/pipe.c
+"29 /home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
 [e E3007 . `uc
 READY 1
 RUNNING 2
@@ -67,53 +67,55 @@ FINISHED 7
 [v ___wmul __wmul `R(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"20 /home/evohc/Files/ENC/SOE/Versao_Final_/kernel.c
+"21 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _create_task create_task `(v  1 e 1 0 ]
-"34
+"35
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
-"59
+"60
 [v _delay delay `R(v  1 e 1 0 ]
-"69
+"70
 [v _task_idle task_idle `R(v  1 e 1 0 ]
-"80
+"81
 [v _setupOS setupOS `(v  1 e 1 0 ]
-"103
+"107
 [v _int_high int_high `II(v  1 e 1 0 ]
-"128
+"132
 [v _start_os start_os `(v  1 e 1 0 ]
-"15 /home/evohc/Files/ENC/SOE/Versao_Final_/main.c
+"13 /home/evohc/Files-notSync/ENC/Versao_Final_/lcd.c
+[v _Lcd_Port Lcd_Port `R(v  1 e 1 0 ]
+"35
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+"74
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+"97
+[v _Lcd_Write_Char Lcd_Write_Char `R(v  1 e 1 0 ]
+"113
+[v _Lcd_Write_String Lcd_Write_String `R(v  1 e 1 0 ]
+"17 /home/evohc/Files-notSync/ENC/Versao_Final_/main.c
 [v _main main `(v  1 e 1 0 ]
-"181 /home/evohc/Files/ENC/SOE/Versao_Final_/memory.c
-[v _SRAMalloc SRAMalloc `NR(*.39uc  1 e 2 0 ]
-"277
-[v _SRAMfree SRAMfree `R(v  1 e 1 0 ]
-"303
+"303 /home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
 [v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
 "349
-[v __SRAMmerge _SRAMmerge `NR(uc  1 e 1 0 ]
-"9 /home/evohc/Files/ENC/SOE/Versao_Final_/pipe.c
-[v _create_pipe create_pipe `R(v  1 e 1 0 ]
-"20
-[v _write_pipe write_pipe `R(v  1 e 1 0 ]
-"51
-[v _read_pipe read_pipe `R(uc  1 e 1 0 ]
-"12 /home/evohc/Files/ENC/SOE/Versao_Final_/scheduler.c
+[v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
+"12 /home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
-"6 /home/evohc/Files/ENC/SOE/Versao_Final_/semaphore.c
+"6 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
 [v _sem_init sem_init `(v  1 e 1 0 ]
 "17
 [v _sem_wait sem_wait `R(v  1 e 1 0 ]
 "32
 [v _sem_post sem_post `R(v  1 e 1 0 ]
-"22 /home/evohc/Files/ENC/SOE/Versao_Final_/tasks.c
+"46
+[v _sem_get_value sem_get_value `R(i  1 e 2 0 ]
+"23 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+[v _testlcd testlcd `R(v  1 e 1 0 ]
+"69
 [v _aviao1 aviao1 `R(v  1 e 1 0 ]
-"73
+"124
 [v _aviao2 aviao2 `R(v  1 e 1 0 ]
-"164
-[v _tluzes tluzes `R(v  1 e 1 0 ]
-"192
-[v _tluzesescreve tluzesescreve `R(v  1 e 1 0 ]
-[s S417 . 1 `uc 1 RC0 1 0 :1:0 
+"169
+[v _aviao3 aviao3 `(v  1 e 1 0 ]
+[s S429 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -123,7 +125,7 @@ FINISHED 7
 `uc 1 RC7 1 0 :1:7 
 ]
 "495 /opt/microchip/xc8/v1.45/include/pic18f4520.h
-[s S457 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S469 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -132,7 +134,7 @@ FINISHED 7
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S466 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S478 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -141,16 +143,16 @@ FINISHED 7
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S475 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S487 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 ]
-[s S479 . 1 `uc 1 . 1 0 :1:0 
+[s S491 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S483 . 1 `S417 1 . 1 0 `S457 1 . 1 0 `S466 1 . 1 0 `S475 1 . 1 0 `S479 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES483  1 e 1 @3970 ]
+[u S495 . 1 `S429 1 . 1 0 `S469 1 . 1 0 `S478 1 . 1 0 `S487 1 . 1 0 `S491 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES495  1 e 1 @3970 ]
 [s S173 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
@@ -180,7 +182,7 @@ FINISHED 7
 ]
 [u S230 . 1 `S173 1 . 1 0 `S213 1 . 1 0 `S222 1 . 1 0 `S227 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES230  1 e 1 @3971 ]
-[s S408 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S420 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -190,8 +192,10 @@ FINISHED 7
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1951
-[u S426 . 1 `S408 1 . 1 0 `S417 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES426  1 e 1 @3988 ]
+[u S438 . 1 `S420 1 . 1 0 `S429 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES438  1 e 1 @3988 ]
+"2141
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 [s S164 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
@@ -264,54 +268,51 @@ FINISHED 7
 [v _TOSH TOSH `VEuc  1 e 1 @4094 ]
 "6997
 [v _TOSU TOSU `VEuc  1 e 1 @4095 ]
-"14 /home/evohc/Files/ENC/SOE/Versao_Final_/kernel.c
+"15 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _quantum quantum `ui  1 e 2 0 ]
 [s S86 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
-"16
+"17
 [s S90 stack 98 `[32]S86 1 STACK 96 0 `ui 1 stack_size 2 96 ]
 [s S93 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3007 1 task_state 1 8 `S90 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
 [v _F_APTOS F_APTOS `[4]S93  1 e 440 0 ]
-"17
-[v _tasks_installed tasks_installed `ui  1 e 2 0 ]
 "18
+[v _tasks_installed tasks_installed `ui  1 e 2 0 ]
+"19
 [v _task_running task_running `ui  1 e 2 0 ]
-"134 /home/evohc/Files/ENC/SOE/Versao_Final_/memory.c
+"134 /home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
 [v __uDynamicHeap _uDynamicHeap `[512]uc  1 e 512 0 ]
-[s S25 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
-"16 /home/evohc/Files/ENC/SOE/Versao_Final_/tasks.c
-[s S29 sem 14 `i 1 contador 2 0 `S25 1 queue 12 2 ]
-[v _spista spista `S29  1 e 14 0 ]
-[s S401 pipe 16 `[6]uc 1 pipe_queue 6 0 `ui 1 pos_read_pipe 2 6 `ui 1 pos_write_pipe 2 8 `ui 1 pipe_itens 2 10 `ui 1 pos_bloqued_read 2 12 `ui 1 pos_bloqued_write 2 14 ]
-"20
-[v _pipeluzes pipeluzes `S401  1 e 16 0 ]
-"15 /home/evohc/Files/ENC/SOE/Versao_Final_/main.c
+[s S29 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
+"16 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+[s S33 sem 14 `i 1 contador 2 0 `S29 1 queue 12 2 ]
+[v _spista spista `S33  1 e 14 0 ]
+"17 /home/evohc/Files-notSync/ENC/Versao_Final_/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"42
+"51
 } 0
-"128 /home/evohc/Files/ENC/SOE/Versao_Final_/kernel.c
+"132 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _start_os start_os `(v  1 e 1 0 ]
 {
-"134
+"138
 } 0
-"80
+"81
 [v _setupOS setupOS `(v  1 e 1 0 ]
 {
-"101
+"105
 } 0
-"20
+"21
 [v _create_task create_task `(v  1 e 1 0 ]
 {
 [s S86 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
-"22
+"23
 [s S90 stack 98 `[32]S86 1 STACK 96 0 `ui 1 stack_size 2 96 ]
 [s S93 tcb 110 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3007 1 task_state 1 8 `S90 1 task_stack 98 9 `uc 1 BSR_register 1 107 `uc 1 STATUS_register 1 108 `uc 1 WORK_register 1 109 ]
 [v create_task@task task `S93  1 a 110 0 ]
-"20
-[v create_task@id id `ui  1 p 2 17 ]
-[v create_task@prior prior `ui  1 p 2 19 ]
-[v create_task@task_f task_f `*.37R(v  1 p 2 21 ]
-"32
+"21
+[v create_task@id id `ui  1 p 2 21 ]
+[v create_task@prior prior `ui  1 p 2 23 ]
+[v create_task@task_f task_f `*.37R(v  1 p 2 25 ]
+"33
 } 0
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul16.c
 [v ___wmul __wmul `R(ui  1 e 2 0 ]
@@ -323,62 +324,82 @@ FINISHED 7
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 -4 ]
 "53
 } 2
-"303 /home/evohc/Files/ENC/SOE/Versao_Final_/memory.c
+"303 /home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
 [v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
 {
 "306
-[v SRAMInitHeap@count count `ui  1 a 2 17 ]
+[v SRAMInitHeap@count count `ui  1 a 2 21 ]
 "305
-[v SRAMInitHeap@pHeap pHeap `N*.39uc  1 a 2 19 ]
+[v SRAMInitHeap@pHeap pHeap `N*.39uc  1 a 2 23 ]
 "326
 } 0
-"6 /home/evohc/Files/ENC/SOE/Versao_Final_/semaphore.c
+"74 /home/evohc/Files-notSync/ENC/Versao_Final_/lcd.c
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+{
+"95
+} 0
+"35
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+{
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+"38
+[v Lcd_Cmd@a a `uc  1 a 1 22 ]
+"45
+} 0
+"13
+[v _Lcd_Port Lcd_Port `R(v  1 e 1 0 ]
+{
+[v Lcd_Port@a a `uc  1 p 1 -1 ]
+"34
+} 0
+"6 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
 [v _sem_init sem_init `(v  1 e 1 0 ]
 {
-[s S25 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
-[s S29 sem 14 `i 1 contador 2 0 `S25 1 queue 12 2 ]
-[v sem_init@s s `*.39S29  1 p 2 17 ]
-[v sem_init@value value `i  1 p 2 19 ]
+[s S29 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
+[s S33 sem 14 `i 1 contador 2 0 `S29 1 queue 12 2 ]
+[v sem_init@s s `*.39S33  1 p 2 21 ]
+[v sem_init@value value `i  1 p 2 23 ]
 "15
 } 0
-"22 /home/evohc/Files/ENC/SOE/Versao_Final_/tasks.c
+"69 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
 [v _aviao1 aviao1 `R(v  1 e 1 0 ]
 {
-"37
+"85
 [v aviao1@tempo_p1 tempo_p1 `ui  1 a 2 0 ]
-"36
+"84
 [v aviao1@tempo_v1 tempo_v1 `ui  1 a 2 2 ]
-"71
+"122
 } 4
-"17 /home/evohc/Files/ENC/SOE/Versao_Final_/semaphore.c
+"17 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
 [v _sem_wait sem_wait `R(v  1 e 1 0 ]
 {
-[s S25 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
-[s S29 sem 14 `i 1 contador 2 0 `S25 1 queue 12 2 ]
-[v sem_wait@s s `*.39S29  1 p 2 -2 ]
+[s S29 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
+[s S33 sem 14 `i 1 contador 2 0 `S29 1 queue 12 2 ]
+[v sem_wait@s s `*.39S33  1 p 2 -2 ]
 "30
 } 0
 "32
 [v _sem_post sem_post `R(v  1 e 1 0 ]
 {
-[s S25 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
-[s S29 sem 14 `i 1 contador 2 0 `S25 1 queue 12 2 ]
-[v sem_post@s s `*.39S29  1 p 2 -2 ]
+[s S29 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
+[s S33 sem 14 `i 1 contador 2 0 `S29 1 queue 12 2 ]
+[v sem_post@s s `*.39S33  1 p 2 -2 ]
 "44
 } 0
-"59 /home/evohc/Files/ENC/SOE/Versao_Final_/kernel.c
+"60 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _delay delay `R(v  1 e 1 0 ]
 {
 [v delay@time_ms time_ms `ui  1 p 2 -2 ]
-"67
+"68
 } 0
-"34
+"35
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
 {
 [v dispatcher@state state `E3007  1 p 1 -1 ]
-"52
+"53
 } 0
-"12 /home/evohc/Files/ENC/SOE/Versao_Final_/scheduler.c
+"12 /home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
 {
 "14
@@ -395,103 +416,71 @@ FINISHED 7
 [v ___lwmod@divisor divisor `ui  1 p 2 -4 ]
 "26
 } 1
-"73 /home/evohc/Files/ENC/SOE/Versao_Final_/tasks.c
+"124 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
 [v _aviao2 aviao2 `R(v  1 e 1 0 ]
 {
-"86
+"137
 [v aviao2@tempo_v2 tempo_v2 `ui  1 a 2 0 ]
-"85
+"136
 [v aviao2@tempo_p2 tempo_p2 `ui  1 a 2 2 ]
-"116
+"167
 } 4
-"192
-[v _tluzesescreve tluzesescreve `R(v  1 e 1 0 ]
+"23
+[v _testlcd testlcd `R(v  1 e 1 0 ]
 {
-"204
-} 0
-"20 /home/evohc/Files/ENC/SOE/Versao_Final_/pipe.c
-[v _write_pipe write_pipe `R(v  1 e 1 0 ]
+"61
+[v testlcd@b_562 b `i  1 a 2 0 ]
+"44
+[v testlcd@b b `i  1 a 2 2 ]
+"27
+[v testlcd@a a `i  1 a 2 4 ]
+"68
+} 6
+"46 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+[v _sem_get_value sem_get_value `R(i  1 e 2 0 ]
 {
-[s S401 pipe 16 `[6]uc 1 pipe_queue 6 0 `ui 1 pos_read_pipe 2 6 `ui 1 pos_write_pipe 2 8 `ui 1 pipe_itens 2 10 `ui 1 pos_bloqued_read 2 12 `ui 1 pos_bloqued_write 2 14 ]
-[v write_pipe@pipe pipe `*.39S401  1 p 2 -2 ]
-[v write_pipe@data data `uc  1 p 1 -3 ]
+[s S29 sem_queue 12 `[4]ui 1 s_queue 8 0 `ui 1 s_queue_pos_in 2 8 `ui 1 s_queue_pos_out 2 10 ]
+[s S33 sem 14 `i 1 contador 2 0 `S29 1 queue 12 2 ]
+[v sem_get_value@s s `S33  1 p 14 -14 ]
 "49
 } 0
-"9
-[v _create_pipe create_pipe `R(v  1 e 1 0 ]
+"113 /home/evohc/Files-notSync/ENC/Versao_Final_/lcd.c
+[v _Lcd_Write_String Lcd_Write_String `R(v  1 e 1 0 ]
 {
-[s S401 pipe 16 `[6]uc 1 pipe_queue 6 0 `ui 1 pos_read_pipe 2 6 `ui 1 pos_write_pipe 2 8 `ui 1 pipe_itens 2 10 `ui 1 pos_bloqued_read 2 12 `ui 1 pos_bloqued_write 2 14 ]
-[v create_pipe@pipe pipe `*.39S401  1 p 2 -2 ]
-"18
-} 0
-"164 /home/evohc/Files/ENC/SOE/Versao_Final_/tasks.c
-[v _tluzes tluzes `R(v  1 e 1 0 ]
+"115
+[v Lcd_Write_String@i i `i  1 a 2 0 ]
+"113
+[v Lcd_Write_String@a a `*.32uc  1 p 2 -2 ]
+"118
+} 2
+"97
+[v _Lcd_Write_Char Lcd_Write_Char `R(v  1 e 1 0 ]
 {
-"174
-[v tluzes@dado dado `uc  1 a 1 0 ]
-"190
-} 1
-"51 /home/evohc/Files/ENC/SOE/Versao_Final_/pipe.c
-[v _read_pipe read_pipe `R(uc  1 e 1 0 ]
-{
-"55
-[v read_pipe@dado dado `uc  1 a 1 0 ]
-[s S401 pipe 16 `[6]uc 1 pipe_queue 6 0 `ui 1 pos_read_pipe 2 6 `ui 1 pos_write_pipe 2 8 `ui 1 pipe_itens 2 10 `ui 1 pos_bloqued_read 2 12 `ui 1 pos_bloqued_write 2 14 ]
-"51
-[v read_pipe@pipe pipe `*.39S401  1 p 2 -2 ]
-"82
-} 1
-"277 /home/evohc/Files/ENC/SOE/Versao_Final_/memory.c
-[v _SRAMfree SRAMfree `R(v  1 e 1 0 ]
-{
-[v SRAMfree@pSRAM pSRAM `N*.39uc  1 p 2 -2 ]
-"281
-} 0
-"181
-[v _SRAMalloc SRAMalloc `NR(*.39uc  1 e 2 0 ]
-{
-[s S870 _BITS 1 `uc 1 count 1 0 :7:0 
-`uc 1 alloc 1 0 :1:7 
-]
-"183
-[u S873 _SALLOC 1 `uc 1 byte 1 0 `S870 1 bits 1 0 ]
-[v SRAMalloc@pHeap pHeap `N*.39S873  1 a 2 0 ]
-"184
-[v SRAMalloc@temp temp `N*.39S873  1 a 2 2 ]
-"185
-[v SRAMalloc@segHeader segHeader `S873  1 a 1 4 ]
-"186
-[v SRAMalloc@segLen segLen `uc  1 a 1 5 ]
-"181
-[v SRAMalloc@nBytes nBytes `Nuc  1 p 1 -1 ]
-"253
-} 6
-"349
-[v __SRAMmerge _SRAMmerge `NR(uc  1 e 1 0 ]
-{
-[s S870 _BITS 1 `uc 1 count 1 0 :7:0 
-`uc 1 alloc 1 0 :1:7 
-]
-"351
-[u S873 _SALLOC 1 `uc 1 byte 1 0 `S870 1 bits 1 0 ]
-[v __SRAMmerge@pSegB pSegB `N*.39S873  1 a 2 0 ]
-"352
-[v __SRAMmerge@uSegB uSegB `S873  1 a 1 2 ]
-[v __SRAMmerge@uSegA uSegA `S873  1 a 1 3 ]
-[v __SRAMmerge@uSum uSum `S873  1 a 1 4 ]
-"349
-[v __SRAMmerge@pSegA pSegA `N*.39S873  1 p 2 -2 ]
-"393
-} 5
-"69 /home/evohc/Files/ENC/SOE/Versao_Final_/kernel.c
+"99
+[v Lcd_Write_Char@y y `uc  1 a 1 0 ]
+[v Lcd_Write_Char@temp temp `uc  1 a 1 1 ]
+"97
+[v Lcd_Write_Char@a a `uc  1 p 1 -1 ]
+"111
+} 2
+"70 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _task_idle task_idle `R(v  1 e 1 0 ]
 {
-"77
+"78
 } 0
-"103
+"169 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+[v _aviao3 aviao3 `(v  1 e 1 0 ]
+{
+"182
+[v aviao3@tempo_p tempo_p `ui  1 a 2 19 ]
+"181
+[v aviao3@tempo_v tempo_v `ui  1 a 2 17 ]
+"212
+} 0
+"107 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _int_high int_high `II(v  1 e 1 0 ]
 {
-"105
+"109
 [v int_high@i i `ui  1 a 2 15 ]
-"126
+"130
 } 0

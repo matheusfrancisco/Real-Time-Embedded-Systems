@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "19 pipe.h
-[s S280 `uc -> 6 `i `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[s S280 `uc -> 4 `i `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S280 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
 "6696 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2838,14 +2838,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;types.h: 40: byte BSR_register;
 [; ;types.h: 41: byte STATUS_register;
 [; ;types.h: 42: byte WORK_register;
-[; ;types.h: 43: } tcb_t;
+[; ;types.h: 44: } tcb_t;
 [; ;pipe.h: 13: typedef struct pipe_bloqued_queue {
 [; ;pipe.h: 14: u_int b_queue[4];
 [; ;pipe.h: 15: u_int b_queue_pos_in;
 [; ;pipe.h: 16: u_int b_queue_pos_out;
 [; ;pipe.h: 17: } pipe_bloqued_queue_t;
 [; ;pipe.h: 19: typedef struct pipe {
-[; ;pipe.h: 20: byte pipe_queue[6];
+[; ;pipe.h: 20: byte pipe_queue[4];
 [; ;pipe.h: 22: u_int pos_read_pipe;
 [; ;pipe.h: 23: u_int pos_write_pipe;
 [; ;pipe.h: 24: u_int pipe_itens;
@@ -2910,9 +2910,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.c: 22: (INTCONbits.GIE = 0);
 "22
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;pipe.c: 25: if (pipe->pipe_itens == 6) {
+[; ;pipe.c: 25: if (pipe->pipe_itens == 4) {
 "25
-[e $ ! == . *U _pipe 3 -> -> 6 `i `ui 283  ]
+[e $ ! == . *U _pipe 3 -> -> 4 `i `ui 283  ]
 {
 [; ;pipe.c: 28: pipe->pos_bloqued_write = task_running;
 "28
@@ -2927,9 +2927,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.c: 32: pipe->pipe_queue[pipe->pos_write_pipe] = data;
 "32
 [e = *U + &U . *U _pipe 0 * -> . *U _pipe 2 `ux -> -> # *U &U . *U _pipe 0 `ui `ux _data ]
-[; ;pipe.c: 33: pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 6;
+[; ;pipe.c: 33: pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 4;
 "33
-[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui -> -> 6 `i `ui ]
+[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui -> -> 4 `i `ui ]
 [; ;pipe.c: 34: pipe->pipe_itens++;
 "34
 [e ++ . *U _pipe 3 -> -> 1 `i `ui ]
@@ -2967,59 +2967,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _pipe `*S280 ~T0 @X0 1 r1 ]
 "52
 [f ]
-[; ;pipe.c: 53: (INTCONbits.GIE = 0);
 "53
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"55
 [v _dado `uc ~T0 @X0 1 a ]
-[; ;pipe.c: 55: byte dado;
-[; ;pipe.c: 57: if (pipe->pipe_itens == 0) {
-"57
+[; ;pipe.c: 53: byte dado;
+[; ;pipe.c: 56: if (pipe->pipe_itens == 0) {
+"56
 [e $ ! == . *U _pipe 3 -> -> 0 `i `ui 286  ]
 {
-[; ;pipe.c: 60: pipe->pos_bloqued_read = task_running;
-"60
+[; ;pipe.c: 59: pipe->pos_bloqued_read = task_running;
+"59
 [e = . *U _pipe 4 _task_running ]
-[; ;pipe.c: 61: dispatcher(WAITING_PIPE);
-"61
+[; ;pipe.c: 60: dispatcher(WAITING_PIPE);
+"60
 [e ( _dispatcher (1 . `E3007 5 ]
-"62
+"61
 }
 [e :U 286 ]
-[; ;pipe.c: 62: }
-[; ;pipe.c: 64: dado = pipe->pipe_queue[pipe->pos_read_pipe];
-"64
+[; ;pipe.c: 61: }
+[; ;pipe.c: 63: dado = pipe->pipe_queue[pipe->pos_read_pipe];
+"63
 [e = _dado *U + &U . *U _pipe 0 * -> . *U _pipe 1 `ux -> -> # *U &U . *U _pipe 0 `ui `ux ]
-[; ;pipe.c: 65: pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 6;
+[; ;pipe.c: 64: pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
+"64
+[e = . *U _pipe 1 % + . *U _pipe 1 -> -> 1 `i `ui -> -> 4 `i `ui ]
+[; ;pipe.c: 65: pipe->pipe_itens--;
 "65
-[e = . *U _pipe 1 % + . *U _pipe 1 -> -> 1 `i `ui -> -> 6 `i `ui ]
-[; ;pipe.c: 66: pipe->pipe_itens--;
-"66
 [e -- . *U _pipe 3 -> -> 1 `i `ui ]
-[; ;pipe.c: 69: if(pipe->pos_bloqued_write > 0)
-"69
+[; ;pipe.c: 68: if(pipe->pos_bloqued_write > 0)
+"68
 [e $ ! > . *U _pipe 5 -> -> 0 `i `ui 287  ]
-[; ;pipe.c: 70: {
-"70
+[; ;pipe.c: 69: {
+"69
 {
-[; ;pipe.c: 71: F_APTOS[pipe->pos_bloqued_write].task_state = READY;
-"71
+[; ;pipe.c: 70: F_APTOS[pipe->pos_bloqued_write].task_state = READY;
+"70
 [e = . *U + &U _F_APTOS * -> . *U _pipe 5 `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3007 0 ]
-[; ;pipe.c: 72: pipe->pos_bloqued_write = 0;
-"72
+[; ;pipe.c: 71: pipe->pos_bloqued_write = 0;
+"71
 [e = . *U _pipe 5 -> -> 0 `i `ui ]
-"77
+"76
 }
 [e :U 287 ]
-[; ;pipe.c: 77: }
-[; ;pipe.c: 79: return dado;
-"79
+[; ;pipe.c: 76: }
+[; ;pipe.c: 77: return dado;
+"77
 [e ) _dado ]
 [e $UE 285  ]
-[; ;pipe.c: 80: (INTCONbits.GIE = 1);
-"80
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;pipe.c: 82: }
-"82
+[; ;pipe.c: 78: }
+"78
 [e :UE 285 ]
 }

@@ -6,9 +6,9 @@
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="1013" flags="00000002" y="162" h="645" pid="0" iid="-1">
+   <POPUP w="800" x="34" flags="00008003" y="165" h="200" pid="0" iid="-1">
     <PROPERTIES>
-     <ITEM name="Message Column Width">550</ITEM>
+     <ITEM name="Message Column Width">671</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
      <ITEM name="Source Column Width">100</ITEM>
      <ITEM name="Time Column Width">120</ITEM>
@@ -108,21 +108,15 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="680" x="1189" flags="0000002a" y="119" h="580" pid="1" iid="1">
+   <POPUP w="933" x="34" flags="0000002b" y="165" h="498" pid="1" iid="1">
     <PROPERTIES>
-     <ITEM name="Breakpoint 0">"",0016,0000,1342,DB26,1
+     <ITEM name="Breakpoint 0">"",0F28,0000,6001,31DA,1
 </ITEM>
-     <ITEM name="Breakpoint 1">"",1198,0000,4116,FF85,1
+     <ITEM name="Breakpoint 1">"",1036,0000,29FD,FF85,1
 </ITEM>
-     <ITEM name="Breakpoint 2">"",11B4,0000,C7CA,FF85,1
+     <ITEM name="Breakpoint 2">"",0FF2,0000,BDD3,FF85,1
 </ITEM>
-     <ITEM name="Breakpoint 3">"",0F86,0000,2070,31DA,-1
-</ITEM>
-     <ITEM name="Breakpoint 4">"",0FA2,0000,CA64,31DA,-1
-</ITEM>
-     <ITEM name="Breakpoint 5">"",0FA6,0000,7216,31DA,-1
-</ITEM>
-     <ITEM name="Breakpoint 6">"",0FA6,0000,E5D8,31DA,1
+     <ITEM name="Breakpoint 3">"",0EF2,0000,ACB5,FF85,1
 </ITEM>
      <ITEM name="CaseSensitive">No</ITEM>
      <ITEM name="DISPADDRS">Yes</ITEM>
@@ -130,22 +124,22 @@
      <ITEM name="DISPOPCODES">No</ITEM>
      <ITEM name="FIXUPBPTS">Yes</ITEM>
      <ITEM name="WordsOnly">No</ITEM>
-     <ITEM name="nBreakpoints">7</ITEM>
+     <ITEM name="nBreakpoints">2</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="707" x="1128" flags="0000000a" y="197" h="536" pid="2" iid="1">
+   <POPUP w="415" x="1068" flags="0000000b" y="168" h="570" pid="2" iid="1">
     <PROPERTIES>
-     <ITEM name="Address Column Width">150</ITEM>
+     <ITEM name="Address Column Width">96</ITEM>
      <ITEM name="AutoResize">No</ITEM>
      <ITEM name="Gridlines">Yes</ITEM>
-     <ITEM name="Name Column Width">170</ITEM>
+     <ITEM name="Name Column Width">177</ITEM>
      <ITEM name="ShowAddresses">Yes</ITEM>
      <ITEM name="ShowGlobals">Yes</ITEM>
      <ITEM name="ShowPreviousValues">No</ITEM>
      <ITEM name="ShowTypes">No</ITEM>
      <ITEM name="ShowWatchPoint">No</ITEM>
      <ITEM name="TriggerMode">0</ITEM>
-     <ITEM name="Value Column Width">190</ITEM>
+     <ITEM name="Value Column Width">96</ITEM>
      <ITEM name="Version">100</ITEM>
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>

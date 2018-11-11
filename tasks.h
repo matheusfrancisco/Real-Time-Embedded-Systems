@@ -15,11 +15,12 @@
 
 void aviao1();
 void aviao2();
-//void aviao3();
+void aviao3();
+void testlcd();
 //void aviao4();
 //void Tluzes();
-void tluzesescreve();
-void tluzes();
+//void tluzesescreve();
+//void tluzes();
 
 
 //void task_one_pipe();

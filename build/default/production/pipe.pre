@@ -3853,6 +3853,7 @@ stack_t task_stack;
 byte BSR_register;
 byte STATUS_register;
 byte WORK_register;
+
 } tcb_t;
 
 # 13 "pipe.h"
@@ -3863,7 +3864,7 @@ u_int b_queue_pos_out;
 } pipe_bloqued_queue_t;
 
 typedef struct pipe {
-byte pipe_queue[6];
+byte pipe_queue[4];
 
 u_int pos_read_pipe;
 u_int pos_write_pipe;
@@ -3909,7 +3910,7 @@ void write_pipe(pipe_t *pipe, byte data)
 (INTCONbits.GIE = 0);
 
 
-if (pipe->pipe_itens == 6) {
+if (pipe->pipe_itens == 4) {
 
 
 pipe->pos_bloqued_write = task_running;
@@ -3917,7 +3918,7 @@ dispatcher(WAITING_PIPE);
 }
 
 pipe->pipe_queue[pipe->pos_write_pipe] = data;
-pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 6;
+pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 4;
 pipe->pipe_itens++;
 
 
@@ -3935,9 +3936,8 @@ pipe->pos_bloqued_read = 0;
 
 byte read_pipe(pipe_t *pipe)
 {
-(INTCONbits.GIE = 0);
-
 byte dado;
+
 
 if (pipe->pipe_itens == 0) {
 
@@ -3947,7 +3947,7 @@ dispatcher(WAITING_PIPE);
 }
 
 dado = pipe->pipe_queue[pipe->pos_read_pipe];
-pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 6;
+pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 4;
 pipe->pipe_itens--;
 
 
@@ -3956,10 +3956,7 @@ if(pipe->pos_bloqued_write > 0)
 F_APTOS[pipe->pos_bloqued_write].task_state = READY;
 pipe->pos_bloqued_write = 0;
 
-# 77
+# 76
 }
-
 return dado;
-(INTCONbits.GIE = 1);
-
 }

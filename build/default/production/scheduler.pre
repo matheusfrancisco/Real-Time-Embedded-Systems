@@ -3853,6 +3853,7 @@ stack_t task_stack;
 byte BSR_register;
 byte STATUS_register;
 byte WORK_register;
+
 } tcb_t;
 
 # 11 "scheduler.h"

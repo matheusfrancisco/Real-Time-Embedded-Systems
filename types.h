@@ -40,6 +40,7 @@ typedef struct tcb {
   byte BSR_register;
   byte STATUS_register;
   byte WORK_register;
+
 } tcb_t;
 
 #endif	/* TYPES_H */

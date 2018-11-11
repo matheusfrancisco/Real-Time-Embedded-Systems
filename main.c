@@ -7,22 +7,31 @@
 #include "kernel.h"
 #include "tasks.h"
 #include "memory.h"
+#include "pipe.h"
 
-asm("GLOBAL _task_idle, _aviao1,_aviao2, _tluzesescreve, _tluzes"); 
+asm("GLOBAL _task_idle, _aviao1, _aviao2, _aviao3, _testlcd");// ,_tluzesescreve, _tluzes"); 
 extern sem_t spista;
 extern sem_t saviao1;
+//extern pipe_t mensagens;
 
 void main(void) {
   
   setupOS();
+  SRAMInitHeap();
+  
   sem_init(&spista, 1);
-  //LCD_Init();
+  
+
+
   // Criar as tarefas
   create_task(1, 3, &aviao1);
-  create_task(5, 3, &aviao2);
-  //create_task(6, 3, &aviao3);
-  create_task(2, 3, &tluzesescreve);
-  create_task(3, 3, &tluzes);
+  create_task(2, 1, &aviao2);
+  //create_task(3, 2, &aviao3);
+  create_task(4, 4, &testlcd);
+
+  //create_task(7, 3, &aviao4);
+  //create_task(2, 3, &tluzesescreve);
+  //create_task(3, 3, &tluzes);
   
 
   //sem_init(&spista, 1);

@@ -7,6 +7,7 @@
 #include "scheduler.h"
 #include "memory.h"
 #include "config.h"
+#include "lcd.h"
 
 
 #define QUANTUM 4
@@ -94,7 +95,10 @@ void setupOS()
   create_task(1,5, &task_idle);  
  
   //dispatcher(READY);
-  
+  //TRISD = 0x00;
+
+  TRISD = 0x00;
+  Lcd_Init();
   SRAMInitHeap();
   
   ei();

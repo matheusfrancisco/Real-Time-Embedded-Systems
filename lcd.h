@@ -10,28 +10,33 @@
 #include <xc.h>
 #include <string.h>
 #include <stdio.h>
-// LCD module connections
-#define LCD_D4 PORTDbits.RD4
-#define LCD_D5 PORTDbits.RD5
-#define LCD_D6 PORTDbits.RD6
-#define LCD_D7 PORTDbits.RD7
-#define LCD_EN PORTEbits.RE2
-#define LCD_RS PORTEbits.RE0
-// End LCD module connections
-#pragma config WDT=OFF
-long int count;
-char c; //Character to be printed to LCD
+#define _XTAL_FREQ 4000000// LCD module connections
+/*
+#define RS PORTEbits.RE0
+#define EN PORTEbits.RE2
 
+#define D4 PORTBbits.RB1
+#define D5 PORTBbits.RB2
+#define D6 PORTBbits.RB3
+#define D7 PORTBbits.RB4
 
+ */
+ // End LCD module connections
+#define RS PORTDbits.RD2
+#define EN PORTDbits.RD3
+#define D4 PORTDbits.RD4
+#define D5 PORTDbits.RD5
+#define D6 PORTDbits.RD6
+#define D7 PORTDbits.RD7
 
-void LCD_Init ( void );
-void LCD_SetPosition ( unsigned int c );
-void LCD_PutCmd ( unsigned int c );
-void LCD_PulseEnable ( void );
-void delay__(void);
-void upper (unsigned int c);
-void lower(unsigned int c);
-void LCD_PutChar ( unsigned int c );
+void Lcd_Port(char a);
+void Lcd_Cmd(char a);
+void Lcd_Clear();
+void  Lcd_Set_Cursor(char a, char b);
+void Lcd_Init();
+void Lcd_Write_String(char *a);
+void Lcd_Write_Char( char a);
+void Lcd_Shift_Right();
+void Lcd_Shift_Left();
 
 #endif	/* LCD_H */
-

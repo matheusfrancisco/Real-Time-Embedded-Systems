@@ -12,6 +12,7 @@
       <itemPath>pipe.h</itemPath>
       <itemPath>memory.h</itemPath>
       <itemPath>config.h</itemPath>
+      <itemPath>lcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -27,6 +28,7 @@
       <itemPath>semaphore.c</itemPath>
       <itemPath>pipe.c</itemPath>
       <itemPath>memory.c</itemPath>
+      <itemPath>lcd.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -160,7 +162,7 @@
         <property key="oscillator.rcfrequency" value="250"/>
         <property key="oscillator.rcfrequencyunit" value="Kilo"/>
         <property key="periphADC1.altscl" value="false"/>
-        <property key="periphADC1.minTacq" value=""/>
+        <property key="periphADC1.minTacq" value="5"/>
         <property key="periphADC1.tacqunits" value="microseconds"/>
         <property key="periphADC2.altscl" value="false"/>
         <property key="periphADC2.minTacq" value=""/>

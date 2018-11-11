@@ -3853,6 +3853,7 @@ stack_t task_stack;
 byte BSR_register;
 byte STATUS_register;
 byte WORK_register;
+
 } tcb_t;
 
 # 11 "kernel.h"
@@ -3893,33 +3894,58 @@ void SRAMInitHeap(void);
 # 16 "tasks.h"
 void aviao1();
 void aviao2();
+void aviao3();
+void testlcd();
+
+# 13 "pipe.h"
+typedef struct pipe_bloqued_queue {
+u_int b_queue[4];
+u_int b_queue_pos_in;
+u_int b_queue_pos_out;
+} pipe_bloqued_queue_t;
+
+typedef struct pipe {
+byte pipe_queue[4];
+
+u_int pos_read_pipe;
+u_int pos_write_pipe;
+u_int pipe_itens;
 
 
+u_int pos_bloqued_read;
+u_int pos_bloqued_write;
 
-void tluzesescreve();
-void tluzes();
+} pipe_t;
 
-# 11 "main.c"
-asm("GLOBAL _task_idle, _aviao1,_aviao2, _tluzesescreve, _tluzes");
+void create_pipe(pipe_t *pipe);
+void write_pipe(pipe_t *pipe, byte data);
+byte read_pipe(pipe_t *pipe);
+
+# 12 "main.c"
+asm("GLOBAL _task_idle, _aviao1, _aviao2, _aviao3, _testlcd");
 extern sem_t spista;
 extern sem_t saviao1;
+
 
 void main(void) {
 
 setupOS();
+SRAMInitHeap();
+
 sem_init(&spista, 1);
 
 
+
+
 create_task(1, 3, &aviao1);
-create_task(5, 3, &aviao2);
+create_task(2, 1, &aviao2);
 
-create_task(2, 3, &tluzesescreve);
-create_task(3, 3, &tluzes);
+create_task(4, 4, &testlcd);
 
-# 33
+# 42
 start_os();
 
-# 39
+# 48
 while (1);
 
 return;

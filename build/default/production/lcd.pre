@@ -1,5 +1,5 @@
 
-# 1 "semaphore.c"
+# 1 "lcd.c"
 
 # 26 "/opt/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3823,6 +3823,112 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 4 "/opt/microchip/xc8/v1.45/include/__size_t.h"
+typedef unsigned size_t;
+
+# 14 "/opt/microchip/xc8/v1.45/include/string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+# 36
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 7 "/opt/microchip/xc8/v1.45/include/stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "/opt/microchip/xc8/v1.45/include/stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "/opt/microchip/xc8/v1.45/include/errno.h"
+extern int errno;
+
+# 12 "/opt/microchip/xc8/v1.45/include/conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "/opt/microchip/xc8/v1.45/include/stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 32 "lcd.h"
+void Lcd_Port(char a);
+void Lcd_Cmd(char a);
+void Lcd_Clear();
+void Lcd_Set_Cursor(char a, char b);
+void Lcd_Init();
+void Lcd_Write_String(char *a);
+void Lcd_Write_Char( char a);
+void Lcd_Shift_Right();
+void Lcd_Shift_Left();
+
 # 14 "types.h"
 typedef unsigned int u_int;
 typedef unsigned char byte;
@@ -3856,23 +3962,6 @@ byte WORK_register;
 
 } tcb_t;
 
-# 11 "semaphore.h"
-typedef struct sem_queue {
-u_int s_queue[4];
-u_int s_queue_pos_in;
-u_int s_queue_pos_out;
-} sem_queue_t;
-
-typedef struct sem {
-int contador;
-sem_queue_t queue;
-} sem_t;
-
-void sem_init(sem_t *s, int value);
-void sem_wait(sem_t *s);
-void sem_post(sem_t *s);
-int sem_get_value(sem_t s);
-
 # 11 "kernel.h"
 extern tcb_t F_APTOS[4];
 extern u_int task_running;
@@ -3886,51 +3975,122 @@ void setupOS();
 void interrupt int_high();
 void start_os();
 
-# 4 "semaphore.c"
-extern u_int task_running;
-
-void sem_init(sem_t *s, int value)
+# 13 "lcd.c"
+void Lcd_Port(char a)
 {
-(INTCONbits.GIE = 0);
+if(a & 1)
+PORTDbits.RD4 = 1;
+else
+PORTDbits.RD4 = 0;
 
-s->contador = value;
-s->queue.s_queue_pos_in = 0;
-s->queue.s_queue_pos_out = 0;
+if(a & 2)
+PORTDbits.RD5 = 1;
+else
+PORTDbits.RD5 = 0;
 
-(INTCONbits.GIE = 1);
+if(a & 4)
+PORTDbits.RD6 = 1;
+else
+PORTDbits.RD6 = 0;
+
+if(a & 8)
+PORTDbits.RD7 = 1;
+else
+PORTDbits.RD7 = 0;
 }
-
-void sem_wait(sem_t *s)
+void Lcd_Cmd(char a)
 {
-(INTCONbits.GIE = 0);
 
+PORTDbits.RD2 = 0;
+Lcd_Port(a);
+PORTDbits.RD3 = 1;
 
-s->contador--;
-if (s->contador < 0) {
-s->queue.s_queue[s->queue.s_queue_pos_in] = task_running;
-s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 4;
-dispatcher(WAITING_SEM);
+_delay((unsigned long)((4)*(4000000/4000.0)));
+PORTDbits.RD3 = 0;
+
 }
 
-(INTCONbits.GIE = 1);
-}
-
-void sem_post(sem_t *s)
+void Lcd_Clear()
 {
-(INTCONbits.GIE = 0);
-
-s->contador++;
-if (s->contador <= 0) {
-F_APTOS[s->queue.s_queue[s->queue.s_queue_pos_out]].task_state = READY;
-s->queue.s_queue_pos_out = (s->queue.s_queue_pos_out + 1) % s->queue.s_queue_pos_in;
-dispatcher(READY);
+Lcd_Cmd(0);
+Lcd_Cmd(1);
 }
 
-(INTCONbits.GIE = 1);
-}
-
-int sem_get_value(sem_t s)
+void Lcd_Set_Cursor(char a, char b)
 {
-return s.contador;
+char temp,z,y;
+if(a == 1)
+{
+temp = 0x80 + b - 1;
+z = temp>>4;
+y = temp & 0x0F;
+Lcd_Cmd(z);
+Lcd_Cmd(y);
+}
+else if(a == 2)
+{
+temp = 0xC0 + b - 1;
+z = temp>>4;
+y = temp & 0x0F;
+Lcd_Cmd(z);
+Lcd_Cmd(y);
+}
 }
 
+void Lcd_Init()
+{
+
+
+Lcd_Port(0x00);
+_delay((unsigned long)((20)*(4000000/4000.0)));
+Lcd_Cmd(0x03);
+_delay((unsigned long)((5)*(4000000/4000.0)));
+Lcd_Cmd(0x03);
+_delay((unsigned long)((11)*(4000000/4000.0)));
+Lcd_Cmd(0x03);
+
+Lcd_Cmd(0x02);
+Lcd_Cmd(0x02);
+Lcd_Cmd(0x08);
+Lcd_Cmd(0x00);
+Lcd_Cmd(0x0C);
+Lcd_Cmd(0x00);
+Lcd_Cmd(0x06);
+
+
+}
+
+void Lcd_Write_Char(char a)
+{
+char temp,y;
+temp = a&0x0F;
+y = a&0xF0;
+PORTDbits.RD2 = 1;
+Lcd_Port(y>>4);
+PORTDbits.RD3 = 1;
+delay(20);
+PORTDbits.RD3 = 0;
+Lcd_Port(temp);
+PORTDbits.RD3 = 1;
+delay(20);
+PORTDbits.RD3 = 0;
+}
+
+void Lcd_Write_String(char *a)
+{
+int i;
+for(i=0;a[i]!='\0';i++)
+Lcd_Write_Char(a[i]);
+}
+
+void Lcd_Shift_Right()
+{
+Lcd_Cmd(0x01);
+Lcd_Cmd(0x0C);
+}
+
+void Lcd_Shift_Left()
+{
+Lcd_Cmd(0x01);
+Lcd_Cmd(0x08);
+}

@@ -4,5 +4,6 @@
 semaphore.h  \
 memory.h  \
 tasks.h  \
+pipe.h  \
 types.h  \
 kernel.h 

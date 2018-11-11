@@ -2821,7 +2821,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;types.h: 40: byte BSR_register;
 [; ;types.h: 41: byte STATUS_register;
 [; ;types.h: 42: byte WORK_register;
-[; ;types.h: 43: } tcb_t;
+[; ;types.h: 44: } tcb_t;
 [; ;scheduler.h: 11: u_int rr_scheduler();
 [; ;scheduler.h: 12: u_int prior_scheduler();
 [; ;scheduler.c: 8: extern u_int tasks_installed;
