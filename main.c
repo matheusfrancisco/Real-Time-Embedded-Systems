@@ -9,29 +9,28 @@
 #include "memory.h"
 #include "pipe.h"
 
-asm("GLOBAL _task_idle, _aviao1, _aviao2, _aviao3, _testlcd");// ,_tluzesescreve, _tluzes"); 
-extern sem_t spista;
-extern sem_t saviao1;
+asm("GLOBAL _task_idle, _aviao1,_aviao2,_aviao3 ,_tluzesescreve, _tluzes"); 
+
 //extern pipe_t mensagens;
 
 void main(void) {
   
   setupOS();
   SRAMInitHeap();
+  extern sem_t spista;
   
+  confi_port();
   sem_init(&spista, 1);
-  
 
 
   // Criar as tarefas
-  create_task(1, 3, &aviao1);
-  create_task(2, 1, &aviao2);
-  //create_task(3, 2, &aviao3);
-  create_task(4, 4, &testlcd);
-
+  create_task(2, 3, &aviao1);
+  create_task(3, 3, &aviao2);
+  create_task(4, 3, &aviao3);
+ 
   //create_task(7, 3, &aviao4);
-  //create_task(2, 3, &tluzesescreve);
-  //create_task(3, 3, &tluzes);
+  create_task(5, 3, &tluzesescreve);
+  create_task(6, 3, &tluzes);
   
 
   //sem_init(&spista, 1);
@@ -39,13 +38,16 @@ void main(void) {
  
   //sem_init(&spista,0);  
   // Incializa o escalonador de tarefas
-  start_os();
+  //start_os();
   
   
   // Teste (não precisa estar aqui)
   //byte *mem = SRAMalloc(100);
-  
-  while (1);
+  start_os();
+  while (1)
+  {
+      
+  }
   
   return;
 }

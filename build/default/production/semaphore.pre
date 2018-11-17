@@ -3823,12 +3823,15 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 14 "types.h"
+# 12 "types.h"
+const int STACK_SIZE = 31;
+
+
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
 
-typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
 
 typedef struct stack_data {
 byte TOSU_register;
@@ -3837,7 +3840,7 @@ byte TOSH_register;
 } stack_data_t;
 
 typedef struct stack {
-stack_data_t STACK[32];
+stack_data_t STACK[STACK_SIZE];
 u_int stack_size;
 } stack_t;
 
@@ -3858,7 +3861,7 @@ byte WORK_register;
 
 # 11 "semaphore.h"
 typedef struct sem_queue {
-u_int s_queue[4];
+u_int s_queue[10];
 u_int s_queue_pos_in;
 u_int s_queue_pos_out;
 } sem_queue_t;
@@ -3874,7 +3877,7 @@ void sem_post(sem_t *s);
 int sem_get_value(sem_t s);
 
 # 11 "kernel.h"
-extern tcb_t F_APTOS[4];
+extern tcb_t F_APTOS[10];
 extern u_int task_running;
 
 void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -3882,9 +3885,9 @@ u_int get_id(u_int task_ptr);
 void delay(u_int time_ms);
 void dispatcher(state_t state);
 void task_idle();
+void start_os();
 void setupOS();
 void interrupt int_high();
-void start_os();
 
 # 4 "semaphore.c"
 extern u_int task_running;
@@ -3908,8 +3911,8 @@ void sem_wait(sem_t *s)
 s->contador--;
 if (s->contador < 0) {
 s->queue.s_queue[s->queue.s_queue_pos_in] = task_running;
-s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 4;
-dispatcher(WAITING_SEM);
+s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 10;
+dispatcher(WAITING);
 }
 
 (INTCONbits.GIE = 1);

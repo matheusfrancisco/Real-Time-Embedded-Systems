@@ -8,14 +8,15 @@
 
 #include <xc.h>
 
-#define STACK_SIZE 32
-#define MAX_TASKS  4
+//#define STACK_SIZE 31
+const int STACK_SIZE = 31;
+#define MAX_TASKS 10
 
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
 
-typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
 
 typedef struct stack_data {
   byte TOSU_register;

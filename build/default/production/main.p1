@@ -1,29 +1,33 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"19 kernel.h
+"20 kernel.h
 [v _setupOS `(v ~T0 @X0 0 ef ]
 "24 memory.h
 [v _SRAMInitHeap `(v ~T0 @X0 0 ef ]
 "11 semaphore.h
-[s S279 `ui -> 4 `i `ui 1 `ui 1 ]
+[s S279 `ui -> 10 `i `ui 1 `ui 1 ]
 [n S279 sem_queue s_queue s_queue_pos_in s_queue_pos_out ]
 "17
 [s S280 `i 1 `S279 1 ]
 [n S280 sem contador queue ]
-"22
+"14 tasks.h
+[v _confi_port `(v ~T0 @X0 0 ef ]
+"22 semaphore.h
 [v _sem_init `(v ~T0 @X0 0 ef2`*S280`i ]
-"13 main.c
-[v _spista `S280 ~T0 @X0 0 e ]
-[v F3005 `(v ~T0 @X0 0 tf ]
+[v F3006 `(v ~T0 @X0 0 tf ]
 "14 kernel.h
-[v _create_task `(v ~T0 @X0 0 ef3`ui`ui`*F3005 ]
-"16 tasks.h
+[v _create_task `(v ~T0 @X0 0 ef3`ui`ui`*F3006 ]
+"15 tasks.h
 [v _aviao1 `(v ~T0 @X0 0 ef ]
-"17
+"16
 [v _aviao2 `(v ~T0 @X0 0 ef ]
+"17
+[v _aviao3 `(v ~T0 @X0 0 ef ]
 "19
-[v _testlcd `(v ~T0 @X0 0 ef ]
-"21 kernel.h
+[v _tluzesescreve `(v ~T0 @X0 0 ef ]
+"20
+[v _tluzes `(v ~T0 @X0 0 ef ]
+"19 kernel.h
 [v _start_os `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2805,42 +2809,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;types.h: 14: typedef unsigned int u_int;
-[; ;types.h: 15: typedef unsigned char byte;
-[; ;types.h: 16: typedef void(*f_ptr)(void);
-[; ;types.h: 18: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 20: typedef struct stack_data {
-[; ;types.h: 21: byte TOSU_register;
-[; ;types.h: 22: byte TOSL_register;
-[; ;types.h: 23: byte TOSH_register;
-[; ;types.h: 24: } stack_data_t;
-[; ;types.h: 26: typedef struct stack {
-[; ;types.h: 27: stack_data_t STACK[32];
-[; ;types.h: 28: u_int stack_size;
-[; ;types.h: 29: } stack_t;
-[; ;types.h: 31: typedef struct tcb {
-[; ;types.h: 33: u_int task_id;
-[; ;types.h: 34: u_int task_prior;
-[; ;types.h: 35: f_ptr *task_f;
-[; ;types.h: 36: u_int delay_time;
-[; ;types.h: 38: state_t task_state;
-[; ;types.h: 39: stack_t task_stack;
-[; ;types.h: 40: byte BSR_register;
-[; ;types.h: 41: byte STATUS_register;
-[; ;types.h: 42: byte WORK_register;
-[; ;types.h: 44: } tcb_t;
-[; ;kernel.h: 11: extern tcb_t F_APTOS[4];
+"12 types.h
+[v _STACK_SIZE `Ci ~T0 @X0 1 e ]
+[i _STACK_SIZE
+-> 31 `i
+]
+[; ;types.h: 12: const int STACK_SIZE = 31;
+[; ;types.h: 15: typedef unsigned int u_int;
+[; ;types.h: 16: typedef unsigned char byte;
+[; ;types.h: 17: typedef void(*f_ptr)(void);
+[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 21: typedef struct stack_data {
+[; ;types.h: 22: byte TOSU_register;
+[; ;types.h: 23: byte TOSL_register;
+[; ;types.h: 24: byte TOSH_register;
+[; ;types.h: 25: } stack_data_t;
+[; ;types.h: 27: typedef struct stack {
+[; ;types.h: 28: stack_data_t STACK[STACK_SIZE];
+[; ;types.h: 29: u_int stack_size;
+[; ;types.h: 30: } stack_t;
+[; ;types.h: 32: typedef struct tcb {
+[; ;types.h: 34: u_int task_id;
+[; ;types.h: 35: u_int task_prior;
+[; ;types.h: 36: f_ptr *task_f;
+[; ;types.h: 37: u_int delay_time;
+[; ;types.h: 39: state_t task_state;
+[; ;types.h: 40: stack_t task_stack;
+[; ;types.h: 41: byte BSR_register;
+[; ;types.h: 42: byte STATUS_register;
+[; ;types.h: 43: byte WORK_register;
+[; ;types.h: 45: } tcb_t;
+[; ;kernel.h: 11: extern tcb_t F_APTOS[10];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
 [; ;kernel.h: 15: u_int get_id(u_int task_ptr);
 [; ;kernel.h: 16: void delay(u_int time_ms);
 [; ;kernel.h: 17: void dispatcher(state_t state);
 [; ;kernel.h: 18: void task_idle();
-[; ;kernel.h: 19: void setupOS();
-[; ;kernel.h: 20: void interrupt int_high();
-[; ;kernel.h: 21: void start_os();
+[; ;kernel.h: 19: void start_os();
+[; ;kernel.h: 20: void setupOS();
+[; ;kernel.h: 21: void interrupt int_high();
 [; ;semaphore.h: 11: typedef struct sem_queue {
-[; ;semaphore.h: 12: u_int s_queue[4];
+[; ;semaphore.h: 12: u_int s_queue[10];
 [; ;semaphore.h: 13: u_int s_queue_pos_in;
 [; ;semaphore.h: 14: u_int s_queue_pos_out;
 [; ;semaphore.h: 15: } sem_queue_t;
@@ -2855,69 +2865,88 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
 [; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
 [; ;memory.h: 24: void SRAMInitHeap(void);
-[; ;tasks.h: 16: void aviao1();
-[; ;tasks.h: 17: void aviao2();
-[; ;tasks.h: 18: void aviao3();
-[; ;tasks.h: 19: void testlcd();
-[; ;pipe.h: 13: typedef struct pipe_bloqued_queue {
-[; ;pipe.h: 14: u_int b_queue[4];
-[; ;pipe.h: 15: u_int b_queue_pos_in;
-[; ;pipe.h: 16: u_int b_queue_pos_out;
-[; ;pipe.h: 17: } pipe_bloqued_queue_t;
-[; ;pipe.h: 19: typedef struct pipe {
-[; ;pipe.h: 20: byte pipe_queue[4];
-[; ;pipe.h: 22: u_int pos_read_pipe;
-[; ;pipe.h: 23: u_int pos_write_pipe;
-[; ;pipe.h: 24: u_int pipe_itens;
-[; ;pipe.h: 27: u_int pos_bloqued_read;
-[; ;pipe.h: 28: u_int pos_bloqued_write;
-[; ;pipe.h: 30: } pipe_t;
-[; ;pipe.h: 32: void create_pipe(pipe_t *pipe);
-[; ;pipe.h: 33: void write_pipe(pipe_t *pipe, byte data);
-[; ;pipe.h: 34: byte read_pipe(pipe_t *pipe);
+[; ;tasks.h: 14: void confi_port();
+[; ;tasks.h: 15: void aviao1();
+[; ;tasks.h: 16: void aviao2();
+[; ;tasks.h: 17: void aviao3();
+[; ;tasks.h: 19: void tluzesescreve();
+[; ;tasks.h: 20: void tluzes();
+[; ;pipe.h: 12: typedef struct pipe_bloqued_queue {
+[; ;pipe.h: 13: u_int b_queue[10];
+[; ;pipe.h: 14: u_int b_queue_pos_in;
+[; ;pipe.h: 15: u_int b_queue_pos_out;
+[; ;pipe.h: 16: } pipe_bloqued_queue_t;
+[; ;pipe.h: 18: typedef struct pipe {
+[; ;pipe.h: 19: byte pipe_queue[1];
+[; ;pipe.h: 21: u_int pos_read_pipe;
+[; ;pipe.h: 22: u_int pos_write_pipe;
+[; ;pipe.h: 23: u_int pipe_itens;
+[; ;pipe.h: 25: u_int pos_bloqued_read;
+[; ;pipe.h: 26: u_int pos_bloqued_write;
+[; ;pipe.h: 27: } pipe_t;
+[; ;pipe.h: 29: void create_pipe(pipe_t *pipe);
+[; ;pipe.h: 30: void write_pipe(pipe_t *pipe, byte data);
+[; ;pipe.h: 31: byte read_pipe(pipe_t *pipe);
 "12 main.c
-[; ;main.c: 12: asm("GLOBAL _task_idle, _aviao1, _aviao2, _aviao3, _testlcd");
-[; <" GLOBAL _task_idle, _aviao1, _aviao2, _aviao3, _testlcd ;# ">
-[; ;main.c: 13: extern sem_t spista;
-[; ;main.c: 14: extern sem_t saviao1;
+[; ;main.c: 12: asm("GLOBAL _task_idle, _aviao1,_aviao2,_aviao3 ,_tluzesescreve, _tluzes");
+[; <" GLOBAL _task_idle, _aviao1,_aviao2,_aviao3 ,_tluzesescreve, _tluzes ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"17
+"16
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 17: void main(void) {
+[; ;main.c: 16: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 19: setupOS();
-"19
+[; ;main.c: 18: setupOS();
+"18
 [e ( _setupOS ..  ]
-[; ;main.c: 20: SRAMInitHeap();
-"20
+[; ;main.c: 19: SRAMInitHeap();
+"19
 [e ( _SRAMInitHeap ..  ]
-[; ;main.c: 22: sem_init(&spista, 1);
+"20
+[v _spista `S280 ~T0 @X0 0 e ]
+[; ;main.c: 20: extern sem_t spista;
+[; ;main.c: 22: confi_port();
 "22
+[e ( _confi_port ..  ]
+[; ;main.c: 23: sem_init(&spista, 1);
+"23
 [e ( _sem_init (2 , &U _spista -> 1 `i ]
-[; ;main.c: 27: create_task(1, 3, &aviao1);
+[; ;main.c: 27: create_task(2, 3, &aviao1);
 "27
-[e ( _create_task (3 , , -> -> 1 `i `ui -> -> 3 `i `ui &U _aviao1 ]
-[; ;main.c: 28: create_task(2, 1, &aviao2);
+[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _aviao1 ]
+[; ;main.c: 28: create_task(3, 3, &aviao2);
 "28
-[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 1 `i `ui &U _aviao2 ]
-[; ;main.c: 30: create_task(4, 4, &testlcd);
-"30
-[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 4 `i `ui &U _testlcd ]
-[; ;main.c: 42: start_os();
-"42
+[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _aviao2 ]
+[; ;main.c: 29: create_task(4, 3, &aviao3);
+"29
+[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _aviao3 ]
+[; ;main.c: 32: create_task(5, 3, &tluzesescreve);
+"32
+[e ( _create_task (3 , , -> -> 5 `i `ui -> -> 3 `i `ui &U _tluzesescreve ]
+[; ;main.c: 33: create_task(6, 3, &tluzes);
+"33
+[e ( _create_task (3 , , -> -> 6 `i `ui -> -> 3 `i `ui &U _tluzes ]
+[; ;main.c: 46: start_os();
+"46
 [e ( _start_os ..  ]
-[; ;main.c: 48: while (1);
-"48
+[; ;main.c: 47: while (1)
+"47
 [e :U 285 ]
+[; ;main.c: 48: {
+"48
+{
+"50
+}
 [e :U 284 ]
+"47
 [e $U 285  ]
 [e :U 286 ]
-[; ;main.c: 50: return;
-"50
+[; ;main.c: 50: }
+[; ;main.c: 52: return;
+"52
 [e $UE 283  ]
-[; ;main.c: 51: }
-"51
+[; ;main.c: 53: }
+"53
 [e :UE 283 ]
 }

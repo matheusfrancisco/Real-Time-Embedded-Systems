@@ -2867,40 +2867,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 38: void Lcd_Write_Char( char a);
 [; ;lcd.h: 39: void Lcd_Shift_Right();
 [; ;lcd.h: 40: void Lcd_Shift_Left();
-[; ;types.h: 14: typedef unsigned int u_int;
-[; ;types.h: 15: typedef unsigned char byte;
-[; ;types.h: 16: typedef void(*f_ptr)(void);
-[; ;types.h: 18: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 20: typedef struct stack_data {
-[; ;types.h: 21: byte TOSU_register;
-[; ;types.h: 22: byte TOSL_register;
-[; ;types.h: 23: byte TOSH_register;
-[; ;types.h: 24: } stack_data_t;
-[; ;types.h: 26: typedef struct stack {
-[; ;types.h: 27: stack_data_t STACK[32];
-[; ;types.h: 28: u_int stack_size;
-[; ;types.h: 29: } stack_t;
-[; ;types.h: 31: typedef struct tcb {
-[; ;types.h: 33: u_int task_id;
-[; ;types.h: 34: u_int task_prior;
-[; ;types.h: 35: f_ptr *task_f;
-[; ;types.h: 36: u_int delay_time;
-[; ;types.h: 38: state_t task_state;
-[; ;types.h: 39: stack_t task_stack;
-[; ;types.h: 40: byte BSR_register;
-[; ;types.h: 41: byte STATUS_register;
-[; ;types.h: 42: byte WORK_register;
-[; ;types.h: 44: } tcb_t;
-[; ;kernel.h: 11: extern tcb_t F_APTOS[4];
+"12 types.h
+[v _STACK_SIZE `Ci ~T0 @X0 1 e ]
+[i _STACK_SIZE
+-> 31 `i
+]
+[; ;types.h: 12: const int STACK_SIZE = 31;
+[; ;types.h: 15: typedef unsigned int u_int;
+[; ;types.h: 16: typedef unsigned char byte;
+[; ;types.h: 17: typedef void(*f_ptr)(void);
+[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 21: typedef struct stack_data {
+[; ;types.h: 22: byte TOSU_register;
+[; ;types.h: 23: byte TOSL_register;
+[; ;types.h: 24: byte TOSH_register;
+[; ;types.h: 25: } stack_data_t;
+[; ;types.h: 27: typedef struct stack {
+[; ;types.h: 28: stack_data_t STACK[STACK_SIZE];
+[; ;types.h: 29: u_int stack_size;
+[; ;types.h: 30: } stack_t;
+[; ;types.h: 32: typedef struct tcb {
+[; ;types.h: 34: u_int task_id;
+[; ;types.h: 35: u_int task_prior;
+[; ;types.h: 36: f_ptr *task_f;
+[; ;types.h: 37: u_int delay_time;
+[; ;types.h: 39: state_t task_state;
+[; ;types.h: 40: stack_t task_stack;
+[; ;types.h: 41: byte BSR_register;
+[; ;types.h: 42: byte STATUS_register;
+[; ;types.h: 43: byte WORK_register;
+[; ;types.h: 45: } tcb_t;
+[; ;kernel.h: 11: extern tcb_t F_APTOS[10];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
 [; ;kernel.h: 15: u_int get_id(u_int task_ptr);
 [; ;kernel.h: 16: void delay(u_int time_ms);
 [; ;kernel.h: 17: void dispatcher(state_t state);
 [; ;kernel.h: 18: void task_idle();
-[; ;kernel.h: 19: void setupOS();
-[; ;kernel.h: 20: void interrupt int_high();
-[; ;kernel.h: 21: void start_os();
+[; ;kernel.h: 19: void start_os();
+[; ;kernel.h: 20: void setupOS();
+[; ;kernel.h: 21: void interrupt int_high();
 "13 lcd.c
 [v _Lcd_Port `(v ~T0 @X0 1 ef1`uc ]
 "14

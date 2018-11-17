@@ -3823,12 +3823,15 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 14 "types.h"
+# 12 "types.h"
+const int STACK_SIZE = 31;
+
+
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
 
-typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
 
 typedef struct stack_data {
 byte TOSU_register;
@@ -3837,7 +3840,7 @@ byte TOSH_register;
 } stack_data_t;
 
 typedef struct stack {
-stack_data_t STACK[32];
+stack_data_t STACK[STACK_SIZE];
 u_int stack_size;
 } stack_t;
 
@@ -3863,7 +3866,7 @@ u_int prior_scheduler();
 # 8 "scheduler.c"
 extern u_int tasks_installed;
 extern u_int task_running;
-extern tcb_t F_APTOS[4];
+extern tcb_t F_APTOS[10];
 
 u_int rr_scheduler()
 {

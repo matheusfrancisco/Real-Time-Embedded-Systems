@@ -20,6 +20,7 @@ u_int task_running = 0;
 
 void create_task(u_int id, u_int prior, f_ptr task_f)
 {
+  //di();
   tcb_t task;
   
   task.task_id                = id;
@@ -30,6 +31,7 @@ void create_task(u_int id, u_int prior, f_ptr task_f)
   
   F_APTOS[tasks_installed]    = task;
   tasks_installed++;
+ // ei();
 }
 
 void dispatcher(state_t state)
@@ -69,10 +71,12 @@ void delay(u_int time_ms)
 
 void task_idle()
 {
-  TRISDbits.RD4 = 0;   
+    TRISDbits.RD4 = 0;
+  PORTDbits.RD4 =0;
+ 
   
   while (1) { 
-    PORTDbits.RD4 = ~PORTDbits.RD4;
+      PORTDbits.RD4 =~ PORTDbits.RD4;
     NOP();
   }
 }
@@ -84,21 +88,31 @@ void setupOS()
   // Configuração para o timer estourar a cada
   // 4 ms
   // Configuração considerando o timer 0 8 bits
+  //INTCONbits.TMR0IE   = 1;
+  //INTCONbits.TMR0IF   = 0;
+ // INTCONbits.GIE      = 1;
+ // T0CONbits.T0CS      = 0;
+ // T0CONbits.PSA       = 0;
+ // T0CONbits.T0PS      = 0b111;
   T0CONbits.T0CS      = 0;
   T0CONbits.PSA       = 0;
   T0CONbits.T0PS      = 0b111;
   INTCONbits.PEIE     = 1;
   INTCONbits.TMR0IE   = 1;  
   TMR0L               = 252;
-  
+  //1 ms: 256 - (0,001 * 4000000) / (256 (preescaler) * 4 (MCY)) = 252
+    T0CONbits.TMR0ON    = ON;
+  //start_os();
+  //TMR0L               = 252;
+  //TMR0                 = 64911;
   // Instalar a tarefa idle
   create_task(1,5, &task_idle);  
  
   //dispatcher(READY);
   //TRISD = 0x00;
 
-  TRISD = 0x00;
-  Lcd_Init();
+
+  //Lcd_Init();
   SRAMInitHeap();
   
   ei();
@@ -111,6 +125,7 @@ void interrupt int_high()
   if (INTCONbits.TMR0IF) {
     INTCONbits.TMR0IF = 0;
     TMR0L = 252;
+    
     // Verifica se tem tarefa em modo SLEEPING
     for (i = 1; i < tasks_installed; i++) {
       if (F_APTOS[i].task_state == SLEEPING) {
@@ -132,7 +147,6 @@ void interrupt int_high()
 void start_os()
 {
   // Liga o timer
-  //asm("PUSH");
-  //TOS = F_APTOS[task_running].task_f;
+
   T0CONbits.TMR0ON    = 1;  
 }

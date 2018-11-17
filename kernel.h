@@ -16,14 +16,14 @@ u_int get_id(u_int task_ptr);
 void delay(u_int time_ms);
 void dispatcher(state_t state);
 void task_idle();
+void start_os();
 void setupOS();
 void interrupt int_high();
-void start_os();
 
 // Macros para salvamento de contexto
 
-#define SAVE_CONTEXT(STATE) \    
-    F_APTOS[task_running].task_state = STATE; \
+#define SAVE_CONTEXT(state) \    
+    F_APTOS[task_running].task_state = state; \
     F_APTOS[task_running].BSR_register = BSR; \
     F_APTOS[task_running].STATUS_register = STATUS; \
     F_APTOS[task_running].WORK_register = WREG; \

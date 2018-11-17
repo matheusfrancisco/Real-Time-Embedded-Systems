@@ -3,14 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.h</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c</file>
             <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c</file>
             <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.h</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c</file>
             <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c</file>
             <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c</file>
             <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.h</file>
-            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/lcd.h</file>
-            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.h</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.h</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c</file>
             <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/lcd.c</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/types.h</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.h</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/config.h</file>
+            <file>file:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.h</file>
         </group>
     </open-files>
 </project-private>

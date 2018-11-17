@@ -23,7 +23,7 @@ void sem_wait(sem_t *s)
   if (s->contador < 0) {
     s->queue.s_queue[s->queue.s_queue_pos_in] = task_running;
     s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % MAX_TASKS;
-    dispatcher(WAITING_SEM);
+    dispatcher(WAITING);
   }
   
   ei();

@@ -3823,12 +3823,15 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 14 "types.h"
+# 12 "types.h"
+const int STACK_SIZE = 31;
+
+
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
 
-typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_SEM, WAITING_PIPE, FINISHED} state_t;
+typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
 
 typedef struct stack_data {
 byte TOSU_register;
@@ -3837,7 +3840,7 @@ byte TOSH_register;
 } stack_data_t;
 
 typedef struct stack {
-stack_data_t STACK[32];
+stack_data_t STACK[STACK_SIZE];
 u_int stack_size;
 } stack_t;
 
@@ -3858,7 +3861,7 @@ byte WORK_register;
 
 # 11 "semaphore.h"
 typedef struct sem_queue {
-u_int s_queue[4];
+u_int s_queue[10];
 u_int s_queue_pos_in;
 u_int s_queue_pos_out;
 } sem_queue_t;
@@ -3878,14 +3881,17 @@ unsigned char * near SRAMalloc(near unsigned char nBytes);
 void SRAMfree(unsigned char * near pSRAM);
 void SRAMInitHeap(void);
 
-# 16 "tasks.h"
+# 14 "tasks.h"
+void confi_port();
 void aviao1();
 void aviao2();
 void aviao3();
-void testlcd();
+
+void tluzesescreve();
+void tluzes();
 
 # 11 "kernel.h"
-extern tcb_t F_APTOS[4];
+extern tcb_t F_APTOS[10];
 extern u_int task_running;
 
 void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -3893,320 +3899,245 @@ u_int get_id(u_int task_ptr);
 void delay(u_int time_ms);
 void dispatcher(state_t state);
 void task_idle();
+void start_os();
 void setupOS();
 void interrupt int_high();
-void start_os();
 
-# 13 "pipe.h"
+# 12 "pipe.h"
 typedef struct pipe_bloqued_queue {
-u_int b_queue[4];
+u_int b_queue[10];
 u_int b_queue_pos_in;
 u_int b_queue_pos_out;
 } pipe_bloqued_queue_t;
 
 typedef struct pipe {
-byte pipe_queue[4];
+byte pipe_queue[1];
 
 u_int pos_read_pipe;
 u_int pos_write_pipe;
 u_int pipe_itens;
 
-
 u_int pos_bloqued_read;
 u_int pos_bloqued_write;
-
 } pipe_t;
 
 void create_pipe(pipe_t *pipe);
 void write_pipe(pipe_t *pipe, byte data);
 byte read_pipe(pipe_t *pipe);
 
-# 4 "/opt/microchip/xc8/v1.45/include/__size_t.h"
-typedef unsigned size_t;
-
-# 14 "/opt/microchip/xc8/v1.45/include/string.h"
-extern void * memcpy(void *, const void *, size_t);
-extern void * memmove(void *, const void *, size_t);
-extern void * memset(void *, int, size_t);
-
-# 36
-extern char * strcat(char *, const char *);
-extern char * strcpy(char *, const char *);
-extern char * strncat(char *, const char *, size_t);
-extern char * strncpy(char *, const char *, size_t);
-extern char * strdup(const char *);
-extern char * strtok(char *, const char *);
-
-
-extern int memcmp(const void *, const void *, size_t);
-extern int strcmp(const char *, const char *);
-extern int stricmp(const char *, const char *);
-extern int strncmp(const char *, const char *, size_t);
-extern int strnicmp(const char *, const char *, size_t);
-extern void * memchr(const void *, int, size_t);
-extern size_t strcspn(const char *, const char *);
-extern char * strpbrk(const char *, const char *);
-extern size_t strspn(const char *, const char *);
-extern char * strstr(const char *, const char *);
-extern char * stristr(const char *, const char *);
-extern char * strerror(int);
-extern size_t strlen(const char *);
-extern char * strchr(const char *, int);
-extern char * strichr(const char *, int);
-extern char * strrchr(const char *, int);
-extern char * strrichr(const char *, int);
-
-# 7 "/opt/microchip/xc8/v1.45/include/stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "/opt/microchip/xc8/v1.45/include/stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "/opt/microchip/xc8/v1.45/include/errno.h"
-extern int errno;
-
-# 12 "/opt/microchip/xc8/v1.45/include/conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "/opt/microchip/xc8/v1.45/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 32 "lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear();
-void Lcd_Set_Cursor(char a, char b);
-void Lcd_Init();
-void Lcd_Write_String(char *a);
-void Lcd_Write_Char( char a);
-void Lcd_Shift_Right();
-void Lcd_Shift_Left();
-
-# 16 "tasks.c"
+# 15 "tasks.c"
 sem_t spista;
-
 
 
 pipe_t pipeluzes;
 
 
-void testlcd()
-{
-while(1){
+void confi_port(){
 
-int a ;
-
-a = sem_get_value(spista);
+TRISD = 0x00;
 
 
-if(a== 0){
-
-
-Lcd_Write_String("Pista OCUPADA");
-
-# 44
-for(int b=0;b<100000;b++)
-{
-int c;
-c = c +b;
-}
-}
-else{
-Lcd_Write_String("Pista Livre");
-
-# 61
-for(int b=0;b<100000;b++)
-{
-int c;
-c = c +b;
-}
-}
-}
 }
 void aviao1()
 {
 
-TRISCbits.RC5 = 0;
-PORTCbits.RC5 = 0;
-
-
-
-TRISCbits.RC4 = 0;
-PORTCbits.RC4 = 0;
-
-TRISCbits.RC3 = 0;
-PORTCbits.RC3 = 0;
-
-
-u_int tempo_v1 = 5000;
-u_int tempo_p1 = 1000;
-
-
-
+PORTDbits.RD3 = 0;
+PORTDbits.RD6 = 0;
+PORTDbits.RD4 = 0;
+PORTDbits.RD0 = 0;
 
 while (1) {
-PORTCbits.RC4 = 1;
-delay(tempo_v1);
 
-
-
-
-sem_wait(&spista);
-
-
-PORTCbits.RC4 = 0;
-PORTCbits.RC5 = 1;
+PORTDbits.RD3 = 1;
 
 delay(5000);
 
-delay(tempo_p1);
-
-PORTCbits.RC5 = 0;
-delay(2000);
-
-sem_post(&spista);
-
-delay(600);
 sem_wait(&spista);
 
-PORTCbits.RC3 = 1;
-delay(5200);
-PORTCbits.RC3 = 0;
-delay(2500);
+PORTDbits.RD3 = 0;
+
+PORTDbits.RD6 = 1;
+
+delay(5000);
+
+
+PORTDbits.RD6 = 0;
+
+
 sem_post(&spista);
-delay(2340);
+delay(300);
+
+
+PORTDbits.RD0 = 1;
+
+delay(5000);
+
+
+
+sem_wait(&spista);
+
+PORTDbits.RD0 = 0;
+
+
+PORTDbits.RD4 = 1;
+
+delay(5000);
+
+PORTDbits.RD4 = 0;
+
+sem_post(&spista);
+delay(400);
+
+
+
+
 }
 }
 
 void aviao2()
 {
+PORTDbits.RD5 = 0;
+PORTDbits.RD6 = 0;
+PORTDbits.RD4 = 0;
+PORTDbits.RD1 = 0;
 
+while(1)
+{
 
+PORTDbits.RD5 = 1;
 
+delay(6000);
 
-TRISCbits.RC6 = 0;
-PORTCbits.RC6 = 0;
-
-
-
-
-u_int tempo_p2 = 1000;
-u_int tempo_v2 = 6000;
-while (1) {
-PORTCbits.RC6 = 1;
-
-delay(tempo_v2);
 sem_wait(&spista);
 
-PORTCbits.RC6 = 0;
+PORTDbits.RD5 = 0;
 
-PORTCbits.RC5 = 1;
+PORTDbits.RD6 = 1;
 
-delay(tempo_p2);
+delay(6000);
 
 
-PORTCbits.RC5 = 0;
-delay(600);
+PORTDbits.RD6 = 0;
+
+
+sem_post(&spista);
+delay(300);
+
+PORTDbits.RD1 = 1;
+
+delay(6000);
+
+sem_wait(&spista);
+
+PORTDbits.RD1 = 0;
+
+PORTDbits.RD4 = 1;
+
+delay(6000);
+
+PORTDbits.RD4 = 0;
 
 sem_post(&spista);
 
-delay(600);
-sem_wait(&spista);
 
-PORTCbits.RC3 = 1;
-delay(4200);
 
-PORTCbits.RC3 = 0;
-delay(1250);
-sem_post(&spista);
-delay(2300);
 }
 }
 
 void aviao3()
 {
-
-
-
-TRISCbits.RC7 = 0;
-PORTCbits.RC7 = 0;
-
-# 181
-u_int tempo_v = 7000;
-u_int tempo_p = 1000;
-
+PORTDbits.RD7 = 0;
+PORTDbits.RD6 = 0;
+PORTDbits.RD4 = 0;
+PORTDbits.RD2 = 0;
 
 while (1) {
-PORTCbits.RC7 = 1;
 
-delay(tempo_v);
+PORTDbits.RD7 = 1;
+
+delay(6000);
+
 sem_wait(&spista);
 
-PORTCbits.RC7 = 0;
+PORTDbits.RD7 = 0;
 
-PORTCbits.RC5 = 1;
-delay(tempo_p);
+PORTDbits.RD6 = 1;
+
+delay(6000);
 
 
+PORTDbits.RD6 = 0;
+
+
+sem_post(&spista);
+
+PORTDbits.RD2 = 1;
+
+delay(6000);
+
+
+
+sem_wait(&spista);
+
+PORTDbits.RD2 = 0;
+
+
+PORTDbits.RD4 = 1;
+
+delay(6000);
+
+PORTDbits.RD4 = 0;
+
+sem_post(&spista);
+
+
+}
+}
+
+void tluzes()
+{
+TRISCbits.RC5 = 0;
 PORTCbits.RC5 = 0;
-delay(600);
-sem_post(&spista);
 
 
-delay(600);
-sem_wait(&spista);
+byte dado;
 
-PORTCbits.RC3 = 1;
-delay(7500);
-PORTCbits.RC3 = 0;
-delay(1500);
-sem_post(&spista);
-delay(1000);
+while(1)
+{
+dado = read_pipe(&pipeluzes);
+if (dado == 'l')
+{
+
+PORTCbits.RC5 = ~PORTCbits.RC5 ;
+delay(5000);
+
+
 }
+dado = 'n';
+if(dado =='n')
+{
+PORTCbits.RC5 = ~PORTCbits.RC5 ;
+delay(5000);
+
 }
 
+}
+
+}
+
+void tluzesescreve()
+{
+
+create_pipe(&pipeluzes);
+
+while(1)
+{
+
+write_pipe(&pipeluzes, 'l');
+
+
+
+
+}
+
+}

@@ -5,10 +5,9 @@
 
 #ifndef PIPE_H
 #define	PIPE_H
-
 #include "types.h"
 
-#define MAX_PIPE_SIZE 4
+#define MAX_PIPE_SIZE 1
 
 typedef struct pipe_bloqued_queue {
     u_int b_queue[MAX_TASKS];
@@ -22,11 +21,9 @@ typedef struct pipe {
     u_int pos_read_pipe;
     u_int pos_write_pipe;
     u_int pipe_itens;
-    //bloqued
-    
-    u_int  pos_bloqued_read;
-    u_int pos_bloqued_write;
-    
+    // Posição dos processos bloqueados
+    u_int pos_bloqued_read;
+    u_int pos_bloqued_write;    
 } pipe_t;
 
 void create_pipe(pipe_t *pipe);
