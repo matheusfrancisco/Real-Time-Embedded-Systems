@@ -40,31 +40,31 @@ WAITING_PIPE 5
 FINISHED 6
 ]
 "62 /opt/microchip/xc8/v1.45/sources/common/float.c
-[v ___ftpack __ftpack `R(f  1 e 3 0 ]
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /opt/microchip/xc8/v1.45/sources/common/ftadd.c
-[v ___ftadd __ftadd `R(f  1 e 3 0 ]
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
 "54 /opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-[v ___ftdiv __ftdiv `R(f  1 e 3 0 ]
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
 "62 /opt/microchip/xc8/v1.45/sources/common/ftmul.c
-[v ___ftmul __ftmul `R(f  1 e 3 0 ]
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
 "20 /opt/microchip/xc8/v1.45/sources/common/ftsub.c
-[v ___ftsub __ftsub `R(f  1 e 3 0 ]
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
 "8 /opt/microchip/xc8/v1.45/sources/common/lwmod.c
 [v ___lwmod __lwmod `R(ui  1 e 2 0 ]
 "10 /opt/microchip/xc8/v1.45/sources/common/sprcadd.c
-[v ___fladd __fladd `R(d  1 e 3 0 ]
+[v ___fladd __fladd `(d  1 e 3 0 ]
 "245
-[v ___flsub __flsub `R(d  1 e 3 0 ]
+[v ___flsub __flsub `(d  1 e 3 0 ]
 "11 /opt/microchip/xc8/v1.45/sources/common/sprcdiv.c
-[v ___fldiv __fldiv `R(d  1 e 3 0 ]
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
 "8 /opt/microchip/xc8/v1.45/sources/common/sprcmul.c
-[v ___flmul __flmul `R(d  1 e 3 0 ]
+[v ___flmul __flmul `(d  1 e 3 0 ]
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul16.c
 [v ___wmul __wmul `R(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul32.c
-[v ___lmul __lmul `R(ul  1 e 4 0 ]
+[v ___lmul __lmul `(ul  1 e 4 0 ]
 "21 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-[v _create_task create_task `R(v  1 e 1 0 ]
+[v _create_task create_task `(v  1 e 1 0 ]
 "37
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
 "62
@@ -72,23 +72,23 @@ FINISHED 6
 "72
 [v _task_idle task_idle `R(v  1 e 1 0 ]
 "85
-[v _setupOS setupOS `R(v  1 e 1 0 ]
-"121
+[v _setupOS setupOS `(v  1 e 1 0 ]
+"127
 [v _int_high int_high `II(v  1 e 1 0 ]
-"147
-[v _start_os start_os `R(v  1 e 1 0 ]
+"153
+[v _start_os start_os `(v  1 e 1 0 ]
 "13 /home/evohc/Files-notSync/ENC/Versao_Final_/lcd.c
-[v _Lcd_Port Lcd_Port `R(v  1 e 1 0 ]
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
 "35
-[v _Lcd_Cmd Lcd_Cmd `R(v  1 e 1 0 ]
-"97
-[v _Lcd_Write_Char Lcd_Write_Char `R(v  1 e 1 0 ]
-"16 /home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-[v _main main `R(v  1 e 1 0 ]
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+"96
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+"17 /home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+[v _main main `(v  1 e 1 0 ]
 "303 /home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-[v _SRAMInitHeap SRAMInitHeap `R(v  1 e 1 0 ]
+[v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
 "349
-[v __SRAMmerge _SRAMmerge `NR(uc  1 e 1 0 ]
+[v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
 "11 /home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
 [v _create_pipe create_pipe `R(v  1 e 1 0 ]
 "22
@@ -98,24 +98,61 @@ FINISHED 6
 "12 /home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
 "6 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-[v _sem_init sem_init `R(v  1 e 1 0 ]
+[v _sem_init sem_init `(v  1 e 1 0 ]
 "17
 [v _sem_wait sem_wait `R(v  1 e 1 0 ]
 "32
 [v _sem_post sem_post `R(v  1 e 1 0 ]
-"21 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-[v _confi_port confi_port `R(v  1 e 1 0 ]
-"27
+"62 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+[v _confi_port confi_port `(v  1 e 1 0 ]
+"68
 [v _aviao1 aviao1 `R(v  1 e 1 0 ]
-"83
+"126
 [v _aviao2 aviao2 `R(v  1 e 1 0 ]
-"133
-[v _aviao3 aviao3 `R(v  1 e 1 0 ]
-"183
+"177
+[v _aviao3 aviao3 `(v  1 e 1 0 ]
+"228
 [v _tluzes tluzes `R(v  1 e 1 0 ]
-"214
+"259
 [v _tluzesescreve tluzesescreve `R(v  1 e 1 0 ]
-[s S480 . 1 `uc 1 RC0 1 0 :1:0 
+"269 /opt/microchip/xc8/v1.45/include/pic18f4520.h
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S311 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"313
+[s S320 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S329 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S338 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S340 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S343 . 1 `S311 1 . 1 0 `S320 1 . 1 0 `S329 1 . 1 0 `S338 1 . 1 0 `S340 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES343  1 e 1 @3969 ]
+[s S499 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -124,8 +161,8 @@ FINISHED 6
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-"495 /opt/microchip/xc8/v1.45/include/pic18f4520.h
-[s S520 . 1 `uc 1 T1OSO 1 0 :1:0 
+"495
+[s S539 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -134,7 +171,7 @@ FINISHED 6
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S529 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S548 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -143,17 +180,17 @@ FINISHED 6
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S538 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S557 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 ]
-[s S542 . 1 `uc 1 . 1 0 :1:0 
+[s S561 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S546 . 1 `S480 1 . 1 0 `S520 1 . 1 0 `S529 1 . 1 0 `S538 1 . 1 0 `S542 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES546  1 e 1 @3970 ]
-[s S185 . 1 `uc 1 RD0 1 0 :1:0 
+[u S565 . 1 `S499 1 . 1 0 `S539 1 . 1 0 `S548 1 . 1 0 `S557 1 . 1 0 `S561 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES565  1 e 1 @3970 ]
+[s S422 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -163,7 +200,7 @@ FINISHED 6
 `uc 1 RD7 1 0 :1:7 
 ]
 "667
-[s S225 . 1 `uc 1 PSP0 1 0 :1:0 
+[s S431 . 1 `uc 1 PSP0 1 0 :1:0 
 `uc 1 PSP1 1 0 :1:1 
 `uc 1 PSP2 1 0 :1:2 
 `uc 1 PSP3 1 0 :1:3 
@@ -172,17 +209,63 @@ FINISHED 6
 `uc 1 PSP6 1 0 :1:6 
 `uc 1 PSP7 1 0 :1:7 
 ]
-[s S234 . 1 `uc 1 . 1 0 :5:0 
+[s S440 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 P1B 1 0 :1:5 
 `uc 1 P1C 1 0 :1:6 
 `uc 1 P1D 1 0 :1:7 
 ]
-[s S239 . 1 `uc 1 . 1 0 :7:0 
+[s S445 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S242 . 1 `S185 1 . 1 0 `S225 1 . 1 0 `S234 1 . 1 0 `S239 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES242  1 e 1 @3971 ]
-[s S471 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S448 . 1 `S422 1 . 1 0 `S431 1 . 1 0 `S440 1 . 1 0 `S445 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES448  1 e 1 @3971 ]
+[s S1012 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+]
+"830
+[s S1017 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 CS 1 0 :1:2 
+`uc 1 MCLR 1 0 :1:3 
+]
+[s S1022 . 1 `uc 1 NOT_RD 1 0 :1:0 
+]
+[s S1024 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_WR 1 0 :1:1 
+]
+[s S1027 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_CS 1 0 :1:2 
+]
+[s S1030 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_MCLR 1 0 :1:3 
+]
+[s S1033 . 1 `uc 1 nRD 1 0 :1:0 
+`uc 1 nWR 1 0 :1:1 
+`uc 1 nCS 1 0 :1:2 
+`uc 1 nMCLR 1 0 :1:3 
+]
+[s S1038 . 1 `uc 1 AN5 1 0 :1:0 
+`uc 1 AN6 1 0 :1:1 
+`uc 1 AN7 1 0 :1:2 
+`uc 1 VPP 1 0 :1:3 
+]
+[s S1043 . 1 `uc 1 PD2 1 0 :1:0 
+`uc 1 PC2 1 0 :1:1 
+`uc 1 CCP10 1 0 :1:2 
+`uc 1 CCP9E 1 0 :1:3 
+]
+[s S1048 . 1 `uc 1 RDE 1 0 :1:0 
+`uc 1 WRE 1 0 :1:1 
+`uc 1 PB2 1 0 :1:2 
+`uc 1 PC3E 1 0 :1:3 
+]
+[u S1053 . 1 `S1012 1 . 1 0 `S1017 1 . 1 0 `S1022 1 . 1 0 `S1024 1 . 1 0 `S1027 1 . 1 0 `S1030 1 . 1 0 `S1033 1 . 1 0 `S1038 1 . 1 0 `S1043 1 . 1 0 `S1048 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES1053  1 e 1 @3972 ]
+"1697
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+[s S490 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -192,23 +275,11 @@ FINISHED 6
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1951
-[u S489 . 1 `S471 1 . 1 0 `S480 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES489  1 e 1 @3988 ]
+[u S508 . 1 `S490 1 . 1 0 `S499 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES508  1 e 1 @3988 ]
 "2141
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S176 . 1 `uc 1 TRISD0 1 0 :1:0 
-`uc 1 TRISD1 1 0 :1:1 
-`uc 1 TRISD2 1 0 :1:2 
-`uc 1 TRISD3 1 0 :1:3 
-`uc 1 TRISD4 1 0 :1:4 
-`uc 1 TRISD5 1 0 :1:5 
-`uc 1 TRISD6 1 0 :1:6 
-`uc 1 TRISD7 1 0 :1:7 
-]
-"2173
-[u S194 . 1 `S176 1 . 1 0 `S185 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES194  1 e 1 @3989 ]
-[s S278 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S176 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -216,15 +287,15 @@ FINISHED 6
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "6189
-[s S285 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S183 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 `uc 1 . 1 0 :2:4 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S292 . 1 `S278 1 . 1 0 `S285 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES292  1 e 1 @4053 ]
+[u S190 . 1 `S176 1 . 1 0 `S183 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES190  1 e 1 @4053 ]
 "6256
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6270
@@ -233,7 +304,7 @@ FINISHED 6
 [v _BSR BSR `VEuc  1 e 1 @4064 ]
 "6460
 [v _WREG WREG `VEuc  1 e 1 @4072 ]
-[s S115 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S111 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -243,7 +314,7 @@ FINISHED 6
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6722
-[s S124 . 1 `uc 1 . 1 0 :1:0 
+[s S120 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -252,12 +323,12 @@ FINISHED 6
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S133 . 1 `uc 1 . 1 0 :6:0 
+[s S129 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S137 . 1 `S115 1 . 1 0 `S124 1 . 1 0 `S133 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES137  1 e 1 @4082 ]
+[u S133 . 1 `S111 1 . 1 0 `S120 1 . 1 0 `S129 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES133  1 e 1 @4082 ]
 "6902
 [v _STKPTR STKPTR `VEuc  1 e 1 @4092 ]
 "6975
@@ -270,11 +341,11 @@ FINISHED 6
 [v _TOSU TOSU `VEuc  1 e 1 @4095 ]
 "15 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _quantum quantum `ui  1 e 2 0 ]
-[s S98 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
+[s S94 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
 "17
-[s S102 stack 5 `S98 1 STACK 3 0 `ui 1 stack_size 2 3 ]
-[s S105 tcb 17 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3008 1 task_state 1 8 `S102 1 task_stack 5 9 `uc 1 BSR_register 1 14 `uc 1 STATUS_register 1 15 `uc 1 WORK_register 1 16 ]
-[v _F_APTOS F_APTOS `[10]S105  1 e 170 0 ]
+[s S98 stack 5 `S94 1 STACK 3 0 `ui 1 stack_size 2 3 ]
+[s S101 tcb 17 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3008 1 task_state 1 8 `S98 1 task_stack 5 9 `uc 1 BSR_register 1 14 `uc 1 STATUS_register 1 15 `uc 1 WORK_register 1 16 ]
+[v _F_APTOS F_APTOS `[10]S101  1 e 170 0 ]
 "18
 [v _tasks_installed tasks_installed `ui  1 e 2 0 ]
 "19
@@ -285,82 +356,84 @@ FINISHED 6
 "15 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
 [s S33 sem 26 `i 1 contador 2 0 `S29 1 queue 24 2 ]
 [v _spista spista `S33  1 e 26 0 ]
-[s S420 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
+"16
+[v _cont cont `ui  1 e 2 0 ]
+[s S302 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
 "18
-[v _pipeluzes pipeluzes `S420  1 e 11 0 ]
-"16 /home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-[v _main main `R(v  1 e 1 0 ]
+[v _pipeluzes pipeluzes `S302  1 e 11 0 ]
+"17 /home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+[v _main main `(v  1 e 1 0 ]
 {
-"53
+"57
 } 0
-"147 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-[v _start_os start_os `R(v  1 e 1 0 ]
+"153 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+[v _start_os start_os `(v  1 e 1 0 ]
 {
-"152
+"158
 } 0
 "85
-[v _setupOS setupOS `R(v  1 e 1 0 ]
+[v _setupOS setupOS `(v  1 e 1 0 ]
 {
-"119
+"125
 } 0
 "21
-[v _create_task create_task `R(v  1 e 1 0 ]
+[v _create_task create_task `(v  1 e 1 0 ]
 {
-[s S98 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
+[s S94 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
 "24
-[s S102 stack 5 `S98 1 STACK 3 0 `ui 1 stack_size 2 3 ]
-[s S105 tcb 17 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3008 1 task_state 1 8 `S102 1 task_stack 5 9 `uc 1 BSR_register 1 14 `uc 1 STATUS_register 1 15 `uc 1 WORK_register 1 16 ]
-[v _task task `S105  1 a 17 0 ]
+[s S98 stack 5 `S94 1 STACK 3 0 `ui 1 stack_size 2 3 ]
+[s S101 tcb 17 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3008 1 task_state 1 8 `S98 1 task_stack 5 9 `uc 1 BSR_register 1 14 `uc 1 STATUS_register 1 15 `uc 1 WORK_register 1 16 ]
+[v create_task@task task `S101  1 a 17 23 ]
 "21
-[v _id id `ui  1 p 2 -2 ]
-[v _prior prior `ui  1 p 2 -4 ]
-[v _task_f task_f `*.37R(v  1 p 2 -6 ]
+[v create_task@id id `ui  1 p 2 17 ]
+[v create_task@prior prior `ui  1 p 2 19 ]
+[v create_task@task_f task_f `*.37R(v  1 p 2 21 ]
 "35
-} 17
+} 0
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul16.c
 [v ___wmul __wmul `R(ui  1 e 2 0 ]
 {
 "17
-[v _product product `ui  1 a 2 0 ]
+[v ___wmul@product product `ui  1 a 2 0 ]
 "15
-[v _multiplier multiplier `ui  1 p 2 -2 ]
-[v _multiplicand multiplicand `ui  1 p 2 -4 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 -2 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 -4 ]
 "53
 } 2
 "303 /home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-[v _SRAMInitHeap SRAMInitHeap `R(v  1 e 1 0 ]
+[v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
 {
 "306
-[v _count count `ui  1 a 2 0 ]
+[v SRAMInitHeap@count count `ui  1 a 2 17 ]
 "305
-[v _pHeap pHeap `N*.39uc  1 a 2 2 ]
+[v SRAMInitHeap@pHeap pHeap `N*.39uc  1 a 2 19 ]
 "326
-} 4
+} 0
 "6 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-[v _sem_init sem_init `R(v  1 e 1 0 ]
+[v _sem_init sem_init `(v  1 e 1 0 ]
 {
 [s S29 sem_queue 24 `[10]ui 1 s_queue 20 0 `ui 1 s_queue_pos_in 2 20 `ui 1 s_queue_pos_out 2 22 ]
 [s S33 sem 26 `i 1 contador 2 0 `S29 1 queue 24 2 ]
-[v _s s `*.39S33  1 p 2 -2 ]
-[v _value value `i  1 p 2 -4 ]
+[v sem_init@s s `*.39S33  1 p 2 17 ]
+[v sem_init@value value `i  1 p 2 19 ]
 "15
 } 0
-"21 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-[v _confi_port confi_port `R(v  1 e 1 0 ]
+"62 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+[v _confi_port confi_port `(v  1 e 1 0 ]
 {
-"26
+"67
 } 0
-"27
+"68
 [v _aviao1 aviao1 `R(v  1 e 1 0 ]
 {
-"81
+"124
 } 0
 "17 /home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
 [v _sem_wait sem_wait `R(v  1 e 1 0 ]
 {
 [s S29 sem_queue 24 `[10]ui 1 s_queue 20 0 `ui 1 s_queue_pos_in 2 20 `ui 1 s_queue_pos_out 2 22 ]
 [s S33 sem 26 `i 1 contador 2 0 `S29 1 queue 24 2 ]
-[v _s s `*.39S33  1 p 2 -2 ]
+[v sem_wait@s s `*.39S33  1 p 2 -2 ]
 "30
 } 0
 "32
@@ -368,83 +441,78 @@ FINISHED 6
 {
 [s S29 sem_queue 24 `[10]ui 1 s_queue 20 0 `ui 1 s_queue_pos_in 2 20 `ui 1 s_queue_pos_out 2 22 ]
 [s S33 sem 26 `i 1 contador 2 0 `S29 1 queue 24 2 ]
-[v _s s `*.39S33  1 p 2 -2 ]
+[v sem_post@s s `*.39S33  1 p 2 -2 ]
 "44
 } 0
 "62 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _delay delay `R(v  1 e 1 0 ]
 {
-[v _time_ms time_ms `ui  1 p 2 -2 ]
+[v delay@time_ms time_ms `ui  1 p 2 -2 ]
 "70
 } 0
 "37
 [v _dispatcher dispatcher `R(v  1 e 1 0 ]
 {
-[v _state state `E3008  1 p 1 -1 ]
+[v dispatcher@state state `E3008  1 p 1 -1 ]
 "55
 } 0
 "12 /home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
 [v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
 {
 "14
-[v _next_task_to_run next_task_to_run `ui  1 a 2 0 ]
+[v rr_scheduler@next_task_to_run next_task_to_run `ui  1 a 2 0 ]
 "21
 } 2
 "8 /opt/microchip/xc8/v1.45/sources/common/lwmod.c
 [v ___lwmod __lwmod `R(ui  1 e 2 0 ]
 {
 "11
-[v _counter counter `uc  1 a 1 0 ]
+[v ___lwmod@counter counter `uc  1 a 1 0 ]
 "8
-[v _dividend dividend `ui  1 p 2 -2 ]
-[v _divisor divisor `ui  1 p 2 -4 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 -2 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 -4 ]
 "26
 } 1
-"83 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+"126 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
 [v _aviao2 aviao2 `R(v  1 e 1 0 ]
 {
-"131
+"175
 } 0
-"133
-[v _aviao3 aviao3 `R(v  1 e 1 0 ]
-{
-"181
-} 0
-"214
+"259
 [v _tluzesescreve tluzesescreve `R(v  1 e 1 0 ]
 {
-"229
+"274
 } 0
 "22 /home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
 [v _write_pipe write_pipe `R(v  1 e 1 0 ]
 {
-[s S420 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
-[v _pipe pipe `*.39S420  1 p 2 -2 ]
-[v _data data `uc  1 p 1 -3 ]
+[s S302 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
+[v write_pipe@pipe pipe `*.39S302  1 p 2 -2 ]
+[v write_pipe@data data `uc  1 p 1 -3 ]
 "49
 } 0
 "11
 [v _create_pipe create_pipe `R(v  1 e 1 0 ]
 {
-[s S420 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
-[v _pipe pipe `*.39S420  1 p 2 -2 ]
+[s S302 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
+[v create_pipe@pipe pipe `*.39S302  1 p 2 -2 ]
 "20
 } 0
-"183 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+"228 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
 [v _tluzes tluzes `R(v  1 e 1 0 ]
 {
-"189
-[v _dado dado `uc  1 a 1 0 ]
-"212
+"234
+[v tluzes@dado dado `uc  1 a 1 0 ]
+"257
 } 1
 "51 /home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
 [v _read_pipe read_pipe `R(uc  1 e 1 0 ]
 {
 "54
-[v _dado dado `uc  1 a 1 0 ]
-[s S420 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
+[v read_pipe@dado dado `uc  1 a 1 0 ]
+[s S302 pipe 11 `[1]uc 1 pipe_queue 1 0 `ui 1 pos_read_pipe 2 1 `ui 1 pos_write_pipe 2 3 `ui 1 pipe_itens 2 5 `ui 1 pos_bloqued_read 2 7 `ui 1 pos_bloqued_write 2 9 ]
 "51
-[v _pipe pipe `*.39S420  1 p 2 -2 ]
+[v read_pipe@pipe pipe `*.39S302  1 p 2 -2 ]
 "80
 } 1
 "72 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
@@ -452,10 +520,15 @@ FINISHED 6
 {
 "82
 } 0
-"121
+"177 /home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+[v _aviao3 aviao3 `(v  1 e 1 0 ]
+{
+"226
+} 0
+"127 /home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
 [v _int_high int_high `II(v  1 e 1 0 ]
 {
-"123
+"129
 [v int_high@i i `ui  1 a 2 15 ]
-"145
+"151
 } 0

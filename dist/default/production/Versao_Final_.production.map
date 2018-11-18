@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.45/dat/en_msgs.txt -cs \
   -h+dist/default/production/Versao_Final_.production.sym \
   --cmf=dist/default/production/Versao_Final_.production.cmf -z -Q18F4520 \
-  -o/tmp/xcXGFzNNi -Mdist/default/production/Versao_Final_.production.map \
+  -o/tmp/xcXRgTvtv -Mdist/default/production/Versao_Final_.production.map \
   -E1 -ver=XC8 -ASTACK=03AAh-05ffh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0600h-06FFhx122 \
   -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh -AABS1=00h-05FFh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXZtYVhq.obj dist/default/production/Versao_Final_.production.obj 
+  /tmp/xcXZ8IkeU.obj dist/default/production/Versao_Final_.production.obj 
 
 Object code version is 3.11
 
@@ -33,7 +33,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXZtYVhq.obj
+/tmp/xcXZ8IkeU.obj
                 stack                               3AA      3AA      256      3AA       2
                 init                                  C        C        8        4       0
                 reset_vec                             0        0        4        0       0
@@ -41,39 +41,39 @@ Call graph: (short form)
                 config                           300000   300000        E   300000       0
 dist/default/production/Versao_Final_.production.obj
                 intcode                               8        8        4        4       0
-                temp                                 3B       3B        C        1       1
-                smallconst                          600      600        4      300       0
-                intcode_body                        B44      B44      16C      302       0
-                text22                             197E     197E       22      302       0
-                text21                              CB0      CB0      160      302       0
-                text20                             17C6     17C6       78      302       0
-                text19                             1474     1474       A6      302       0
-                text18                              E10      E10      154      302       0
-                text17                             19A0     19A0       1E      302       0
-                text16                             174C     174C       7A      302       0
-                text15                             1642     1642       86      302       0
-                text14                             1306     1306       BC      302       0
-                text13                             16C8     16C8       84      302       0
-                text12                              604      604      540      302       0
-                text11                             1900     1900       48      302       0
-                text10                              F64      F64      12C      302       0
-                text9                              1090     1090       DC      302       0
-                text8                              15B0     15B0       92      302       0
-                text7                              19C2     19C2        4      302       0
-                text6                              183E     183E       70      302       0
-                text5                              116C     116C       CE      302       0
-                text4                              151A     151A       96      302       0
-                text3                              123A     123A       CC      302       0
-                text2                              1948     1948       36      302       0
-                text1                              19BE     19BE        4      302       0
-                text0                              13C2     13C2       B2      302       0
-                cstackCOMRAM                         2A       2A       11        1       1
+                temp                                 54       54        C        1       1
+                smallconst                          600      600        6      300       0
+                intcode_body                        B46      B46      16C      303       0
+                text22                             15AC     15AC       84      303       0
+                text21                             1892     1892        4      303       0
+                text20                              CB2      CB2      160      303       0
+                text19                             1630     1630       78      303       0
+                text18                             122A     122A       A6      303       0
+                text17                              E12      E12      154      303       0
+                text16                             186A     186A       1E      303       0
+                text15                             1498     1498       90      303       0
+                text14                             116E     116E       BC      303       0
+                text13                             1528     1528       84      303       0
+                text12                              606      606      540      303       0
+                text11                             17AC     17AC       48      303       0
+                text10                              F66      F66      12C      303       0
+                text9                              1092     1092       DC      303       0
+                text8                              12D0     12D0       9C      303       0
+                text7                              1888     1888        6      303       0
+                text6                              17F4     17F4       3E      303       0
+                text5                              16A8     16A8       5A      303       0
+                text4                              1402     1402       96      303       0
+                text3                              1702     1702       58      303       0
+                text2                              1832     1832       38      303       0
+                text1                              188E     188E        4      303       0
+                text0                              136C     136C       96      303       0
+                cstackCOMRAM                         2C       2C       28        1       1
                 bssBIGRAM                           1AA      1AA      200      1AA       1
                 bssBANK1                            100      100       AA      100       1
-                dataCOMRAM                           47       47        2        1       1
-                bssCOMRAM                             1        1       29        1       1
-                cinit                              18AE     18AE       52      302       0
-                idataCOMRAM                        19C6     19C6        2      302       0
+                dataCOMRAM                           60       60        2        1       1
+                bssCOMRAM                             1        1       2B        1       1
+                cinit                              175A     175A       52      303       0
+                idataCOMRAM                        1896     1896        2      303       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -83,45 +83,45 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8        4         0
                 init                                  C        C        8         0
                 reset_vec                             0        0        4         0
-                intcode_body                        B44      B44      16C         0
-                text22                             197E     197E       22         0
-                text21                              CB0      CB0      160         0
-                text20                             17C6     17C6       78         0
-                text19                             1474     1474       A6         0
-                text18                              E10      E10      154         0
-                text17                             19A0     19A0       1E         0
-                text16                             174C     174C       7A         0
-                text15                             1642     1642       86         0
-                text14                             1306     1306       BC         0
-                text13                             16C8     16C8       84         0
-                text12                              604      604      540         0
-                text11                             1900     1900       48         0
-                text10                              F64      F64      12C         0
-                text9                              1090     1090       DC         0
-                text8                              15B0     15B0       92         0
-                text7                              19C2     19C2        4         0
-                text6                              183E     183E       70         0
-                text5                              116C     116C       CE         0
-                text4                              151A     151A       96         0
-                text3                              123A     123A       CC         0
-                text2                              1948     1948       36         0
-                text1                              19BE     19BE        4         0
-                text0                              13C2     13C2       B2         0
-                cinit                              18AE     18AE       52         0
-                idataCOMRAM                        19C6     19C6        2         0
+                intcode_body                        B46      B46      16C         0
+                text22                             15AC     15AC       84         0
+                text21                             1892     1892        4         0
+                text20                              CB2      CB2      160         0
+                text19                             1630     1630       78         0
+                text18                             122A     122A       A6         0
+                text17                              E12      E12      154         0
+                text16                             186A     186A       1E         0
+                text15                             1498     1498       90         0
+                text14                             116E     116E       BC         0
+                text13                             1528     1528       84         0
+                text12                              606      606      540         0
+                text11                             17AC     17AC       48         0
+                text10                              F66      F66      12C         0
+                text9                              1092     1092       DC         0
+                text8                              12D0     12D0       9C         0
+                text7                              1888     1888        6         0
+                text6                              17F4     17F4       3E         0
+                text5                              16A8     16A8       5A         0
+                text4                              1402     1402       96         0
+                text3                              1702     1702       58         0
+                text2                              1832     1832       38         0
+                text1                              188E     188E        4         0
+                text0                              136C     136C       96         0
+                cinit                              175A     175A       52         0
+                idataCOMRAM                        1896     1896        2         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
-                smallconst                          600      600        4         0
+                smallconst                          600      600        6         0
 
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                temp                                 3B       3B        C         1
-                cstackCOMRAM                         2A       2A       11         1
-                dataCOMRAM                           47       47        2         1
-                bssCOMRAM                             1        1       29         1
+                temp                                 54       54        C         1
+                cstackCOMRAM                         2C       2C       28         1
+                dataCOMRAM                           60       60        2         1
+                bssCOMRAM                             1        1       2B         1
 
         CLASS   ABS1           
 
@@ -160,13 +160,13 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                bssCOMRAM                      000001  000048  000049         1       1  COMRAM  
+                bssCOMRAM                      000001  000061  000062         1       1  COMRAM  
                 intcode                        000008  00000C  000014         4       0  CODE    
                 bssBANK1                       000100  0000AA  0001AA       100       1  BANK1   
                 bssBIGRAM                      0001AA  000200  0003AA       1AA       1  BIGRAM  
                 stack                          0003AA  000256  000600       3AA       2  STACK   
-                smallconst                     000600  000004  000604       300       0  SMALLCON
-                text12                         000604  0013C4  0019C8       302       0  CODE    
+                smallconst                     000600  000006  000606       300       0  SMALLCON
+                text12                         000606  001292  001898       303       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -178,30 +178,35 @@ UNUSED ADDRESS RANGES
         BANK3            0003AA-0003FF               56
         BANK4            000400-0004FF              100
         BANK5            000500-0005FF              100
-        BIGRAM           000049-0000FF               B7
+        BIGRAM           000062-0000FF               9E
                          0003AA-0005FF              256
         CODE             000004-000007                4
                          000014-0005FF              5EC
-                         0019C8-007FFF             6638
-        COMRAM           000049-00007F               37
+                         001898-007FFF             6768
+        COMRAM           000062-00007F               1E
         CONST            000004-000007                4
                          000014-0005FF              5EC
-                         0019C8-007FFF             6638
+                         001898-007FFF             6768
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      0019C8-007FFF             6638
+        MEDIUMCONST      001898-007FFF             6768
         RAM              000080-0000FF               80
                          0003AA-0005FF              100
         SFR              000F80-000FFF               80
-        SMALLCONST       0019C8-007FFF              100
+        SMALLCONST       001898-007FFF              100
 
                                   Symbol Table
 
+SRAMInitHeap@count       cstackCOMRAM 00003D
+SRAMInitHeap@pHeap       cstackCOMRAM 00003F
 _BSR                     (abs)        000FE0
 _F_APTOS                 bssBANK1     000100
 _INTCONbits              (abs)        000FF2
+_PORTB                   (abs)        000F81
+_PORTBbits               (abs)        000F81
 _PORTCbits               (abs)        000F82
 _PORTDbits               (abs)        000F83
-_SRAMInitHeap            text5        00116C
+_PORTEbits               (abs)        000F84
+_SRAMInitHeap            text5        0016A8
 _STATUS                  (abs)        000FD8
 _STKPTR                  (abs)        000FFC
 _T0CONbits               (abs)        000FD5
@@ -210,9 +215,9 @@ _TOS                     (abs)        000FFD
 _TOSH                    (abs)        000FFE
 _TOSL                    (abs)        000FFD
 _TOSU                    (abs)        000FFF
+_TRISB                   (abs)        000F93
 _TRISCbits               (abs)        000F94
 _TRISD                   (abs)        000F95
-_TRISDbits               (abs)        000F95
 _WREG                    (abs)        000FE8
 __HRAM                   (abs)        000000
 __Habs1                  abs1         000000
@@ -267,13 +272,13 @@ __Hrdata                 rdata        000000
 __Hreset_vec             reset_vec    000004
 __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
-__Hsmallconst            smallconst   000604
+__Hsmallconst            smallconst   000606
 __Hspace_0               (abs)        30000E
 __Hspace_1               (abs)        0003AA
 __Hspace_2               (abs)        000600
 __Hstack                 stack        000600
 __Hstruct                struct       000000
-__Htemp                  temp         000047
+__Htemp                  temp         000060
 __Htext                  text         000000
 __Htext0                 text0        000000
 __Htext1                 text1        000000
@@ -357,7 +362,7 @@ __Lspace_1               (abs)        000000
 __Lspace_2               (abs)        000000
 __Lstack                 stack        0003AA
 __Lstruct                struct       000000
-__Ltemp                  temp         00003B
+__Ltemp                  temp         000054
 __Ltext                  text         000000
 __Ltext0                 text0        000000
 __Ltext1                 text1        000000
@@ -387,74 +392,74 @@ __S1                     (abs)        0003AA
 __S2                     (abs)        000600
 ___inthi_sp              stack        000472
 ___intlo_sp              stack        000539
-___lwmod                 text14       001306
+___lwmod                 text14       00116E
 ___param_bank            (abs)        000000
 ___rparam_used           (abs)        000001
 ___sp                    stack        0003AA
-___wmul                  text4        00151A
+___wmul                  text4        001402
 __accesstop              (abs)        000080
 __activetblptr           (abs)        000001
-__end_of_SRAMInitHeap    text5        00123A
+__end_of_SRAMInitHeap    text5        001702
 __end_of_STACK_SIZE      smallconst   000603
-__end_of___lwmod         text14       0013C2
-__end_of___wmul          text4        0015B0
-__end_of__initialization cinit        0018F2
-__end_of_aviao1          text8        001642
-__end_of_aviao2          text15       0016C8
-__end_of_aviao3          text16       0017C6
-__end_of_confi_port      text7        0019C6
-__end_of_create_pipe     text19       00151A
-__end_of_create_task     text3        001306
-__end_of_delay           text11       001948
-__end_of_dispatcher      text12       000B44
-__end_of_int_high        intcode_body 000CB0
-__end_of_main            text0        001474
-__end_of_read_pipe       text21       000E10
-__end_of_rr_scheduler    text13       00174C
-__end_of_sem_init        text6        0018AE
-__end_of_sem_post        text10       001090
-__end_of_sem_wait        text9        00116C
-__end_of_setupOS         text2        00197E
-__end_of_start_os        text1        0019C2
-__end_of_task_idle       text22       0019A0
-__end_of_tluzes          text20       00183E
-__end_of_tluzesescreve   text17       0019BE
-__end_of_write_pipe      text18       000F64
-__initialization         cinit        0018AE
+__end_of___lwmod         text14       00122A
+__end_of___wmul          text4        001498
+__end_of__initialization cinit        00179E
+__end_of_aviao1          text8        00136C
+__end_of_aviao2          text15       001528
+__end_of_aviao3          text22       001630
+__end_of_confi_port      text7        00188E
+__end_of_create_pipe     text18       0012D0
+__end_of_create_task     text3        00175A
+__end_of_delay           text11       0017F4
+__end_of_dispatcher      text12       000B46
+__end_of_int_high        intcode_body 000CB2
+__end_of_main            text0        001402
+__end_of_read_pipe       text20       000E12
+__end_of_rr_scheduler    text13       0015AC
+__end_of_sem_init        text6        001832
+__end_of_sem_post        text10       001092
+__end_of_sem_wait        text9        00116E
+__end_of_setupOS         text2        00186A
+__end_of_start_os        text1        001892
+__end_of_task_idle       text21       001896
+__end_of_tluzes          text19       0016A8
+__end_of_tluzesescreve   text16       001888
+__end_of_write_pipe      text17       000F66
+__initialization         cinit        00175A
 __mediumconst            mediumconst  000000
 __pbssBANK1              bssBANK1     000100
 __pbssBIGRAM             bssBIGRAM    0001AA
 __pbssCOMRAM             bssCOMRAM    000001
-__pcinit                 cinit        0018AE
-__pcstackCOMRAM          cstackCOMRAM 00002A
-__pdataCOMRAM            dataCOMRAM   000047
-__pidataCOMRAM           idataCOMRAM  0019C6
+__pcinit                 cinit        00175A
+__pcstackCOMRAM          cstackCOMRAM 00002C
+__pdataCOMRAM            dataCOMRAM   000060
+__pidataCOMRAM           idataCOMRAM  001896
 __pintcode               intcode      000008
-__pintcode_body          intcode_body 000B44
+__pintcode_body          intcode_body 000B46
 __psmallconst            smallconst   000600
-__ptext0                 text0        0013C2
-__ptext1                 text1        0019BE
-__ptext10                text10       000F64
-__ptext11                text11       001900
-__ptext12                text12       000604
-__ptext13                text13       0016C8
-__ptext14                text14       001306
-__ptext15                text15       001642
-__ptext16                text16       00174C
-__ptext17                text17       0019A0
-__ptext18                text18       000E10
-__ptext19                text19       001474
-__ptext2                 text2        001948
-__ptext20                text20       0017C6
-__ptext21                text21       000CB0
-__ptext22                text22       00197E
-__ptext3                 text3        00123A
-__ptext4                 text4        00151A
-__ptext5                 text5        00116C
-__ptext6                 text6        00183E
-__ptext7                 text7        0019C2
-__ptext8                 text8        0015B0
-__ptext9                 text9        001090
+__ptext0                 text0        00136C
+__ptext1                 text1        00188E
+__ptext10                text10       000F66
+__ptext11                text11       0017AC
+__ptext12                text12       000606
+__ptext13                text13       001528
+__ptext14                text14       00116E
+__ptext15                text15       001498
+__ptext16                text16       00186A
+__ptext17                text17       000E12
+__ptext18                text18       00122A
+__ptext19                text19       001630
+__ptext2                 text2        001832
+__ptext20                text20       000CB2
+__ptext21                text21       001892
+__ptext22                text22       0015AC
+__ptext3                 text3        001702
+__ptext4                 text4        001402
+__ptext5                 text5        0016A8
+__ptext6                 text6        0017F4
+__ptext7                 text7        001888
+__ptext8                 text8        0012D0
+__ptext9                 text9        001092
 __ramtop                 ramtop       000600
 __size_of_SRAMInitHeap   (abs)        000000
 __size_of___lwmod        (abs)        000000
@@ -482,73 +487,80 @@ __size_of_tluzesescreve  (abs)        000000
 __size_of_write_pipe     (abs)        000000
 __smallconst             smallconst   000600
 __uDynamicHeap           bssBIGRAM    0001AA
-_aviao1                  text8        0015B0
-_aviao2                  text15       001642
-_aviao3                  text16       00174C
-_confi_port              text7        0019C2
-_create_pipe             text19       001474
-_create_task             text3        00123A
-_delay                   text11       001900
-_dispatcher              text12       000604
+_aviao1                  text8        0012D0
+_aviao2                  text15       001498
+_aviao3                  text22       0015AC
+_confi_port              text7        001888
+_cont                    bssCOMRAM    000001
+_create_pipe             text18       00122A
+_create_task             text3        001702
+_delay                   text11       0017AC
+_dispatcher              text12       000606
 _int_high                intcode      000008
-_main                    text0        0013C2
-_pipeluzes               bssCOMRAM    00001F
-_quantum                 dataCOMRAM   000047
-_read_pipe               text21       000CB0
-_rr_scheduler            text13       0016C8
-_sem_init                text6        00183E
-_sem_post                text10       000F64
-_sem_wait                text9        001090
-_setupOS                 text2        001948
-_spista                  bssCOMRAM    000005
-_start_os                text1        0019BE
-_task_idle               text22       00197E
-_task_running            bssCOMRAM    000001
-_tasks_installed         bssCOMRAM    000003
-_tluzes                  text20       0017C6
-_tluzesescreve           text17       0019A0
-_write_pipe              text18       000E10
-btemp                    temp         00003B
-end_of_initialization    cinit        0018F2
-int_func                 intcode_body 000B44
-int_high@i               cstackCOMRAM 000039
+_main                    text0        00136C
+_pipeluzes               bssCOMRAM    000021
+_quantum                 dataCOMRAM   000060
+_read_pipe               text20       000CB2
+_rr_scheduler            text13       001528
+_sem_init                text6        0017F4
+_sem_post                text10       000F66
+_sem_wait                text9        001092
+_setupOS                 text2        001832
+_spista                  bssCOMRAM    000007
+_start_os                text1        00188E
+_task_idle               text21       001892
+_task_running            bssCOMRAM    000003
+_tasks_installed         bssCOMRAM    000005
+_tluzes                  text19       001630
+_tluzesescreve           text16       00186A
+_write_pipe              text17       000E12
+btemp                    temp         000054
+create_task@id           cstackCOMRAM 00003D
+create_task@prior        cstackCOMRAM 00003F
+create_task@task         cstackCOMRAM 000043
+create_task@task_f       cstackCOMRAM 000041
+end_of_initialization    cinit        00179E
+int_func                 intcode_body 000B46
+int_high@i               cstackCOMRAM 00003B
 intlevel0                text         000000
 intlevel1                text         000000
 intlevel2                text         000000
 intlevel3                text         000000
-ltemp0                   temp         00003B
-ltemp1                   temp         00003F
-ltemp2                   temp         000043
+ltemp0                   temp         000054
+ltemp1                   temp         000058
+ltemp2                   temp         00005C
+sem_init@s               cstackCOMRAM 00003D
+sem_init@value           cstackCOMRAM 00003F
 stackhi                  (abs)        0005FF
 stacklo                  (abs)        0003AA
 start                    init         00000C
-start_initialization     cinit        0018AE
-ttemp0                   temp         00003B
-ttemp1                   temp         00003E
-ttemp2                   temp         000041
-ttemp3                   temp         000044
-wtemp0                   temp         00003B
-wtemp1                   temp         00003D
-wtemp2                   temp         00003F
-wtemp3                   temp         000041
-wtemp4                   temp         000043
-wtemp5                   temp         000045
-wtemp6                   temp         00003C
+start_initialization     cinit        00175A
+ttemp0                   temp         000054
+ttemp1                   temp         000057
+ttemp2                   temp         00005A
+ttemp3                   temp         00005D
+wtemp0                   temp         000054
+wtemp1                   temp         000056
+wtemp2                   temp         000058
+wtemp3                   temp         00005A
+wtemp4                   temp         00005C
+wtemp5                   temp         00005E
+wtemp6                   temp         000055
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 16 in file "main.c"
+		line 17 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  1  [STACK] void 
+                  1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+2, btemp+10, btemp+11, prodl, prodh
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+11, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -569,18 +581,18 @@ Total ram usage:        0 bytes
 		_start_os
  This function is called by:
 		Startup code after reset
- This function uses a reentrant model
+ This function uses a non-reentrant model
 
 
  *************** function _start_os *****************
  Defined at:
-		line 147 in file "kernel.c"
+		line 153 in file "kernel.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  1  [STACK] void 
+                  1    wreg      void 
  Registers used:
 		None
  Tracked objects:
@@ -599,7 +611,7 @@ Total ram usage:        0 bytes
 		Nothing
  This function is called by:
 		_main
- This function uses a reentrant model
+ This function uses a non-reentrant model
 
 
  *************** function _setupOS *****************
@@ -610,9 +622,9 @@ Total ram usage:        0 bytes
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  1  [STACK] void 
+                  1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+2, btemp+10, btemp+11, prodl, prodh
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+11, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -630,22 +642,22 @@ Total ram usage:        0 bytes
 		_create_task
  This function is called by:
 		_main
- This function uses a reentrant model
+ This function uses a non-reentrant model
 
 
  *************** function _create_task *****************
  Defined at:
 		line 21 in file "kernel.c"
  Parameters:    Size  Location     Type
-  id              2  [STACK] unsigned int 
-  prior           2  [STACK] unsigned int 
-  task_f          2  [STACK] PTR FTN()void 
-		 -> task_idle(1), tluzes(1), tluzesescreve(1), aviao3(1), 
-		 -> aviao2(1), aviao1(1), 
+  id              2   17[COMRAM] unsigned int 
+  prior           2   19[COMRAM] unsigned int 
+  task_f          2   21[COMRAM] PTR FTN()void 
+		 -> task_idle(1), tluzes(1), tluzesescreve(1), aviao2(1), 
+		 -> aviao1(1), 
  Auto vars:     Size  Location     Type
-  task           17  [STACK] struct tcb
+  task           17   23[COMRAM] struct tcb
  Return value:  Size  Location     Type
-                  1  [STACK] void 
+                  1    wreg      void 
  Registers used:
 		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+11, prodl, prodh
  Tracked objects:
@@ -653,11 +665,11 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0
+      Params:         6       0       0       0       0       0       0
+      Locals:        17       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0
-Total ram usage:        0 bytes
+      Totals:        23       0       0       0       0       0       0
+Total ram usage:       23 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:   10
  This function calls:
@@ -665,7 +677,7 @@ Total ram usage:        0 bytes
  This function is called by:
 		_main
 		_setupOS
- This function uses a reentrant model
+ This function uses a non-reentrant model
 
 
  *************** function ___wmul *****************
@@ -703,6 +715,8 @@ Total ram usage:        0 bytes
 		_sem_post
 		_write_pipe
 		_read_pipe
+		_get_id
+		_prior_scheduler
  This function uses a reentrant model
 
 
@@ -712,23 +726,23 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  count           2  [STACK] unsigned int 
-  pHeap           2  [STACK] near PTR unsigned char 
+  count           2   17[COMRAM] unsigned int 
+  pHeap           2   19[COMRAM] near PTR unsigned char 
 		 -> _uDynamicHeap(512), 
  Return value:  Size  Location     Type
-                  1  [STACK] void 
+                  1    wreg      void 
  Registers used:
-		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+2, btemp+10, btemp+11
+		wreg, fsr2l, fsr2h, status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
       Params:         0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0
-Total ram usage:        0 bytes
+      Totals:         4       0       0       0       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    9
  This function calls:
@@ -736,52 +750,52 @@ Total ram usage:        0 bytes
  This function is called by:
 		_main
 		_setupOS
- This function uses a reentrant model
+ This function uses a non-reentrant model
 
 
  *************** function _sem_init *****************
  Defined at:
 		line 6 in file "semaphore.c"
  Parameters:    Size  Location     Type
-  s               2  [STACK] PTR struct sem
+  s               2   17[COMRAM] PTR struct sem
 		 -> spista(26), 
-  value           2  [STACK] int 
+  value           2   19[COMRAM] int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  1  [STACK] void 
+                  1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp+1, btemp+2
+		wreg, fsr2l, fsr2h, status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         0       0       0       0       0       0       0
+      Params:         4       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0
-Total ram usage:        0 bytes
+      Totals:         4       0       0       0       0       0       0
+Total ram usage:        4 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    9
  This function calls:
 		Nothing
  This function is called by:
 		_main
- This function uses a reentrant model
+ This function uses a non-reentrant model
 
 
  *************** function _confi_port *****************
  Defined at:
-		line 21 in file "tasks.c"
+		line 62 in file "tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  1  [STACK] void 
+                  1    wreg      void 
  Registers used:
-		None
+		wreg, status,2
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -798,12 +812,12 @@ Total ram usage:        0 bytes
 		Nothing
  This function is called by:
 		_main
- This function uses a reentrant model
+ This function uses a non-reentrant model
 
 
  *************** function _aviao1 *****************
  Defined at:
-		line 27 in file "tasks.c"
+		line 68 in file "tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -933,6 +947,8 @@ Total ram usage:        0 bytes
 		_aviao2
 		_aviao3
 		_tluzes
+		_numerodeaviosG
+		_Lcd_Write_Char
  This function uses a reentrant model
 
 
@@ -1038,39 +1054,7 @@ Total ram usage:        0 bytes
 
  *************** function _aviao2 *****************
  Defined at:
-		line 83 in file "tasks.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1  [STACK] void 
- Registers used:
-		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+2, btemp+8, btemp+9, btemp+10, btemp+11, prodl, prodh
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    8
- This function calls:
-		_delay
-		_sem_post
-		_sem_wait
- This function is called by:
-		_main
- This function uses a reentrant model
-
-
- *************** function _aviao3 *****************
- Defined at:
-		line 133 in file "tasks.c"
+		line 126 in file "tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1102,7 +1086,7 @@ Total ram usage:        0 bytes
 
  *************** function _tluzesescreve *****************
  Defined at:
-		line 214 in file "tasks.c"
+		line 259 in file "tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1197,7 +1181,7 @@ Total ram usage:        0 bytes
 
  *************** function _tluzes *****************
  Defined at:
-		line 183 in file "tasks.c"
+		line 228 in file "tasks.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1268,7 +1252,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1  [STACK] void 
  Registers used:
-		wreg, status,2, status,0, btemp+11
+		None
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1288,9 +1272,41 @@ Total ram usage:        0 bytes
  This function uses a reentrant model
 
 
+ *************** function _aviao3 *****************
+ Defined at:
+		line 177 in file "tasks.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, btemp, btemp+1, btemp+2, btemp+8, btemp+9, btemp+10, btemp+11, prodl, prodh
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    8
+ This function calls:
+		_delay
+		_sem_post
+		_sem_wait
+ This function is called by:
+		Interrupt level 1
+ This function uses a non-reentrant model
+
+
  *************** function _int_high *****************
  Defined at:
-		line 121 in file "kernel.c"
+		line 127 in file "kernel.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1324,68 +1340,68 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 semaphore.c
-		_sem_wait      		CODE           	1090	0000	221
-		_sem_init      		CODE           	183E	0000	113
-		_sem_post      		CODE           	0F64	0000	301
+		_sem_wait      		CODE           	1092	0000	221
+		_sem_init      		CODE           	17F4	0000	63
+		_sem_post      		CODE           	0F66	0000	301
 
-semaphore.c estimated size: 635
+semaphore.c estimated size: 585
 
 /opt/microchip/xc8/v1.45/sources/common/lwmod.c
-		___lwmod       		CODE           	1306	0000	189
+		___lwmod       		CODE           	116E	0000	189
 
 /opt/microchip/xc8/v1.45/sources/common/lwmod.c estimated size: 189
 
 tasks.c
-		_tluzes        		CODE           	17C6	0000	121
-		_aviao3        		CODE           	174C	0000	123
-		_aviao1        		CODE           	15B0	0000	147
-		_tluzesescreve 		CODE           	19A0	0000	31
-		_aviao2        		CODE           	1642	0000	135
-		_confi_port    		CODE           	19C2	0000	5
+		_tluzes        		CODE           	1630	0000	121
+		_aviao3        		CODE           	15AC	0000	133
+		_aviao1        		CODE           	12D0	0000	157
+		_tluzesescreve 		CODE           	186A	0000	31
+		_aviao2        		CODE           	1498	0000	145
+		_confi_port    		CODE           	1888	0000	7
 
-tasks.c estimated size: 562
+tasks.c estimated size: 594
 
 kernel.c
-		_setupOS       		CODE           	1948	0000	55
-		_delay         		CODE           	1900	0000	73
-		_create_task   		CODE           	123A	0000	205
+		_setupOS       		CODE           	1832	0000	57
+		_delay         		CODE           	17AC	0000	73
+		_create_task   		CODE           	1702	0000	89
 		_int_high      		CODE           	0008	0000	369
-		_dispatcher    		CODE           	0604	0000	1345
-		_start_os      		CODE           	19BE	0000	5
-		_task_idle     		CODE           	197E	0000	35
+		_dispatcher    		CODE           	0606	0000	1345
+		_start_os      		CODE           	188E	0000	5
+		_task_idle     		CODE           	1892	0000	5
 
-kernel.c estimated size: 2087
+kernel.c estimated size: 1943
 
 shared
 		_STACK_SIZE    		SMALLCONST     	0000	0000	0
-		__initialization		CODE           	18AE	0000	69
+		__initialization		CODE           	175A	0000	69
 
 shared estimated size: 69
 
 pipe.c
-		_read_pipe     		CODE           	0CB0	0000	353
-		_create_pipe   		CODE           	1474	0000	167
-		_write_pipe    		CODE           	0E10	0000	341
+		_read_pipe     		CODE           	0CB2	0000	353
+		_create_pipe   		CODE           	122A	0000	167
+		_write_pipe    		CODE           	0E12	0000	341
 
 pipe.c estimated size: 861
 
 scheduler.c
-		_rr_scheduler  		CODE           	16C8	0000	133
+		_rr_scheduler  		CODE           	1528	0000	133
 
 scheduler.c estimated size: 133
 
 main.c
-		_main          		CODE           	13C2	0000	179
+		_main          		CODE           	136C	0000	151
 
-main.c estimated size: 179
+main.c estimated size: 151
 
 /opt/microchip/xc8/v1.45/sources/common/Umul16.c
-		___wmul        		CODE           	151A	0000	151
+		___wmul        		CODE           	1402	0000	151
 
 /opt/microchip/xc8/v1.45/sources/common/Umul16.c estimated size: 151
 
 memory.c
-		_SRAMInitHeap  		CODE           	116C	0000	207
+		_SRAMInitHeap  		CODE           	16A8	0000	91
 
-memory.c estimated size: 207
+memory.c estimated size: 91
 

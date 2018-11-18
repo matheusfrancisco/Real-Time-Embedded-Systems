@@ -11,47 +11,47 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXZtYVhq.obj
+$/tmp/xcXZ8IkeU.obj
 idloc IDLOC 0 200000 200000 8 1
 stack STACK 2 3AA 3AA 256 1
 init CODE 0 C C 8 1
 reset_vec CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
 $dist/default/production/Versao_Final_.production.obj
-cinit CODE 0 18AE 18AE 52 1
-intcode_body CODE 0 B44 B44 16C 1
-text0 CODE 0 13C2 13C2 B2 1
-text1 CODE 0 19BE 19BE 4 1
-text2 CODE 0 1948 1948 36 1
-text3 CODE 0 123A 123A CC 1
-text4 CODE 0 151A 151A 96 1
-text5 CODE 0 116C 116C CE 1
-text6 CODE 0 183E 183E 70 1
-text7 CODE 0 19C2 19C2 4 1
-text8 CODE 0 15B0 15B0 92 1
-text9 CODE 0 1090 1090 DC 1
-text10 CODE 0 F64 F64 12C 1
-text11 CODE 0 1900 1900 48 1
-text12 CODE 0 604 604 540 1
-text13 CODE 0 16C8 16C8 84 1
-text14 CODE 0 1306 1306 BC 1
-text15 CODE 0 1642 1642 86 1
-text16 CODE 0 174C 174C 7A 1
-text17 CODE 0 19A0 19A0 1E 1
-text18 CODE 0 E10 E10 154 1
-text19 CODE 0 1474 1474 A6 1
-text20 CODE 0 17C6 17C6 78 1
-text21 CODE 0 CB0 CB0 160 1
-text22 CODE 0 197E 197E 22 1
-idataCOMRAM CODE 0 19C6 19C6 2 1
-cstackCOMRAM COMRAM 1 2A 2A 11 1
-temp COMRAM 1 3B 3B C 1
+cinit CODE 0 175A 175A 52 1
+intcode_body CODE 0 B46 B46 16C 1
+text0 CODE 0 136C 136C 96 1
+text1 CODE 0 188E 188E 4 1
+text2 CODE 0 1832 1832 38 1
+text3 CODE 0 1702 1702 58 1
+text4 CODE 0 1402 1402 96 1
+text5 CODE 0 16A8 16A8 5A 1
+text6 CODE 0 17F4 17F4 3E 1
+text7 CODE 0 1888 1888 6 1
+text8 CODE 0 12D0 12D0 9C 1
+text9 CODE 0 1092 1092 DC 1
+text10 CODE 0 F66 F66 12C 1
+text11 CODE 0 17AC 17AC 48 1
+text12 CODE 0 606 606 540 1
+text13 CODE 0 1528 1528 84 1
+text14 CODE 0 116E 116E BC 1
+text15 CODE 0 1498 1498 90 1
+text16 CODE 0 186A 186A 1E 1
+text17 CODE 0 E12 E12 154 1
+text18 CODE 0 122A 122A A6 1
+text19 CODE 0 1630 1630 78 1
+text20 CODE 0 CB2 CB2 160 1
+text21 CODE 0 1892 1892 4 1
+text22 CODE 0 15AC 15AC 84 1
+idataCOMRAM CODE 0 1896 1896 2 1
+cstackCOMRAM COMRAM 1 2C 2C 28 1
+temp COMRAM 1 54 54 C 1
 bssBANK1 BANK1 1 100 100 AA 1
 intcode CODE 0 8 8 4 1
-smallconst SMALLCONST 0 600 600 4 1
-dataCOMRAM COMRAM 1 47 47 2 1
+smallconst SMALLCONST 0 600 600 6 1
+dataCOMRAM COMRAM 1 60 60 2 1
 bssBIGRAM BIGRAM 1 1AA 1AA 200 1
-bssCOMRAM COMRAM 1 1 1 29 1
+bssCOMRAM COMRAM 1 1 1 2B 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -67,16 +67,16 @@ BANK4 400-4FF 1
 BANK5 500-5FF 1
 CONST 4-7 1
 CONST 14-5FF 1
-CONST 19C8-7FFF 1
-SMALLCONST 19C8-7FFF 1
+CONST 1898-7FFF 1
+SMALLCONST 1898-7FFF 1
 CODE 4-7 1
 CODE 14-5FF 1
-CODE 19C8-7FFF 1
-BIGRAM 49-FF 1
+CODE 1898-7FFF 1
+BIGRAM 62-FF 1
 BIGRAM 3AA-5FF 1
-COMRAM 49-7F 1
+COMRAM 62-7F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 19C8-7FFF 1
+MEDIUMCONST 1898-7FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -91,299 +91,304 @@ MEDIUMCONST 19C8-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/Versao_Final_.production.obj
-8 intcode CODE >82:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-8 intcode CODE >121:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B44 intcode_body CODE >121:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B7E intcode_body CODE >125:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B82 intcode_body CODE >126:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B84 intcode_body CODE >127:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B88 intcode_body CODE >130:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B92 intcode_body CODE >131:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-BC2 intcode_body CODE >132:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-BF0 intcode_body CODE >133:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C20 intcode_body CODE >134:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C4C intcode_body CODE >130:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C4C intcode_body CODE >135:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C5C intcode_body CODE >139:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C62 intcode_body CODE >140:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C6A intcode_body CODE >141:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C72 intcode_body CODE >142:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C7A intcode_body CODE >143:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-C7A intcode_body CODE >145:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-197E text22 CODE >72:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-197E text22 CODE >74:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1980 text22 CODE >75:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1982 text22 CODE >79:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-199C text22 CODE >80:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-CB0 text21 CODE >51:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-CB2 text21 CODE >53:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-CB4 text21 CODE >57:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-CD4 text21 CODE >60:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-CF4 text21 CODE >61:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-CFC text21 CODE >64:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-D3E text21 CODE >65:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-D5E text21 CODE >66:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-D7C text21 CODE >69:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-D9C text21 CODE >70:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-DE0 text21 CODE >71:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E00 text21 CODE >77:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E02 text21 CODE >79:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E08 text21 CODE >80:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-17C6 text20 CODE >183:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17C8 text20 CODE >185:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17CA text20 CODE >186:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17CC text20 CODE >193:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17DE text20 CODE >194:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17EC text20 CODE >197:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1808 text20 CODE >198:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1814 text20 CODE >202:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1814 text20 CODE >205:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1830 text20 CODE >206:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1474 text19 CODE >11:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-1474 text19 CODE >13:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-1494 text19 CODE >14:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-14B4 text19 CODE >15:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-14D4 text19 CODE >18:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-14F4 text19 CODE >19:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-1514 text19 CODE >20:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E10 text18 CODE >22:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E10 text18 CODE >24:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E12 text18 CODE >27:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E32 text18 CODE >29:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E52 text18 CODE >31:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E5A text18 CODE >34:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-E98 text18 CODE >35:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-EB8 text18 CODE >36:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-ED6 text18 CODE >39:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-EF6 text18 CODE >40:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-F3A text18 CODE >41:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-F5A text18 CODE >48:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-F5C text18 CODE >49:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
-19A0 text17 CODE >214:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-19A0 text17 CODE >217:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-19AC text17 CODE >222:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-174C text16 CODE >133:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-174C text16 CODE >135:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-174E text16 CODE >136:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1750 text16 CODE >137:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1752 text16 CODE >138:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1754 text16 CODE >140:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1754 text16 CODE >142:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1756 text16 CODE >144:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1762 text16 CODE >146:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-176E text16 CODE >148:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1770 text16 CODE >150:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1772 text16 CODE >152:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-177E text16 CODE >155:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1780 text16 CODE >158:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-178C text16 CODE >160:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-178E text16 CODE >162:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-179A text16 CODE >166:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17A6 text16 CODE >168:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17A8 text16 CODE >171:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17AA text16 CODE >173:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17B6 text16 CODE >175:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-17B8 text16 CODE >177:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1642 text15 CODE >83:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1642 text15 CODE >85:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1644 text15 CODE >86:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1646 text15 CODE >87:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1648 text15 CODE >88:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-164A text15 CODE >90:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-164A text15 CODE >93:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-164C text15 CODE >95:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1658 text15 CODE >97:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1664 text15 CODE >99:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1666 text15 CODE >101:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1668 text15 CODE >103:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1674 text15 CODE >106:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1676 text15 CODE >109:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1682 text15 CODE >110:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-168E text15 CODE >112:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1690 text15 CODE >114:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-169C text15 CODE >116:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-16A8 text15 CODE >118:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-16AA text15 CODE >120:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-16AC text15 CODE >122:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-16B8 text15 CODE >124:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-16BA text15 CODE >126:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1306 text14 CODE >8:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1308 text14 CODE >13:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1318 text14 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-131E text14 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-133C text14 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1340 text14 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1346 text14 CODE >20:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-136A text14 CODE >21:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-138E text14 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1398 text14 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-13AC text14 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-13B8 text14 CODE >26:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-16C8 text13 CODE >12:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
-16CC text13 CODE >14:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
-16E0 text13 CODE >17:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
-1712 text13 CODE >18:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
-173A text13 CODE >20:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
-1746 text13 CODE >21:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
-604 text12 CODE >37:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-604 text12 CODE >39:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-606 text12 CODE >42:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-86E text12 CODE >46:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-87A text12 CODE >52:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B3E text12 CODE >54:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-B40 text12 CODE >55:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1900 text11 CODE >62:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1900 text11 CODE >64:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1902 text11 CODE >66:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1938 text11 CODE >67:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1940 text11 CODE >69:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1942 text11 CODE >70:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-F64 text10 CODE >32:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-F64 text10 CODE >34:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-F66 text10 CODE >36:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-F78 text10 CODE >37:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-F96 text10 CODE >38:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1004 text10 CODE >39:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1080 text10 CODE >40:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1088 text10 CODE >43:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-108A text10 CODE >44:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1090 text9 CODE >17:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1090 text9 CODE >19:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1092 text9 CODE >22:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-10A4 text9 CODE >23:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-10B6 text9 CODE >24:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1100 text9 CODE >25:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-115C text9 CODE >26:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1164 text9 CODE >29:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1166 text9 CODE >30:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-15B0 text8 CODE >27:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15B0 text8 CODE >30:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15B2 text8 CODE >31:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15B4 text8 CODE >32:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15B6 text8 CODE >33:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15B8 text8 CODE >35:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15B8 text8 CODE >37:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15BA text8 CODE >39:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15C6 text8 CODE >41:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15D2 text8 CODE >43:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15D4 text8 CODE >45:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15D6 text8 CODE >47:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15E2 text8 CODE >50:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15E4 text8 CODE >53:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15F0 text8 CODE >54:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15FC text8 CODE >57:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-15FE text8 CODE >59:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-160A text8 CODE >63:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1616 text8 CODE >65:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1618 text8 CODE >68:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-161A text8 CODE >70:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1626 text8 CODE >72:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1628 text8 CODE >74:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-1634 text8 CODE >75:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-19C2 text7 CODE >21:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-19C2 text7 CODE >23:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-19C4 text7 CODE >26:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
-183E text6 CODE >6:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-183E text6 CODE >8:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1840 text6 CODE >10:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1862 text6 CODE >11:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-1882 text6 CODE >12:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-18A2 text6 CODE >14:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-18A4 text6 CODE >15:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
-116C text5 CODE >303:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-1174 text5 CODE >308:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-1188 text5 CODE >309:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-119C text5 CODE >313:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-11B0 text5 CODE >315:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-11C0 text5 CODE >316:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-11DE text5 CODE >317:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-11F4 text5 CODE >318:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-11F6 text5 CODE >321:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-1208 text5 CODE >322:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-1230 text5 CODE >326:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
-151A text4 CODE >15:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
-151E text4 CODE >37:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
-1536 text4 CODE >38:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
-1568 text4 CODE >39:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
-159A text4 CODE >52:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
-15A6 text4 CODE >53:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
-123A text3 CODE >21:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1242 text3 CODE >26:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-125A text3 CODE >27:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-127C text3 CODE >28:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-129E text3 CODE >29:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-12B2 text3 CODE >30:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-12C2 text3 CODE >32:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-12F8 text3 CODE >33:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-12FC text3 CODE >35:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1948 text2 CODE >85:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1948 text2 CODE >97:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-194A text2 CODE >98:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-194C text2 CODE >99:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1950 text2 CODE >100:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1952 text2 CODE >101:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1954 text2 CODE >102:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1958 text2 CODE >104:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-195A text2 CODE >109:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-1976 text2 CODE >116:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-197A text2 CODE >118:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-197C text2 CODE >119:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-19BE text1 CODE >147:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-19BE text1 CODE >151:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-19C0 text1 CODE >152:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
-13C2 text0 CODE >16:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-13C2 text0 CODE >18:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-13C6 text0 CODE >19:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-13CA text0 CODE >22:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-13CE text0 CODE >23:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-13E2 text0 CODE >27:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-13FE text0 CODE >28:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-141A text0 CODE >29:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-1436 text0 CODE >32:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-1452 text0 CODE >33:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-146E text0 CODE >46:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-1472 text0 CODE >47:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
-18AE cinit CODE >2229:/tmp/xcX0BkwYr
-18AE cinit CODE >2231:/tmp/xcX0BkwYr
-18AE cinit CODE >2234:/tmp/xcX0BkwYr
-18AE cinit CODE >2276:/tmp/xcX0BkwYr
-18B0 cinit CODE >2277:/tmp/xcX0BkwYr
-18B2 cinit CODE >2278:/tmp/xcX0BkwYr
-18B4 cinit CODE >2279:/tmp/xcX0BkwYr
-18B6 cinit CODE >2280:/tmp/xcX0BkwYr
-18B8 cinit CODE >2281:/tmp/xcX0BkwYr
-18BA cinit CODE >2282:/tmp/xcX0BkwYr
-18BC cinit CODE >2283:/tmp/xcX0BkwYr
-18C0 cinit CODE >2284:/tmp/xcX0BkwYr
-18C2 cinit CODE >2285:/tmp/xcX0BkwYr
-18C6 cinit CODE >2289:/tmp/xcX0BkwYr
-18CA cinit CODE >2290:/tmp/xcX0BkwYr
-18CE cinit CODE >2291:/tmp/xcX0BkwYr
-18CE cinit CODE >2292:/tmp/xcX0BkwYr
-18D0 cinit CODE >2293:/tmp/xcX0BkwYr
-18D2 cinit CODE >2294:/tmp/xcX0BkwYr
-18D4 cinit CODE >2295:/tmp/xcX0BkwYr
-18D6 cinit CODE >2296:/tmp/xcX0BkwYr
-18D8 cinit CODE >2297:/tmp/xcX0BkwYr
-18DA cinit CODE >2300:/tmp/xcX0BkwYr
-18DE cinit CODE >2301:/tmp/xcX0BkwYr
-18E0 cinit CODE >2302:/tmp/xcX0BkwYr
-18E0 cinit CODE >2303:/tmp/xcX0BkwYr
-18E2 cinit CODE >2304:/tmp/xcX0BkwYr
-18E4 cinit CODE >2305:/tmp/xcX0BkwYr
-18E6 cinit CODE >2308:/tmp/xcX0BkwYr
-18EA cinit CODE >2309:/tmp/xcX0BkwYr
-18EC cinit CODE >2310:/tmp/xcX0BkwYr
-18EC cinit CODE >2311:/tmp/xcX0BkwYr
-18EE cinit CODE >2312:/tmp/xcX0BkwYr
-18F0 cinit CODE >2313:/tmp/xcX0BkwYr
-18F2 cinit CODE >2319:/tmp/xcX0BkwYr
-18F2 cinit CODE >2322:/tmp/xcX0BkwYr
-18F4 cinit CODE >2323:/tmp/xcX0BkwYr
-18F6 cinit CODE >2324:/tmp/xcX0BkwYr
-18F8 cinit CODE >2325:/tmp/xcX0BkwYr
-18FA cinit CODE >2326:/tmp/xcX0BkwYr
-18FC cinit CODE >2327:/tmp/xcX0BkwYr
+8 intcode CODE >127:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+8 intcode CODE >226:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+B46 intcode_body CODE >127:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+B80 intcode_body CODE >131:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+B84 intcode_body CODE >132:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+B86 intcode_body CODE >133:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+B8A intcode_body CODE >136:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+B94 intcode_body CODE >137:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+BC4 intcode_body CODE >138:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+BF2 intcode_body CODE >139:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C22 intcode_body CODE >140:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C4E intcode_body CODE >136:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C4E intcode_body CODE >141:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C5E intcode_body CODE >145:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C64 intcode_body CODE >146:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C6C intcode_body CODE >147:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C74 intcode_body CODE >148:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C7C intcode_body CODE >149:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+C7C intcode_body CODE >151:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+15AC text22 CODE >177:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15AC text22 CODE >179:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15AE text22 CODE >180:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15B0 text22 CODE >181:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15B2 text22 CODE >182:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15B4 text22 CODE >184:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15B4 text22 CODE >186:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15B6 text22 CODE >188:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15C2 text22 CODE >190:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15CE text22 CODE >192:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15D0 text22 CODE >194:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15D2 text22 CODE >196:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15DE text22 CODE >199:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15E0 text22 CODE >202:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15EC text22 CODE >204:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15F0 text22 CODE >205:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15F2 text22 CODE >207:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+15FE text22 CODE >211:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+160A text22 CODE >213:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+160C text22 CODE >214:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1612 text22 CODE >216:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1614 text22 CODE >218:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1620 text22 CODE >220:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1622 text22 CODE >222:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+162E text22 CODE >184:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1892 text21 CODE >72:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1892 text21 CODE >80:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+CB2 text20 CODE >51:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+CB4 text20 CODE >53:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+CB6 text20 CODE >57:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+CD6 text20 CODE >60:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+CF6 text20 CODE >61:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+CFE text20 CODE >64:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+D40 text20 CODE >65:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+D60 text20 CODE >66:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+D7E text20 CODE >69:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+D9E text20 CODE >70:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+DE2 text20 CODE >71:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E02 text20 CODE >77:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E04 text20 CODE >79:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E0A text20 CODE >80:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+1630 text19 CODE >228:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1632 text19 CODE >230:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1634 text19 CODE >231:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1636 text19 CODE >238:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1648 text19 CODE >239:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1656 text19 CODE >242:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1672 text19 CODE >243:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+167E text19 CODE >247:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+167E text19 CODE >250:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+169A text19 CODE >251:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+122A text18 CODE >11:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+122A text18 CODE >13:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+124A text18 CODE >14:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+126A text18 CODE >15:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+128A text18 CODE >18:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+12AA text18 CODE >19:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+12CA text18 CODE >20:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E12 text17 CODE >22:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E12 text17 CODE >24:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E14 text17 CODE >27:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E34 text17 CODE >29:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E54 text17 CODE >31:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E5C text17 CODE >34:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+E9A text17 CODE >35:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+EBA text17 CODE >36:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+ED8 text17 CODE >39:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+EF8 text17 CODE >40:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+F3C text17 CODE >41:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+F5C text17 CODE >48:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+F5E text17 CODE >49:/home/evohc/Files-notSync/ENC/Versao_Final_/pipe.c
+186A text16 CODE >259:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+186A text16 CODE >262:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1876 text16 CODE >267:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1498 text15 CODE >126:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1498 text15 CODE >128:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+149A text15 CODE >129:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+149C text15 CODE >130:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+149E text15 CODE >131:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14A0 text15 CODE >133:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14A0 text15 CODE >136:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14A2 text15 CODE >138:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14AE text15 CODE >140:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14BA text15 CODE >142:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14BC text15 CODE >144:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14BE text15 CODE >146:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14CA text15 CODE >149:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14CC text15 CODE >152:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14D8 text15 CODE >153:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14E4 text15 CODE >155:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14E6 text15 CODE >156:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14EA text15 CODE >157:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+14F6 text15 CODE >159:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1502 text15 CODE >161:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1504 text15 CODE >162:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+150A text15 CODE >164:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+150C text15 CODE >166:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1518 text15 CODE >168:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+151A text15 CODE >170:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+116E text14 CODE >8:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1170 text14 CODE >13:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1180 text14 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1186 text14 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+11A4 text14 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+11A8 text14 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+11AE text14 CODE >20:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+11D2 text14 CODE >21:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+11F6 text14 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1200 text14 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1214 text14 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1220 text14 CODE >26:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1528 text13 CODE >12:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
+152C text13 CODE >14:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
+1540 text13 CODE >17:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
+1572 text13 CODE >18:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
+159A text13 CODE >20:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
+15A6 text13 CODE >21:/home/evohc/Files-notSync/ENC/Versao_Final_/scheduler.c
+606 text12 CODE >37:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+606 text12 CODE >39:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+608 text12 CODE >42:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+870 text12 CODE >46:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+87C text12 CODE >52:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+B40 text12 CODE >54:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+B42 text12 CODE >55:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+17AC text11 CODE >62:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+17AC text11 CODE >64:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+17AE text11 CODE >66:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+17E4 text11 CODE >67:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+17EC text11 CODE >69:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+17EE text11 CODE >70:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+F66 text10 CODE >32:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+F66 text10 CODE >34:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+F68 text10 CODE >36:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+F7A text10 CODE >37:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+F98 text10 CODE >38:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1006 text10 CODE >39:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1082 text10 CODE >40:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+108A text10 CODE >43:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+108C text10 CODE >44:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1092 text9 CODE >17:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1092 text9 CODE >19:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1094 text9 CODE >22:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+10A6 text9 CODE >23:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+10B8 text9 CODE >24:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1102 text9 CODE >25:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+115E text9 CODE >26:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1166 text9 CODE >29:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1168 text9 CODE >30:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+12D0 text8 CODE >68:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12D0 text8 CODE >71:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12D2 text8 CODE >72:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12D4 text8 CODE >73:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12D6 text8 CODE >74:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12D8 text8 CODE >76:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12D8 text8 CODE >78:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12DA text8 CODE >80:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12E6 text8 CODE >82:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12F2 text8 CODE >84:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12F4 text8 CODE >86:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+12F6 text8 CODE >88:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1302 text8 CODE >91:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1304 text8 CODE >94:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1310 text8 CODE >95:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+131C text8 CODE >97:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1320 text8 CODE >99:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1322 text8 CODE >101:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+132E text8 CODE >105:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+133A text8 CODE >107:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+133C text8 CODE >109:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1342 text8 CODE >111:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1344 text8 CODE >113:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1350 text8 CODE >115:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1352 text8 CODE >117:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+135E text8 CODE >118:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1888 text7 CODE >62:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+1888 text7 CODE >64:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+188C text7 CODE >67:/home/evohc/Files-notSync/ENC/Versao_Final_/tasks.c
+17F4 text6 CODE >6:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+17F4 text6 CODE >8:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+17F6 text6 CODE >10:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1806 text6 CODE >11:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+181A text6 CODE >12:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+182E text6 CODE >14:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+1830 text6 CODE >15:/home/evohc/Files-notSync/ENC/Versao_Final_/semaphore.c
+16A8 text5 CODE >303:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16A8 text5 CODE >308:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16B0 text5 CODE >309:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16B6 text5 CODE >311:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16B6 text5 CODE >313:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16C2 text5 CODE >315:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16CE text5 CODE >316:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16D6 text5 CODE >317:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16E2 text5 CODE >318:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16E4 text5 CODE >319:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16E4 text5 CODE >321:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+16F0 text5 CODE >322:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+1700 text5 CODE >323:/home/evohc/Files-notSync/ENC/Versao_Final_/memory.c
+1402 text4 CODE >15:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+1406 text4 CODE >37:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+141E text4 CODE >38:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+1450 text4 CODE >39:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+1482 text4 CODE >52:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+148E text4 CODE >53:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+1702 text3 CODE >21:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1702 text3 CODE >26:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+170A text3 CODE >27:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1712 text3 CODE >28:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+171A text3 CODE >29:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1722 text3 CODE >30:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1726 text3 CODE >32:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1754 text3 CODE >33:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1758 text3 CODE >35:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1832 text2 CODE >85:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1832 text2 CODE >97:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1834 text2 CODE >98:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1836 text2 CODE >99:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+183C text2 CODE >100:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+183E text2 CODE >101:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1840 text2 CODE >102:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1844 text2 CODE >104:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1846 text2 CODE >109:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1862 text2 CODE >122:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1866 text2 CODE >124:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1868 text2 CODE >125:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+188E text1 CODE >153:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+188E text1 CODE >157:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+1890 text1 CODE >158:/home/evohc/Files-notSync/ENC/Versao_Final_/kernel.c
+136C text0 CODE >17:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+136C text0 CODE >19:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+1370 text0 CODE >20:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+1374 text0 CODE >25:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+1378 text0 CODE >26:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+138C text0 CODE >31:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+13A8 text0 CODE >32:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+13C4 text0 CODE >36:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+13E0 text0 CODE >37:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+13FC text0 CODE >50:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+1400 text0 CODE >51:/home/evohc/Files-notSync/ENC/Versao_Final_/main.c
+175A cinit CODE >2217:/tmp/xcXwdVbVx
+175A cinit CODE >2219:/tmp/xcXwdVbVx
+175A cinit CODE >2222:/tmp/xcXwdVbVx
+175A cinit CODE >2267:/tmp/xcXwdVbVx
+175C cinit CODE >2268:/tmp/xcXwdVbVx
+175E cinit CODE >2269:/tmp/xcXwdVbVx
+1760 cinit CODE >2270:/tmp/xcXwdVbVx
+1762 cinit CODE >2271:/tmp/xcXwdVbVx
+1764 cinit CODE >2272:/tmp/xcXwdVbVx
+1766 cinit CODE >2273:/tmp/xcXwdVbVx
+1768 cinit CODE >2274:/tmp/xcXwdVbVx
+176C cinit CODE >2275:/tmp/xcXwdVbVx
+176E cinit CODE >2276:/tmp/xcXwdVbVx
+1772 cinit CODE >2280:/tmp/xcXwdVbVx
+1776 cinit CODE >2281:/tmp/xcXwdVbVx
+177A cinit CODE >2282:/tmp/xcXwdVbVx
+177A cinit CODE >2283:/tmp/xcXwdVbVx
+177C cinit CODE >2284:/tmp/xcXwdVbVx
+177E cinit CODE >2285:/tmp/xcXwdVbVx
+1780 cinit CODE >2286:/tmp/xcXwdVbVx
+1782 cinit CODE >2287:/tmp/xcXwdVbVx
+1784 cinit CODE >2288:/tmp/xcXwdVbVx
+1786 cinit CODE >2291:/tmp/xcXwdVbVx
+178A cinit CODE >2292:/tmp/xcXwdVbVx
+178C cinit CODE >2293:/tmp/xcXwdVbVx
+178C cinit CODE >2294:/tmp/xcXwdVbVx
+178E cinit CODE >2295:/tmp/xcXwdVbVx
+1790 cinit CODE >2296:/tmp/xcXwdVbVx
+1792 cinit CODE >2299:/tmp/xcXwdVbVx
+1796 cinit CODE >2300:/tmp/xcXwdVbVx
+1798 cinit CODE >2301:/tmp/xcXwdVbVx
+1798 cinit CODE >2302:/tmp/xcXwdVbVx
+179A cinit CODE >2303:/tmp/xcXwdVbVx
+179C cinit CODE >2304:/tmp/xcXwdVbVx
+179E cinit CODE >2310:/tmp/xcXwdVbVx
+179E cinit CODE >2313:/tmp/xcXwdVbVx
+17A0 cinit CODE >2314:/tmp/xcXwdVbVx
+17A2 cinit CODE >2315:/tmp/xcXwdVbVx
+17A4 cinit CODE >2316:/tmp/xcXwdVbVx
+17A6 cinit CODE >2317:/tmp/xcXwdVbVx
+17A8 cinit CODE >2318:/tmp/xcXwdVbVx
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -400,91 +405,96 @@ __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production/Versao_Fina
 __Hspace_0 30000E 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Hspace_1 3AA 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Hspace_2 600 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-__end_of_write_pipe F64 0 CODE 0 text18 dist/default/production/Versao_Final_.production.obj
+__end_of_write_pipe F66 0 CODE 0 text17 dist/default/production/Versao_Final_.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production/Versao_Final_.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXZtYVhq.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXZ8IkeU.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/Versao_Final_.production.obj
-ltemp0 3B 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-ltemp1 3F 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-ltemp2 43 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+ltemp0 54 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+ltemp1 58 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+ltemp2 5C 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
 __Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production/Versao_Final_.production.obj
 _TOSH FFE 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _TOSL FFD 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _TOSU FFF 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _WREG FE8 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-___sp 3AA 0 STACK 2 stack /tmp/xcXZtYVhq.obj
-_main 13C2 0 CODE 0 text0 dist/default/production/Versao_Final_.production.obj
-btemp 3B 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+___sp 3AA 0 STACK 2 stack /tmp/xcXZ8IkeU.obj
+_cont 1 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
+_main 136C 0 CODE 0 text0 dist/default/production/Versao_Final_.production.obj
+btemp 54 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/Versao_Final_.production.obj
-_tluzesescreve 19A0 0 CODE 0 text17 dist/default/production/Versao_Final_.production.obj
+_tluzesescreve 186A 0 CODE 0 text16 dist/default/production/Versao_Final_.production.obj
 __size_of_SRAMInitHeap 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-start C 0 CODE 0 init /tmp/xcXZtYVhq.obj
+start C 0 CODE 0 init /tmp/xcXZ8IkeU.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __size_of___lwmod 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/Versao_Final_.production.obj
 _F_APTOS 100 0 BANK1 1 bssBANK1 dist/default/production/Versao_Final_.production.obj
 __size_of_confi_port 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-_start_os 19BE 0 CODE 0 text1 dist/default/production/Versao_Final_.production.obj
+_start_os 188E 0 CODE 0 text1 dist/default/production/Versao_Final_.production.obj
 __Hpowerup C 0 CODE 0 powerup dist/default/production/Versao_Final_.production.obj
 __size_of_int_high 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _T0CONbits FD5 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-ttemp0 3B 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-ttemp1 3E 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-ttemp2 41 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-ttemp3 44 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+ttemp0 54 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+ttemp1 57 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+ttemp2 5A 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+ttemp3 5D 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/Versao_Final_.production.obj
 __LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/Versao_Final_.production.obj
-__end_of_SRAMInitHeap 123A 0 CODE 0 text5 dist/default/production/Versao_Final_.production.obj
-__end_of_start_os 19C2 0 CODE 0 text1 dist/default/production/Versao_Final_.production.obj
-__accesstop 80 0 ABS 0 - /tmp/xcXZtYVhq.obj
-intlevel0 0 0 CODE 0 text /tmp/xcXZtYVhq.obj
-intlevel1 0 0 CODE 0 text /tmp/xcXZtYVhq.obj
-intlevel2 0 0 CODE 0 text /tmp/xcXZtYVhq.obj
-intlevel3 0 0 CODE 0 text /tmp/xcXZtYVhq.obj
+__end_of_SRAMInitHeap 1702 0 CODE 0 text5 dist/default/production/Versao_Final_.production.obj
+__end_of_start_os 1892 0 CODE 0 text1 dist/default/production/Versao_Final_.production.obj
+sem_init@s 3D 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
+__accesstop 80 0 ABS 0 - /tmp/xcXZ8IkeU.obj
+intlevel0 0 0 CODE 0 text /tmp/xcXZ8IkeU.obj
+intlevel1 0 0 CODE 0 text /tmp/xcXZ8IkeU.obj
+intlevel2 0 0 CODE 0 text /tmp/xcXZ8IkeU.obj
+intlevel3 0 0 CODE 0 text /tmp/xcXZ8IkeU.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/Versao_Final_.production.obj
 __size_of_setupOS 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-_task_running 1 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
+_task_running 3 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/Versao_Final_.production.obj
-wtemp0 3B 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-wtemp1 3D 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-wtemp2 3F 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-wtemp3 41 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-wtemp4 43 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-wtemp5 45 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
-wtemp6 3C 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+wtemp0 54 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+wtemp1 56 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+wtemp2 58 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+wtemp3 5A 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+wtemp4 5C 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+wtemp5 5E 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+wtemp6 55 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production/Versao_Final_.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production/Versao_Final_.production.obj
-__pidataCOMRAM 19C6 0 CODE 0 idataCOMRAM dist/default/production/Versao_Final_.production.obj
-_create_pipe 1474 0 CODE 0 text19 dist/default/production/Versao_Final_.production.obj
-_create_task 123A 0 CODE 0 text3 dist/default/production/Versao_Final_.production.obj
-_tasks_installed 3 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
-___inthi_sp 472 0 STACK 2 stack /tmp/xcXZtYVhq.obj
-___intlo_sp 539 0 STACK 2 stack /tmp/xcXZtYVhq.obj
-_pipeluzes 1F 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
+__pidataCOMRAM 1896 0 CODE 0 idataCOMRAM dist/default/production/Versao_Final_.production.obj
+_create_pipe 122A 0 CODE 0 text18 dist/default/production/Versao_Final_.production.obj
+_create_task 1702 0 CODE 0 text3 dist/default/production/Versao_Final_.production.obj
+_tasks_installed 5 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
+___inthi_sp 472 0 STACK 2 stack /tmp/xcXZ8IkeU.obj
+___intlo_sp 539 0 STACK 2 stack /tmp/xcXZ8IkeU.obj
+_pipeluzes 21 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/Versao_Final_.production.obj
+create_task@task_f 41 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/Versao_Final_.production.obj
-__end_of___wmul 15B0 0 CODE 0 text4 dist/default/production/Versao_Final_.production.obj
-_quantum 47 0 COMRAM 1 dataCOMRAM dist/default/production/Versao_Final_.production.obj
+create_task@prior 3F 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
+__end_of___wmul 1498 0 CODE 0 text4 dist/default/production/Versao_Final_.production.obj
+SRAMInitHeap@count 3D 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
+SRAMInitHeap@pHeap 3F 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
+_quantum 60 0 COMRAM 1 dataCOMRAM dist/default/production/Versao_Final_.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/Versao_Final_.production.obj
 _int_high 8 0 CODE 0 intcode dist/default/production/Versao_Final_.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production/Versao_Final_.production.obj
-__end_of_aviao1 1642 0 CODE 0 text8 dist/default/production/Versao_Final_.production.obj
-__end_of_aviao2 16C8 0 CODE 0 text15 dist/default/production/Versao_Final_.production.obj
-__end_of_aviao3 17C6 0 CODE 0 text16 dist/default/production/Versao_Final_.production.obj
+__end_of_aviao1 136C 0 CODE 0 text8 dist/default/production/Versao_Final_.production.obj
+__end_of_aviao2 1528 0 CODE 0 text15 dist/default/production/Versao_Final_.production.obj
+__end_of_aviao3 1630 0 CODE 0 text22 dist/default/production/Versao_Final_.production.obj
 __Hintcodelo C 0 CODE 0 intcodelo dist/default/production/Versao_Final_.production.obj
-__end_of___lwmod 13C2 0 CODE 0 text14 dist/default/production/Versao_Final_.production.obj
+__end_of___lwmod 122A 0 CODE 0 text14 dist/default/production/Versao_Final_.production.obj
 __size_of_tluzesescreve 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-__end_of_int_high CB0 0 CODE 0 intcode_body dist/default/production/Versao_Final_.production.obj
+__end_of_int_high CB2 0 CODE 0 intcode_body dist/default/production/Versao_Final_.production.obj
 __size_of_delay 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/Versao_Final_.production.obj
 __Lintcodelo C 0 CODE 0 intcodelo dist/default/production/Versao_Final_.production.obj
-start_initialization 18AE 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
+start_initialization 175A 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/Versao_Final_.production.obj
-__end_of_setupOS 197E 0 CODE 0 text2 dist/default/production/Versao_Final_.production.obj
+__end_of_setupOS 186A 0 CODE 0 text2 dist/default/production/Versao_Final_.production.obj
 _TRISCbits F94 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-_TRISDbits F95 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __size_of_write_pipe 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-__end_of_tluzesescreve 19BE 0 CODE 0 text17 dist/default/production/Versao_Final_.production.obj
+__end_of_tluzesescreve 1888 0 CODE 0 text16 dist/default/production/Versao_Final_.production.obj
 ___rparam_used 1 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _STATUS FD8 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _STKPTR FFC 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
@@ -499,6 +509,7 @@ __Hconst 0 0 CONST 0 const dist/default/production/Versao_Final_.production.obj
 __Hidata 0 0 CODE 0 idata dist/default/production/Versao_Final_.production.obj
 __Hidloc 200008 0 IDLOC 0 idloc dist/default/production/Versao_Final_.production.obj
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production/Versao_Final_.production.obj
+create_task@id 3D 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
 __Hparam 0 0 COMRAM 1 rparam dist/default/production/Versao_Final_.production.obj
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production/Versao_Final_.production.obj
 __Hstack 600 0 STACK 2 stack dist/default/production/Versao_Final_.production.obj
@@ -512,10 +523,11 @@ __Htext6 0 0 ABS 0 text6 dist/default/production/Versao_Final_.production.obj
 __Htext7 0 0 ABS 0 text7 dist/default/production/Versao_Final_.production.obj
 __Htext8 0 0 ABS 0 text8 dist/default/production/Versao_Final_.production.obj
 __Htext9 0 0 ABS 0 text9 dist/default/production/Versao_Final_.production.obj
-__end_of_tluzes 183E 0 CODE 0 text20 dist/default/production/Versao_Final_.production.obj
+__end_of_tluzes 16A8 0 CODE 0 text19 dist/default/production/Versao_Final_.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production/Versao_Final_.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production/Versao_Final_.production.obj
-__smallconst 600 0 SMALLCONST 0 smallconst /tmp/xcXZtYVhq.obj
+__smallconst 600 0 SMALLCONST 0 smallconst /tmp/xcXZ8IkeU.obj
+sem_init@value 3F 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production/Versao_Final_.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production/Versao_Final_.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production/Versao_Final_.production.obj
@@ -544,25 +556,27 @@ __Ltext8 0 0 ABS 0 text8 dist/default/production/Versao_Final_.production.obj
 __Ltext9 0 0 ABS 0 text9 dist/default/production/Versao_Final_.production.obj
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production/Versao_Final_.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/Versao_Final_.production.obj
+_PORTBbits F81 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _PORTCbits F82 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _PORTDbits F83 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
+_PORTEbits F84 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _INTCONbits FF2 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Habs1 0 0 ABS 0 abs1 dist/default/production/Versao_Final_.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production/Versao_Final_.production.obj
 __Hinit 14 0 CODE 0 init dist/default/production/Versao_Final_.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/Versao_Final_.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production/Versao_Final_.production.obj
-__Htemp 47 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+__Htemp 60 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
 __Htext 0 0 ABS 0 text dist/default/production/Versao_Final_.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/default/production/Versao_Final_.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/Versao_Final_.production.obj
 __Linit C 0 CODE 0 init dist/default/production/Versao_Final_.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/Versao_Final_.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production/Versao_Final_.production.obj
-__Ltemp 3B 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
+__Ltemp 54 0 COMRAM 1 temp dist/default/production/Versao_Final_.production.obj
 __Ltext 0 0 ABS 0 text dist/default/production/Versao_Final_.production.obj
-___wmul 151A 0 CODE 0 text4 dist/default/production/Versao_Final_.production.obj
-_rr_scheduler 16C8 0 CODE 0 text13 dist/default/production/Versao_Final_.production.obj
+___wmul 1402 0 CODE 0 text4 dist/default/production/Versao_Final_.production.obj
+_rr_scheduler 1528 0 CODE 0 text13 dist/default/production/Versao_Final_.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
 __Hintret 0 0 ABS 0 intret dist/default/production/Versao_Final_.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production/Versao_Final_.production.obj
@@ -571,17 +585,17 @@ _TOS FFD 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __S0 30000E 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __S1 3AA 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __S2 600 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-_dispatcher 604 0 CODE 0 text12 dist/default/production/Versao_Final_.production.obj
-_aviao1 15B0 0 CODE 0 text8 dist/default/production/Versao_Final_.production.obj
-_aviao2 1642 0 CODE 0 text15 dist/default/production/Versao_Final_.production.obj
-_aviao3 174C 0 CODE 0 text16 dist/default/production/Versao_Final_.production.obj
-int_high@i 39 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
+_dispatcher 606 0 CODE 0 text12 dist/default/production/Versao_Final_.production.obj
+_aviao1 12D0 0 CODE 0 text8 dist/default/production/Versao_Final_.production.obj
+_aviao2 1498 0 CODE 0 text15 dist/default/production/Versao_Final_.production.obj
+_aviao3 15AC 0 CODE 0 text22 dist/default/production/Versao_Final_.production.obj
+int_high@i 3B 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/Versao_Final_.production.obj
 __uDynamicHeap 1AA 0 BIGRAM 1 bssBIGRAM dist/default/production/Versao_Final_.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production/Versao_Final_.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production/Versao_Final_.production.obj
-__end_of_task_idle 19A0 0 CODE 0 text22 dist/default/production/Versao_Final_.production.obj
-int_func B44 0 CODE 0 intcode_body dist/default/production/Versao_Final_.production.obj
+__end_of_task_idle 1896 0 CODE 0 text21 dist/default/production/Versao_Final_.production.obj
+int_func B46 0 CODE 0 intcode_body dist/default/production/Versao_Final_.production.obj
 __size_of_task_idle 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production/Versao_Final_.production.obj
 __Hramtop 600 0 RAM 0 ramtop dist/default/production/Versao_Final_.production.obj
@@ -607,77 +621,77 @@ __Htext19 0 0 ABS 0 text19 dist/default/production/Versao_Final_.production.obj
 __Htext20 0 0 ABS 0 text20 dist/default/production/Versao_Final_.production.obj
 __Htext21 0 0 ABS 0 text21 dist/default/production/Versao_Final_.production.obj
 __Htext22 0 0 ABS 0 text22 dist/default/production/Versao_Final_.production.obj
-__end_of_create_pipe 151A 0 CODE 0 text19 dist/default/production/Versao_Final_.production.obj
-__end_of_create_task 1306 0 CODE 0 text3 dist/default/production/Versao_Final_.production.obj
-_task_idle 197E 0 CODE 0 text22 dist/default/production/Versao_Final_.production.obj
+__end_of_create_pipe 12D0 0 CODE 0 text18 dist/default/production/Versao_Final_.production.obj
+__end_of_create_task 175A 0 CODE 0 text3 dist/default/production/Versao_Final_.production.obj
+_task_idle 1892 0 CODE 0 text21 dist/default/production/Versao_Final_.production.obj
 __size_of_aviao1 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __size_of_aviao2 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __size_of_aviao3 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-__ptext10 F64 0 CODE 0 text10 dist/default/production/Versao_Final_.production.obj
-__ptext11 1900 0 CODE 0 text11 dist/default/production/Versao_Final_.production.obj
-__ptext12 604 0 CODE 0 text12 dist/default/production/Versao_Final_.production.obj
-__ptext13 16C8 0 CODE 0 text13 dist/default/production/Versao_Final_.production.obj
-__ptext14 1306 0 CODE 0 text14 dist/default/production/Versao_Final_.production.obj
-__ptext15 1642 0 CODE 0 text15 dist/default/production/Versao_Final_.production.obj
-__ptext16 174C 0 CODE 0 text16 dist/default/production/Versao_Final_.production.obj
-__ptext17 19A0 0 CODE 0 text17 dist/default/production/Versao_Final_.production.obj
-__ptext18 E10 0 CODE 0 text18 dist/default/production/Versao_Final_.production.obj
-__ptext19 1474 0 CODE 0 text19 dist/default/production/Versao_Final_.production.obj
-__ptext20 17C6 0 CODE 0 text20 dist/default/production/Versao_Final_.production.obj
-__ptext21 CB0 0 CODE 0 text21 dist/default/production/Versao_Final_.production.obj
-__ptext22 197E 0 CODE 0 text22 dist/default/production/Versao_Final_.production.obj
-__pintcode_body B44 0 CODE 0 intcode_body dist/default/production/Versao_Final_.production.obj
-___lwmod 1306 0 CODE 0 text14 dist/default/production/Versao_Final_.production.obj
+__ptext10 F66 0 CODE 0 text10 dist/default/production/Versao_Final_.production.obj
+__ptext11 17AC 0 CODE 0 text11 dist/default/production/Versao_Final_.production.obj
+__ptext12 606 0 CODE 0 text12 dist/default/production/Versao_Final_.production.obj
+__ptext13 1528 0 CODE 0 text13 dist/default/production/Versao_Final_.production.obj
+__ptext14 116E 0 CODE 0 text14 dist/default/production/Versao_Final_.production.obj
+__ptext15 1498 0 CODE 0 text15 dist/default/production/Versao_Final_.production.obj
+__ptext16 186A 0 CODE 0 text16 dist/default/production/Versao_Final_.production.obj
+__ptext17 E12 0 CODE 0 text17 dist/default/production/Versao_Final_.production.obj
+__ptext18 122A 0 CODE 0 text18 dist/default/production/Versao_Final_.production.obj
+__ptext19 1630 0 CODE 0 text19 dist/default/production/Versao_Final_.production.obj
+__ptext20 CB2 0 CODE 0 text20 dist/default/production/Versao_Final_.production.obj
+__ptext21 1892 0 CODE 0 text21 dist/default/production/Versao_Final_.production.obj
+__ptext22 15AC 0 CODE 0 text22 dist/default/production/Versao_Final_.production.obj
+__pintcode_body B46 0 CODE 0 intcode_body dist/default/production/Versao_Final_.production.obj
+___lwmod 116E 0 CODE 0 text14 dist/default/production/Versao_Final_.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production/Versao_Final_.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production/Versao_Final_.production.obj
-__end_of_dispatcher B44 0 CODE 0 text12 dist/default/production/Versao_Final_.production.obj
+__end_of_dispatcher B46 0 CODE 0 text12 dist/default/production/Versao_Final_.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production/Versao_Final_.production.obj
 __Lconfig 300000 0 CONFIG 0 config dist/default/production/Versao_Final_.production.obj
-__end_of_rr_scheduler 174C 0 CODE 0 text13 dist/default/production/Versao_Final_.production.obj
-_confi_port 19C2 0 CODE 0 text7 dist/default/production/Versao_Final_.production.obj
+__end_of_rr_scheduler 15AC 0 CODE 0 text13 dist/default/production/Versao_Final_.production.obj
+_confi_port 1888 0 CODE 0 text7 dist/default/production/Versao_Final_.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production/Versao_Final_.production.obj
-_spista 5 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
+_spista 7 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production/Versao_Final_.production.obj
-_tluzes 17C6 0 CODE 0 text20 dist/default/production/Versao_Final_.production.obj
-stackhi 5FF 0 ABS 0 - /tmp/xcXZtYVhq.obj
-stacklo 3AA 0 ABS 0 - /tmp/xcXZtYVhq.obj
+_tluzes 1630 0 CODE 0 text19 dist/default/production/Versao_Final_.production.obj
+stackhi 5FF 0 ABS 0 - /tmp/xcXZ8IkeU.obj
+stacklo 3AA 0 ABS 0 - /tmp/xcXZ8IkeU.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production/Versao_Final_.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production/Versao_Final_.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production/Versao_Final_.production.obj
-_setupOS 1948 0 CODE 0 text2 dist/default/production/Versao_Final_.production.obj
-_sem_init 183E 0 CODE 0 text6 dist/default/production/Versao_Final_.production.obj
-_sem_post F64 0 CODE 0 text10 dist/default/production/Versao_Final_.production.obj
-_sem_wait 1090 0 CODE 0 text9 dist/default/production/Versao_Final_.production.obj
+_setupOS 1832 0 CODE 0 text2 dist/default/production/Versao_Final_.production.obj
+_sem_init 17F4 0 CODE 0 text6 dist/default/production/Versao_Final_.production.obj
+_sem_post F66 0 CODE 0 text10 dist/default/production/Versao_Final_.production.obj
+_sem_wait 1092 0 CODE 0 text9 dist/default/production/Versao_Final_.production.obj
 __pbssBIGRAM 1AA 0 BIGRAM 1 bssBIGRAM dist/default/production/Versao_Final_.production.obj
 __Lspace_0 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production/Versao_Final_.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
-__end_of_sem_init 18AE 0 CODE 0 text6 dist/default/production/Versao_Final_.production.obj
-__end_of_sem_post 1090 0 CODE 0 text10 dist/default/production/Versao_Final_.production.obj
-__end_of_sem_wait 116C 0 CODE 0 text9 dist/default/production/Versao_Final_.production.obj
-end_of_initialization 18F2 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
+__end_of_sem_init 1832 0 CODE 0 text6 dist/default/production/Versao_Final_.production.obj
+__end_of_sem_post 1092 0 CODE 0 text10 dist/default/production/Versao_Final_.production.obj
+__end_of_sem_wait 116E 0 CODE 0 text9 dist/default/production/Versao_Final_.production.obj
+end_of_initialization 179E 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production/Versao_Final_.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production/Versao_Final_.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production/Versao_Final_.production.obj
 __HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production/Versao_Final_.production.obj
 __Lramtop 600 0 RAM 0 ramtop dist/default/production/Versao_Final_.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production/Versao_Final_.production.obj
-__pcinit 18AE 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
+__pcinit 175A 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
 __size_of_tluzes 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-__ptext0 13C2 0 CODE 0 text0 dist/default/production/Versao_Final_.production.obj
-__ptext1 19BE 0 CODE 0 text1 dist/default/production/Versao_Final_.production.obj
-__ptext2 1948 0 CODE 0 text2 dist/default/production/Versao_Final_.production.obj
-__ptext3 123A 0 CODE 0 text3 dist/default/production/Versao_Final_.production.obj
-__ptext4 151A 0 CODE 0 text4 dist/default/production/Versao_Final_.production.obj
-__ptext5 116C 0 CODE 0 text5 dist/default/production/Versao_Final_.production.obj
-__ptext6 183E 0 CODE 0 text6 dist/default/production/Versao_Final_.production.obj
-__ptext7 19C2 0 CODE 0 text7 dist/default/production/Versao_Final_.production.obj
-__ptext8 15B0 0 CODE 0 text8 dist/default/production/Versao_Final_.production.obj
-__ptext9 1090 0 CODE 0 text9 dist/default/production/Versao_Final_.production.obj
+__ptext0 136C 0 CODE 0 text0 dist/default/production/Versao_Final_.production.obj
+__ptext1 188E 0 CODE 0 text1 dist/default/production/Versao_Final_.production.obj
+__ptext2 1832 0 CODE 0 text2 dist/default/production/Versao_Final_.production.obj
+__ptext3 1702 0 CODE 0 text3 dist/default/production/Versao_Final_.production.obj
+__ptext4 1402 0 CODE 0 text4 dist/default/production/Versao_Final_.production.obj
+__ptext5 16A8 0 CODE 0 text5 dist/default/production/Versao_Final_.production.obj
+__ptext6 17F4 0 CODE 0 text6 dist/default/production/Versao_Final_.production.obj
+__ptext7 1888 0 CODE 0 text7 dist/default/production/Versao_Final_.production.obj
+__ptext8 12D0 0 CODE 0 text8 dist/default/production/Versao_Final_.production.obj
+__ptext9 1092 0 CODE 0 text9 dist/default/production/Versao_Final_.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production/Versao_Final_.production.obj
-__end_of_confi_port 19C6 0 CODE 0 text7 dist/default/production/Versao_Final_.production.obj
+__end_of_confi_port 188E 0 CODE 0 text7 dist/default/production/Versao_Final_.production.obj
 __Ltext10 0 0 ABS 0 text10 dist/default/production/Versao_Final_.production.obj
 __Ltext11 0 0 ABS 0 text11 dist/default/production/Versao_Final_.production.obj
 __Ltext12 0 0 ABS 0 text12 dist/default/production/Versao_Final_.production.obj
@@ -691,28 +705,31 @@ __Ltext19 0 0 ABS 0 text19 dist/default/production/Versao_Final_.production.obj
 __Ltext20 0 0 ABS 0 text20 dist/default/production/Versao_Final_.production.obj
 __Ltext21 0 0 ABS 0 text21 dist/default/production/Versao_Final_.production.obj
 __Ltext22 0 0 ABS 0 text22 dist/default/production/Versao_Final_.production.obj
-__ramtop 600 0 RAM 0 ramtop /tmp/xcXZtYVhq.obj
+__ramtop 600 0 RAM 0 ramtop /tmp/xcXZ8IkeU.obj
+create_task@task 43 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
 __Lpowerup C 0 CODE 0 powerup dist/default/production/Versao_Final_.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/Versao_Final_.production.obj
 __psmallconst 600 0 SMALLCONST 0 smallconst dist/default/production/Versao_Final_.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/Versao_Final_.production.obj
 ___param_bank 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production/Versao_Final_.production.obj
-__end_of__initialization 18F2 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
-__end_of_read_pipe E10 0 CODE 0 text21 dist/default/production/Versao_Final_.production.obj
+__end_of__initialization 179E 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
+__end_of_read_pipe E12 0 CODE 0 text20 dist/default/production/Versao_Final_.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production/Versao_Final_.production.obj
 __size_of_read_pipe 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __size_of_create_pipe 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __size_of_create_task 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production/Versao_Final_.production.obj
-__pcstackCOMRAM 2A 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
-_write_pipe E10 0 CODE 0 text18 dist/default/production/Versao_Final_.production.obj
-_read_pipe CB0 0 CODE 0 text21 dist/default/production/Versao_Final_.production.obj
-__end_of_main 1474 0 CODE 0 text0 dist/default/production/Versao_Final_.production.obj
+__pcstackCOMRAM 2C 0 COMRAM 1 cstackCOMRAM dist/default/production/Versao_Final_.production.obj
+_write_pipe E12 0 CODE 0 text17 dist/default/production/Versao_Final_.production.obj
+_read_pipe CB2 0 CODE 0 text20 dist/default/production/Versao_Final_.production.obj
+__end_of_main 1402 0 CODE 0 text0 dist/default/production/Versao_Final_.production.obj
 __pintcode 8 0 CODE 0 intcode dist/default/production/Versao_Final_.production.obj
-__end_of_delay 1948 0 CODE 0 text11 dist/default/production/Versao_Final_.production.obj
+__end_of_delay 17F4 0 CODE 0 text11 dist/default/production/Versao_Final_.production.obj
 __end_of_STACK_SIZE 603 0 SMALLCONST 0 smallconst dist/default/production/Versao_Final_.production.obj
+_PORTB F81 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _TMR0L FD6 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
+_TRISB F93 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 _TRISD F95 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __HRAM 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Hbss 0 0 RAM 1 bss dist/default/production/Versao_Final_.production.obj
@@ -722,14 +739,14 @@ __LRAM 1 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Lbss 0 0 RAM 1 bss dist/default/production/Versao_Final_.production.obj
 __Lram 0 0 ABS 0 ram dist/default/production/Versao_Final_.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production/Versao_Final_.production.obj
-_delay 1900 0 CODE 0 text11 dist/default/production/Versao_Final_.production.obj
+_delay 17AC 0 CODE 0 text11 dist/default/production/Versao_Final_.production.obj
 __size_of_dispatcher 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
-__initialization 18AE 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
+__initialization 175A 0 CODE 0 cinit dist/default/production/Versao_Final_.production.obj
 __pbssBANK1 100 0 BANK1 1 bssBANK1 dist/default/production/Versao_Final_.production.obj
-__pdataCOMRAM 47 0 COMRAM 1 dataCOMRAM dist/default/production/Versao_Final_.production.obj
-_SRAMInitHeap 116C 0 CODE 0 text5 dist/default/production/Versao_Final_.production.obj
+__pdataCOMRAM 60 0 COMRAM 1 dataCOMRAM dist/default/production/Versao_Final_.production.obj
+_SRAMInitHeap 16A8 0 CODE 0 text5 dist/default/production/Versao_Final_.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production/Versao_Final_.production.obj
-__Hsmallconst 604 0 SMALLCONST 0 smallconst dist/default/production/Versao_Final_.production.obj
+__Hsmallconst 606 0 SMALLCONST 0 smallconst dist/default/production/Versao_Final_.production.obj
 __size_of_start_os 0 0 ABS 0 - dist/default/production/Versao_Final_.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production/Versao_Final_.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/Versao_Final_.production.obj
@@ -760,11 +777,11 @@ __Hintcode C 0 CODE 0 intcode dist/default/production/Versao_Final_.production.o
 %SEGMENTS
 idloc 0 200000 200000 8 1
 stack 2 3AA 3AA 256 1
-text12 0 604 604 13C4 1
+text12 0 606 606 1292 1
 reset_vec 0 0 0 4 1
 bssBANK1 1 100 100 AA 1
 intcode 0 8 8 C 1
-smallconst 0 600 600 4 1
+smallconst 0 600 600 6 1
 bssBIGRAM 1 1AA 1AA 200 1
-bssCOMRAM 1 1 1 48 1
+bssCOMRAM 1 1 1 61 1
 config 0 300000 300000 E 1

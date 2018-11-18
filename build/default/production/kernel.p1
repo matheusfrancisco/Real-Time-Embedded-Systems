@@ -44,34 +44,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _rr_scheduler `(ui ~T0 @X0 0 ef ]
 "6975 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [v _TOS `Vum ~T0 @X0 0 e@4093 ]
-"2152
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S73 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"2162
-[s S74 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S74 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"2151
-[u S72 `S73 1 `S74 1 ]
-[n S72 . . . ]
-"2173
-[v _TRISDbits `VS72 ~T0 @X0 0 e@3989 ]
-"636
-[s S24 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S24 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"646
-[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S25 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
-"656
-[s S26 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S26 . . P1B P1C P1D ]
-"662
-[s S27 :7 `uc 1 :1 `uc 1 ]
-[n S27 . . SS2 ]
-"635
-[u S23 `S24 1 `S25 1 `S26 1 `S27 1 ]
-[n S23 . . . . . ]
-"667
-[v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
 "43 /opt/microchip/xc8/v1.45/include/pic18.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
@@ -2971,15 +2943,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;lcd.h: 32: void Lcd_Port(char a);
-[; ;lcd.h: 33: void Lcd_Cmd(char a);
-[; ;lcd.h: 34: void Lcd_Clear();
-[; ;lcd.h: 35: void Lcd_Set_Cursor(char a, char b);
-[; ;lcd.h: 36: void Lcd_Init();
-[; ;lcd.h: 37: void Lcd_Write_String(char *a);
-[; ;lcd.h: 38: void Lcd_Write_Char( char a);
-[; ;lcd.h: 39: void Lcd_Shift_Right();
-[; ;lcd.h: 40: void Lcd_Shift_Left();
+[; ;lcd.h: 30: void Lcd_Port(char a);
+[; ;lcd.h: 31: void Lcd_Cmd(char a);
+[; ;lcd.h: 32: void Lcd_Clear();
+[; ;lcd.h: 33: void Lcd_Set_Cursor(char a, char b);
+[; ;lcd.h: 34: void Lcd_Init();
+[; ;lcd.h: 35: void Lcd_Write_String(char *a);
+[; ;lcd.h: 36: void Lcd_Write_Char( char a);
+[; ;lcd.h: 37: void Lcd_Shift_Right();
+[; ;lcd.h: 38: void Lcd_Shift_Left();
 "15 kernel.c
 [v _quantum `ui ~T0 @X0 1 e ]
 [i _quantum
@@ -3165,19 +3137,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.c: 73: {
 [e :U _task_idle ]
 [f ]
-[; ;kernel.c: 74: TRISDbits.RD4 = 0;
-"74
-[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
-[; ;kernel.c: 75: PORTDbits.RD4 =0;
-"75
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
 [; ;kernel.c: 78: while (1) {
 "78
 [e :U 294 ]
 {
-[; ;kernel.c: 79: PORTDbits.RD4 =~ PORTDbits.RD4;
-"79
-[e = . . _PORTDbits 0 4 -> ~ -> . . _PORTDbits 0 4 `i `uc ]
 [; ;kernel.c: 80: __nop();
 "80
 [e ( ___nop ..  ]
@@ -3224,115 +3187,115 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.c: 109: create_task(1,5, &task_idle);
 "109
 [e ( _create_task (3 , , -> -> 1 `i `ui -> -> 5 `i `ui &U _task_idle ]
-[; ;kernel.c: 116: SRAMInitHeap();
-"116
+[; ;kernel.c: 122: SRAMInitHeap();
+"122
 [e ( _SRAMInitHeap ..  ]
-[; ;kernel.c: 118: (INTCONbits.GIE = 1);
-"118
+[; ;kernel.c: 124: (INTCONbits.GIE = 1);
+"124
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;kernel.c: 119: }
-"119
+[; ;kernel.c: 125: }
+"125
 [e :UE 296 ]
 }
 [v $root$_int_high `(v ~T0 @X0 0 e ]
 [v F3052 `(v ~T0 @X0 1 tf ]
-"121
+"127
 [v _int_high `IF3052 ~T0 @X0 1 e ]
-"122
+"128
 {
-[; ;kernel.c: 121: void interrupt int_high()
-[; ;kernel.c: 122: {
+[; ;kernel.c: 127: void interrupt int_high()
+[; ;kernel.c: 128: {
 [e :U _int_high ]
 [f ]
-"123
+"129
 [v _i `ui ~T0 @X0 1 a ]
-[; ;kernel.c: 123: u_int i;
-[; ;kernel.c: 125: if (INTCONbits.TMR0IF) {
-"125
+[; ;kernel.c: 129: u_int i;
+[; ;kernel.c: 131: if (INTCONbits.TMR0IF) {
+"131
 [e $ ! != -> . . _INTCONbits 0 2 `i -> -> -> 0 `i `Vuc `i 298  ]
 {
-[; ;kernel.c: 126: INTCONbits.TMR0IF = 0;
-"126
+[; ;kernel.c: 132: INTCONbits.TMR0IF = 0;
+"132
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;kernel.c: 127: TMR0L = 252;
-"127
+[; ;kernel.c: 133: TMR0L = 252;
+"133
 [e = _TMR0L -> -> 252 `i `uc ]
-[; ;kernel.c: 130: for (i = 1; i < tasks_installed; i++) {
-"130
+[; ;kernel.c: 136: for (i = 1; i < tasks_installed; i++) {
+"136
 {
 [e = _i -> -> 1 `i `ui ]
 [e $U 302  ]
 [e :U 299 ]
 {
-[; ;kernel.c: 131: if (F_APTOS[i].task_state == SLEEPING) {
-"131
+[; ;kernel.c: 137: if (F_APTOS[i].task_state == SLEEPING) {
+"137
 [e $ ! == -> . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 4 `i -> . `E3008 2 `i 303  ]
 {
-[; ;kernel.c: 132: F_APTOS[i].delay_time--;
-"132
+[; ;kernel.c: 138: F_APTOS[i].delay_time--;
+"138
 [e -- . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 3 -> -> 1 `i `ui ]
-[; ;kernel.c: 133: if (F_APTOS[i].delay_time == 0) {
-"133
+[; ;kernel.c: 139: if (F_APTOS[i].delay_time == 0) {
+"139
 [e $ ! == . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 3 -> -> 0 `i `ui 304  ]
 {
-[; ;kernel.c: 134: F_APTOS[i].task_state = READY;
-"134
+[; ;kernel.c: 140: F_APTOS[i].task_state = READY;
+"140
 [e = . *U + &U _F_APTOS * -> _i `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3008 0 ]
-"135
+"141
 }
 [e :U 304 ]
-"136
+"142
 }
 [e :U 303 ]
-"137
+"143
 }
-"130
+"136
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 302 ]
 [e $ < _i _tasks_installed 299  ]
 [e :U 300 ]
-"137
-}
-[; ;kernel.c: 135: }
-[; ;kernel.c: 136: }
-[; ;kernel.c: 137: }
-[; ;kernel.c: 139: quantum--;
-"139
-[e -- _quantum -> -> 1 `i `ui ]
-[; ;kernel.c: 140: if (quantum == 0) {
-"140
-[e $ ! == _quantum -> -> 0 `i `ui 305  ]
-{
-[; ;kernel.c: 141: quantum = 4;
-"141
-[e = _quantum -> -> 4 `i `ui ]
-[; ;kernel.c: 142: dispatcher(READY);
-"142
-[e ( _dispatcher (1 . `E3008 0 ]
 "143
 }
+[; ;kernel.c: 141: }
+[; ;kernel.c: 142: }
+[; ;kernel.c: 143: }
+[; ;kernel.c: 145: quantum--;
+"145
+[e -- _quantum -> -> 1 `i `ui ]
+[; ;kernel.c: 146: if (quantum == 0) {
+"146
+[e $ ! == _quantum -> -> 0 `i `ui 305  ]
+{
+[; ;kernel.c: 147: quantum = 4;
+"147
+[e = _quantum -> -> 4 `i `ui ]
+[; ;kernel.c: 148: dispatcher(READY);
+"148
+[e ( _dispatcher (1 . `E3008 0 ]
+"149
+}
 [e :U 305 ]
-"144
+"150
 }
 [e :U 298 ]
-[; ;kernel.c: 143: }
-[; ;kernel.c: 144: }
-[; ;kernel.c: 145: }
-"145
+[; ;kernel.c: 149: }
+[; ;kernel.c: 150: }
+[; ;kernel.c: 151: }
+"151
 [e :UE 297 ]
 }
-"147
+"153
 [v _start_os `(v ~T0 @X0 1 ef ]
-"148
+"154
 {
-[; ;kernel.c: 147: void start_os()
-[; ;kernel.c: 148: {
+[; ;kernel.c: 153: void start_os()
+[; ;kernel.c: 154: {
 [e :U _start_os ]
 [f ]
-[; ;kernel.c: 151: T0CONbits.TMR0ON = 1;
-"151
+[; ;kernel.c: 157: T0CONbits.TMR0ON = 1;
+"157
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;kernel.c: 152: }
-"152
+[; ;kernel.c: 158: }
+"158
 [e :UE 306 ]
 }

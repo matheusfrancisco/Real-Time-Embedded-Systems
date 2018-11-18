@@ -10,7 +10,8 @@
 #include "types.h"
 #include "memory.h"
 
-
+void numerodeaviosG();
+void LCD_test();
 void confi_port();
 void aviao1();
 void aviao2();

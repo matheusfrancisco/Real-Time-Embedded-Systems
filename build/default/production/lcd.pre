@@ -3918,7 +3918,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 32 "lcd.h"
+# 30 "lcd.h"
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
 void Lcd_Clear();
@@ -3982,34 +3982,34 @@ void interrupt int_high();
 void Lcd_Port(char a)
 {
 if(a & 1)
-PORTDbits.RD4 = 1;
+PORTCbits.RC1 = 1;
 else
-PORTDbits.RD4 = 0;
+PORTCbits.RC1 = 0;
 
 if(a & 2)
-PORTDbits.RD5 = 1;
+PORTCbits.RC2 = 1;
 else
-PORTDbits.RD5 = 0;
+PORTCbits.RC2 = 0;
 
 if(a & 4)
-PORTDbits.RD6 = 1;
+PORTCbits.RC3 = 1;
 else
-PORTDbits.RD6 = 0;
+PORTCbits.RC3 = 0;
 
 if(a & 8)
-PORTDbits.RD7 = 1;
+PORTCbits.RC4 = 1;
 else
-PORTDbits.RD7 = 0;
+PORTCbits.RC4 = 0;
 }
 void Lcd_Cmd(char a)
 {
 
-PORTDbits.RD2 = 0;
+PORTEbits.RE0 = 0;
 Lcd_Port(a);
-PORTDbits.RD3 = 1;
+PORTEbits.RE1 = 1;
 
 _delay((unsigned long)((4)*(4000000/4000.0)));
-PORTDbits.RD3 = 0;
+PORTEbits.RE1 = 0;
 
 }
 
@@ -4042,8 +4042,7 @@ Lcd_Cmd(y);
 
 void Lcd_Init()
 {
-
-
+(INTCONbits.GIE = 0);
 Lcd_Port(0x00);
 _delay((unsigned long)((20)*(4000000/4000.0)));
 Lcd_Cmd(0x03);
@@ -4060,7 +4059,7 @@ Lcd_Cmd(0x0C);
 Lcd_Cmd(0x00);
 Lcd_Cmd(0x06);
 
-
+(INTCONbits.GIE = 1);
 }
 
 void Lcd_Write_Char(char a)
@@ -4068,15 +4067,15 @@ void Lcd_Write_Char(char a)
 char temp,y;
 temp = a&0x0F;
 y = a&0xF0;
-PORTDbits.RD2 = 1;
+PORTEbits.RE0 = 1;
 Lcd_Port(y>>4);
-PORTDbits.RD3 = 1;
+PORTEbits.RE1 = 1;
 delay(20);
-PORTDbits.RD3 = 0;
+PORTEbits.RE1 = 0;
 Lcd_Port(temp);
-PORTDbits.RD3 = 1;
+PORTEbits.RE1 = 1;
 delay(20);
-PORTDbits.RD3 = 0;
+PORTEbits.RE1 = 0;
 }
 
 void Lcd_Write_String(char *a)
@@ -4097,3 +4096,4 @@ void Lcd_Shift_Left()
 Lcd_Cmd(0x01);
 Lcd_Cmd(0x08);
 }
+

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000000000003000000fffffffffffffffffcffffff29000000b90000001b000000c706000019040000</PLACEMENT>
+  <PLACEMENT>2c00000002000000030000000083ffff0083fffffcffffff29000000a900000029000000b706000027040000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="50" flags="00000002" y="183" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="1954" flags="00000002" y="138" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">671</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -15,13 +15,11 @@
      <ITEM name="Version">100</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="350" x="54" flags="00000032" y="185" h="200" pid="1" iid="-1">
+   <POPUP w="350" x="1974" flags="00000032" y="158" h="200" pid="1" iid="-1">
     <PROPERTIES>
      <ITEM name="Address Column Width">85</ITEM>
      <ITEM name="AutoResize">No</ITEM>
      <ITEM name="Gridlines">Yes</ITEM>
-     <ITEM name="Item 0">"task_state","0x0332",00000001,00000004,818,1,6,00000002,0,7BCDD000,7BC5024B</ITEM>
-     <ITEM name="Item 1">"F_APTOS[3]","0x0133",00000001,00000004,307,17,-1,5D3E0000,0,00000000,00000000</ITEM>
      <ITEM name="Name Column Width">85</ITEM>
      <ITEM name="ShowAddresses">Yes</ITEM>
      <ITEM name="ShowPreviousValues">No</ITEM>
@@ -31,13 +29,13 @@
      <ITEM name="Value Column Width">85</ITEM>
      <ITEM name="Version">100</ITEM>
      <ITEM name="Watch Expression Column Width">85</ITEM>
-     <ITEM name="nItems">1</ITEM>
+     <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="384" x="74" flags="00000008" y="205" h="204" pid="3" iid="1">
+   <POPUP w="384" x="1994" flags="00000008" y="178" h="204" pid="3" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="16" x="94" flags="0000000a" y="225" h="32" pid="7" iid="1">
+   <POPUP w="16" x="2014" flags="0000000a" y="198" h="32" pid="7" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -47,7 +45,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="8" x="114" flags="0000000a" y="245" h="32" pid="4" iid="1">
+   <POPUP w="8" x="2034" flags="0000000a" y="218" h="32" pid="4" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -57,7 +55,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="8" x="134" flags="00000002" y="265" h="16" pid="12" iid="1">
+   <POPUP w="8" x="2054" flags="80000002" y="238" h="16" pid="12" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -67,7 +65,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="8" x="154" flags="0000000a" y="285" h="32" pid="6" iid="1">
+   <POPUP w="8" x="2074" flags="0000000a" y="258" h="32" pid="6" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -77,7 +75,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="8" x="174" flags="0000000a" y="305" h="1" pid="8" iid="1">
+   <POPUP w="8" x="2094" flags="0000000a" y="278" h="1" pid="8" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -87,7 +85,7 @@
      <ITEM name="TopLineAddress">00200000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="8" x="194" flags="0000000a" y="325" h="2" pid="9" iid="1">
+   <POPUP w="8" x="2114" flags="0000000a" y="298" h="2" pid="9" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -97,10 +95,10 @@
      <ITEM name="TopLineAddress">00300000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="146" x="214" flags="00000008" y="345" h="484" pid="10" iid="1">
+   <POPUP w="146" x="2134" flags="00000008" y="318" h="484" pid="10" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="234" flags="00000002" y="365" h="8" pid="13" iid="1">
+   <POPUP w="8" x="2154" flags="80000002" y="338" h="8" pid="13" iid="1">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -108,48 +106,6 @@
      <ITEM name="ShowChanges">Yes</ITEM>
      <ITEM name="ShowToolTips">Yes</ITEM>
      <ITEM name="TopLineAddress">00000000</ITEM>
-    </PROPERTIES>
-   </POPUP>
-   <POPUP w="600" x="2985" flags="0000002b" y="266" h="400" pid="1" iid="1">
-    <PROPERTIES>
-     <ITEM name="Breakpoint 0">"",0692,0000,38CC,0CF5,-1
-</ITEM>
-     <ITEM name="Breakpoint 1">"",06CE,0000,44F8,0CF5,1
-</ITEM>
-     <ITEM name="Breakpoint 2">"",1896,0000,3DC7,04E2,1
-</ITEM>
-     <ITEM name="Breakpoint 3">"",19FC,0000,44F8,2DB1,1
-</ITEM>
-     <ITEM name="Breakpoint 4">"",0D9E,0000,46B2,04E2,1
-</ITEM>
-     <ITEM name="Breakpoint 5">"",125A,0000,8FBF,2DB1,1
-</ITEM>
-     <ITEM name="Breakpoint 6">"",1278,0000,3B86,2DB1,1
-</ITEM>
-     <ITEM name="CaseSensitive">No</ITEM>
-     <ITEM name="DISPADDRS">Yes</ITEM>
-     <ITEM name="DISPLNUMS">No</ITEM>
-     <ITEM name="DISPOPCODES">No</ITEM>
-     <ITEM name="FIXUPBPTS">Yes</ITEM>
-     <ITEM name="WordsOnly">No</ITEM>
-     <ITEM name="nBreakpoints">4</ITEM>
-    </PROPERTIES>
-   </POPUP>
-   <POPUP w="646" x="2374" flags="0000800b" y="434" h="582" pid="2" iid="1">
-    <PROPERTIES>
-     <ITEM name="Address Column Width">127</ITEM>
-     <ITEM name="AutoResize">No</ITEM>
-     <ITEM name="Gridlines">Yes</ITEM>
-     <ITEM name="Name Column Width">275</ITEM>
-     <ITEM name="ShowAddresses">Yes</ITEM>
-     <ITEM name="ShowGlobals">Yes</ITEM>
-     <ITEM name="ShowPreviousValues">No</ITEM>
-     <ITEM name="ShowTypes">No</ITEM>
-     <ITEM name="ShowWatchPoint">No</ITEM>
-     <ITEM name="TriggerMode">0</ITEM>
-     <ITEM name="Value Column Width">196</ITEM>
-     <ITEM name="Version">100</ITEM>
-     <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
   </PWI>

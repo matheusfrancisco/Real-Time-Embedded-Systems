@@ -10,22 +10,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "17
 [s S280 `i 1 `S279 1 ]
 [n S280 sem contador queue ]
-"14 tasks.h
+"15 tasks.h
 [v _confi_port `(v ~T0 @X0 0 ef ]
 "22 semaphore.h
 [v _sem_init `(v ~T0 @X0 0 ef2`*S280`i ]
 [v F3006 `(v ~T0 @X0 0 tf ]
 "14 kernel.h
 [v _create_task `(v ~T0 @X0 0 ef3`ui`ui`*F3006 ]
-"15 tasks.h
+"16 tasks.h
 [v _aviao1 `(v ~T0 @X0 0 ef ]
-"16
-[v _aviao2 `(v ~T0 @X0 0 ef ]
 "17
-[v _aviao3 `(v ~T0 @X0 0 ef ]
-"19
-[v _tluzesescreve `(v ~T0 @X0 0 ef ]
+[v _aviao2 `(v ~T0 @X0 0 ef ]
 "20
+[v _tluzesescreve `(v ~T0 @X0 0 ef ]
+"21
 [v _tluzes `(v ~T0 @X0 0 ef ]
 "19 kernel.h
 [v _start_os `(v ~T0 @X0 0 ef ]
@@ -2865,12 +2863,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
 [; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
 [; ;memory.h: 24: void SRAMInitHeap(void);
-[; ;tasks.h: 14: void confi_port();
-[; ;tasks.h: 15: void aviao1();
-[; ;tasks.h: 16: void aviao2();
-[; ;tasks.h: 17: void aviao3();
-[; ;tasks.h: 19: void tluzesescreve();
-[; ;tasks.h: 20: void tluzes();
+[; ;tasks.h: 13: void numerodeaviosG();
+[; ;tasks.h: 14: void LCD_test();
+[; ;tasks.h: 15: void confi_port();
+[; ;tasks.h: 16: void aviao1();
+[; ;tasks.h: 17: void aviao2();
+[; ;tasks.h: 18: void aviao3();
+[; ;tasks.h: 20: void tluzesescreve();
+[; ;tasks.h: 21: void tluzes();
 [; ;pipe.h: 12: typedef struct pipe_bloqued_queue {
 [; ;pipe.h: 13: u_int b_queue[10];
 [; ;pipe.h: 14: u_int b_queue_pos_in;
@@ -2887,66 +2887,128 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.h: 29: void create_pipe(pipe_t *pipe);
 [; ;pipe.h: 30: void write_pipe(pipe_t *pipe, byte data);
 [; ;pipe.h: 31: byte read_pipe(pipe_t *pipe);
-"12 main.c
-[; ;main.c: 12: asm("GLOBAL _task_idle, _aviao1,_aviao2,_aviao3 ,_tluzesescreve, _tluzes");
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 36: extern char * strcat(char *, const char *);
+[; ;string.h: 37: extern char * strcpy(char *, const char *);
+[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 40: extern char * strdup(const char *);
+[; ;string.h: 41: extern char * strtok(char *, const char *);
+[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 45: extern int strcmp(const char *, const char *);
+[; ;string.h: 46: extern int stricmp(const char *, const char *);
+[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 52: extern size_t strspn(const char *, const char *);
+[; ;string.h: 53: extern char * strstr(const char *, const char *);
+[; ;string.h: 54: extern char * stristr(const char *, const char *);
+[; ;string.h: 55: extern char * strerror(int);
+[; ;string.h: 56: extern size_t strlen(const char *);
+[; ;string.h: 57: extern char * strchr(const char *, int);
+[; ;string.h: 58: extern char * strichr(const char *, int);
+[; ;string.h: 59: extern char * strrchr(const char *, int);
+[; ;string.h: 60: extern char * strrichr(const char *, int);
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;lcd.h: 30: void Lcd_Port(char a);
+[; ;lcd.h: 31: void Lcd_Cmd(char a);
+[; ;lcd.h: 32: void Lcd_Clear();
+[; ;lcd.h: 33: void Lcd_Set_Cursor(char a, char b);
+[; ;lcd.h: 34: void Lcd_Init();
+[; ;lcd.h: 35: void Lcd_Write_String(char *a);
+[; ;lcd.h: 36: void Lcd_Write_Char( char a);
+[; ;lcd.h: 37: void Lcd_Shift_Right();
+[; ;lcd.h: 38: void Lcd_Shift_Left();
+"13 main.c
+[; ;main.c: 13: asm("GLOBAL _task_idle, _aviao1,_aviao2,_aviao3 ,_tluzesescreve, _tluzes");
 [; <" GLOBAL _task_idle, _aviao1,_aviao2,_aviao3 ,_tluzesescreve, _tluzes ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"16
+"17
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 16: void main(void) {
+[; ;main.c: 17: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 18: setupOS();
-"18
-[e ( _setupOS ..  ]
-[; ;main.c: 19: SRAMInitHeap();
+[; ;main.c: 19: setupOS();
 "19
-[e ( _SRAMInitHeap ..  ]
+[e ( _setupOS ..  ]
+[; ;main.c: 20: SRAMInitHeap();
 "20
+[e ( _SRAMInitHeap ..  ]
+"21
 [v _spista `S280 ~T0 @X0 0 e ]
-[; ;main.c: 20: extern sem_t spista;
-[; ;main.c: 22: confi_port();
-"22
+[; ;main.c: 21: extern sem_t spista;
+[; ;main.c: 25: confi_port();
+"25
 [e ( _confi_port ..  ]
-[; ;main.c: 23: sem_init(&spista, 1);
-"23
+[; ;main.c: 26: sem_init(&spista, 1);
+"26
 [e ( _sem_init (2 , &U _spista -> 1 `i ]
-[; ;main.c: 27: create_task(2, 3, &aviao1);
-"27
+[; ;main.c: 31: create_task(2, 3, &aviao1);
+"31
 [e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _aviao1 ]
-[; ;main.c: 28: create_task(3, 3, &aviao2);
-"28
-[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _aviao2 ]
-[; ;main.c: 29: create_task(4, 3, &aviao3);
-"29
-[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _aviao3 ]
-[; ;main.c: 32: create_task(5, 3, &tluzesescreve);
+[; ;main.c: 32: create_task(3, 3, &aviao2);
 "32
+[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _aviao2 ]
+[; ;main.c: 36: create_task(5, 3, &tluzesescreve);
+"36
 [e ( _create_task (3 , , -> -> 5 `i `ui -> -> 3 `i `ui &U _tluzesescreve ]
-[; ;main.c: 33: create_task(6, 3, &tluzes);
-"33
+[; ;main.c: 37: create_task(6, 3, &tluzes);
+"37
 [e ( _create_task (3 , , -> -> 6 `i `ui -> -> 3 `i `ui &U _tluzes ]
-[; ;main.c: 46: start_os();
-"46
-[e ( _start_os ..  ]
-[; ;main.c: 47: while (1)
-"47
-[e :U 285 ]
-[; ;main.c: 48: {
-"48
-{
+[; ;main.c: 50: start_os();
 "50
-}
-[e :U 284 ]
-"47
-[e $U 285  ]
+[e ( _start_os ..  ]
+[; ;main.c: 51: while (1)
+"51
 [e :U 286 ]
-[; ;main.c: 50: }
-[; ;main.c: 52: return;
+[; ;main.c: 52: {
 "52
-[e $UE 283  ]
-[; ;main.c: 53: }
-"53
-[e :UE 283 ]
+{
+"54
+}
+[e :U 285 ]
+"51
+[e $U 286  ]
+[e :U 287 ]
+[; ;main.c: 54: }
+[; ;main.c: 56: return;
+"56
+[e $UE 284  ]
+[; ;main.c: 57: }
+"57
+[e :UE 284 ]
 }

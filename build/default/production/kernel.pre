@@ -3976,7 +3976,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 32 "lcd.h"
+# 30 "lcd.h"
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
 void Lcd_Clear();
@@ -4044,12 +4044,12 @@ dispatcher(SLEEPING);
 
 void task_idle()
 {
-TRISDbits.RD4 = 0;
-PORTDbits.RD4 =0;
+
+
 
 
 while (1) {
-PORTDbits.RD4 =~ PORTDbits.RD4;
+
 __nop();
 }
 }
@@ -4073,7 +4073,7 @@ T0CONbits.TMR0ON = 1;
 
 create_task(1,5, &task_idle);
 
-# 116
+# 122
 SRAMInitHeap();
 
 (INTCONbits.GIE = 1);

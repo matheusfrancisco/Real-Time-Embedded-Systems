@@ -562,7 +562,7 @@
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
-        <property key="stack-type" value="reentrant"/>
+        <property key="stack-type" value="hybrid"/>
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
     </conf>

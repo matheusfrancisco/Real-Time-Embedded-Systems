@@ -71,12 +71,12 @@ void delay(u_int time_ms)
 
 void task_idle()
 {
-    TRISDbits.RD4 = 0;
-  PORTDbits.RD4 =0;
+  //TRISDbits.RD4 = 0;
+  //PORTDbits.RD4 =0;
  
   
   while (1) { 
-      PORTDbits.RD4 =~ PORTDbits.RD4;
+    //  PORTDbits.RD4 =~ PORTDbits.RD4;
     NOP();
   }
 }
@@ -109,10 +109,16 @@ void setupOS()
   create_task(1,5, &task_idle);  
  
   //dispatcher(READY);
-  //TRISD = 0x00;
-
-
+  //TRISCbits.RC1 = 0;
+  //TRISCbits.RC2 = 0;
+  //TRISCbits.RC3 = 0;
+  //TRISCbits.RC4 = 0;
+  
+  //TRISEbits.RE0 = 0;
+  //TRISEbits.RE1 = 0;
+  
   //Lcd_Init();
+
   SRAMInitHeap();
   
   ei();
