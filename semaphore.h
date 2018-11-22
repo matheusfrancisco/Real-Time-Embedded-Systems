@@ -14,9 +14,16 @@ typedef struct sem_queue {
     u_int s_queue_pos_out;
 } sem_queue_t;
 
+typedef struct _queue{
+    u_int *task;
+    u_int size;
+    u_int first;
+}queue_sem_t;
+
 typedef struct sem {
     int contador;
-    sem_queue_t queue;
+    //sem_queue_t queue;
+    queue_sem_t queue;
 } sem_t;
 
 void sem_init(sem_t *s, int value);

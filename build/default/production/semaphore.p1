@@ -1,10 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"11 semaphore.h
-[s S279 `ui -> 10 `i `ui 1 `ui 1 ]
-[n S279 sem_queue s_queue s_queue_pos_in s_queue_pos_out ]
-"17
-[s S280 `i 1 `S279 1 ]
-[n S280 sem contador queue ]
+"17 semaphore.h
+[s S280 `*ui 1 `ui 1 `ui 1 ]
+[n S280 _queue task size first ]
+"23
+[s S281 `i 1 `S280 1 ]
+[n S281 sem contador queue ]
 "6696 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S270 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -19,21 +19,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S269 . . . . ]
 "6722
 [v _INTCONbits `VS269 ~T0 @X0 0 e@4082 ]
+[v F3077 `(*uc ~T0 @X0 1 tf1`Nuc ]
+"22 memory.h
+[v _SRAMalloc `NF3077 ~T0 @X0 0 e ]
 "12 kernel.h
 [v _task_running `ui ~T0 @X0 0 e ]
-"26 semaphore.c
+"32 semaphore.c
 [c E3008 1 2 3 4 5 6 .. ]
 [n E3008 . READY RUNNING SLEEPING WAITING WAITING_PIPE FINISHED  ]
 "17 kernel.h
 [v _dispatcher `(v ~T0 @X0 0 ef1`E3008 ]
 [v F3006 `(v ~T0 @X0 0 tf ]
-"21 types.h
+"24 types.h
 [s S276 `uc 1 `uc 1 `uc 1 ]
 [n S276 stack_data TOSU_register TOSL_register TOSH_register ]
-"27
+"30
 [s S277 `S276 _STACK_SIZE `ui 1 ]
 [n S277 stack STACK stack_size ]
-"32
+"35
 [s S278 `ui 1 `ui 1 `**F3006 1 `ui 1 `E3008 1 `S277 1 `uc 1 `uc 1 `uc 1 ]
 [n S278 tcb task_id task_prior task_f delay_time task_state task_stack BSR_register STATUS_register WORK_register ]
 "11 kernel.h
@@ -2824,43 +2827,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 31 `i
 ]
 [; ;types.h: 12: const int STACK_SIZE = 31;
-[; ;types.h: 15: typedef unsigned int u_int;
-[; ;types.h: 16: typedef unsigned char byte;
-[; ;types.h: 17: typedef void(*f_ptr)(void);
-[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 21: typedef struct stack_data {
-[; ;types.h: 22: byte TOSU_register;
-[; ;types.h: 23: byte TOSL_register;
-[; ;types.h: 24: byte TOSH_register;
-[; ;types.h: 25: } stack_data_t;
-[; ;types.h: 27: typedef struct stack {
-[; ;types.h: 28: stack_data_t STACK[STACK_SIZE];
-[; ;types.h: 29: u_int stack_size;
-[; ;types.h: 30: } stack_t;
-[; ;types.h: 32: typedef struct tcb {
-[; ;types.h: 34: u_int task_id;
-[; ;types.h: 35: u_int task_prior;
-[; ;types.h: 36: f_ptr *task_f;
-[; ;types.h: 37: u_int delay_time;
-[; ;types.h: 39: state_t task_state;
-[; ;types.h: 40: stack_t task_stack;
-[; ;types.h: 41: byte BSR_register;
-[; ;types.h: 42: byte STATUS_register;
-[; ;types.h: 43: byte WORK_register;
-[; ;types.h: 45: } tcb_t;
+[; ;types.h: 18: typedef unsigned int u_int;
+[; ;types.h: 19: typedef unsigned char byte;
+[; ;types.h: 20: typedef void(*f_ptr)(void);
+[; ;types.h: 22: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 24: typedef struct stack_data {
+[; ;types.h: 25: byte TOSU_register;
+[; ;types.h: 26: byte TOSL_register;
+[; ;types.h: 27: byte TOSH_register;
+[; ;types.h: 28: } stack_data_t;
+[; ;types.h: 30: typedef struct stack {
+[; ;types.h: 31: stack_data_t STACK[STACK_SIZE];
+[; ;types.h: 32: u_int stack_size;
+[; ;types.h: 33: } stack_t;
+[; ;types.h: 35: typedef struct tcb {
+[; ;types.h: 37: u_int task_id;
+[; ;types.h: 38: u_int task_prior;
+[; ;types.h: 39: f_ptr *task_f;
+[; ;types.h: 40: u_int delay_time;
+[; ;types.h: 42: state_t task_state;
+[; ;types.h: 43: stack_t task_stack;
+[; ;types.h: 44: byte BSR_register;
+[; ;types.h: 45: byte STATUS_register;
+[; ;types.h: 46: byte WORK_register;
+[; ;types.h: 48: } tcb_t;
 [; ;semaphore.h: 11: typedef struct sem_queue {
 [; ;semaphore.h: 12: u_int s_queue[10];
 [; ;semaphore.h: 13: u_int s_queue_pos_in;
 [; ;semaphore.h: 14: u_int s_queue_pos_out;
 [; ;semaphore.h: 15: } sem_queue_t;
-[; ;semaphore.h: 17: typedef struct sem {
-[; ;semaphore.h: 18: int contador;
-[; ;semaphore.h: 19: sem_queue_t queue;
-[; ;semaphore.h: 20: } sem_t;
-[; ;semaphore.h: 22: void sem_init(sem_t *s, int value);
-[; ;semaphore.h: 23: void sem_wait(sem_t *s);
-[; ;semaphore.h: 24: void sem_post(sem_t *s);
-[; ;semaphore.h: 25: int sem_get_value(sem_t s);
+[; ;semaphore.h: 17: typedef struct _queue{
+[; ;semaphore.h: 18: u_int *task;
+[; ;semaphore.h: 19: u_int size;
+[; ;semaphore.h: 20: u_int first;
+[; ;semaphore.h: 21: }queue_sem_t;
+[; ;semaphore.h: 23: typedef struct sem {
+[; ;semaphore.h: 24: int contador;
+[; ;semaphore.h: 26: queue_sem_t queue;
+[; ;semaphore.h: 27: } sem_t;
+[; ;semaphore.h: 29: void sem_init(sem_t *s, int value);
+[; ;semaphore.h: 30: void sem_wait(sem_t *s);
+[; ;semaphore.h: 31: void sem_post(sem_t *s);
+[; ;semaphore.h: 32: int sem_get_value(sem_t s);
 [; ;kernel.h: 11: extern tcb_t F_APTOS[10];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -2871,136 +2879,157 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.h: 19: void start_os();
 [; ;kernel.h: 20: void setupOS();
 [; ;kernel.h: 21: void interrupt int_high();
-[; ;semaphore.c: 4: extern u_int task_running;
-"6 semaphore.c
-[v _sem_init `(v ~T0 @X0 1 ef2`*S280`i ]
-"7
+[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
+[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
+[; ;memory.h: 24: void SRAMInitHeap(void);
+[; ;semaphore.c: 6: extern u_int task_running;
+"8 semaphore.c
+[v _sem_init `(v ~T0 @X0 1 ef2`*S281`i ]
+"9
 {
-[; ;semaphore.c: 6: void sem_init(sem_t *s, int value)
-[; ;semaphore.c: 7: {
+[; ;semaphore.c: 8: void sem_init(sem_t *s, int value)
+[; ;semaphore.c: 9: {
 [e :U _sem_init ]
-"6
-[v _s `*S280 ~T0 @X0 1 r1 ]
-[v _value `i ~T0 @X0 1 r2 ]
-"7
-[f ]
-[; ;semaphore.c: 8: (INTCONbits.GIE = 0);
 "8
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;semaphore.c: 10: s->contador = value;
-"10
-[e = . *U _s 0 _value ]
-[; ;semaphore.c: 11: s->queue.s_queue_pos_in = 0;
-"11
-[e = . . *U _s 1 1 -> -> 0 `i `ui ]
-[; ;semaphore.c: 12: s->queue.s_queue_pos_out = 0;
-"12
-[e = . . *U _s 1 2 -> -> 0 `i `ui ]
-[; ;semaphore.c: 14: (INTCONbits.GIE = 1);
-"14
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;semaphore.c: 15: }
-"15
-[e :UE 281 ]
-}
-"17
-[v _sem_wait `(v ~T0 @X0 1 ef1`*S280 ]
-"18
-{
-[; ;semaphore.c: 17: void sem_wait(sem_t *s)
-[; ;semaphore.c: 18: {
-[e :U _sem_wait ]
-"17
-[v _s `*S280 ~T0 @X0 1 r1 ]
-"18
+[v _s `*S281 ~T0 @X0 1 r1 ]
+[v _value `i ~T0 @X0 1 r2 ]
+"9
 [f ]
-[; ;semaphore.c: 19: (INTCONbits.GIE = 0);
-"19
+[; ;semaphore.c: 10: INTCONbits.GIE = 0;
+"10
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;semaphore.c: 22: s->contador--;
-"22
-[e -- . *U _s 0 -> 1 `i ]
-[; ;semaphore.c: 23: if (s->contador < 0) {
-"23
-[e $ ! < . *U _s 0 -> 0 `i 283  ]
-{
-[; ;semaphore.c: 24: s->queue.s_queue[s->queue.s_queue_pos_in] = task_running;
-"24
-[e = *U + &U . . *U _s 1 0 * -> . . *U _s 1 1 `ux -> -> # *U &U . . *U _s 1 0 `ui `ux _task_running ]
-[; ;semaphore.c: 25: s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 10;
-"25
-[e = . . *U _s 1 1 % + . . *U _s 1 1 -> -> 1 `i `ui -> -> 10 `i `ui ]
-[; ;semaphore.c: 26: dispatcher(WAITING);
-"26
-[e ( _dispatcher (1 . `E3008 3 ]
-"27
-}
-[e :U 283 ]
-[; ;semaphore.c: 27: }
-[; ;semaphore.c: 29: (INTCONbits.GIE = 1);
-"29
+[; ;semaphore.c: 12: s->contador = value;
+"12
+[e = . *U _s 0 _value ]
+[; ;semaphore.c: 13: s->queue.task = (u_int*)SRAMalloc(sizeof(u_int)*10);
+"13
+[e = . . *U _s 1 0 -> ( _SRAMalloc (1 -> * -> # `ui `ui -> -> 10 `i `ui `uc `*ui ]
+[; ;semaphore.c: 14: s->queue.first = 0;
+"14
+[e = . . *U _s 1 2 -> -> 0 `i `ui ]
+[; ;semaphore.c: 15: s->queue.size = 0;
+"15
+[e = . . *U _s 1 1 -> -> 0 `i `ui ]
+[; ;semaphore.c: 17: INTCONbits.GIE = 1;
+"17
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;semaphore.c: 30: }
-"30
+[; ;semaphore.c: 18: }
+"18
 [e :UE 282 ]
 }
-"32
-[v _sem_post `(v ~T0 @X0 1 ef1`*S280 ]
-"33
+"20
+[v _sem_wait `(v ~T0 @X0 1 ef1`*S281 ]
+"21
 {
-[; ;semaphore.c: 32: void sem_post(sem_t *s)
-[; ;semaphore.c: 33: {
-[e :U _sem_post ]
-"32
-[v _s `*S280 ~T0 @X0 1 r1 ]
-"33
+[; ;semaphore.c: 20: void sem_wait(sem_t *s)
+[; ;semaphore.c: 21: {
+[e :U _sem_wait ]
+"20
+[v _s `*S281 ~T0 @X0 1 r1 ]
+"21
 [f ]
-[; ;semaphore.c: 34: (INTCONbits.GIE = 0);
-"34
+[; ;semaphore.c: 22: INTCONbits.GIE = 0;
+"22
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;semaphore.c: 36: s->contador++;
-"36
-[e ++ . *U _s 0 -> 1 `i ]
-[; ;semaphore.c: 37: if (s->contador <= 0) {
-"37
-[e $ ! <= . *U _s 0 -> 0 `i 285  ]
+"23
+[v _task_pos `ui ~T0 @X0 1 a ]
+[; ;semaphore.c: 23: u_int task_pos = 0;
+[e = _task_pos -> -> 0 `i `ui ]
+[; ;semaphore.c: 25: s->contador--;
+"25
+[e -- . *U _s 0 -> 1 `i ]
+[; ;semaphore.c: 26: if (s->contador < 0) {
+"26
+[e $ ! < . *U _s 0 -> 0 `i 284  ]
 {
-[; ;semaphore.c: 38: F_APTOS[s->queue.s_queue[s->queue.s_queue_pos_out]].task_state = READY;
-"38
-[e = . *U + &U _F_APTOS * -> *U + &U . . *U _s 1 0 * -> . . *U _s 1 2 `ux -> -> # *U &U . . *U _s 1 0 `ui `ux `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3008 0 ]
-[; ;semaphore.c: 39: s->queue.s_queue_pos_out = (s->queue.s_queue_pos_out + 1) % s->queue.s_queue_pos_in;
-"39
-[e = . . *U _s 1 2 % + . . *U _s 1 2 -> -> 1 `i `ui . . *U _s 1 1 ]
-[; ;semaphore.c: 40: dispatcher(READY);
-"40
-[e ( _dispatcher (1 . `E3008 0 ]
-"41
+"27
+[v _pos `ui ~T0 @X0 1 a ]
+[; ;semaphore.c: 27: u_int pos = (s->queue.size + s->queue.first) % 10;
+[e = _pos % + . . *U _s 1 1 . . *U _s 1 2 -> -> 10 `i `ui ]
+[; ;semaphore.c: 28: s->queue.task[pos] = task_running;
+"28
+[e = *U + . . *U _s 1 0 * -> _pos `ux -> -> # *U . . *U _s 1 0 `ui `ux _task_running ]
+[; ;semaphore.c: 29: s->queue.size++;
+"29
+[e ++ . . *U _s 1 1 -> -> 1 `i `ui ]
+[; ;semaphore.c: 32: dispatcher(WAITING);
+"32
+[e ( _dispatcher (1 . `E3008 3 ]
+"33
 }
-[e :U 285 ]
-[; ;semaphore.c: 41: }
-[; ;semaphore.c: 43: (INTCONbits.GIE = 1);
-"43
+[e :U 284 ]
+[; ;semaphore.c: 33: }
+[; ;semaphore.c: 35: INTCONbits.GIE = 1;
+"35
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;semaphore.c: 44: }
-"44
-[e :UE 284 ]
+[; ;semaphore.c: 36: }
+"36
+[e :UE 283 ]
 }
-"46
-[v _sem_get_value `(i ~T0 @X0 1 ef1`S280 ]
-"47
+"38
+[v _sem_post `(v ~T0 @X0 1 ef1`*S281 ]
+"39
 {
-[; ;semaphore.c: 46: int sem_get_value(sem_t s)
-[; ;semaphore.c: 47: {
-[e :U _sem_get_value ]
-"46
-[v _s `S280 ~T0 @X0 1 r1 ]
-"47
+[; ;semaphore.c: 38: void sem_post(sem_t *s)
+[; ;semaphore.c: 39: {
+[e :U _sem_post ]
+"38
+[v _s `*S281 ~T0 @X0 1 r1 ]
+"39
 [f ]
-[; ;semaphore.c: 48: return s.contador;
-"48
+[; ;semaphore.c: 40: INTCONbits.GIE = 0;
+"40
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;semaphore.c: 42: s->contador++;
+"42
+[e ++ . *U _s 0 -> 1 `i ]
+[; ;semaphore.c: 43: if (s->contador <= 0) {
+"43
+[e $ ! <= . *U _s 0 -> 0 `i 286  ]
+{
+"44
+[v _value `ui ~T0 @X0 1 a ]
+[; ;semaphore.c: 44: u_int value = s->queue.task[s->queue.first];
+[e = _value *U + . . *U _s 1 0 * -> . . *U _s 1 2 `ux -> -> # *U . . *U _s 1 0 `ui `ux ]
+[; ;semaphore.c: 45: s->queue.first = (s->queue.first + 1) % 10;
+"45
+[e = . . *U _s 1 2 % + . . *U _s 1 2 -> -> 1 `i `ui -> -> 10 `i `ui ]
+[; ;semaphore.c: 46: s->queue.size--;
+"46
+[e -- . . *U _s 1 1 -> -> 1 `i `ui ]
+[; ;semaphore.c: 47: F_APTOS[value].task_state = READY;
+"47
+[e = . *U + &U _F_APTOS * -> _value `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3008 0 ]
+[; ;semaphore.c: 50: dispatcher(READY);
+"50
+[e ( _dispatcher (1 . `E3008 0 ]
+"51
+}
+[e :U 286 ]
+[; ;semaphore.c: 51: }
+[; ;semaphore.c: 53: INTCONbits.GIE = 1;
+"53
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;semaphore.c: 54: }
+"54
+[e :UE 285 ]
+}
+"56
+[v _sem_get_value `(i ~T0 @X0 1 ef1`S281 ]
+"57
+{
+[; ;semaphore.c: 56: int sem_get_value(sem_t s)
+[; ;semaphore.c: 57: {
+[e :U _sem_get_value ]
+"56
+[v _s `S281 ~T0 @X0 1 r1 ]
+"57
+[f ]
+[; ;semaphore.c: 58: return s.contador;
+"58
 [e ) . _s 0 ]
-[e $UE 286  ]
-[; ;semaphore.c: 49: }
-"49
-[e :UE 286 ]
+[e $UE 287  ]
+[; ;semaphore.c: 59: }
+"59
+[e :UE 287 ]
 }

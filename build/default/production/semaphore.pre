@@ -3826,7 +3826,7 @@ extern __nonreentrant void _delay3(unsigned char);
 # 12 "types.h"
 const int STACK_SIZE = 31;
 
-
+# 18
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -3866,9 +3866,16 @@ u_int s_queue_pos_in;
 u_int s_queue_pos_out;
 } sem_queue_t;
 
+typedef struct _queue{
+u_int *task;
+u_int size;
+u_int first;
+}queue_sem_t;
+
 typedef struct sem {
 int contador;
-sem_queue_t queue;
+
+queue_sem_t queue;
 } sem_t;
 
 void sem_init(sem_t *s, int value);
@@ -3889,47 +3896,60 @@ void start_os();
 void setupOS();
 void interrupt int_high();
 
-# 4 "semaphore.c"
+# 22 "memory.h"
+unsigned char * near SRAMalloc(near unsigned char nBytes);
+void SRAMfree(unsigned char * near pSRAM);
+void SRAMInitHeap(void);
+
+# 6 "semaphore.c"
 extern u_int task_running;
 
 void sem_init(sem_t *s, int value)
 {
-(INTCONbits.GIE = 0);
+INTCONbits.GIE = 0;
 
 s->contador = value;
-s->queue.s_queue_pos_in = 0;
-s->queue.s_queue_pos_out = 0;
+s->queue.task = (u_int*)SRAMalloc(sizeof(u_int)*10);
+s->queue.first = 0;
+s->queue.size = 0;
 
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
 
 void sem_wait(sem_t *s)
 {
-(INTCONbits.GIE = 0);
-
+INTCONbits.GIE = 0;
+u_int task_pos = 0;
 
 s->contador--;
 if (s->contador < 0) {
-s->queue.s_queue[s->queue.s_queue_pos_in] = task_running;
-s->queue.s_queue_pos_in = (s->queue.s_queue_pos_in + 1) % 10;
+u_int pos = (s->queue.size + s->queue.first) % 10;
+s->queue.task[pos] = task_running;
+s->queue.size++;
+
+
 dispatcher(WAITING);
 }
 
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
 
 void sem_post(sem_t *s)
 {
-(INTCONbits.GIE = 0);
+INTCONbits.GIE = 0;
 
 s->contador++;
 if (s->contador <= 0) {
-F_APTOS[s->queue.s_queue[s->queue.s_queue_pos_out]].task_state = READY;
-s->queue.s_queue_pos_out = (s->queue.s_queue_pos_out + 1) % s->queue.s_queue_pos_in;
+u_int value = s->queue.task[s->queue.first];
+s->queue.first = (s->queue.first + 1) % 10;
+s->queue.size--;
+F_APTOS[value].task_state = READY;
+
+
 dispatcher(READY);
 }
 
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
 
 int sem_get_value(sem_t s)

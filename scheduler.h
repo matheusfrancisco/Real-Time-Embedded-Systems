@@ -10,7 +10,7 @@
 
 u_int rr_scheduler();
 u_int prior_scheduler();
-
+u_int contagemR();
 
 #endif	/* SCHEDULER_H */
 

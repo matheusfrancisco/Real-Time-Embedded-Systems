@@ -1,7 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"18 pipe.h
-[s S280 `uc -> -> 1 `i `ux `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S280 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
+"35 pipe.h
+[s S279 `ui 1 `*uc 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S279 pipe p_id p_msg_queue p_pos_write p_pos_read p_size p_count ]
+[v F3076 `(*uc ~T0 @X0 1 tf1`Nuc ]
+"22 memory.h
+[v _SRAMalloc `NF3076 ~T0 @X0 0 e ]
 "6696 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S270 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -16,25 +19,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S269 . . . . ]
 "6722
 [v _INTCONbits `VS269 ~T0 @X0 0 e@4082 ]
-"12 kernel.h
-[v _task_running `ui ~T0 @X0 0 e ]
-"31 pipe.c
+"109 pipe.c
 [c E3008 1 2 3 4 5 6 .. ]
 [n E3008 . READY RUNNING SLEEPING WAITING WAITING_PIPE FINISHED  ]
 "17 kernel.h
 [v _dispatcher `(v ~T0 @X0 0 ef1`E3008 ]
+"52 pipe.h
+[v _libera_processos `(v ~T0 @X0 0 ef ]
+[v F3080 `*uc ~T0 @X0 1 t ]
+"23 memory.h
+[v _SRAMfree `(v ~T0 @X0 0 ef1`N*uc ]
 [v F3006 `(v ~T0 @X0 0 tf ]
-"21 types.h
+"24 types.h
 [s S276 `uc 1 `uc 1 `uc 1 ]
 [n S276 stack_data TOSU_register TOSL_register TOSH_register ]
-"27
+"30
 [s S277 `S276 _STACK_SIZE `ui 1 ]
 [n S277 stack STACK stack_size ]
-"32
+"35
 [s S278 `ui 1 `ui 1 `**F3006 1 `ui 1 `E3008 1 `S277 1 `uc 1 `uc 1 `uc 1 ]
 [n S278 tcb task_id task_prior task_f delay_time task_state task_stack BSR_register STATUS_register WORK_register ]
 "11 kernel.h
 [v _F_APTOS `S278 ~T0 @X0 -> 0 `x e ]
+"14 pipe.c
+[v _tasks_installed `ui ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2821,46 +2829,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 31 `i
 ]
 [; ;types.h: 12: const int STACK_SIZE = 31;
-[; ;types.h: 15: typedef unsigned int u_int;
-[; ;types.h: 16: typedef unsigned char byte;
-[; ;types.h: 17: typedef void(*f_ptr)(void);
-[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 21: typedef struct stack_data {
-[; ;types.h: 22: byte TOSU_register;
-[; ;types.h: 23: byte TOSL_register;
-[; ;types.h: 24: byte TOSH_register;
-[; ;types.h: 25: } stack_data_t;
-[; ;types.h: 27: typedef struct stack {
-[; ;types.h: 28: stack_data_t STACK[STACK_SIZE];
-[; ;types.h: 29: u_int stack_size;
-[; ;types.h: 30: } stack_t;
-[; ;types.h: 32: typedef struct tcb {
-[; ;types.h: 34: u_int task_id;
-[; ;types.h: 35: u_int task_prior;
-[; ;types.h: 36: f_ptr *task_f;
-[; ;types.h: 37: u_int delay_time;
-[; ;types.h: 39: state_t task_state;
-[; ;types.h: 40: stack_t task_stack;
-[; ;types.h: 41: byte BSR_register;
-[; ;types.h: 42: byte STATUS_register;
-[; ;types.h: 43: byte WORK_register;
-[; ;types.h: 45: } tcb_t;
-[; ;pipe.h: 12: typedef struct pipe_bloqued_queue {
-[; ;pipe.h: 13: u_int b_queue[10];
-[; ;pipe.h: 14: u_int b_queue_pos_in;
-[; ;pipe.h: 15: u_int b_queue_pos_out;
-[; ;pipe.h: 16: } pipe_bloqued_queue_t;
-[; ;pipe.h: 18: typedef struct pipe {
-[; ;pipe.h: 19: byte pipe_queue[1];
-[; ;pipe.h: 21: u_int pos_read_pipe;
-[; ;pipe.h: 22: u_int pos_write_pipe;
-[; ;pipe.h: 23: u_int pipe_itens;
-[; ;pipe.h: 25: u_int pos_bloqued_read;
-[; ;pipe.h: 26: u_int pos_bloqued_write;
-[; ;pipe.h: 27: } pipe_t;
-[; ;pipe.h: 29: void create_pipe(pipe_t *pipe);
-[; ;pipe.h: 30: void write_pipe(pipe_t *pipe, byte data);
-[; ;pipe.h: 31: byte read_pipe(pipe_t *pipe);
+[; ;types.h: 18: typedef unsigned int u_int;
+[; ;types.h: 19: typedef unsigned char byte;
+[; ;types.h: 20: typedef void(*f_ptr)(void);
+[; ;types.h: 22: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 24: typedef struct stack_data {
+[; ;types.h: 25: byte TOSU_register;
+[; ;types.h: 26: byte TOSL_register;
+[; ;types.h: 27: byte TOSH_register;
+[; ;types.h: 28: } stack_data_t;
+[; ;types.h: 30: typedef struct stack {
+[; ;types.h: 31: stack_data_t STACK[STACK_SIZE];
+[; ;types.h: 32: u_int stack_size;
+[; ;types.h: 33: } stack_t;
+[; ;types.h: 35: typedef struct tcb {
+[; ;types.h: 37: u_int task_id;
+[; ;types.h: 38: u_int task_prior;
+[; ;types.h: 39: f_ptr *task_f;
+[; ;types.h: 40: u_int delay_time;
+[; ;types.h: 42: state_t task_state;
+[; ;types.h: 43: stack_t task_stack;
+[; ;types.h: 44: byte BSR_register;
+[; ;types.h: 45: byte STATUS_register;
+[; ;types.h: 46: byte WORK_register;
+[; ;types.h: 48: } tcb_t;
+[; ;pipe.h: 35: typedef struct pipe {
+[; ;pipe.h: 36: u_int p_id;
+[; ;pipe.h: 37: unsigned char* p_msg_queue;
+[; ;pipe.h: 38: u_int p_pos_write;
+[; ;pipe.h: 39: u_int p_pos_read;
+[; ;pipe.h: 40: u_int p_size;
+[; ;pipe.h: 41: u_int p_count;
+[; ;pipe.h: 42: } pipe_t;
+"44 pipe.h
+[v _mensagens `S279 ~T0 @X0 1 e ]
+[; ;pipe.h: 44: pipe_t mensagens;
+[; ;pipe.h: 48: void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
+[; ;pipe.h: 49: void pipe_read(pipe_t *pipe_handler, char* msg);
+[; ;pipe.h: 50: void pipe_write(pipe_t *pipe_handler, char msg);
+[; ;pipe.h: 51: void pipe_destroy(pipe_t *pipe_handler);
+[; ;pipe.h: 52: void libera_processos();
 [; ;kernel.h: 11: extern tcb_t F_APTOS[10];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -2871,157 +2879,200 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.h: 19: void start_os();
 [; ;kernel.h: 20: void setupOS();
 [; ;kernel.h: 21: void interrupt int_high();
-"11 pipe.c
-[v _create_pipe `(v ~T0 @X0 1 ef1`*S280 ]
-"12
+[; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
+[; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
+[; ;memory.h: 24: void SRAMInitHeap(void);
+[; ;pipe.c: 14: extern u_int tasks_installed;
+"92 pipe.c
+[v _pipe_create `(v ~T0 @X0 1 ef3`*S279`ui`ui ]
+"93
 {
-[; ;pipe.c: 11: void create_pipe(pipe_t *pipe)
-[; ;pipe.c: 12: {
-[e :U _create_pipe ]
-"11
-[v _pipe `*S280 ~T0 @X0 1 r1 ]
-"12
+[; ;pipe.c: 92: void pipe_create(pipe_t *pipe_handler, u_int id, u_int size)
+[; ;pipe.c: 93: {
+[e :U _pipe_create ]
+"92
+[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
+[v _id `ui ~T0 @X0 1 r2 ]
+[v _size `ui ~T0 @X0 1 r3 ]
+"93
 [f ]
-[; ;pipe.c: 13: pipe->pos_read_pipe = 0;
-"13
-[e = . *U _pipe 1 -> -> 0 `i `ui ]
-[; ;pipe.c: 14: pipe->pos_write_pipe = 0;
-"14
-[e = . *U _pipe 2 -> -> 0 `i `ui ]
-[; ;pipe.c: 15: pipe->pipe_itens = 0;
-"15
-[e = . *U _pipe 3 -> -> 0 `i `ui ]
-[; ;pipe.c: 18: pipe->pos_bloqued_read = 0;
-"18
-[e = . *U _pipe 4 -> -> 0 `i `ui ]
-[; ;pipe.c: 19: pipe->pos_bloqued_write = 0;
-"19
-[e = . *U _pipe 5 -> -> 0 `i `ui ]
-[; ;pipe.c: 20: }
-"20
-[e :UE 281 ]
+[; ;pipe.c: 94: pipe_handler->p_id = id;
+"94
+[e = . *U _pipe_handler 0 _id ]
+[; ;pipe.c: 95: pipe_handler->p_pos_read = 0;
+"95
+[e = . *U _pipe_handler 3 -> -> 0 `i `ui ]
+[; ;pipe.c: 96: pipe_handler->p_pos_write = 0;
+"96
+[e = . *U _pipe_handler 2 -> -> 0 `i `ui ]
+[; ;pipe.c: 97: pipe_handler->p_size = size;
+"97
+[e = . *U _pipe_handler 4 _size ]
+[; ;pipe.c: 98: pipe_handler->p_msg_queue = SRAMalloc(size);
+"98
+[e = . *U _pipe_handler 1 ( _SRAMalloc (1 -> _size `uc ]
+[; ;pipe.c: 99: pipe_handler->p_count = 0;
+"99
+[e = . *U _pipe_handler 5 -> -> 0 `i `ui ]
+[; ;pipe.c: 100: }
+"100
+[e :UE 280 ]
 }
-"22
-[v _write_pipe `(v ~T0 @X0 1 ef2`*S280`uc ]
-"23
+"102
+[v _pipe_read `(v ~T0 @X0 1 ef2`*S279`*uc ]
+"103
 {
-[; ;pipe.c: 22: void write_pipe(pipe_t *pipe, byte data)
-[; ;pipe.c: 23: {
-[e :U _write_pipe ]
-"22
-[v _pipe `*S280 ~T0 @X0 1 r1 ]
-[v _data `uc ~T0 @X0 1 r2 ]
-"23
+[; ;pipe.c: 102: void pipe_read(pipe_t *pipe_handler, char* msg)
+[; ;pipe.c: 103: {
+[e :U _pipe_read ]
+"102
+[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
+[v _msg `*uc ~T0 @X0 1 r2 ]
+"103
 [f ]
-[; ;pipe.c: 24: (INTCONbits.GIE = 0);
-"24
+[; ;pipe.c: 104: INTCONbits.GIE = 0;
+"104
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;pipe.c: 27: if (pipe->pipe_itens == 1) {
-"27
-[e $ ! == . *U _pipe 3 -> -> 1 `i `ui 283  ]
+[; ;pipe.c: 106: if (pipe_handler->p_count == 0) {
+"106
+[e $ ! == . *U _pipe_handler 5 -> -> 0 `i `ui 282  ]
 {
-[; ;pipe.c: 29: pipe->pos_bloqued_write = task_running;
-"29
-[e = . *U _pipe 5 _task_running ]
-[; ;pipe.c: 31: dispatcher(WAITING_PIPE);
-"31
+[; ;pipe.c: 109: dispatcher(WAITING_PIPE);
+"109
 [e ( _dispatcher (1 . `E3008 4 ]
-"32
+"110
+}
+[; ;pipe.c: 110: }
+[e $U 283  ]
+"111
+[e :U 282 ]
+[; ;pipe.c: 111: else {
+{
+[; ;pipe.c: 112: *msg = pipe_handler->p_msg_queue[pipe_handler->p_pos_read];
+"112
+[e = *U _msg *U + . *U _pipe_handler 1 * -> . *U _pipe_handler 3 `ux -> -> # *U . *U _pipe_handler 1 `ui `ux ]
+[; ;pipe.c: 113: pipe_handler->p_pos_read = (pipe_handler->p_pos_read + 1) % pipe_handler->p_size;
+"113
+[e = . *U _pipe_handler 3 % + . *U _pipe_handler 3 -> -> 1 `i `ui . *U _pipe_handler 4 ]
+[; ;pipe.c: 114: pipe_handler->p_count--;
+"114
+[e -- . *U _pipe_handler 5 -> -> 1 `i `ui ]
+[; ;pipe.c: 116: libera_processos();
+"116
+[e ( _libera_processos ..  ]
+"117
 }
 [e :U 283 ]
-[; ;pipe.c: 32: }
-[; ;pipe.c: 34: pipe->pipe_queue[pipe->pos_write_pipe] = data;
-"34
-[e = *U + &U . *U _pipe 0 * -> . *U _pipe 2 `ux -> -> # *U &U . *U _pipe 0 `ui `ux _data ]
-[; ;pipe.c: 35: pipe->pos_write_pipe = (pipe->pos_write_pipe + 1) % 1;
-"35
-[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui -> -> 1 `i `ui ]
-[; ;pipe.c: 36: pipe->pipe_itens++;
-"36
-[e ++ . *U _pipe 3 -> -> 1 `i `ui ]
-[; ;pipe.c: 39: if (pipe->pos_bloqued_read > 0) {
-"39
-[e $ ! > . *U _pipe 4 -> -> 0 `i `ui 284  ]
-{
-[; ;pipe.c: 40: F_APTOS[pipe->pos_bloqued_read].task_state = READY;
-"40
-[e = . *U + &U _F_APTOS * -> . *U _pipe 4 `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3008 0 ]
-[; ;pipe.c: 41: pipe->pos_bloqued_read = 0;
-"41
-[e = . *U _pipe 4 -> -> 0 `i `ui ]
-"45
-}
-[e :U 284 ]
-[; ;pipe.c: 45: }
-[; ;pipe.c: 48: (INTCONbits.GIE = 1);
-"48
+[; ;pipe.c: 117: }
+[; ;pipe.c: 119: INTCONbits.GIE = 1;
+"119
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;pipe.c: 49: }
-"49
-[e :UE 282 ]
+[; ;pipe.c: 120: }
+"120
+[e :UE 281 ]
 }
-"51
-[v _read_pipe `(uc ~T0 @X0 1 ef1`*S280 ]
-"52
+"122
+[v _pipe_write `(v ~T0 @X0 1 ef2`*S279`uc ]
+"123
 {
-[; ;pipe.c: 51: byte read_pipe(pipe_t *pipe)
-[; ;pipe.c: 52: {
-[e :U _read_pipe ]
-"51
-[v _pipe `*S280 ~T0 @X0 1 r1 ]
-"52
+[; ;pipe.c: 122: void pipe_write(pipe_t *pipe_handler, char msg)
+[; ;pipe.c: 123: {
+[e :U _pipe_write ]
+"122
+[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
+[v _msg `uc ~T0 @X0 1 r2 ]
+"123
 [f ]
-[; ;pipe.c: 53: (INTCONbits.GIE = 0);
-"53
+[; ;pipe.c: 124: INTCONbits.GIE = 0;
+"124
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"54
-[v _dado `uc ~T0 @X0 1 a ]
-[; ;pipe.c: 54: byte dado;
-[; ;pipe.c: 57: if (pipe->pipe_itens == 0) {
-"57
-[e $ ! == . *U _pipe 3 -> -> 0 `i `ui 286  ]
+[; ;pipe.c: 126: if (pipe_handler->p_count == pipe_handler->p_size) {
+"126
+[e $ ! == . *U _pipe_handler 5 . *U _pipe_handler 4 285  ]
 {
-[; ;pipe.c: 60: pipe->pos_bloqued_read = task_running;
-"60
-[e = . *U _pipe 4 _task_running ]
-[; ;pipe.c: 61: dispatcher(WAITING_PIPE);
-"61
+[; ;pipe.c: 129: dispatcher(WAITING_PIPE);
+"129
 [e ( _dispatcher (1 . `E3008 4 ]
-"62
+"130
+}
+[; ;pipe.c: 130: }
+[e $U 286  ]
+"131
+[e :U 285 ]
+[; ;pipe.c: 131: else {
+{
+[; ;pipe.c: 132: pipe_handler->p_msg_queue[pipe_handler->p_pos_write] = msg;
+"132
+[e = *U + . *U _pipe_handler 1 * -> . *U _pipe_handler 2 `ux -> -> # *U . *U _pipe_handler 1 `ui `ux _msg ]
+[; ;pipe.c: 133: pipe_handler->p_pos_write = (pipe_handler->p_pos_write + 1) % pipe_handler->p_size;
+"133
+[e = . *U _pipe_handler 2 % + . *U _pipe_handler 2 -> -> 1 `i `ui . *U _pipe_handler 4 ]
+[; ;pipe.c: 134: pipe_handler->p_count++;
+"134
+[e ++ . *U _pipe_handler 5 -> -> 1 `i `ui ]
+[; ;pipe.c: 136: libera_processos();
+"136
+[e ( _libera_processos ..  ]
+"137
 }
 [e :U 286 ]
-[; ;pipe.c: 62: }
-[; ;pipe.c: 64: dado = pipe->pipe_queue[pipe->pos_read_pipe];
-"64
-[e = _dado *U + &U . *U _pipe 0 * -> . *U _pipe 1 `ux -> -> # *U &U . *U _pipe 0 `ui `ux ]
-[; ;pipe.c: 65: pipe->pos_read_pipe = (pipe->pos_read_pipe + 1) % 1;
-"65
-[e = . *U _pipe 1 % + . *U _pipe 1 -> -> 1 `i `ui -> -> 1 `i `ui ]
-[; ;pipe.c: 66: pipe->pipe_itens--;
-"66
-[e -- . *U _pipe 3 -> -> 1 `i `ui ]
-[; ;pipe.c: 69: if (pipe->pos_bloqued_write > 0) {
-"69
-[e $ ! > . *U _pipe 5 -> -> 0 `i `ui 287  ]
-{
-[; ;pipe.c: 70: F_APTOS[pipe->pos_bloqued_write].task_state = READY;
-"70
-[e = . *U + &U _F_APTOS * -> . *U _pipe 5 `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3008 0 ]
-[; ;pipe.c: 71: pipe->pos_bloqued_write = 0;
-"71
-[e = . *U _pipe 5 -> -> 0 `i `ui ]
-"75
-}
-[e :U 287 ]
-[; ;pipe.c: 75: }
-[; ;pipe.c: 77: (INTCONbits.GIE = 1);
-"77
+[; ;pipe.c: 137: }
+[; ;pipe.c: 139: INTCONbits.GIE = 1;
+"139
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;pipe.c: 79: return dado;
-"79
-[e ) _dado ]
-[e $UE 285  ]
-[; ;pipe.c: 80: }
-"80
-[e :UE 285 ]
+[; ;pipe.c: 140: }
+"140
+[e :UE 284 ]
+}
+"142
+[v _pipe_destroy `(v ~T0 @X0 1 ef1`*S279 ]
+"143
+{
+[; ;pipe.c: 142: void pipe_destroy(pipe_t *pipe_handler)
+[; ;pipe.c: 143: {
+[e :U _pipe_destroy ]
+"142
+[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
+"143
+[f ]
+[; ;pipe.c: 144: SRAMfree(pipe_handler->p_msg_queue);
+"144
+[e ( _SRAMfree (1 -> . *U _pipe_handler 1 `N*uc ]
+[; ;pipe.c: 145: }
+"145
+[e :UE 287 ]
+}
+"147
+[v _libera_processos `(v ~T0 @X0 1 ef ]
+"148
+{
+[; ;pipe.c: 147: void libera_processos()
+[; ;pipe.c: 148: {
+[e :U _libera_processos ]
+[f ]
+"149
+[v _i `i ~T0 @X0 1 a ]
+[; ;pipe.c: 149: int i;
+[; ;pipe.c: 150: for (i = 0; i < tasks_installed; i++)
+"150
+{
+[e = _i -> 0 `i ]
+[e $U 292  ]
+"151
+[e :U 289 ]
+[; ;pipe.c: 151: if (F_APTOS[i].task_state == WAITING_PIPE)
+[e $ ! == -> . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 `i -> . `E3008 4 `i 293  ]
+[; ;pipe.c: 152: F_APTOS[i].task_state = READY;
+"152
+[e = . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3008 0 ]
+[e :U 293 ]
+"150
+[e ++ _i -> 1 `i ]
+[e :U 292 ]
+[e $ < -> _i `ui _tasks_installed 289  ]
+[e :U 290 ]
+"153
+}
+[; ;pipe.c: 153: }
+[e :UE 288 ]
 }

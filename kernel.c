@@ -44,6 +44,7 @@ void dispatcher(state_t state)
 #if RR_SCH
   // Escolhe a tarefa que será executada
   task_running = rr_scheduler();
+  
 #else
    task_running = prior_scheduler();
 
@@ -71,13 +72,13 @@ void delay(u_int time_ms)
 
 void task_idle()
 {
-  //TRISDbits.RD4 = 0;
+  //TRISBbits.RB6 = 0;
   //PORTDbits.RD4 =0;
  
   
   while (1) { 
-    //  PORTDbits.RD4 =~ PORTDbits.RD4;
-    NOP();
+     //PORTBbits.RB6 =~LATBbits.LATB6;
+   // NOP();
   }
 }
 
@@ -118,6 +119,7 @@ void setupOS()
   //TRISEbits.RE1 = 0;
   
   //Lcd_Init();
+    TRISBbits.RB0 = 0;
 
   SRAMInitHeap();
   

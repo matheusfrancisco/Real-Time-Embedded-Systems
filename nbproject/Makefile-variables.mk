@@ -6,8 +6,8 @@
 CND_BASEDIR=`pwd`
 # default configuration
 CND_ARTIFACT_DIR_default=dist/default/production
-CND_ARTIFACT_NAME_default=Versao_Final_.production.hex
-CND_ARTIFACT_PATH_default=dist/default/production/Versao_Final_.production.hex
+CND_ARTIFACT_NAME_default=S.O-Embarcados-master.production.hex
+CND_ARTIFACT_PATH_default=dist/default/production/S.O-Embarcados-master.production.hex
 CND_PACKAGE_DIR_default=${CND_DISTDIR}/default/package
-CND_PACKAGE_NAME_default=versaofinal.tar
-CND_PACKAGE_PATH_default=${CND_DISTDIR}/default/package/versaofinal.tar
+CND_PACKAGE_NAME_default=s.o-embarcados-master.tar
+CND_PACKAGE_PATH_default=${CND_DISTDIR}/default/package/s.o-embarcados-master.tar

@@ -3826,7 +3826,7 @@ extern __nonreentrant void _delay3(unsigned char);
 # 12 "types.h"
 const int STACK_SIZE = 31;
 
-
+# 18
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -3866,9 +3866,16 @@ u_int s_queue_pos_in;
 u_int s_queue_pos_out;
 } sem_queue_t;
 
+typedef struct _queue{
+u_int *task;
+u_int size;
+u_int first;
+}queue_sem_t;
+
 typedef struct sem {
 int contador;
-sem_queue_t queue;
+
+queue_sem_t queue;
 } sem_t;
 
 void sem_init(sem_t *s, int value);
@@ -3881,16 +3888,21 @@ unsigned char * near SRAMalloc(near unsigned char nBytes);
 void SRAMfree(unsigned char * near pSRAM);
 void SRAMInitHeap(void);
 
-# 13 "tasks.h"
+# 14 "tasks.h"
 void numerodeaviosG();
 void LCD_test();
 void confi_port();
-void aviao1();
-void aviao2();
-void aviao3();
+
+
+
 
 void tluzesescreve();
 void tluzes();
+
+void led_1();
+void led_2();
+void led_3();
+void acender();
 
 # 11 "kernel.h"
 extern tcb_t F_APTOS[10];
@@ -3905,27 +3917,24 @@ void start_os();
 void setupOS();
 void interrupt int_high();
 
-# 12 "pipe.h"
-typedef struct pipe_bloqued_queue {
-u_int b_queue[10];
-u_int b_queue_pos_in;
-u_int b_queue_pos_out;
-} pipe_bloqued_queue_t;
-
+# 35 "pipe.h"
 typedef struct pipe {
-byte pipe_queue[1];
-
-u_int pos_read_pipe;
-u_int pos_write_pipe;
-u_int pipe_itens;
-
-u_int pos_bloqued_read;
-u_int pos_bloqued_write;
+u_int p_id;
+unsigned char* p_msg_queue;
+u_int p_pos_write;
+u_int p_pos_read;
+u_int p_size;
+u_int p_count;
 } pipe_t;
 
-void create_pipe(pipe_t *pipe);
-void write_pipe(pipe_t *pipe, byte data);
-byte read_pipe(pipe_t *pipe);
+pipe_t mensagens;
+
+# 48
+void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
+void pipe_read(pipe_t *pipe_handler, char* msg);
+void pipe_write(pipe_t *pipe_handler, char msg);
+void pipe_destroy(pipe_t *pipe_handler);
+void libera_processos();
 
 # 4 "/opt/microchip/xc8/v1.45/include/__size_t.h"
 typedef unsigned size_t;
@@ -4038,6 +4047,9 @@ sem_t spista;
 u_int cont = 0;
 
 pipe_t pipeluzes;
+pipe_t testL;
+sem_t t1;
+sem_t t2;
 
 void numerodeaviosG(){
 
@@ -4077,176 +4089,19 @@ PORTBbits.RB6= 0;
 void LCD_test()
 {
 Lcd_Write_Char("a");
-(INTCONbits.GIE = 0);
+INTCONbits.GIE = 0;
 _delay((unsigned long)((1000)*(4000000/4000.0)));
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
+
 void confi_port(){
 
 TRISD = 0x00;
 
 
 }
-void aviao1()
-{
 
-PORTDbits.RD3 = 0;
-PORTDbits.RD6 = 0;
-PORTDbits.RD4 = 0;
-PORTDbits.RD0 = 0;
-
-while (1) {
-
-PORTDbits.RD3 = 1;
-
-delay(5000);
-
-sem_wait(&spista);
-
-PORTDbits.RD3 = 0;
-
-PORTDbits.RD6 = 1;
-
-delay(5000);
-
-
-PORTDbits.RD6 = 0;
-
-
-sem_post(&spista);
-delay(300);
-
-cont++;
-
-PORTDbits.RD0 = 1;
-
-delay(5000);
-
-
-
-sem_wait(&spista);
-
-PORTDbits.RD0 = 0;
-
-cont--;
-
-PORTDbits.RD4 = 1;
-
-delay(5000);
-
-PORTDbits.RD4 = 0;
-
-sem_post(&spista);
-delay(400);
-
-
-
-
-}
-}
-
-void aviao2()
-{
-PORTDbits.RD5 = 0;
-PORTDbits.RD6 = 0;
-PORTDbits.RD4 = 0;
-PORTDbits.RD1 = 0;
-
-while(1)
-{
-
-PORTDbits.RD5 = 1;
-
-delay(6000);
-
-sem_wait(&spista);
-
-PORTDbits.RD5 = 0;
-
-PORTDbits.RD6 = 1;
-
-delay(6000);
-
-
-PORTDbits.RD6 = 0;
-
-
-sem_post(&spista);
-delay(300);
-
-PORTDbits.RD1 = 1;
-cont++;
-delay(6000);
-
-sem_wait(&spista);
-
-PORTDbits.RD1 = 0;
-cont--;
-
-PORTDbits.RD4 = 1;
-
-delay(6000);
-
-PORTDbits.RD4 = 0;
-
-sem_post(&spista);
-
-
-
-}
-}
-
-void aviao3()
-{
-PORTDbits.RD7 = 0;
-PORTDbits.RD6 = 0;
-PORTDbits.RD4 = 0;
-PORTDbits.RD2 = 0;
-
-while (1) {
-
-PORTDbits.RD7 = 1;
-
-delay(6000);
-
-sem_wait(&spista);
-
-PORTDbits.RD7 = 0;
-
-PORTDbits.RD6 = 1;
-
-delay(6000);
-
-
-PORTDbits.RD6 = 0;
-
-
-sem_post(&spista);
-
-cont++;
-PORTDbits.RD2 = 1;
-
-delay(6000);
-
-
-
-sem_wait(&spista);
-
-PORTDbits.RD2 = 0;
-cont--;
-
-PORTDbits.RD4 = 1;
-
-delay(6000);
-
-PORTDbits.RD4 = 0;
-
-sem_post(&spista);
-
-
-}
-}
-
+# 238
 void tluzes()
 {
 TRISCbits.RC5 = 0;
@@ -4294,3 +4149,189 @@ write_pipe(&pipeluzes, 'l');
 }
 
 }
+
+
+void led_1()
+{
+
+PORTDbits.RD3 = 0;
+PORTDbits.RD6 = 0;
+PORTDbits.RD4 = 0;
+PORTDbits.RD0 = 0;
+
+while (1) {
+
+PORTDbits.RD3 = 1;
+
+delay(5000);
+
+sem_wait(&spista);
+
+PORTDbits.RD3 = 0;
+
+PORTDbits.RD6 = 1;
+
+delay(5000);
+
+
+PORTDbits.RD6 = 0;
+
+
+sem_post(&spista);
+delay(300);
+
+
+PORTDbits.RD0 = 1;
+
+delay(5000);
+
+
+
+sem_wait(&spista);
+
+PORTDbits.RD0 = 0;
+
+
+PORTDbits.RD4 = 1;
+
+delay(5000);
+
+PORTDbits.RD4 = 0;
+
+sem_post(&spista);
+delay(400);
+
+}
+}
+
+void led_2()
+{
+
+PORTDbits.RD5 = 0;
+PORTDbits.RD6 = 0;
+PORTDbits.RD4 = 0;
+PORTDbits.RD1 = 0;
+
+while(1)
+{
+
+PORTDbits.RD5 = 1;
+
+delay(6000);
+
+sem_wait(&spista);
+
+PORTDbits.RD5 = 0;
+
+PORTDbits.RD6 = 1;
+
+delay(6000);
+
+
+PORTDbits.RD6 = 0;
+
+
+sem_post(&spista);
+delay(300);
+
+PORTDbits.RD1 = 1;
+delay(6000);
+
+sem_wait(&spista);
+
+PORTDbits.RD1 = 0;
+
+PORTDbits.RD4 = 1;
+
+delay(6000);
+
+PORTDbits.RD4 = 0;
+
+sem_post(&spista);
+
+
+
+}
+}
+
+void led_3()
+{
+
+pipe_create(&testL ,4,1);
+
+
+
+PORTDbits.RD7 = 0;
+PORTDbits.RD6 = 0;
+PORTDbits.RD4 = 0;
+PORTDbits.RD2 = 0;
+
+while (1) {
+
+PORTDbits.RD7 = 1;
+
+delay(6000);
+
+sem_wait(&spista);
+
+PORTDbits.RD7 = 0;
+
+PORTDbits.RD6 = 1;
+
+delay(6000);
+
+
+PORTDbits.RD6 = 0;
+
+
+sem_post(&spista);
+
+
+pipe_write(&testL, 't');
+PORTDbits.RD2 = 1;
+
+delay(6000);
+
+
+
+sem_wait(&spista);
+
+PORTDbits.RD2 = 0;
+
+
+PORTDbits.RD4 = 1;
+
+delay(6000);
+
+PORTDbits.RD4 = 0;
+
+sem_post(&spista);
+
+
+}
+
+
+
+}
+
+void acender()
+{
+TRISCbits.RC5 = 0;
+PORTCbits.RC5 = 0;
+byte dado;
+LATCbits.LATC5 =0;
+
+while(1)
+{
+pipe_read(&testL, &dado);
+if(dado == 't')
+{
+
+PORTCbits.RC5 = ~LATCbits.LATC5;
+delay(1000);
+PORTCbits.RC5 = ~LATCbits.LATC5;
+
+}
+}
+}
+

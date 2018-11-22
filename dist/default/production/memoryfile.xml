@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/Versao_Final_.production.hex">
+  <executable name="dist/default/production/S.O-Embarcados-master.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
-      <used>4776</used>
-      <free>27992</free>
+      <used>6086</used>
+      <free>26682</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>1536</length>
-      <used>779</used>
-      <free>757</free>
+      <used>802</used>
+      <free>734</free>
     </memory>
   </executable>
 </project>

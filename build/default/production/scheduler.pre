@@ -3826,7 +3826,7 @@ extern __nonreentrant void _delay3(unsigned char);
 # 12 "types.h"
 const int STACK_SIZE = 31;
 
-
+# 18
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -3862,19 +3862,35 @@ byte WORK_register;
 # 11 "scheduler.h"
 u_int rr_scheduler();
 u_int prior_scheduler();
+u_int contagemR();
 
-# 8 "scheduler.c"
+# 9 "scheduler.c"
 extern u_int tasks_installed;
 extern u_int task_running;
 extern tcb_t F_APTOS[10];
 
+u_int contagemR()
+{
+u_int x = 0;
+for (int i = 1; i < 10 ; i++)
+{
+if (F_APTOS[i].task_state == READY) x++;
+}
+return x;
+}
+
 u_int rr_scheduler()
 {
-u_int next_task_to_run = task_running;
+u_int next_task_to_run = 0;
+u_int j = task_running;
+u_int cont = contagemR();
+
+PORTBbits.RB0 = ~LATBbits.LATB0;
 
 do {
-next_task_to_run = (next_task_to_run + 1) % tasks_installed;
-} while (F_APTOS[next_task_to_run].task_state != READY);
+j++;
+next_task_to_run = (j) % tasks_installed;
+} while (F_APTOS[next_task_to_run].task_state != READY || (cont>0 && next_task_to_run == 0));
 
 return next_task_to_run;
 }
@@ -3882,6 +3898,7 @@ return next_task_to_run;
 u_int prior_scheduler()
 {
 u_int next_task_to_run = 0, i;
+PORTBbits.RB0 = ~LATBbits.LATB0;
 
 for (i = 1; i < tasks_installed; i++) {
 if (F_APTOS[next_task_to_run].task_prior > F_APTOS[i].task_prior) {

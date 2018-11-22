@@ -16,6 +16,9 @@ sem_t spista;
 u_int cont = 0;
 
 pipe_t pipeluzes;
+pipe_t testL;
+sem_t t1;
+sem_t t2;
 
 void numerodeaviosG(){
     
@@ -59,12 +62,14 @@ void LCD_test()
     __delay_ms(1000);
     ei();
 }
+
 void confi_port(){
     
     TRISD = 0x00;
     
     
 }
+/**
 void aviao1()
 {
 
@@ -122,7 +127,9 @@ void aviao1()
  
    }
 }
+*/
 
+/**
 void aviao2()
 {
     PORTDbits.RD5 = 0;
@@ -174,6 +181,9 @@ void aviao2()
     }
 }
 
+*/
+
+/*
 void aviao3()
 {
   PORTDbits.RD7 = 0;
@@ -224,7 +234,7 @@ cont--;
 
   }
 }
-
+*/
 void tluzes()
 {
   TRISCbits.RC5 = 0;
@@ -272,3 +282,189 @@ void tluzesescreve()
   }
     
 }
+
+
+void led_1()
+{
+    
+   PORTDbits.RD3 = 0;
+  PORTDbits.RD6 = 0;
+  PORTDbits.RD4 = 0;
+  PORTDbits.RD0 = 0;
+ 
+  while (1) {
+    
+    PORTDbits.RD3 = 1;
+    //voando
+    delay(5000);
+    //pede pista
+    sem_wait(&spista);
+    //consegui pista 
+    PORTDbits.RD3 = 0;
+    //acende pista
+    PORTDbits.RD6 = 1;
+    //espera na pista
+    delay(5000);
+    
+   //sai da pista
+    PORTDbits.RD6 = 0;
+    
+    // libera pista
+    sem_post(&spista); 
+    delay(300);
+    
+    // vai para garagem
+    PORTDbits.RD0 = 1;
+    
+    delay(5000);
+    
+
+    //pede pista pra voar
+    sem_wait(&spista);
+    //sai da garagem
+    PORTDbits.RD0 = 0;
+        
+    //vai para pista
+    PORTDbits.RD4 = 1;
+    //espera
+    delay(5000);
+    //libera
+    PORTDbits.RD4 = 0;
+     
+    sem_post(&spista);
+    delay(400);
+
+  }
+}
+
+void led_2()
+{
+    
+     PORTDbits.RD5 = 0;
+    PORTDbits.RD6 = 0;
+    PORTDbits.RD4 = 0;
+    PORTDbits.RD1 = 0;
+
+    while(1)
+    {
+          
+        PORTDbits.RD5 = 1;
+        //voando
+        delay(6000);
+        //pede pista
+        sem_wait(&spista);
+        //consegui pista 
+        PORTDbits.RD5 = 0;
+        //acende pista
+        PORTDbits.RD6 = 1;
+        //espera na pista
+        delay(6000);
+
+       //sai da pista
+        PORTDbits.RD6 = 0;
+
+        // libera pista
+        sem_post(&spista); 
+        delay(300);
+        // vai para garagem
+        PORTDbits.RD1 = 1;
+        delay(6000);
+        //pede pista pra voar
+        sem_wait(&spista);
+        //sai da garagem
+        PORTDbits.RD1 = 0;
+        //vai para pista
+        PORTDbits.RD4 = 1;
+        //espera
+        delay(6000);
+        //libera
+        PORTDbits.RD4 = 0;
+
+        sem_post(&spista);
+        
+
+        
+    }
+}
+
+void led_3()
+{
+
+    pipe_create(&testL ,4,1);
+   
+           
+       
+   PORTDbits.RD7 = 0;
+  PORTDbits.RD6 = 0;
+  PORTDbits.RD4 = 0;
+  PORTDbits.RD2 = 0;
+ 
+  while (1) {
+    
+    PORTDbits.RD7 = 1;
+    //voando
+    delay(6000);
+    //pede pista
+    sem_wait(&spista);
+    //consegui pista 
+    PORTDbits.RD7 = 0;
+    //acende pista
+    PORTDbits.RD6 = 1;
+    //espera na pista
+    delay(6000);
+
+   //sai da pista
+    PORTDbits.RD6 = 0;
+    
+    // libera pista
+    sem_post(&spista); 
+    // vai para garagem
+    
+     pipe_write(&testL, 't');
+    PORTDbits.RD2 = 1;
+    
+    delay(6000);
+    
+
+    //pede pista pra voar
+    sem_wait(&spista);
+    //sai da garagem
+    PORTDbits.RD2 = 0;
+
+    //vai para pista
+    PORTDbits.RD4 = 1;
+    //espera
+    delay(6000);
+    //libera
+    PORTDbits.RD4 = 0;
+    
+    sem_post(&spista);
+
+
+  }
+
+
+  
+}
+
+void acender()
+{
+    TRISCbits.RC5 = 0;
+    PORTCbits.RC5 = 0;
+    byte dado;
+    LATCbits.LATC5 =0;
+    
+    while(1)
+    {
+     pipe_read(&testL, &dado);
+     if(dado == 't')
+     {
+             //PORTDbits.RD4 = ~LATDbits.LATD4; 
+                PORTCbits.RC5 = ~LATCbits.LATC5;
+                delay(1000);
+                PORTCbits.RC5 = ~LATCbits.LATC5;
+             //PORTDbits.RD4 = 0;
+     }
+    }
+}
+

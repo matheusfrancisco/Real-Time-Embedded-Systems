@@ -3826,7 +3826,7 @@ extern __nonreentrant void _delay3(unsigned char);
 # 12 "types.h"
 const int STACK_SIZE = 31;
 
-
+# 18
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -3875,6 +3875,7 @@ void interrupt int_high();
 # 11 "scheduler.h"
 u_int rr_scheduler();
 u_int prior_scheduler();
+u_int contagemR();
 
 # 22 "memory.h"
 unsigned char * near SRAMalloc(near unsigned char nBytes);
@@ -4012,7 +4013,7 @@ tasks_installed++;
 
 void dispatcher(state_t state)
 {
-(INTCONbits.GIE = 0);
+INTCONbits.GIE = 0;
 
 
 F_APTOS[task_running].task_state = state; F_APTOS[task_running].BSR_register = BSR; F_APTOS[task_running].STATUS_register = STATUS; F_APTOS[task_running].WORK_register = WREG; F_APTOS[task_running].task_stack.stack_size = 0; do { \F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSU_register = TOSU; F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSL_register = TOSL; F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSH_register = TOSH; F_APTOS[task_running].task_stack.stack_size++; asm("POP"); } while (STKPTR);;
@@ -4021,10 +4022,10 @@ F_APTOS[task_running].task_state = state; F_APTOS[task_running].BSR_register = B
 
 task_running = rr_scheduler();
 
-# 52
-\STKPTR = 0;\if (F_APTOS[task_running].task_stack.stack_size == 0) {\asm("PUSH");\TOS = F_APTOS[task_running].task_f;\}\else {\BSR = F_APTOS[task_running].BSR_register;\STATUS = F_APTOS[task_running].STATUS_register;\WREG = F_APTOS[task_running].WORK_register;\do { \asm("PUSH");\F_APTOS[task_running].task_stack.stack_size--;\TOSU = F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSU_register;\TOSL = F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSL_register;\TOSH = F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSH_register;\} while (F_APTOS[task_running].task_stack.stack_size);\}\F_APTOS[task_running].task_state = RUNNING;\(INTCONbits.GIE = 1);;
+# 53
+\STKPTR = 0;\if (F_APTOS[task_running].task_stack.stack_size == 0) {\asm("PUSH");\TOS = F_APTOS[task_running].task_f;\}\else {\BSR = F_APTOS[task_running].BSR_register;\STATUS = F_APTOS[task_running].STATUS_register;\WREG = F_APTOS[task_running].WORK_register;\do { \asm("PUSH");\F_APTOS[task_running].task_stack.stack_size--;\TOSU = F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSU_register;\TOSL = F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSL_register;\TOSH = F_APTOS[task_running].task_stack.STACK[F_APTOS[task_running].task_stack.stack_size].TOSH_register;\} while (F_APTOS[task_running].task_stack.stack_size);\}\F_APTOS[task_running].task_state = RUNNING;\INTCONbits.GIE = 1;;
 
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
 
 u_int get_id(u_int task_ptr)
@@ -4034,12 +4035,12 @@ return F_APTOS[task_ptr].task_id;
 
 void delay(u_int time_ms)
 {
-(INTCONbits.GIE = 0);
+INTCONbits.GIE = 0;
 
 F_APTOS[task_running].delay_time = time_ms;
 dispatcher(SLEEPING);
 
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
 
 void task_idle()
@@ -4050,7 +4051,7 @@ void task_idle()
 
 while (1) {
 
-__nop();
+
 }
 }
 
@@ -4058,7 +4059,7 @@ __nop();
 void setupOS()
 {
 
-# 97
+# 98
 T0CONbits.T0CS = 0;
 T0CONbits.PSA = 0;
 T0CONbits.T0PS = 0b111;
@@ -4074,9 +4075,11 @@ T0CONbits.TMR0ON = 1;
 create_task(1,5, &task_idle);
 
 # 122
+TRISBbits.RB0 = 0;
+
 SRAMInitHeap();
 
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
 
 void interrupt int_high()

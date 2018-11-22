@@ -3932,7 +3932,7 @@ void Lcd_Shift_Left();
 # 12 "types.h"
 const int STACK_SIZE = 31;
 
-
+# 18
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);
@@ -4042,7 +4042,7 @@ Lcd_Cmd(y);
 
 void Lcd_Init()
 {
-(INTCONbits.GIE = 0);
+INTCONbits.GIE = 0;
 Lcd_Port(0x00);
 _delay((unsigned long)((20)*(4000000/4000.0)));
 Lcd_Cmd(0x03);
@@ -4059,7 +4059,7 @@ Lcd_Cmd(0x0C);
 Lcd_Cmd(0x00);
 Lcd_Cmd(0x06);
 
-(INTCONbits.GIE = 1);
+INTCONbits.GIE = 1;
 }
 
 void Lcd_Write_Char(char a)

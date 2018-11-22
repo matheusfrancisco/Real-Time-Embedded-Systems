@@ -12,6 +12,9 @@
 const int STACK_SIZE = 31;
 #define MAX_TASKS 10
 
+#define ei() INTCONbits.GIE = 1
+#define di() INTCONbits.GIE = 0
+
 typedef unsigned int u_int;
 typedef unsigned char byte;
 typedef void(*f_ptr)(void);

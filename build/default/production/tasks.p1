@@ -1,13 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"11 semaphore.h
-[s S279 `ui -> 10 `i `ui 1 `ui 1 ]
-[n S279 sem_queue s_queue s_queue_pos_in s_queue_pos_out ]
-"17
-[s S280 `i 1 `S279 1 ]
-[n S280 sem contador queue ]
-"18 pipe.h
-[s S282 `uc -> -> 1 `i `ux `ui 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S282 pipe pipe_queue pos_read_pipe pos_write_pipe pipe_itens pos_bloqued_read pos_bloqued_write ]
+"35 pipe.h
+[s S282 `ui 1 `*uc 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S282 pipe p_id p_msg_queue p_pos_write p_pos_read p_size p_count ]
+"17 semaphore.h
+[s S280 `*ui 1 `ui 1 `ui 1 ]
+[n S280 _queue task size first ]
+"23
+[s S281 `i 1 `S280 1 ]
+[n S281 sem contador queue ]
 "1697 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
 "269
@@ -56,28 +56,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i __delay ]
 "2141 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"636
-[s S24 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S24 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"646
-[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S25 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
-"656
-[s S26 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S26 . . P1B P1C P1D ]
-"662
-[s S27 :7 `uc 1 :1 `uc 1 ]
-[n S27 . . SS2 ]
-"635
-[u S23 `S24 1 `S25 1 `S26 1 `S27 1 ]
-[n S23 . . . . . ]
-"667
-[v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
-"23 semaphore.h
-[v _sem_wait `(v ~T0 @X0 0 ef1`*S280 ]
-"24
-[v _sem_post `(v ~T0 @X0 0 ef1`*S280 ]
-"1930 /opt/microchip/xc8/v1.45/include/pic18f4520.h
+"1930
 [s S67 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S67 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
 "1940
@@ -108,12 +87,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S17 . . . . . . ]
 "495
 [v _PORTCbits `VS17 ~T0 @X0 0 e@3970 ]
-"31 pipe.h
-[v _read_pipe `(uc ~T0 @X0 0 ef1`*S282 ]
-"29
-[v _create_pipe `(v ~T0 @X0 0 ef1`*S282 ]
-"30
-[v _write_pipe `(v ~T0 @X0 0 ef2`*S282`uc ]
+"248 tasks.c
+[v _read_pipe `(i ~T0 @X0 0 ef ]
+"272
+[v _create_pipe `(i ~T0 @X0 0 ef ]
+"277
+[v _write_pipe `(i ~T0 @X0 0 ef ]
+"636 /opt/microchip/xc8/v1.45/include/pic18f4520.h
+[s S24 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S24 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"646
+[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S25 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
+"656
+[s S26 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . . P1B P1C P1D ]
+"662
+[s S27 :7 `uc 1 :1 `uc 1 ]
+[n S27 . . SS2 ]
+"635
+[u S23 `S24 1 `S25 1 `S26 1 `S27 1 ]
+[n S23 . . . . . ]
+"667
+[v _PORTDbits `VS23 ~T0 @X0 0 e@3971 ]
+"30 semaphore.h
+[v _sem_wait `(v ~T0 @X0 0 ef1`*S281 ]
+"31
+[v _sem_post `(v ~T0 @X0 0 ef1`*S281 ]
+"48 pipe.h
+[v _pipe_create `(v ~T0 @X0 0 ef3`*S282`ui`ui ]
+"50
+[v _pipe_write `(v ~T0 @X0 0 ef2`*S282`uc ]
+"1205 /opt/microchip/xc8/v1.45/include/pic18f4520.h
+[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S46 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"1215
+[s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S47 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"1204
+[u S45 `S46 1 `S47 1 ]
+[n S45 . . . ]
+"1226
+[v _LATCbits `VS45 ~T0 @X0 0 e@3979 ]
+"49 pipe.h
+[v _pipe_read `(v ~T0 @X0 0 ef2`*S282`*uc ]
 [; ;pic18f4520.h: 50: extern volatile unsigned char PORTA @ 0xF80;
 "52 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [; ;pic18f4520.h: 52: asm("PORTA equ 0F80h");
@@ -2900,54 +2917,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 31 `i
 ]
 [; ;types.h: 12: const int STACK_SIZE = 31;
-[; ;types.h: 15: typedef unsigned int u_int;
-[; ;types.h: 16: typedef unsigned char byte;
-[; ;types.h: 17: typedef void(*f_ptr)(void);
-[; ;types.h: 19: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
-[; ;types.h: 21: typedef struct stack_data {
-[; ;types.h: 22: byte TOSU_register;
-[; ;types.h: 23: byte TOSL_register;
-[; ;types.h: 24: byte TOSH_register;
-[; ;types.h: 25: } stack_data_t;
-[; ;types.h: 27: typedef struct stack {
-[; ;types.h: 28: stack_data_t STACK[STACK_SIZE];
-[; ;types.h: 29: u_int stack_size;
-[; ;types.h: 30: } stack_t;
-[; ;types.h: 32: typedef struct tcb {
-[; ;types.h: 34: u_int task_id;
-[; ;types.h: 35: u_int task_prior;
-[; ;types.h: 36: f_ptr *task_f;
-[; ;types.h: 37: u_int delay_time;
-[; ;types.h: 39: state_t task_state;
-[; ;types.h: 40: stack_t task_stack;
-[; ;types.h: 41: byte BSR_register;
-[; ;types.h: 42: byte STATUS_register;
-[; ;types.h: 43: byte WORK_register;
-[; ;types.h: 45: } tcb_t;
+[; ;types.h: 18: typedef unsigned int u_int;
+[; ;types.h: 19: typedef unsigned char byte;
+[; ;types.h: 20: typedef void(*f_ptr)(void);
+[; ;types.h: 22: typedef enum {READY = 1, RUNNING, SLEEPING, WAITING, WAITING_PIPE, FINISHED} state_t;
+[; ;types.h: 24: typedef struct stack_data {
+[; ;types.h: 25: byte TOSU_register;
+[; ;types.h: 26: byte TOSL_register;
+[; ;types.h: 27: byte TOSH_register;
+[; ;types.h: 28: } stack_data_t;
+[; ;types.h: 30: typedef struct stack {
+[; ;types.h: 31: stack_data_t STACK[STACK_SIZE];
+[; ;types.h: 32: u_int stack_size;
+[; ;types.h: 33: } stack_t;
+[; ;types.h: 35: typedef struct tcb {
+[; ;types.h: 37: u_int task_id;
+[; ;types.h: 38: u_int task_prior;
+[; ;types.h: 39: f_ptr *task_f;
+[; ;types.h: 40: u_int delay_time;
+[; ;types.h: 42: state_t task_state;
+[; ;types.h: 43: stack_t task_stack;
+[; ;types.h: 44: byte BSR_register;
+[; ;types.h: 45: byte STATUS_register;
+[; ;types.h: 46: byte WORK_register;
+[; ;types.h: 48: } tcb_t;
 [; ;semaphore.h: 11: typedef struct sem_queue {
 [; ;semaphore.h: 12: u_int s_queue[10];
 [; ;semaphore.h: 13: u_int s_queue_pos_in;
 [; ;semaphore.h: 14: u_int s_queue_pos_out;
 [; ;semaphore.h: 15: } sem_queue_t;
-[; ;semaphore.h: 17: typedef struct sem {
-[; ;semaphore.h: 18: int contador;
-[; ;semaphore.h: 19: sem_queue_t queue;
-[; ;semaphore.h: 20: } sem_t;
-[; ;semaphore.h: 22: void sem_init(sem_t *s, int value);
-[; ;semaphore.h: 23: void sem_wait(sem_t *s);
-[; ;semaphore.h: 24: void sem_post(sem_t *s);
-[; ;semaphore.h: 25: int sem_get_value(sem_t s);
+[; ;semaphore.h: 17: typedef struct _queue{
+[; ;semaphore.h: 18: u_int *task;
+[; ;semaphore.h: 19: u_int size;
+[; ;semaphore.h: 20: u_int first;
+[; ;semaphore.h: 21: }queue_sem_t;
+[; ;semaphore.h: 23: typedef struct sem {
+[; ;semaphore.h: 24: int contador;
+[; ;semaphore.h: 26: queue_sem_t queue;
+[; ;semaphore.h: 27: } sem_t;
+[; ;semaphore.h: 29: void sem_init(sem_t *s, int value);
+[; ;semaphore.h: 30: void sem_wait(sem_t *s);
+[; ;semaphore.h: 31: void sem_post(sem_t *s);
+[; ;semaphore.h: 32: int sem_get_value(sem_t s);
 [; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
 [; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
 [; ;memory.h: 24: void SRAMInitHeap(void);
-[; ;tasks.h: 13: void numerodeaviosG();
-[; ;tasks.h: 14: void LCD_test();
-[; ;tasks.h: 15: void confi_port();
-[; ;tasks.h: 16: void aviao1();
-[; ;tasks.h: 17: void aviao2();
-[; ;tasks.h: 18: void aviao3();
-[; ;tasks.h: 20: void tluzesescreve();
-[; ;tasks.h: 21: void tluzes();
+[; ;tasks.h: 14: void numerodeaviosG();
+[; ;tasks.h: 15: void LCD_test();
+[; ;tasks.h: 16: void confi_port();
+[; ;tasks.h: 21: void tluzesescreve();
+[; ;tasks.h: 22: void tluzes();
+[; ;tasks.h: 24: void led_1();
+[; ;tasks.h: 25: void led_2();
+[; ;tasks.h: 26: void led_3();
+[; ;tasks.h: 27: void acender();
 [; ;kernel.h: 11: extern tcb_t F_APTOS[10];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -2958,22 +2981,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.h: 19: void start_os();
 [; ;kernel.h: 20: void setupOS();
 [; ;kernel.h: 21: void interrupt int_high();
-[; ;pipe.h: 12: typedef struct pipe_bloqued_queue {
-[; ;pipe.h: 13: u_int b_queue[10];
-[; ;pipe.h: 14: u_int b_queue_pos_in;
-[; ;pipe.h: 15: u_int b_queue_pos_out;
-[; ;pipe.h: 16: } pipe_bloqued_queue_t;
-[; ;pipe.h: 18: typedef struct pipe {
-[; ;pipe.h: 19: byte pipe_queue[1];
-[; ;pipe.h: 21: u_int pos_read_pipe;
-[; ;pipe.h: 22: u_int pos_write_pipe;
-[; ;pipe.h: 23: u_int pipe_itens;
-[; ;pipe.h: 25: u_int pos_bloqued_read;
-[; ;pipe.h: 26: u_int pos_bloqued_write;
-[; ;pipe.h: 27: } pipe_t;
-[; ;pipe.h: 29: void create_pipe(pipe_t *pipe);
-[; ;pipe.h: 30: void write_pipe(pipe_t *pipe, byte data);
-[; ;pipe.h: 31: byte read_pipe(pipe_t *pipe);
+[; ;pipe.h: 35: typedef struct pipe {
+[; ;pipe.h: 36: u_int p_id;
+[; ;pipe.h: 37: unsigned char* p_msg_queue;
+[; ;pipe.h: 38: u_int p_pos_write;
+[; ;pipe.h: 39: u_int p_pos_read;
+[; ;pipe.h: 40: u_int p_size;
+[; ;pipe.h: 41: u_int p_count;
+[; ;pipe.h: 42: } pipe_t;
+"44 pipe.h
+[v _mensagens `S282 ~T0 @X0 1 e ]
+[; ;pipe.h: 44: pipe_t mensagens;
+[; ;pipe.h: 48: void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
+[; ;pipe.h: 49: void pipe_read(pipe_t *pipe_handler, char* msg);
+[; ;pipe.h: 50: void pipe_write(pipe_t *pipe_handler, char msg);
+[; ;pipe.h: 51: void pipe_destroy(pipe_t *pipe_handler);
+[; ;pipe.h: 52: void libera_processos();
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
@@ -3040,7 +3063,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 37: void Lcd_Shift_Right();
 [; ;lcd.h: 38: void Lcd_Shift_Left();
 "15 tasks.c
-[v _spista `S280 ~T0 @X0 1 e ]
+[v _spista `S281 ~T0 @X0 1 e ]
 [; ;tasks.c: 15: sem_t spista;
 "16
 [v _cont `ui ~T0 @X0 1 e ]
@@ -3051,517 +3074,573 @@ Version 3.2 HI-TECH Software Intermediate Code
 "18
 [v _pipeluzes `S282 ~T0 @X0 1 e ]
 [; ;tasks.c: 18: pipe_t pipeluzes;
+"19
+[v _testL `S282 ~T0 @X0 1 e ]
+[; ;tasks.c: 19: pipe_t testL;
 "20
+[v _t1 `S281 ~T0 @X0 1 e ]
+[; ;tasks.c: 20: sem_t t1;
+"21
+[v _t2 `S281 ~T0 @X0 1 e ]
+[; ;tasks.c: 21: sem_t t2;
+"23
 [v _numerodeaviosG `(v ~T0 @X0 1 ef ]
 {
-[; ;tasks.c: 20: void numerodeaviosG(){
+[; ;tasks.c: 23: void numerodeaviosG(){
 [e :U _numerodeaviosG ]
 [f ]
-[; ;tasks.c: 22: TRISB = 0x00;
-"22
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;tasks.c: 23: PORTB = 0x11;
-"23
-[e = _PORTB -> -> 17 `i `uc ]
-[; ;tasks.c: 25: while(1)
+[; ;tasks.c: 25: TRISB = 0x00;
 "25
-[e :U 286 ]
-[; ;tasks.c: 26: {
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;tasks.c: 26: PORTB = 0x11;
 "26
-{
-[; ;tasks.c: 29: if(cont == 1)
+[e = _PORTB -> -> 17 `i `uc ]
+[; ;tasks.c: 28: while(1)
+"28
+[e :U 286 ]
+[; ;tasks.c: 29: {
 "29
-[e $ ! == _cont -> -> 1 `i `ui 288  ]
-[; ;tasks.c: 30: {
-"30
 {
-[; ;tasks.c: 31: PORTBbits.RB0= 0;
-"31
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 32: PORTBbits.RB1= 0;
+[; ;tasks.c: 32: if(cont == 1)
 "32
-[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 33: PORTBbits.RB2= 1;
+[e $ ! == _cont -> -> 1 `i `ui 288  ]
+[; ;tasks.c: 33: {
 "33
-[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-[; ;tasks.c: 34: PORTBbits.RB3= 1;
+{
+[; ;tasks.c: 34: PORTBbits.RB0= 0;
 "34
-[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
-[; ;tasks.c: 35: PORTBbits.RB4= 1;
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 35: PORTBbits.RB1= 0;
 "35
-[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
-[; ;tasks.c: 36: PORTBbits.RB5= 1;
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+[; ;tasks.c: 36: PORTBbits.RB2= 1;
 "36
-[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
-[; ;tasks.c: 37: PORTBbits.RB6= 1;
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
+[; ;tasks.c: 37: PORTBbits.RB3= 1;
 "37
-[e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
+[; ;tasks.c: 38: PORTBbits.RB4= 1;
 "38
+[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
+[; ;tasks.c: 39: PORTBbits.RB5= 1;
+"39
+[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
+[; ;tasks.c: 40: PORTBbits.RB6= 1;
+"40
+[e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
+"41
 }
 [e :U 288 ]
-[; ;tasks.c: 38: }
-[; ;tasks.c: 39: delay(1000);
-"39
-[e ( _delay (1 -> -> 1000 `i `ui ]
-[; ;tasks.c: 41: if(cont == 2)
-"41
-[e $ ! == _cont -> -> 2 `i `ui 289  ]
-[; ;tasks.c: 42: {
+[; ;tasks.c: 41: }
+[; ;tasks.c: 42: delay(1000);
 "42
-{
-[; ;tasks.c: 43: PORTBbits.RB0= 0;
-"43
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 44: PORTBbits.RB1= 0;
+[e ( _delay (1 -> -> 1000 `i `ui ]
+[; ;tasks.c: 44: if(cont == 2)
 "44
-[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 45: PORTBbits.RB2= 1;
+[e $ ! == _cont -> -> 2 `i `ui 289  ]
+[; ;tasks.c: 45: {
 "45
-[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
-[; ;tasks.c: 46: PORTBbits.RB3= 1;
+{
+[; ;tasks.c: 46: PORTBbits.RB0= 0;
 "46
-[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
-[; ;tasks.c: 47: PORTBbits.RB4= 0;
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 47: PORTBbits.RB1= 0;
 "47
-[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
-[; ;tasks.c: 48: PORTBbits.RB5= 0;
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+[; ;tasks.c: 48: PORTBbits.RB2= 1;
 "48
-[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
-[; ;tasks.c: 49: PORTBbits.RB6= 0;
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
+[; ;tasks.c: 49: PORTBbits.RB3= 1;
 "49
-[e = . . _PORTBbits 0 6 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
+[; ;tasks.c: 50: PORTBbits.RB4= 0;
 "50
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+[; ;tasks.c: 51: PORTBbits.RB5= 0;
+"51
+[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
+[; ;tasks.c: 52: PORTBbits.RB6= 0;
+"52
+[e = . . _PORTBbits 0 6 -> -> 0 `i `uc ]
+"53
 }
 [e :U 289 ]
-"52
+"55
 }
 [e :U 285 ]
-"25
+"28
 [e $U 286  ]
 [e :U 287 ]
-[; ;tasks.c: 50: }
-[; ;tasks.c: 52: }
 [; ;tasks.c: 53: }
-"53
+[; ;tasks.c: 55: }
+[; ;tasks.c: 56: }
+"56
 [e :UE 284 ]
 }
-"55
+"58
 [v _LCD_test `(v ~T0 @X0 1 ef ]
-"56
+"59
 {
-[; ;tasks.c: 55: void LCD_test()
-[; ;tasks.c: 56: {
+[; ;tasks.c: 58: void LCD_test()
+[; ;tasks.c: 59: {
 [e :U _LCD_test ]
 [f ]
-[; ;tasks.c: 57: Lcd_Write_Char("a");
-"57
-[e ( _Lcd_Write_Char (1 -> :s 1C `uc ]
-[; ;tasks.c: 58: (INTCONbits.GIE = 0);
-"58
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;tasks.c: 59: _delay((unsigned long)((1000)*(4000000/4000.0)));
-"59
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;tasks.c: 60: (INTCONbits.GIE = 1);
+[; ;tasks.c: 60: Lcd_Write_Char("a");
 "60
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;tasks.c: 61: }
+[e ( _Lcd_Write_Char (1 -> :s 1C `uc ]
+[; ;tasks.c: 61: INTCONbits.GIE = 0;
 "61
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;tasks.c: 62: _delay((unsigned long)((1000)*(4000000/4000.0)));
+"62
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;tasks.c: 63: INTCONbits.GIE = 1;
+"63
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;tasks.c: 64: }
+"64
 [e :UE 290 ]
 }
-"62
+"66
 [v _confi_port `(v ~T0 @X0 1 ef ]
 {
-[; ;tasks.c: 62: void confi_port(){
+[; ;tasks.c: 66: void confi_port(){
 [e :U _confi_port ]
 [f ]
-[; ;tasks.c: 64: TRISD = 0x00;
-"64
+[; ;tasks.c: 68: TRISD = 0x00;
+"68
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;tasks.c: 67: }
-"67
+[; ;tasks.c: 71: }
+"71
 [e :UE 291 ]
 }
-"68
-[v _aviao1 `(v ~T0 @X0 1 ef ]
-"69
-{
-[; ;tasks.c: 68: void aviao1()
-[; ;tasks.c: 69: {
-[e :U _aviao1 ]
-[f ]
-[; ;tasks.c: 71: PORTDbits.RD3 = 0;
-"71
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-[; ;tasks.c: 72: PORTDbits.RD6 = 0;
-"72
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;tasks.c: 73: PORTDbits.RD4 = 0;
-"73
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;tasks.c: 74: PORTDbits.RD0 = 0;
-"74
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 76: while (1) {
-"76
-[e :U 294 ]
-{
-[; ;tasks.c: 78: PORTDbits.RD3 = 1;
-"78
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-[; ;tasks.c: 80: delay(5000);
-"80
-[e ( _delay (1 -> -> 5000 `i `ui ]
-[; ;tasks.c: 82: sem_wait(&spista);
-"82
-[e ( _sem_wait (1 &U _spista ]
-[; ;tasks.c: 84: PORTDbits.RD3 = 0;
-"84
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-[; ;tasks.c: 86: PORTDbits.RD6 = 1;
-"86
-[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
-[; ;tasks.c: 88: delay(5000);
-"88
-[e ( _delay (1 -> -> 5000 `i `ui ]
-[; ;tasks.c: 91: PORTDbits.RD6 = 0;
-"91
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;tasks.c: 94: sem_post(&spista);
-"94
-[e ( _sem_post (1 &U _spista ]
-[; ;tasks.c: 95: delay(300);
-"95
-[e ( _delay (1 -> -> 300 `i `ui ]
-[; ;tasks.c: 97: cont++;
-"97
-[e ++ _cont -> -> 1 `i `ui ]
-[; ;tasks.c: 99: PORTDbits.RD0 = 1;
-"99
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-[; ;tasks.c: 101: delay(5000);
-"101
-[e ( _delay (1 -> -> 5000 `i `ui ]
-[; ;tasks.c: 105: sem_wait(&spista);
-"105
-[e ( _sem_wait (1 &U _spista ]
-[; ;tasks.c: 107: PORTDbits.RD0 = 0;
-"107
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-[; ;tasks.c: 109: cont--;
-"109
-[e -- _cont -> -> 1 `i `ui ]
-[; ;tasks.c: 111: PORTDbits.RD4 = 1;
-"111
-[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-[; ;tasks.c: 113: delay(5000);
-"113
-[e ( _delay (1 -> -> 5000 `i `ui ]
-[; ;tasks.c: 115: PORTDbits.RD4 = 0;
-"115
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;tasks.c: 117: sem_post(&spista);
-"117
-[e ( _sem_post (1 &U _spista ]
-[; ;tasks.c: 118: delay(400);
-"118
-[e ( _delay (1 -> -> 400 `i `ui ]
-"123
-}
-[e :U 293 ]
-"76
-[e $U 294  ]
-[e :U 295 ]
-[; ;tasks.c: 123: }
-[; ;tasks.c: 124: }
-"124
-[e :UE 292 ]
-}
-"126
-[v _aviao2 `(v ~T0 @X0 1 ef ]
-"127
-{
-[; ;tasks.c: 126: void aviao2()
-[; ;tasks.c: 127: {
-[e :U _aviao2 ]
-[f ]
-[; ;tasks.c: 128: PORTDbits.RD5 = 0;
-"128
-[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-[; ;tasks.c: 129: PORTDbits.RD6 = 0;
-"129
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;tasks.c: 130: PORTDbits.RD4 = 0;
-"130
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;tasks.c: 131: PORTDbits.RD1 = 0;
-"131
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 133: while(1)
-"133
-[e :U 298 ]
-[; ;tasks.c: 134: {
-"134
-{
-[; ;tasks.c: 136: PORTDbits.RD5 = 1;
-"136
-[e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
-[; ;tasks.c: 138: delay(6000);
-"138
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 140: sem_wait(&spista);
-"140
-[e ( _sem_wait (1 &U _spista ]
-[; ;tasks.c: 142: PORTDbits.RD5 = 0;
-"142
-[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-[; ;tasks.c: 144: PORTDbits.RD6 = 1;
-"144
-[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
-[; ;tasks.c: 146: delay(6000);
-"146
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 149: PORTDbits.RD6 = 0;
-"149
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;tasks.c: 152: sem_post(&spista);
-"152
-[e ( _sem_post (1 &U _spista ]
-[; ;tasks.c: 153: delay(300);
-"153
-[e ( _delay (1 -> -> 300 `i `ui ]
-[; ;tasks.c: 155: PORTDbits.RD1 = 1;
-"155
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-[; ;tasks.c: 156: cont++;
-"156
-[e ++ _cont -> -> 1 `i `ui ]
-[; ;tasks.c: 157: delay(6000);
-"157
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 159: sem_wait(&spista);
-"159
-[e ( _sem_wait (1 &U _spista ]
-[; ;tasks.c: 161: PORTDbits.RD1 = 0;
-"161
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-[; ;tasks.c: 162: cont--;
-"162
-[e -- _cont -> -> 1 `i `ui ]
-[; ;tasks.c: 164: PORTDbits.RD4 = 1;
-"164
-[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-[; ;tasks.c: 166: delay(6000);
-"166
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 168: PORTDbits.RD4 = 0;
-"168
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;tasks.c: 170: sem_post(&spista);
-"170
-[e ( _sem_post (1 &U _spista ]
-"174
-}
-[e :U 297 ]
-"133
-[e $U 298  ]
-[e :U 299 ]
-[; ;tasks.c: 174: }
-[; ;tasks.c: 175: }
-"175
-[e :UE 296 ]
-}
-"177
-[v _aviao3 `(v ~T0 @X0 1 ef ]
-"178
-{
-[; ;tasks.c: 177: void aviao3()
-[; ;tasks.c: 178: {
-[e :U _aviao3 ]
-[f ]
-[; ;tasks.c: 179: PORTDbits.RD7 = 0;
-"179
-[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
-[; ;tasks.c: 180: PORTDbits.RD6 = 0;
-"180
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;tasks.c: 181: PORTDbits.RD4 = 0;
-"181
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;tasks.c: 182: PORTDbits.RD2 = 0;
-"182
-[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-[; ;tasks.c: 184: while (1) {
-"184
-[e :U 302 ]
-{
-[; ;tasks.c: 186: PORTDbits.RD7 = 1;
-"186
-[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
-[; ;tasks.c: 188: delay(6000);
-"188
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 190: sem_wait(&spista);
-"190
-[e ( _sem_wait (1 &U _spista ]
-[; ;tasks.c: 192: PORTDbits.RD7 = 0;
-"192
-[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
-[; ;tasks.c: 194: PORTDbits.RD6 = 1;
-"194
-[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
-[; ;tasks.c: 196: delay(6000);
-"196
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 199: PORTDbits.RD6 = 0;
-"199
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;tasks.c: 202: sem_post(&spista);
-"202
-[e ( _sem_post (1 &U _spista ]
-[; ;tasks.c: 204: cont++;
-"204
-[e ++ _cont -> -> 1 `i `ui ]
-[; ;tasks.c: 205: PORTDbits.RD2 = 1;
-"205
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-[; ;tasks.c: 207: delay(6000);
-"207
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 211: sem_wait(&spista);
-"211
-[e ( _sem_wait (1 &U _spista ]
-[; ;tasks.c: 213: PORTDbits.RD2 = 0;
-"213
-[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-[; ;tasks.c: 214: cont--;
-"214
-[e -- _cont -> -> 1 `i `ui ]
-[; ;tasks.c: 216: PORTDbits.RD4 = 1;
-"216
-[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-[; ;tasks.c: 218: delay(6000);
-"218
-[e ( _delay (1 -> -> 6000 `i `ui ]
-[; ;tasks.c: 220: PORTDbits.RD4 = 0;
-"220
-[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
-[; ;tasks.c: 222: sem_post(&spista);
-"222
-[e ( _sem_post (1 &U _spista ]
-"225
-}
-[e :U 301 ]
-"184
-[e $U 302  ]
-[e :U 303 ]
-[; ;tasks.c: 225: }
-[; ;tasks.c: 226: }
-"226
-[e :UE 300 ]
-}
-"228
+"238
 [v _tluzes `(v ~T0 @X0 1 ef ]
-"229
+"239
 {
-[; ;tasks.c: 228: void tluzes()
-[; ;tasks.c: 229: {
+[; ;tasks.c: 238: void tluzes()
+[; ;tasks.c: 239: {
 [e :U _tluzes ]
 [f ]
-[; ;tasks.c: 230: TRISCbits.RC5 = 0;
-"230
-[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
-[; ;tasks.c: 231: PORTCbits.RC5 = 0;
-"231
-[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"234
-[v _dado `uc ~T0 @X0 1 a ]
-[; ;tasks.c: 234: byte dado;
-[; ;tasks.c: 236: while(1)
-"236
-[e :U 306 ]
-[; ;tasks.c: 237: {
-"237
-{
-[; ;tasks.c: 238: dado = read_pipe(&pipeluzes);
-"238
-[e = _dado ( _read_pipe (1 &U _pipeluzes ]
-[; ;tasks.c: 239: if (dado == 'l')
-"239
-[e $ ! == -> _dado `ui -> 108 `ui 308  ]
-[; ;tasks.c: 240: {
+[; ;tasks.c: 240: TRISCbits.RC5 = 0;
 "240
-{
-[; ;tasks.c: 242: PORTCbits.RC5 = ~PORTCbits.RC5 ;
-"242
-[e = . . _PORTCbits 0 5 -> ~ -> . . _PORTCbits 0 5 `i `uc ]
-[; ;tasks.c: 243: delay(5000);
-"243
-[e ( _delay (1 -> -> 5000 `i `ui ]
+[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
+[; ;tasks.c: 241: PORTCbits.RC5 = 0;
+"241
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+"244
+[v _dado `uc ~T0 @X0 1 a ]
+[; ;tasks.c: 244: byte dado;
+[; ;tasks.c: 246: while(1)
 "246
-}
-[e :U 308 ]
-[; ;tasks.c: 246: }
-[; ;tasks.c: 247: dado = 'n';
+[e :U 294 ]
+[; ;tasks.c: 247: {
 "247
-[e = _dado -> -> 110 `ui `uc ]
-[; ;tasks.c: 248: if(dado =='n')
+{
+[; ;tasks.c: 248: dado = read_pipe(&pipeluzes);
 "248
-[e $ ! == -> _dado `ui -> 110 `ui 309  ]
-[; ;tasks.c: 249: {
+[e = _dado -> ( _read_pipe &U _pipeluzes `uc ]
+[; ;tasks.c: 249: if (dado == 'l')
 "249
-{
-[; ;tasks.c: 250: PORTCbits.RC5 = ~PORTCbits.RC5 ;
+[e $ ! == -> _dado `ui -> 108 `ui 296  ]
+[; ;tasks.c: 250: {
 "250
-[e = . . _PORTCbits 0 5 -> ~ -> . . _PORTCbits 0 5 `i `uc ]
-[; ;tasks.c: 251: delay(5000);
-"251
-[e ( _delay (1 -> -> 5000 `i `ui ]
-"253
-}
-[e :U 309 ]
-"255
-}
-[e :U 305 ]
-"236
-[e $U 306  ]
-[e :U 307 ]
-[; ;tasks.c: 253: }
-[; ;tasks.c: 255: }
-[; ;tasks.c: 257: }
-"257
-[e :UE 304 ]
-}
-"259
-[v _tluzesescreve `(v ~T0 @X0 1 ef ]
-"260
 {
-[; ;tasks.c: 259: void tluzesescreve()
-[; ;tasks.c: 260: {
+[; ;tasks.c: 252: PORTCbits.RC5 = ~PORTCbits.RC5 ;
+"252
+[e = . . _PORTCbits 0 5 -> ~ -> . . _PORTCbits 0 5 `i `uc ]
+[; ;tasks.c: 253: delay(5000);
+"253
+[e ( _delay (1 -> -> 5000 `i `ui ]
+"256
+}
+[e :U 296 ]
+[; ;tasks.c: 256: }
+[; ;tasks.c: 257: dado = 'n';
+"257
+[e = _dado -> -> 110 `ui `uc ]
+[; ;tasks.c: 258: if(dado =='n')
+"258
+[e $ ! == -> _dado `ui -> 110 `ui 297  ]
+[; ;tasks.c: 259: {
+"259
+{
+[; ;tasks.c: 260: PORTCbits.RC5 = ~PORTCbits.RC5 ;
+"260
+[e = . . _PORTCbits 0 5 -> ~ -> . . _PORTCbits 0 5 `i `uc ]
+[; ;tasks.c: 261: delay(5000);
+"261
+[e ( _delay (1 -> -> 5000 `i `ui ]
+"263
+}
+[e :U 297 ]
+"265
+}
+[e :U 293 ]
+"246
+[e $U 294  ]
+[e :U 295 ]
+[; ;tasks.c: 263: }
+[; ;tasks.c: 265: }
+[; ;tasks.c: 267: }
+"267
+[e :UE 292 ]
+}
+"269
+[v _tluzesescreve `(v ~T0 @X0 1 ef ]
+"270
+{
+[; ;tasks.c: 269: void tluzesescreve()
+[; ;tasks.c: 270: {
 [e :U _tluzesescreve ]
 [f ]
-[; ;tasks.c: 262: create_pipe(&pipeluzes);
-"262
-[e ( _create_pipe (1 &U _pipeluzes ]
-[; ;tasks.c: 264: while(1)
-"264
-[e :U 312 ]
-[; ;tasks.c: 265: {
-"265
-{
-[; ;tasks.c: 267: write_pipe(&pipeluzes, 'l');
-"267
-[e ( _write_pipe (2 , &U _pipeluzes -> -> 108 `ui `uc ]
+[; ;tasks.c: 272: create_pipe(&pipeluzes);
 "272
+[e ( _create_pipe &U _pipeluzes ]
+[; ;tasks.c: 274: while(1)
+"274
+[e :U 300 ]
+[; ;tasks.c: 275: {
+"275
+{
+[; ;tasks.c: 277: write_pipe(&pipeluzes, 'l');
+"277
+[e ( _write_pipe , &U _pipeluzes -> 108 `ui ]
+"282
+}
+[e :U 299 ]
+"274
+[e $U 300  ]
+[e :U 301 ]
+[; ;tasks.c: 282: }
+[; ;tasks.c: 284: }
+"284
+[e :UE 298 ]
+}
+"287
+[v _led_1 `(v ~T0 @X0 1 ef ]
+"288
+{
+[; ;tasks.c: 287: void led_1()
+[; ;tasks.c: 288: {
+[e :U _led_1 ]
+[f ]
+[; ;tasks.c: 290: PORTDbits.RD3 = 0;
+"290
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+[; ;tasks.c: 291: PORTDbits.RD6 = 0;
+"291
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;tasks.c: 292: PORTDbits.RD4 = 0;
+"292
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;tasks.c: 293: PORTDbits.RD0 = 0;
+"293
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 295: while (1) {
+"295
+[e :U 304 ]
+{
+[; ;tasks.c: 297: PORTDbits.RD3 = 1;
+"297
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+[; ;tasks.c: 299: delay(5000);
+"299
+[e ( _delay (1 -> -> 5000 `i `ui ]
+[; ;tasks.c: 301: sem_wait(&spista);
+"301
+[e ( _sem_wait (1 &U _spista ]
+[; ;tasks.c: 303: PORTDbits.RD3 = 0;
+"303
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+[; ;tasks.c: 305: PORTDbits.RD6 = 1;
+"305
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;tasks.c: 307: delay(5000);
+"307
+[e ( _delay (1 -> -> 5000 `i `ui ]
+[; ;tasks.c: 310: PORTDbits.RD6 = 0;
+"310
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;tasks.c: 313: sem_post(&spista);
+"313
+[e ( _sem_post (1 &U _spista ]
+[; ;tasks.c: 314: delay(300);
+"314
+[e ( _delay (1 -> -> 300 `i `ui ]
+[; ;tasks.c: 317: PORTDbits.RD0 = 1;
+"317
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+[; ;tasks.c: 319: delay(5000);
+"319
+[e ( _delay (1 -> -> 5000 `i `ui ]
+[; ;tasks.c: 323: sem_wait(&spista);
+"323
+[e ( _sem_wait (1 &U _spista ]
+[; ;tasks.c: 325: PORTDbits.RD0 = 0;
+"325
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+[; ;tasks.c: 328: PORTDbits.RD4 = 1;
+"328
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;tasks.c: 330: delay(5000);
+"330
+[e ( _delay (1 -> -> 5000 `i `ui ]
+[; ;tasks.c: 332: PORTDbits.RD4 = 0;
+"332
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;tasks.c: 334: sem_post(&spista);
+"334
+[e ( _sem_post (1 &U _spista ]
+[; ;tasks.c: 335: delay(400);
+"335
+[e ( _delay (1 -> -> 400 `i `ui ]
+"337
+}
+[e :U 303 ]
+"295
+[e $U 304  ]
+[e :U 305 ]
+[; ;tasks.c: 337: }
+[; ;tasks.c: 338: }
+"338
+[e :UE 302 ]
+}
+"340
+[v _led_2 `(v ~T0 @X0 1 ef ]
+"341
+{
+[; ;tasks.c: 340: void led_2()
+[; ;tasks.c: 341: {
+[e :U _led_2 ]
+[f ]
+[; ;tasks.c: 343: PORTDbits.RD5 = 0;
+"343
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;tasks.c: 344: PORTDbits.RD6 = 0;
+"344
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;tasks.c: 345: PORTDbits.RD4 = 0;
+"345
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;tasks.c: 346: PORTDbits.RD1 = 0;
+"346
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
+[; ;tasks.c: 348: while(1)
+"348
+[e :U 308 ]
+[; ;tasks.c: 349: {
+"349
+{
+[; ;tasks.c: 351: PORTDbits.RD5 = 1;
+"351
+[e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
+[; ;tasks.c: 353: delay(6000);
+"353
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 355: sem_wait(&spista);
+"355
+[e ( _sem_wait (1 &U _spista ]
+[; ;tasks.c: 357: PORTDbits.RD5 = 0;
+"357
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;tasks.c: 359: PORTDbits.RD6 = 1;
+"359
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;tasks.c: 361: delay(6000);
+"361
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 364: PORTDbits.RD6 = 0;
+"364
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;tasks.c: 367: sem_post(&spista);
+"367
+[e ( _sem_post (1 &U _spista ]
+[; ;tasks.c: 368: delay(300);
+"368
+[e ( _delay (1 -> -> 300 `i `ui ]
+[; ;tasks.c: 370: PORTDbits.RD1 = 1;
+"370
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+[; ;tasks.c: 371: delay(6000);
+"371
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 373: sem_wait(&spista);
+"373
+[e ( _sem_wait (1 &U _spista ]
+[; ;tasks.c: 375: PORTDbits.RD1 = 0;
+"375
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
+[; ;tasks.c: 377: PORTDbits.RD4 = 1;
+"377
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;tasks.c: 379: delay(6000);
+"379
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 381: PORTDbits.RD4 = 0;
+"381
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;tasks.c: 383: sem_post(&spista);
+"383
+[e ( _sem_post (1 &U _spista ]
+"387
+}
+[e :U 307 ]
+"348
+[e $U 308  ]
+[e :U 309 ]
+[; ;tasks.c: 387: }
+[; ;tasks.c: 388: }
+"388
+[e :UE 306 ]
+}
+"390
+[v _led_3 `(v ~T0 @X0 1 ef ]
+"391
+{
+[; ;tasks.c: 390: void led_3()
+[; ;tasks.c: 391: {
+[e :U _led_3 ]
+[f ]
+[; ;tasks.c: 393: pipe_create(&testL ,4,1);
+"393
+[e ( _pipe_create (3 , , &U _testL -> -> 4 `i `ui -> -> 1 `i `ui ]
+[; ;tasks.c: 397: PORTDbits.RD7 = 0;
+"397
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+[; ;tasks.c: 398: PORTDbits.RD6 = 0;
+"398
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;tasks.c: 399: PORTDbits.RD4 = 0;
+"399
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;tasks.c: 400: PORTDbits.RD2 = 0;
+"400
+[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
+[; ;tasks.c: 402: while (1) {
+"402
+[e :U 312 ]
+{
+[; ;tasks.c: 404: PORTDbits.RD7 = 1;
+"404
+[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
+[; ;tasks.c: 406: delay(6000);
+"406
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 408: sem_wait(&spista);
+"408
+[e ( _sem_wait (1 &U _spista ]
+[; ;tasks.c: 410: PORTDbits.RD7 = 0;
+"410
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+[; ;tasks.c: 412: PORTDbits.RD6 = 1;
+"412
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;tasks.c: 414: delay(6000);
+"414
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 417: PORTDbits.RD6 = 0;
+"417
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;tasks.c: 420: sem_post(&spista);
+"420
+[e ( _sem_post (1 &U _spista ]
+[; ;tasks.c: 423: pipe_write(&testL, 't');
+"423
+[e ( _pipe_write (2 , &U _testL -> -> 116 `ui `uc ]
+[; ;tasks.c: 424: PORTDbits.RD2 = 1;
+"424
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
+[; ;tasks.c: 426: delay(6000);
+"426
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 430: sem_wait(&spista);
+"430
+[e ( _sem_wait (1 &U _spista ]
+[; ;tasks.c: 432: PORTDbits.RD2 = 0;
+"432
+[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
+[; ;tasks.c: 435: PORTDbits.RD4 = 1;
+"435
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;tasks.c: 437: delay(6000);
+"437
+[e ( _delay (1 -> -> 6000 `i `ui ]
+[; ;tasks.c: 439: PORTDbits.RD4 = 0;
+"439
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;tasks.c: 441: sem_post(&spista);
+"441
+[e ( _sem_post (1 &U _spista ]
+"444
 }
 [e :U 311 ]
-"264
+"402
 [e $U 312  ]
 [e :U 313 ]
-[; ;tasks.c: 272: }
-[; ;tasks.c: 274: }
-"274
+[; ;tasks.c: 444: }
+[; ;tasks.c: 448: }
+"448
 [e :UE 310 ]
+}
+"450
+[v _acender `(v ~T0 @X0 1 ef ]
+"451
+{
+[; ;tasks.c: 450: void acender()
+[; ;tasks.c: 451: {
+[e :U _acender ]
+[f ]
+[; ;tasks.c: 452: TRISCbits.RC5 = 0;
+"452
+[e = . . _TRISCbits 1 5 -> -> 0 `i `uc ]
+[; ;tasks.c: 453: PORTCbits.RC5 = 0;
+"453
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+"454
+[v _dado `uc ~T0 @X0 1 a ]
+[; ;tasks.c: 454: byte dado;
+[; ;tasks.c: 455: LATCbits.LATC5 =0;
+"455
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;tasks.c: 457: while(1)
+"457
+[e :U 316 ]
+[; ;tasks.c: 458: {
+"458
+{
+[; ;tasks.c: 459: pipe_read(&testL, &dado);
+"459
+[e ( _pipe_read (2 , &U _testL &U _dado ]
+[; ;tasks.c: 460: if(dado == 't')
+"460
+[e $ ! == -> _dado `ui -> 116 `ui 318  ]
+[; ;tasks.c: 461: {
+"461
+{
+[; ;tasks.c: 463: PORTCbits.RC5 = ~LATCbits.LATC5;
+"463
+[e = . . _PORTCbits 0 5 -> ~ -> . . _LATCbits 0 5 `i `uc ]
+[; ;tasks.c: 464: delay(1000);
+"464
+[e ( _delay (1 -> -> 1000 `i `ui ]
+[; ;tasks.c: 465: PORTCbits.RC5 = ~LATCbits.LATC5;
+"465
+[e = . . _PORTCbits 0 5 -> ~ -> . . _LATCbits 0 5 `i `uc ]
+"467
+}
+[e :U 318 ]
+"468
+}
+[e :U 315 ]
+"457
+[e $U 316  ]
+[e :U 317 ]
+[; ;tasks.c: 467: }
+[; ;tasks.c: 468: }
+[; ;tasks.c: 469: }
+"469
+[e :UE 314 ]
 }
 [a 1C 97 0 ]
 
