@@ -82,36 +82,35 @@ byte read_pipe(pipe_t *pipe)
   
   return dado;
 }
- * 
- */
+*/
 
 
 /*
  * Chamadas de sistema para manipulação do PIPE
- */
-void pipe_create(pipe_t *pipe_handler, u_int id, u_int size)
+*/
+void pipe_create(pipe_t *pipe, u_int id, u_int size)
 {
-  pipe_handler->p_id        = id;
-  pipe_handler->p_pos_read  = 0;
-  pipe_handler->p_pos_write = 0;
-  pipe_handler->p_size      = size;
-  pipe_handler->p_msg_queue = SRAMalloc(size); 
-  pipe_handler->p_count     = 0;
+  pipe->p_id        = id;
+  pipe->p_pos_read  = 0;
+  pipe->p_pos_write = 0;
+  pipe->p_size      = size;
+  pipe->p_msg_queue = SRAMalloc(size); 
+  pipe->p_count     = 0;
 }
 
-void pipe_read(pipe_t *pipe_handler, char* msg)
+void pipe_read(pipe_t *pipe, char* msg)
 {
   di();
   
-  if (pipe_handler->p_count == 0) { // PIPE está vazio
+  if (pipe->p_count == 0) { // PIPE está vazio
     // Bloqueia processo que tentou ler
     // Chama o despachante
     dispatcher(WAITING_PIPE);
   }
   else {
-    *msg = pipe_handler->p_msg_queue[pipe_handler->p_pos_read];
-    pipe_handler->p_pos_read = (pipe_handler->p_pos_read + 1) % pipe_handler->p_size;
-    pipe_handler->p_count--;
+    *msg = pipe->p_msg_queue[pipe->p_pos_read];
+    pipe->p_pos_read = (pipe->p_pos_read + 1) % pipe->p_size;
+    pipe->p_count--;
     // Desbloqueia processos que estão aguardando espaço no pipe
     libera_processos();
   }
@@ -119,19 +118,19 @@ void pipe_read(pipe_t *pipe_handler, char* msg)
   ei();
 }
 
-void pipe_write(pipe_t *pipe_handler, char msg)
+void pipe_write(pipe_t *pipe, char msg)
 {
   di();
   
-  if (pipe_handler->p_count == pipe_handler->p_size) { // PIPE está cheio
+  if (pipe->p_count == pipe->p_size) { // PIPE está cheio
     // Bloqueia processo que tentou ler
     // Chama o despachante
     dispatcher(WAITING_PIPE);
   }
   else {
-    pipe_handler->p_msg_queue[pipe_handler->p_pos_write] = msg;
-    pipe_handler->p_pos_write = (pipe_handler->p_pos_write + 1) % pipe_handler->p_size;
-    pipe_handler->p_count++;
+    pipe->p_msg_queue[pipe->p_pos_write] = msg;
+    pipe->p_pos_write = (pipe->p_pos_write + 1) % pipe->p_size;
+    pipe->p_count++;
     // Desbloqueia processo que querem ler do pipe
     libera_processos();
   }
@@ -139,9 +138,9 @@ void pipe_write(pipe_t *pipe_handler, char msg)
   ei();  
 }
 
-void pipe_destroy(pipe_t *pipe_handler)
+void pipe_destroy(pipe_t *pipe)
 {
-  SRAMfree(pipe_handler->p_msg_queue);
+  SRAMfree(pipe->p_msg_queue);
 }
 
 void libera_processos()
@@ -150,4 +149,4 @@ void libera_processos()
   for (i = 0; i < tasks_installed; i++)
     if (F_APTOS[i].task_state == WAITING_PIPE)
       F_APTOS[i].task_state = READY;
-}
+} 

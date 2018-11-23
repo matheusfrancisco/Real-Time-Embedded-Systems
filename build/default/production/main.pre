@@ -3902,19 +3902,15 @@ void SRAMfree(unsigned char * near pSRAM);
 void SRAMInitHeap(void);
 
 # 14 "tasks.h"
-void numerodeaviosG();
 void LCD_test();
 void confi_port();
 
-
-
-
-void tluzesescreve();
-void tluzes();
+void aviaoidle();
 
 void led_1();
 void led_2();
 void led_3();
+void dianoite();
 void acender();
 
 # 35 "pipe.h"
@@ -3927,13 +3923,11 @@ u_int p_size;
 u_int p_count;
 } pipe_t;
 
-pipe_t mensagens;
-
-# 48
-void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
-void pipe_read(pipe_t *pipe_handler, char* msg);
-void pipe_write(pipe_t *pipe_handler, char msg);
-void pipe_destroy(pipe_t *pipe_handler);
+# 47
+void pipe_create(pipe_t *pipe, u_int id, u_int size);
+void pipe_read(pipe_t *pipe, char* msg);
+void pipe_write(pipe_t *pipe, char msg);
+void pipe_destroy(pipe_t *pipe);
 void libera_processos();
 
 # 4 "/opt/microchip/xc8/v1.45/include/__size_t.h"
@@ -4043,7 +4037,7 @@ void Lcd_Shift_Right();
 void Lcd_Shift_Left();
 
 # 14 "main.c"
-asm("GLOBAL _task_idle  ,_led_1, _led_2, _led_3, _acender");
+asm("GLOBAL   _aviaoidle , _led_1, _led_2, _led_3,_dianoite, _acender");
 
 
 
@@ -4054,21 +4048,26 @@ SRAMInitHeap();
 extern sem_t spista;
 extern sem_t t1;
 extern sem_t t2;
-
+extern pipe_t testL;
 TRISBbits.RB0 = 0;
 
 
 confi_port();
 sem_init(&spista, 1);
 sem_init(&t1, 1);
+pipe_create(&testL,5,1);
 
-# 37
+# 38
+create_task(1, 3, &aviaoidle);
+
 create_task(2, 3, &led_1);
 create_task(3, 3, &led_2);
 create_task(4, 3, &led_3);
-create_task(5, 3, &acender);
 
-# 62
+create_task(5, 3, &dianoite);
+create_task(6, 3, &acender);
+
+# 67
 start_os();
 while (1)
 {

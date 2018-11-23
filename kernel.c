@@ -107,7 +107,7 @@ void setupOS()
   //TMR0L               = 252;
   //TMR0                 = 64911;
   // Instalar a tarefa idle
-  create_task(1,5, &task_idle);  
+  //create_task(1,5, &task_idle);  
  
   //dispatcher(READY);
   //TRISCbits.RC1 = 0;

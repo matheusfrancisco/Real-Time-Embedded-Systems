@@ -30,8 +30,8 @@ typedef struct pipe {
 void create_pipe(pipe_t *pipe);
 void write_pipe(pipe_t *pipe, byte data);
 byte read_pipe(pipe_t *pipe);
-*/
 
+*/
 typedef struct pipe {
     u_int p_id;
     unsigned char* p_msg_queue;
@@ -41,14 +41,13 @@ typedef struct pipe {
     u_int p_count;
 } pipe_t;
 
-pipe_t mensagens;
 /*
  * Chamadas de sistema para manipulação do PIPE
  */
-void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
-void pipe_read(pipe_t *pipe_handler, char* msg);
-void pipe_write(pipe_t *pipe_handler, char msg);
-void pipe_destroy(pipe_t *pipe_handler);
+void pipe_create(pipe_t *pipe, u_int id, u_int size);
+void pipe_read(pipe_t *pipe, char* msg);
+void pipe_write(pipe_t *pipe, char msg);
+void pipe_destroy(pipe_t *pipe);
 void libera_processos();
 
 

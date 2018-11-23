@@ -3,17 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/tasks.h</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/main.c</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/semaphore.h</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/types.h</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/scheduler.c</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/semaphore.c</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/pipe.c</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/scheduler.h</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/kernel.c</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/tasks.c</file>
-            <file>file:/home/evohc/MPLABXProjects/VF2.0/S.O-Embarcados-master/pipe.h</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.h</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.h</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.h</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/types.h</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.h</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c</file>
+            <file>file:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c</file>
         </group>
     </open-files>
 </project-private>

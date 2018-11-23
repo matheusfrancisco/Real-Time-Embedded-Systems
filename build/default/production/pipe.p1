@@ -2,9 +2,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "35 pipe.h
 [s S279 `ui 1 `*uc 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
 [n S279 pipe p_id p_msg_queue p_pos_write p_pos_read p_size p_count ]
-[v F3076 `(*uc ~T0 @X0 1 tf1`Nuc ]
+[v F3075 `(*uc ~T0 @X0 1 tf1`Nuc ]
 "22 memory.h
-[v _SRAMalloc `NF3076 ~T0 @X0 0 e ]
+[v _SRAMalloc `NF3075 ~T0 @X0 0 e ]
 "6696 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S270 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -19,14 +19,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S269 . . . . ]
 "6722
 [v _INTCONbits `VS269 ~T0 @X0 0 e@4082 ]
-"109 pipe.c
+"108 pipe.c
 [c E3008 1 2 3 4 5 6 .. ]
 [n E3008 . READY RUNNING SLEEPING WAITING WAITING_PIPE FINISHED  ]
 "17 kernel.h
 [v _dispatcher `(v ~T0 @X0 0 ef1`E3008 ]
-"52 pipe.h
+"51 pipe.h
 [v _libera_processos `(v ~T0 @X0 0 ef ]
-[v F3080 `*uc ~T0 @X0 1 t ]
+[v F3079 `*uc ~T0 @X0 1 t ]
 "23 memory.h
 [v _SRAMfree `(v ~T0 @X0 0 ef1`N*uc ]
 [v F3006 `(v ~T0 @X0 0 tf ]
@@ -2861,14 +2861,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.h: 40: u_int p_size;
 [; ;pipe.h: 41: u_int p_count;
 [; ;pipe.h: 42: } pipe_t;
-"44 pipe.h
-[v _mensagens `S279 ~T0 @X0 1 e ]
-[; ;pipe.h: 44: pipe_t mensagens;
-[; ;pipe.h: 48: void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
-[; ;pipe.h: 49: void pipe_read(pipe_t *pipe_handler, char* msg);
-[; ;pipe.h: 50: void pipe_write(pipe_t *pipe_handler, char msg);
-[; ;pipe.h: 51: void pipe_destroy(pipe_t *pipe_handler);
-[; ;pipe.h: 52: void libera_processos();
+[; ;pipe.h: 47: void pipe_create(pipe_t *pipe, u_int id, u_int size);
+[; ;pipe.h: 48: void pipe_read(pipe_t *pipe, char* msg);
+[; ;pipe.h: 49: void pipe_write(pipe_t *pipe, char msg);
+[; ;pipe.h: 50: void pipe_destroy(pipe_t *pipe);
+[; ;pipe.h: 51: void libera_processos();
 [; ;kernel.h: 11: extern tcb_t F_APTOS[10];
 [; ;kernel.h: 12: extern u_int task_running;
 [; ;kernel.h: 14: void create_task(u_int id, u_int prior, f_ptr task_f);
@@ -2883,196 +2880,196 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
 [; ;memory.h: 24: void SRAMInitHeap(void);
 [; ;pipe.c: 14: extern u_int tasks_installed;
-"92 pipe.c
+"91 pipe.c
 [v _pipe_create `(v ~T0 @X0 1 ef3`*S279`ui`ui ]
-"93
-{
-[; ;pipe.c: 92: void pipe_create(pipe_t *pipe_handler, u_int id, u_int size)
-[; ;pipe.c: 93: {
-[e :U _pipe_create ]
 "92
-[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
+{
+[; ;pipe.c: 91: void pipe_create(pipe_t *pipe, u_int id, u_int size)
+[; ;pipe.c: 92: {
+[e :U _pipe_create ]
+"91
+[v _pipe `*S279 ~T0 @X0 1 r1 ]
 [v _id `ui ~T0 @X0 1 r2 ]
 [v _size `ui ~T0 @X0 1 r3 ]
-"93
+"92
 [f ]
-[; ;pipe.c: 94: pipe_handler->p_id = id;
+[; ;pipe.c: 93: pipe->p_id = id;
+"93
+[e = . *U _pipe 0 _id ]
+[; ;pipe.c: 94: pipe->p_pos_read = 0;
 "94
-[e = . *U _pipe_handler 0 _id ]
-[; ;pipe.c: 95: pipe_handler->p_pos_read = 0;
+[e = . *U _pipe 3 -> -> 0 `i `ui ]
+[; ;pipe.c: 95: pipe->p_pos_write = 0;
 "95
-[e = . *U _pipe_handler 3 -> -> 0 `i `ui ]
-[; ;pipe.c: 96: pipe_handler->p_pos_write = 0;
+[e = . *U _pipe 2 -> -> 0 `i `ui ]
+[; ;pipe.c: 96: pipe->p_size = size;
 "96
-[e = . *U _pipe_handler 2 -> -> 0 `i `ui ]
-[; ;pipe.c: 97: pipe_handler->p_size = size;
+[e = . *U _pipe 4 _size ]
+[; ;pipe.c: 97: pipe->p_msg_queue = SRAMalloc(size);
 "97
-[e = . *U _pipe_handler 4 _size ]
-[; ;pipe.c: 98: pipe_handler->p_msg_queue = SRAMalloc(size);
+[e = . *U _pipe 1 ( _SRAMalloc (1 -> _size `uc ]
+[; ;pipe.c: 98: pipe->p_count = 0;
 "98
-[e = . *U _pipe_handler 1 ( _SRAMalloc (1 -> _size `uc ]
-[; ;pipe.c: 99: pipe_handler->p_count = 0;
+[e = . *U _pipe 5 -> -> 0 `i `ui ]
+[; ;pipe.c: 99: }
 "99
-[e = . *U _pipe_handler 5 -> -> 0 `i `ui ]
-[; ;pipe.c: 100: }
-"100
 [e :UE 280 ]
 }
-"102
+"101
 [v _pipe_read `(v ~T0 @X0 1 ef2`*S279`*uc ]
-"103
-{
-[; ;pipe.c: 102: void pipe_read(pipe_t *pipe_handler, char* msg)
-[; ;pipe.c: 103: {
-[e :U _pipe_read ]
 "102
-[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
+{
+[; ;pipe.c: 101: void pipe_read(pipe_t *pipe, char* msg)
+[; ;pipe.c: 102: {
+[e :U _pipe_read ]
+"101
+[v _pipe `*S279 ~T0 @X0 1 r1 ]
 [v _msg `*uc ~T0 @X0 1 r2 ]
-"103
+"102
 [f ]
-[; ;pipe.c: 104: INTCONbits.GIE = 0;
-"104
+[; ;pipe.c: 103: INTCONbits.GIE = 0;
+"103
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;pipe.c: 106: if (pipe_handler->p_count == 0) {
-"106
-[e $ ! == . *U _pipe_handler 5 -> -> 0 `i `ui 282  ]
+[; ;pipe.c: 105: if (pipe->p_count == 0) {
+"105
+[e $ ! == . *U _pipe 5 -> -> 0 `i `ui 282  ]
 {
-[; ;pipe.c: 109: dispatcher(WAITING_PIPE);
-"109
+[; ;pipe.c: 108: dispatcher(WAITING_PIPE);
+"108
 [e ( _dispatcher (1 . `E3008 4 ]
-"110
+"109
 }
-[; ;pipe.c: 110: }
+[; ;pipe.c: 109: }
 [e $U 283  ]
-"111
+"110
 [e :U 282 ]
-[; ;pipe.c: 111: else {
+[; ;pipe.c: 110: else {
 {
-[; ;pipe.c: 112: *msg = pipe_handler->p_msg_queue[pipe_handler->p_pos_read];
+[; ;pipe.c: 111: *msg = pipe->p_msg_queue[pipe->p_pos_read];
+"111
+[e = *U _msg *U + . *U _pipe 1 * -> . *U _pipe 3 `ux -> -> # *U . *U _pipe 1 `ui `ux ]
+[; ;pipe.c: 112: pipe->p_pos_read = (pipe->p_pos_read + 1) % pipe->p_size;
 "112
-[e = *U _msg *U + . *U _pipe_handler 1 * -> . *U _pipe_handler 3 `ux -> -> # *U . *U _pipe_handler 1 `ui `ux ]
-[; ;pipe.c: 113: pipe_handler->p_pos_read = (pipe_handler->p_pos_read + 1) % pipe_handler->p_size;
+[e = . *U _pipe 3 % + . *U _pipe 3 -> -> 1 `i `ui . *U _pipe 4 ]
+[; ;pipe.c: 113: pipe->p_count--;
 "113
-[e = . *U _pipe_handler 3 % + . *U _pipe_handler 3 -> -> 1 `i `ui . *U _pipe_handler 4 ]
-[; ;pipe.c: 114: pipe_handler->p_count--;
-"114
-[e -- . *U _pipe_handler 5 -> -> 1 `i `ui ]
-[; ;pipe.c: 116: libera_processos();
-"116
+[e -- . *U _pipe 5 -> -> 1 `i `ui ]
+[; ;pipe.c: 115: libera_processos();
+"115
 [e ( _libera_processos ..  ]
-"117
+"116
 }
 [e :U 283 ]
-[; ;pipe.c: 117: }
-[; ;pipe.c: 119: INTCONbits.GIE = 1;
-"119
+[; ;pipe.c: 116: }
+[; ;pipe.c: 118: INTCONbits.GIE = 1;
+"118
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;pipe.c: 120: }
-"120
+[; ;pipe.c: 119: }
+"119
 [e :UE 281 ]
 }
-"122
+"121
 [v _pipe_write `(v ~T0 @X0 1 ef2`*S279`uc ]
-"123
-{
-[; ;pipe.c: 122: void pipe_write(pipe_t *pipe_handler, char msg)
-[; ;pipe.c: 123: {
-[e :U _pipe_write ]
 "122
-[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
+{
+[; ;pipe.c: 121: void pipe_write(pipe_t *pipe, char msg)
+[; ;pipe.c: 122: {
+[e :U _pipe_write ]
+"121
+[v _pipe `*S279 ~T0 @X0 1 r1 ]
 [v _msg `uc ~T0 @X0 1 r2 ]
-"123
+"122
 [f ]
-[; ;pipe.c: 124: INTCONbits.GIE = 0;
-"124
+[; ;pipe.c: 123: INTCONbits.GIE = 0;
+"123
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;pipe.c: 126: if (pipe_handler->p_count == pipe_handler->p_size) {
-"126
-[e $ ! == . *U _pipe_handler 5 . *U _pipe_handler 4 285  ]
+[; ;pipe.c: 125: if (pipe->p_count == pipe->p_size) {
+"125
+[e $ ! == . *U _pipe 5 . *U _pipe 4 285  ]
 {
-[; ;pipe.c: 129: dispatcher(WAITING_PIPE);
-"129
+[; ;pipe.c: 128: dispatcher(WAITING_PIPE);
+"128
 [e ( _dispatcher (1 . `E3008 4 ]
-"130
+"129
 }
-[; ;pipe.c: 130: }
+[; ;pipe.c: 129: }
 [e $U 286  ]
-"131
+"130
 [e :U 285 ]
-[; ;pipe.c: 131: else {
+[; ;pipe.c: 130: else {
 {
-[; ;pipe.c: 132: pipe_handler->p_msg_queue[pipe_handler->p_pos_write] = msg;
+[; ;pipe.c: 131: pipe->p_msg_queue[pipe->p_pos_write] = msg;
+"131
+[e = *U + . *U _pipe 1 * -> . *U _pipe 2 `ux -> -> # *U . *U _pipe 1 `ui `ux _msg ]
+[; ;pipe.c: 132: pipe->p_pos_write = (pipe->p_pos_write + 1) % pipe->p_size;
 "132
-[e = *U + . *U _pipe_handler 1 * -> . *U _pipe_handler 2 `ux -> -> # *U . *U _pipe_handler 1 `ui `ux _msg ]
-[; ;pipe.c: 133: pipe_handler->p_pos_write = (pipe_handler->p_pos_write + 1) % pipe_handler->p_size;
+[e = . *U _pipe 2 % + . *U _pipe 2 -> -> 1 `i `ui . *U _pipe 4 ]
+[; ;pipe.c: 133: pipe->p_count++;
 "133
-[e = . *U _pipe_handler 2 % + . *U _pipe_handler 2 -> -> 1 `i `ui . *U _pipe_handler 4 ]
-[; ;pipe.c: 134: pipe_handler->p_count++;
-"134
-[e ++ . *U _pipe_handler 5 -> -> 1 `i `ui ]
-[; ;pipe.c: 136: libera_processos();
-"136
+[e ++ . *U _pipe 5 -> -> 1 `i `ui ]
+[; ;pipe.c: 135: libera_processos();
+"135
 [e ( _libera_processos ..  ]
-"137
+"136
 }
 [e :U 286 ]
-[; ;pipe.c: 137: }
-[; ;pipe.c: 139: INTCONbits.GIE = 1;
-"139
+[; ;pipe.c: 136: }
+[; ;pipe.c: 138: INTCONbits.GIE = 1;
+"138
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;pipe.c: 140: }
-"140
+[; ;pipe.c: 139: }
+"139
 [e :UE 284 ]
 }
-"142
+"141
 [v _pipe_destroy `(v ~T0 @X0 1 ef1`*S279 ]
-"143
-{
-[; ;pipe.c: 142: void pipe_destroy(pipe_t *pipe_handler)
-[; ;pipe.c: 143: {
-[e :U _pipe_destroy ]
 "142
-[v _pipe_handler `*S279 ~T0 @X0 1 r1 ]
-"143
+{
+[; ;pipe.c: 141: void pipe_destroy(pipe_t *pipe)
+[; ;pipe.c: 142: {
+[e :U _pipe_destroy ]
+"141
+[v _pipe `*S279 ~T0 @X0 1 r1 ]
+"142
 [f ]
-[; ;pipe.c: 144: SRAMfree(pipe_handler->p_msg_queue);
+[; ;pipe.c: 143: SRAMfree(pipe->p_msg_queue);
+"143
+[e ( _SRAMfree (1 -> . *U _pipe 1 `N*uc ]
+[; ;pipe.c: 144: }
 "144
-[e ( _SRAMfree (1 -> . *U _pipe_handler 1 `N*uc ]
-[; ;pipe.c: 145: }
-"145
 [e :UE 287 ]
 }
-"147
+"146
 [v _libera_processos `(v ~T0 @X0 1 ef ]
-"148
+"147
 {
-[; ;pipe.c: 147: void libera_processos()
-[; ;pipe.c: 148: {
+[; ;pipe.c: 146: void libera_processos()
+[; ;pipe.c: 147: {
 [e :U _libera_processos ]
 [f ]
-"149
+"148
 [v _i `i ~T0 @X0 1 a ]
-[; ;pipe.c: 149: int i;
-[; ;pipe.c: 150: for (i = 0; i < tasks_installed; i++)
-"150
+[; ;pipe.c: 148: int i;
+[; ;pipe.c: 149: for (i = 0; i < tasks_installed; i++)
+"149
 {
 [e = _i -> 0 `i ]
 [e $U 292  ]
-"151
+"150
 [e :U 289 ]
-[; ;pipe.c: 151: if (F_APTOS[i].task_state == WAITING_PIPE)
+[; ;pipe.c: 150: if (F_APTOS[i].task_state == WAITING_PIPE)
 [e $ ! == -> . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 `i -> . `E3008 4 `i 293  ]
-[; ;pipe.c: 152: F_APTOS[i].task_state = READY;
-"152
+[; ;pipe.c: 151: F_APTOS[i].task_state = READY;
+"151
 [e = . *U + &U _F_APTOS * -> -> _i `ui `ux -> -> # *U &U _F_APTOS `ui `ux 4 . `E3008 0 ]
 [e :U 293 ]
-"150
+"149
 [e ++ _i -> 1 `i ]
 [e :U 292 ]
 [e $ < -> _i `ui _tasks_installed 289  ]
 [e :U 290 ]
-"153
+"152
 }
-[; ;pipe.c: 153: }
+[; ;pipe.c: 152: }
 [e :UE 288 ]
 }

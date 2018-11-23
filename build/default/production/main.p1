@@ -1,7 +1,4 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"35 pipe.h
-[s S282 `ui 1 `*uc 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S282 pipe p_id p_msg_queue p_pos_write p_pos_read p_size p_count ]
 [p mainexit ]
 "20 kernel.h
 [v _setupOS `(v ~T0 @X0 0 ef ]
@@ -13,6 +10,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [s S281 `i 1 `S280 1 ]
 [n S281 sem contador queue ]
+"35 pipe.h
+[s S282 `ui 1 `*uc 1 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S282 pipe p_id p_msg_queue p_pos_write p_pos_read p_size p_count ]
 "1708 /opt/microchip/xc8/v1.45/include/pic18f4520.h
 [s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S61 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
@@ -24,20 +24,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S60 . . . ]
 "1729
 [v _TRISBbits `VS60 ~T0 @X0 0 e@3987 ]
-"16 tasks.h
+"15 tasks.h
 [v _confi_port `(v ~T0 @X0 0 ef ]
 "29 semaphore.h
 [v _sem_init `(v ~T0 @X0 0 ef2`*S281`i ]
+"47 pipe.h
+[v _pipe_create `(v ~T0 @X0 0 ef3`*S282`ui`ui ]
 [v F3006 `(v ~T0 @X0 0 tf ]
 "14 kernel.h
 [v _create_task `(v ~T0 @X0 0 ef3`ui`ui`*F3006 ]
-"24 tasks.h
+"17 tasks.h
+[v _aviaoidle `(v ~T0 @X0 0 ef ]
+"19
 [v _led_1 `(v ~T0 @X0 0 ef ]
-"25
+"20
 [v _led_2 `(v ~T0 @X0 0 ef ]
-"26
+"21
 [v _led_3 `(v ~T0 @X0 0 ef ]
-"27
+"22
+[v _dianoite `(v ~T0 @X0 0 ef ]
+"23
 [v _acender `(v ~T0 @X0 0 ef ]
 "19 kernel.h
 [v _start_os `(v ~T0 @X0 0 ef ]
@@ -2882,15 +2888,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;memory.h: 22: unsigned char * near SRAMalloc(near unsigned char nBytes);
 [; ;memory.h: 23: void SRAMfree(unsigned char * near pSRAM);
 [; ;memory.h: 24: void SRAMInitHeap(void);
-[; ;tasks.h: 14: void numerodeaviosG();
-[; ;tasks.h: 15: void LCD_test();
-[; ;tasks.h: 16: void confi_port();
-[; ;tasks.h: 21: void tluzesescreve();
-[; ;tasks.h: 22: void tluzes();
-[; ;tasks.h: 24: void led_1();
-[; ;tasks.h: 25: void led_2();
-[; ;tasks.h: 26: void led_3();
-[; ;tasks.h: 27: void acender();
+[; ;tasks.h: 14: void LCD_test();
+[; ;tasks.h: 15: void confi_port();
+[; ;tasks.h: 17: void aviaoidle();
+[; ;tasks.h: 19: void led_1();
+[; ;tasks.h: 20: void led_2();
+[; ;tasks.h: 21: void led_3();
+[; ;tasks.h: 22: void dianoite();
+[; ;tasks.h: 23: void acender();
 [; ;pipe.h: 35: typedef struct pipe {
 [; ;pipe.h: 36: u_int p_id;
 [; ;pipe.h: 37: unsigned char* p_msg_queue;
@@ -2899,14 +2904,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pipe.h: 40: u_int p_size;
 [; ;pipe.h: 41: u_int p_count;
 [; ;pipe.h: 42: } pipe_t;
-"44 pipe.h
-[v _mensagens `S282 ~T0 @X0 1 e ]
-[; ;pipe.h: 44: pipe_t mensagens;
-[; ;pipe.h: 48: void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
-[; ;pipe.h: 49: void pipe_read(pipe_t *pipe_handler, char* msg);
-[; ;pipe.h: 50: void pipe_write(pipe_t *pipe_handler, char msg);
-[; ;pipe.h: 51: void pipe_destroy(pipe_t *pipe_handler);
-[; ;pipe.h: 52: void libera_processos();
+[; ;pipe.h: 47: void pipe_create(pipe_t *pipe, u_int id, u_int size);
+[; ;pipe.h: 48: void pipe_read(pipe_t *pipe, char* msg);
+[; ;pipe.h: 49: void pipe_write(pipe_t *pipe, char msg);
+[; ;pipe.h: 50: void pipe_destroy(pipe_t *pipe);
+[; ;pipe.h: 51: void libera_processos();
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
@@ -2973,8 +2975,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 37: void Lcd_Shift_Right();
 [; ;lcd.h: 38: void Lcd_Shift_Left();
 "14 main.c
-[; ;main.c: 14: asm("GLOBAL _task_idle  ,_led_1, _led_2, _led_3, _acender");
-[; <" GLOBAL _task_idle  ,_led_1, _led_2, _led_3, _acender ;# ">
+[; ;main.c: 14: asm("GLOBAL   _aviaoidle , _led_1, _led_2, _led_3,_dianoite, _acender");
+[; <" GLOBAL   _aviaoidle , _led_1, _led_2, _led_3,_dianoite, _acender ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
 "18
 [v _main `(v ~T0 @X0 1 ef ]
@@ -2994,9 +2996,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _t1 `S281 ~T0 @X0 0 e ]
 "24
 [v _t2 `S281 ~T0 @X0 0 e ]
+"25
+[v _testL `S282 ~T0 @X0 0 e ]
 [; ;main.c: 22: extern sem_t spista;
 [; ;main.c: 23: extern sem_t t1;
 [; ;main.c: 24: extern sem_t t2;
+[; ;main.c: 25: extern pipe_t testL;
 [; ;main.c: 26: TRISBbits.RB0 = 0;
 "26
 [e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
@@ -3009,38 +3014,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 31: sem_init(&t1, 1);
 "31
 [e ( _sem_init (2 , &U _t1 -> 1 `i ]
-[; ;main.c: 37: create_task(2, 3, &led_1);
-"37
-[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _led_1 ]
-[; ;main.c: 38: create_task(3, 3, &led_2);
+[; ;main.c: 32: pipe_create(&testL,5,1);
+"32
+[e ( _pipe_create (3 , , &U _testL -> -> 5 `i `ui -> -> 1 `i `ui ]
+[; ;main.c: 38: create_task(1, 3, &aviaoidle);
 "38
-[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _led_2 ]
-[; ;main.c: 39: create_task(4, 3, &led_3);
-"39
-[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _led_3 ]
-[; ;main.c: 40: create_task(5, 3, &acender);
+[e ( _create_task (3 , , -> -> 1 `i `ui -> -> 3 `i `ui &U _aviaoidle ]
+[; ;main.c: 40: create_task(2, 3, &led_1);
 "40
-[e ( _create_task (3 , , -> -> 5 `i `ui -> -> 3 `i `ui &U _acender ]
-[; ;main.c: 62: start_os();
-"62
+[e ( _create_task (3 , , -> -> 2 `i `ui -> -> 3 `i `ui &U _led_1 ]
+[; ;main.c: 41: create_task(3, 3, &led_2);
+"41
+[e ( _create_task (3 , , -> -> 3 `i `ui -> -> 3 `i `ui &U _led_2 ]
+[; ;main.c: 42: create_task(4, 3, &led_3);
+"42
+[e ( _create_task (3 , , -> -> 4 `i `ui -> -> 3 `i `ui &U _led_3 ]
+[; ;main.c: 44: create_task(5, 3, &dianoite);
+"44
+[e ( _create_task (3 , , -> -> 5 `i `ui -> -> 3 `i `ui &U _dianoite ]
+[; ;main.c: 45: create_task(6, 3, &acender);
+"45
+[e ( _create_task (3 , , -> -> 6 `i `ui -> -> 3 `i `ui &U _acender ]
+[; ;main.c: 67: start_os();
+"67
 [e ( _start_os ..  ]
-[; ;main.c: 63: while (1)
-"63
+[; ;main.c: 68: while (1)
+"68
 [e :U 286 ]
-[; ;main.c: 64: {
-"64
+[; ;main.c: 69: {
+"69
 {
-"66
+"71
 }
 [e :U 285 ]
-"63
+"68
 [e $U 286  ]
 [e :U 287 ]
-[; ;main.c: 66: }
-[; ;main.c: 68: return;
-"68
+[; ;main.c: 71: }
+[; ;main.c: 73: return;
+"73
 [e $UE 284  ]
-[; ;main.c: 69: }
-"69
+[; ;main.c: 74: }
+"74
 [e :UE 284 ]
 }

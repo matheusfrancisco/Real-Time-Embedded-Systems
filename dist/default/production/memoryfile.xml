@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production/S.O-Embarcados-master.production.hex">
+  <executable name="dist/default/production/Real-Time-Embedded-Systems-master.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
-      <used>6086</used>
-      <free>26682</free>
+      <used>5642</used>
+      <free>27126</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>1536</length>
-      <used>802</used>
-      <free>734</free>
+      <used>792</used>
+      <free>744</free>
     </memory>
   </executable>
 </project>

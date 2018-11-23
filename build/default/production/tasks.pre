@@ -3889,19 +3889,15 @@ void SRAMfree(unsigned char * near pSRAM);
 void SRAMInitHeap(void);
 
 # 14 "tasks.h"
-void numerodeaviosG();
 void LCD_test();
 void confi_port();
 
-
-
-
-void tluzesescreve();
-void tluzes();
+void aviaoidle();
 
 void led_1();
 void led_2();
 void led_3();
+void dianoite();
 void acender();
 
 # 11 "kernel.h"
@@ -3927,13 +3923,11 @@ u_int p_size;
 u_int p_count;
 } pipe_t;
 
-pipe_t mensagens;
-
-# 48
-void pipe_create(pipe_t *pipe_handler, u_int id, u_int size);
-void pipe_read(pipe_t *pipe_handler, char* msg);
-void pipe_write(pipe_t *pipe_handler, char msg);
-void pipe_destroy(pipe_t *pipe_handler);
+# 47
+void pipe_create(pipe_t *pipe, u_int id, u_int size);
+void pipe_read(pipe_t *pipe, char* msg);
+void pipe_write(pipe_t *pipe, char msg);
+void pipe_destroy(pipe_t *pipe);
 void libera_processos();
 
 # 4 "/opt/microchip/xc8/v1.45/include/__size_t.h"
@@ -4051,48 +4045,6 @@ pipe_t testL;
 sem_t t1;
 sem_t t2;
 
-void numerodeaviosG(){
-
-TRISB = 0x00;
-PORTB = 0x11;
-
-while(1)
-{
-
-
-if(cont == 1)
-{
-PORTBbits.RB0= 0;
-PORTBbits.RB1= 0;
-PORTBbits.RB2= 1;
-PORTBbits.RB3= 1;
-PORTBbits.RB4= 1;
-PORTBbits.RB5= 1;
-PORTBbits.RB6= 1;
-}
-delay(1000);
-
-if(cont == 2)
-{
-PORTBbits.RB0= 0;
-PORTBbits.RB1= 0;
-PORTBbits.RB2= 1;
-PORTBbits.RB3= 1;
-PORTBbits.RB4= 0;
-PORTBbits.RB5= 0;
-PORTBbits.RB6= 0;
-}
-
-}
-}
-
-void LCD_test()
-{
-Lcd_Write_Char("a");
-INTCONbits.GIE = 0;
-_delay((unsigned long)((1000)*(4000000/4000.0)));
-INTCONbits.GIE = 1;
-}
 
 void confi_port(){
 
@@ -4101,55 +4053,22 @@ TRISD = 0x00;
 
 }
 
-# 238
-void tluzes()
+void aviaoidle()
 {
-TRISCbits.RC5 = 0;
-PORTCbits.RC5 = 0;
-
-
-byte dado;
+while(1)
+{
+TRISBbits.RB5 = 0;
+PORTBbits.RB5 = 0;
 
 while(1)
 {
-dado = read_pipe(&pipeluzes);
-if (dado == 'l')
-{
-
-PORTCbits.RC5 = ~PORTCbits.RC5 ;
-delay(5000);
-
-
-}
-dado = 'n';
-if(dado =='n')
-{
-PORTCbits.RC5 = ~PORTCbits.RC5 ;
-delay(5000);
-
+PORTBbits.RB5=1;
+delay(1000);
+PORTBbits.RB5=0;
 }
 
 }
-
 }
-
-void tluzesescreve()
-{
-
-create_pipe(&pipeluzes);
-
-while(1)
-{
-
-write_pipe(&pipeluzes, 'l');
-
-
-
-
-}
-
-}
-
 
 void led_1()
 {
@@ -4257,10 +4176,6 @@ sem_post(&spista);
 void led_3()
 {
 
-pipe_create(&testL ,4,1);
-
-
-
 PORTDbits.RD7 = 0;
 PORTDbits.RD6 = 0;
 PORTDbits.RD4 = 0;
@@ -4287,7 +4202,7 @@ PORTDbits.RD6 = 0;
 sem_post(&spista);
 
 
-pipe_write(&testL, 't');
+
 PORTDbits.RD2 = 1;
 
 delay(6000);
@@ -4314,6 +4229,18 @@ sem_post(&spista);
 
 }
 
+
+void dianoite()
+{
+
+while(1)
+{
+pipe_write(&testL, 't');
+
+delay(1000);
+}
+}
+
 void acender()
 {
 TRISCbits.RC5 = 0;
@@ -4324,14 +4251,14 @@ LATCbits.LATC5 =0;
 while(1)
 {
 pipe_read(&testL, &dado);
+
 if(dado == 't')
 {
 
 PORTCbits.RC5 = ~LATCbits.LATC5;
 delay(1000);
-PORTCbits.RC5 = ~LATCbits.LATC5;
+
 
 }
 }
 }
-

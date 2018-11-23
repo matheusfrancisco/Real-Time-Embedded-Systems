@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=S.O-Embarcados-master
+PROJECTNAME=Real-Time-Embedded-Systems-master
 
 # Active Configuration
 DEFAULTCONF=default

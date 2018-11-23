@@ -1,0 +1,889 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$/tmp/xcXgpE1l2.obj
+idloc IDLOC 0 200000 200000 8 1
+stack STACK 2 3AA 3AA 256 1
+init CODE 0 C C 8 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 300000 300000 E 1
+$dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+cinit CODE 0 1B04 1B04 52 1
+intcode_body CODE 0 B44 B44 16C 1
+text0 CODE 0 1188 1188 100 1
+text1 CODE 0 1BF4 1BF4 4 1
+text2 CODE 0 1B9E 1B9E 1E 1
+text3 CODE 0 19A2 19A2 5A 1
+text4 CODE 0 19FC 19FC 58 1
+text5 CODE 0 18AC 18AC 7C 1
+text6 CODE 0 136A 136A DE 1
+text7 CODE 0 15BC 15BC A8 1
+text8 CODE 0 1A54 1A54 58 1
+text9 CODE 0 16FE 16FE 96 1
+text10 CODE 0 1BEE 1BEE 6 1
+text11 CODE 0 1BDA 1BDA 14 1
+text12 CODE 0 1B56 1B56 48 1
+text13 CODE 0 604 604 540 1
+text14 CODE 0 1288 1288 E2 1
+text15 CODE 0 1504 1504 B8 1
+text16 CODE 0 1448 1448 BC 1
+text17 CODE 0 1794 1794 92 1
+text18 CODE 0 107A 107A 10E 1
+text19 CODE 0 CB0 CB0 154 1
+text20 CODE 0 1826 1826 86 1
+text21 CODE 0 1928 1928 7A 1
+text22 CODE 0 1BBC 1BBC 1E 1
+text23 CODE 0 E04 E04 144 1
+text24 CODE 0 1664 1664 9A 1
+text25 CODE 0 1AAC 1AAC 58 1
+text26 CODE 0 F48 F48 132 1
+idataCOMRAM CODE 0 1BF8 1BF8 2 1
+cstackCOMRAM COMRAM 1 37 37 2A 1
+temp COMRAM 1 61 61 C 1
+bssBANK1 BANK1 1 100 100 AA 1
+intcode CODE 0 8 8 4 1
+smallconst SMALLCONST 0 600 600 4 1
+dataCOMRAM COMRAM 1 6D 6D 2 1
+bssBIGRAM BIGRAM 1 1AA 1AA 200 1
+bssCOMRAM COMRAM 1 1 1 36 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 80-FF 1
+RAM 3AA-5FF 1
+SFR F80-FFF 1
+BANK0 80-FF 1
+BANK3 3AA-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+CONST 4-7 1
+CONST 14-5FF 1
+CONST 1BFA-7FFF 1
+SMALLCONST 1BFA-7FFF 1
+CODE 4-7 1
+CODE 14-5FF 1
+CODE 1BFA-7FFF 1
+BIGRAM 6F-FF 1
+BIGRAM 3AA-5FF 1
+COMRAM 6F-7F 1
+EEDATA F00000-F000FF 1
+MEDIUMCONST 1BFA-7FFF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+8 intcode CODE >129:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+8 intcode CODE >119:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+B44 intcode_body CODE >129:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+B7E intcode_body CODE >133:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+B82 intcode_body CODE >134:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+B84 intcode_body CODE >135:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+B88 intcode_body CODE >138:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+B92 intcode_body CODE >139:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+BC2 intcode_body CODE >140:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+BF0 intcode_body CODE >141:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C20 intcode_body CODE >142:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C4C intcode_body CODE >138:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C4C intcode_body CODE >143:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C5C intcode_body CODE >147:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C62 intcode_body CODE >148:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C6A intcode_body CODE >149:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C72 intcode_body CODE >150:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C7A intcode_body CODE >151:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+C7A intcode_body CODE >153:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+F48 text26 CODE >101:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F48 text26 CODE >103:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F4A text26 CODE >105:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F6A text26 CODE >108:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F72 text26 CODE >109:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F74 text26 CODE >111:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+FD0 text26 CODE >112:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+104C text26 CODE >113:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+106A text26 CODE >115:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+106E text26 CODE >118:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+1070 text26 CODE >119:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+1AAC text25 CODE >219:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1AAE text25 CODE >221:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1AB0 text25 CODE >222:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1AB2 text25 CODE >224:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1AB4 text25 CODE >228:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1ACC text25 CODE >230:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1ADA text25 CODE >233:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1AF6 text25 CODE >234:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1664 text24 CODE >146:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+1668 text24 CODE >149:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+1672 text24 CODE >150:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+169C text24 CODE >151:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+16C2 text24 CODE >149:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+16F8 text24 CODE >152:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+E04 text23 CODE >121:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+E04 text23 CODE >123:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+E06 text23 CODE >125:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+E44 text23 CODE >128:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+E4C text23 CODE >129:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+E4E text23 CODE >131:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+EA0 text23 CODE >132:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F1C text23 CODE >133:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F3A text23 CODE >135:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F3E text23 CODE >138:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+F40 text23 CODE >139:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+1BBC text22 CODE >208:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BBC text22 CODE >213:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BCC text22 CODE >215:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1928 text21 CODE >151:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1928 text21 CODE >154:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+192A text21 CODE >155:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+192C text21 CODE >156:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+192E text21 CODE >157:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1930 text21 CODE >159:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1930 text21 CODE >161:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1932 text21 CODE >163:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+193E text21 CODE >165:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+194A text21 CODE >167:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+194C text21 CODE >169:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+194E text21 CODE >171:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+195A text21 CODE >174:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+195C text21 CODE >177:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1968 text21 CODE >181:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+196A text21 CODE >183:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1976 text21 CODE >187:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1982 text21 CODE >189:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1984 text21 CODE >192:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1986 text21 CODE >194:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1992 text21 CODE >196:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1994 text21 CODE >198:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1826 text20 CODE >101:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1826 text20 CODE >104:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1828 text20 CODE >105:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+182A text20 CODE >106:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+182C text20 CODE >107:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+182E text20 CODE >109:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+182E text20 CODE >112:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1830 text20 CODE >114:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+183C text20 CODE >116:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1848 text20 CODE >118:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+184A text20 CODE >120:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+184C text20 CODE >122:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1858 text20 CODE >125:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+185A text20 CODE >128:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1866 text20 CODE >129:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1872 text20 CODE >131:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1874 text20 CODE >132:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1880 text20 CODE >134:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+188C text20 CODE >136:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+188E text20 CODE >138:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1890 text20 CODE >140:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+189C text20 CODE >142:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+189E text20 CODE >144:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+CB0 text19 CODE >38:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+CB4 text19 CODE >40:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+CB6 text19 CODE >42:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+CC8 text19 CODE >43:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+CE6 text19 CODE >44:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+D50 text19 CODE >45:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+DAC text19 CODE >46:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+DCA text19 CODE >47:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+DF0 text19 CODE >50:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+DF8 text19 CODE >53:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+DFA text19 CODE >54:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+107A text18 CODE >20:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+107E text18 CODE >22:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1080 text18 CODE >25:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1092 text18 CODE >26:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+10A4 text18 CODE >27:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+110C text18 CODE >28:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1156 text18 CODE >29:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1174 text18 CODE >32:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+117C text18 CODE >35:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+117E text18 CODE >36:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1794 text17 CODE >48:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1794 text17 CODE >51:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1796 text17 CODE >52:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1798 text17 CODE >53:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+179A text17 CODE >54:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+179C text17 CODE >56:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+179C text17 CODE >58:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+179E text17 CODE >60:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17AA text17 CODE >62:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17B6 text17 CODE >64:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17B8 text17 CODE >66:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17BA text17 CODE >68:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17C6 text17 CODE >71:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17C8 text17 CODE >74:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17D4 text17 CODE >75:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17E0 text17 CODE >78:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17E2 text17 CODE >80:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17EE text17 CODE >84:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17FA text17 CODE >86:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17FC text17 CODE >89:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+17FE text17 CODE >91:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+180A text17 CODE >93:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+180C text17 CODE >95:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1818 text17 CODE >96:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1448 text16 CODE >8:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+144A text16 CODE >13:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+145A text16 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1460 text16 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+147E text16 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1482 text16 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1488 text16 CODE >20:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+14AC text16 CODE >21:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+14D0 text16 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+14DA text16 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+14EE text16 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+14FA text16 CODE >26:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1504 text15 CODE >13:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+150C text15 CODE >15:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+1514 text15 CODE >16:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+1528 text15 CODE >18:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+156E text15 CODE >16:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+15A6 text15 CODE >20:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+15B2 text15 CODE >21:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+1288 text14 CODE >23:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+1290 text14 CODE >26:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+12A4 text14 CODE >27:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+12B4 text14 CODE >29:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+12CC text14 CODE >32:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+12EA text14 CODE >33:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+130C text14 CODE >34:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+1354 text14 CODE >36:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+1360 text14 CODE >37:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+604 text13 CODE >37:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+604 text13 CODE >39:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+606 text13 CODE >42:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+86E text13 CODE >46:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+87A text13 CODE >53:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+B3E text13 CODE >55:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+B40 text13 CODE >56:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1B56 text12 CODE >63:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1B56 text12 CODE >65:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1B58 text12 CODE >67:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1B8E text12 CODE >68:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1B96 text12 CODE >70:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1B98 text12 CODE >71:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BDA text11 CODE >31:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BDA text11 CODE >35:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BDC text11 CODE >36:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BDE text11 CODE >40:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BE0 text11 CODE >41:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BEC text11 CODE >42:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BEE text10 CODE >24:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BEE text10 CODE >26:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+1BF2 text10 CODE >29:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+16FE text9 CODE >15:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+1702 text9 CODE >37:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+171A text9 CODE >38:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+174C text9 CODE >39:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+177E text9 CODE >52:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+178A text9 CODE >53:/opt/microchip/xc8/v1.45/sources/common/Umul16.c
+1A54 text8 CODE >21:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1A54 text8 CODE >26:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1A5C text8 CODE >27:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1A64 text8 CODE >28:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1A6C text8 CODE >29:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1A74 text8 CODE >30:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1A78 text8 CODE >32:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1AA6 text8 CODE >33:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1AAA text8 CODE >35:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+15BC text7 CODE >349:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+15BC text7 CODE >356:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+15D8 text7 CODE >359:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+15E4 text7 CODE >360:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+15F0 text7 CODE >363:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+15FA text7 CODE >366:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1606 text7 CODE >369:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1614 text7 CODE >372:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+161A text7 CODE >378:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1620 text7 CODE >380:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+162C text7 CODE >381:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1634 text7 CODE >382:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1640 text7 CODE >383:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1650 text7 CODE >385:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1652 text7 CODE >386:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1654 text7 CODE >389:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1654 text7 CODE >391:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+136A text6 CODE >181:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+136C text6 CODE >189:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+137C text6 CODE >192:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1384 text6 CODE >194:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1384 text6 CODE >197:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1390 text6 CODE >200:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+139A text6 CODE >203:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13AA text6 CODE >206:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13AE text6 CODE >209:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13B6 text6 CODE >212:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13CA text6 CODE >214:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13CA text6 CODE >218:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13D2 text6 CODE >221:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13DC text6 CODE >224:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13EA text6 CODE >228:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13EA text6 CODE >231:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+13F8 text6 CODE >234:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1404 text6 CODE >237:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+141A text6 CODE >240:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+142A text6 CODE >243:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1434 text6 CODE >248:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1434 text6 CODE >250:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1446 text6 CODE >194:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+18AC text5 CODE >91:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+18AC text5 CODE >93:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+18BC text5 CODE >94:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+18D0 text5 CODE >95:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+18E4 text5 CODE >96:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+18F8 text5 CODE >97:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+1912 text5 CODE >98:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+1926 text5 CODE >99:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+19FC text4 CODE >8:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+19FC text4 CODE >10:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+19FE text4 CODE >12:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1A0E text4 CODE >13:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1A28 text4 CODE >14:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1A3C text4 CODE >15:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1A50 text4 CODE >17:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+1A52 text4 CODE >18:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+19A2 text3 CODE >303:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19A2 text3 CODE >308:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19AA text3 CODE >309:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19B0 text3 CODE >311:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19B0 text3 CODE >313:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19BC text3 CODE >315:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19C8 text3 CODE >316:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19D0 text3 CODE >317:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19DC text3 CODE >318:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19DE text3 CODE >319:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19DE text3 CODE >321:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19EA text3 CODE >322:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+19FA text3 CODE >323:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+1B9E text2 CODE >86:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1B9E text2 CODE >98:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BA0 text2 CODE >99:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BA2 text2 CODE >100:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BA8 text2 CODE >101:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BAA text2 CODE >102:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BAC text2 CODE >103:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BB0 text2 CODE >105:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BB2 text2 CODE >122:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BB4 text2 CODE >124:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BB8 text2 CODE >126:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BBA text2 CODE >127:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BF4 text1 CODE >155:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BF4 text1 CODE >159:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1BF6 text1 CODE >160:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+1188 text0 CODE >18:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1188 text0 CODE >20:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+118C text0 CODE >21:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1190 text0 CODE >26:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1192 text0 CODE >29:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1196 text0 CODE >30:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+11AA text0 CODE >31:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+11BE text0 CODE >32:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+11DA text0 CODE >38:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+11F6 text0 CODE >40:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1212 text0 CODE >41:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+122E text0 CODE >42:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+124A text0 CODE >44:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1266 text0 CODE >45:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1282 text0 CODE >67:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1286 text0 CODE >68:/home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+1B04 cinit CODE >2296:/tmp/xcX2s3TGb
+1B04 cinit CODE >2298:/tmp/xcX2s3TGb
+1B04 cinit CODE >2301:/tmp/xcX2s3TGb
+1B04 cinit CODE >2358:/tmp/xcX2s3TGb
+1B06 cinit CODE >2359:/tmp/xcX2s3TGb
+1B08 cinit CODE >2360:/tmp/xcX2s3TGb
+1B0A cinit CODE >2361:/tmp/xcX2s3TGb
+1B0C cinit CODE >2362:/tmp/xcX2s3TGb
+1B0E cinit CODE >2363:/tmp/xcX2s3TGb
+1B10 cinit CODE >2364:/tmp/xcX2s3TGb
+1B12 cinit CODE >2365:/tmp/xcX2s3TGb
+1B16 cinit CODE >2366:/tmp/xcX2s3TGb
+1B18 cinit CODE >2367:/tmp/xcX2s3TGb
+1B1C cinit CODE >2371:/tmp/xcX2s3TGb
+1B20 cinit CODE >2372:/tmp/xcX2s3TGb
+1B24 cinit CODE >2373:/tmp/xcX2s3TGb
+1B24 cinit CODE >2374:/tmp/xcX2s3TGb
+1B26 cinit CODE >2375:/tmp/xcX2s3TGb
+1B28 cinit CODE >2376:/tmp/xcX2s3TGb
+1B2A cinit CODE >2377:/tmp/xcX2s3TGb
+1B2C cinit CODE >2378:/tmp/xcX2s3TGb
+1B2E cinit CODE >2379:/tmp/xcX2s3TGb
+1B30 cinit CODE >2382:/tmp/xcX2s3TGb
+1B34 cinit CODE >2383:/tmp/xcX2s3TGb
+1B36 cinit CODE >2384:/tmp/xcX2s3TGb
+1B36 cinit CODE >2385:/tmp/xcX2s3TGb
+1B38 cinit CODE >2386:/tmp/xcX2s3TGb
+1B3A cinit CODE >2387:/tmp/xcX2s3TGb
+1B3C cinit CODE >2390:/tmp/xcX2s3TGb
+1B40 cinit CODE >2391:/tmp/xcX2s3TGb
+1B42 cinit CODE >2392:/tmp/xcX2s3TGb
+1B42 cinit CODE >2393:/tmp/xcX2s3TGb
+1B44 cinit CODE >2394:/tmp/xcX2s3TGb
+1B46 cinit CODE >2395:/tmp/xcX2s3TGb
+1B48 cinit CODE >2401:/tmp/xcX2s3TGb
+1B48 cinit CODE >2404:/tmp/xcX2s3TGb
+1B4A cinit CODE >2405:/tmp/xcX2s3TGb
+1B4C cinit CODE >2406:/tmp/xcX2s3TGb
+1B4E cinit CODE >2407:/tmp/xcX2s3TGb
+1B50 cinit CODE >2408:/tmp/xcX2s3TGb
+1B52 cinit CODE >2409:/tmp/xcX2s3TGb
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hspace_0 30000E 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hspace_1 3AA 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hspace_2 600 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcXgpE1l2.obj
+__size_of_pipe_write 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_t1 27 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_t2 D 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+ltemp0 61 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+ltemp1 65 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+ltemp2 69 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TOSH FFE 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TOSL FFD 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TOSU FFF 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_WREG FE8 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+___sp 3AA 0 STACK 2 stack /tmp/xcXgpE1l2.obj
+_cont 15 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_main 1188 0 CODE 0 text0 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+btemp 61 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_SRAMInitHeap 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+start C 0 CODE 0 init /tmp/xcXgpE1l2.obj
+__size_of_main 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of__SRAMmerge 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_F_APTOS 100 0 BANK1 1 bssBANK1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_confi_port 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_start_os 1BF4 0 CODE 0 text1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hpowerup C 0 CODE 0 powerup dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+SRAMalloc@segHeader 55 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_int_high 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_T0CONbits FD5 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+ttemp0 61 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+ttemp1 64 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+ttemp2 67 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+ttemp3 6A 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+pipe_create@pipe 5B 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+pipe_create@size 5F 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_SRAMInitHeap 19FC 0 CODE 0 text3 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_start_os 1BF8 0 CODE 0 text1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+sem_init@s 5B 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__accesstop 80 0 ABS 0 - /tmp/xcXgpE1l2.obj
+intlevel0 0 0 CODE 0 text /tmp/xcXgpE1l2.obj
+intlevel1 0 0 CODE 0 text /tmp/xcXgpE1l2.obj
+intlevel2 0 0 CODE 0 text /tmp/xcXgpE1l2.obj
+intlevel3 0 0 CODE 0 text /tmp/xcXgpE1l2.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_setupOS 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_pipe_read 107A 0 CODE 0 text26 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_task_running 17 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+wtemp0 61 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+wtemp1 63 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+wtemp2 65 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+wtemp3 67 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+wtemp4 69 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+wtemp5 6B 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+wtemp6 62 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_pipe_read 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pidataCOMRAM 1BF8 0 CODE 0 idataCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_aviaoidle 1BEE 0 CODE 0 text11 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_aviaoidle 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_pipe_create 18AC 0 CODE 0 text5 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_create_task 1A54 0 CODE 0 text8 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_tasks_installed 19 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_pipe_read F48 0 CODE 0 text26 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+___inthi_sp 472 0 STACK 2 stack /tmp/xcXgpE1l2.obj
+___intlo_sp 539 0 STACK 2 stack /tmp/xcXgpE1l2.obj
+_pipeluzes 1 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+create_task@task_f 4C 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+create_task@prior 4A 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of___wmul 1794 0 CODE 0 text9 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+SRAMInitHeap@count 48 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+SRAMInitHeap@pHeap 4A 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_quantum 6D 0 COMRAM 1 dataCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_aviaoidle 1BDA 0 CODE 0 text11 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_int_high 8 0 CODE 0 intcode dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hintcodelo C 0 CODE 0 intcodelo dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_acender 1AAC 0 CODE 0 text25 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of___lwmod 1504 0 CODE 0 text16 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_int_high CB0 0 CODE 0 intcode_body dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_delay 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_led_1 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_led_2 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_led_3 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_contagemR 15BC 0 CODE 0 text15 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lintcodelo C 0 CODE 0 intcodelo dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_contagemR 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+start_initialization 1B04 0 CODE 0 cinit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_setupOS 1BBC 0 CODE 0 text2 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TRISBbits F93 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TRISCbits F94 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+___rparam_used 1 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_contagemR 1504 0 CODE 0 text15 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_STATUS FD8 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_STKPTR FFC 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_SRAMalloc 1448 0 CODE 0 text6 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_SRAMalloc 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_libera_processos 1664 0 CODE 0 text24 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hconst 0 0 CONST 0 const dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hidata 0 0 CODE 0 idata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hidloc 200008 0 IDLOC 0 idloc dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+create_task@id 48 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hparam 0 0 COMRAM 1 rparam dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hstack 600 0 STACK 2 stack dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext0 0 0 ABS 0 text0 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext1 0 0 ABS 0 text1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext2 0 0 ABS 0 text2 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext3 0 0 ABS 0 text3 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext4 0 0 ABS 0 text4 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext5 0 0 ABS 0 text5 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__smallconst 600 0 SMALLCONST 0 smallconst /tmp/xcXgpE1l2.obj
+sem_init@value 5D 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_SRAMalloc 136A 0 CODE 0 text6 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hcomram 0 0 ABS 0 comram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hconfig 30000E 0 CONFIG 0 config dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lconst 0 0 CONST 0 const dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lidata 0 0 CODE 0 idata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lidloc 200000 0 IDLOC 0 idloc dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lparam 0 0 COMRAM 1 rparam dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lstack 3AA 0 STACK 2 stack dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_PORTBbits F81 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_PORTCbits F82 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_PORTDbits F83 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_PORTEbits F84 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_INTCONbits FF2 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hdata 0 0 ABS 0 data dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hinit 14 0 CODE 0 init dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htemp 6D 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext 0 0 ABS 0 text dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ldata 0 0 ABS 0 data dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Linit C 0 CODE 0 init dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltemp 61 0 COMRAM 1 temp dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext 0 0 ABS 0 text dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+___wmul 16FE 0 CODE 0 text9 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_rr_scheduler 1288 0 CODE 0 text14 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hintret 0 0 ABS 0 intret dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_BSR FE0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TOS FFD 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__S0 30000E 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__S1 3AA 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__S2 600 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_dispatcher 604 0 CODE 0 text13 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+int_high@i 46 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__uDynamicHeap 1AA 0 BIGRAM 1 bssBIGRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+int_func B44 0 CODE 0 intcode_body dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_libera_processos 16FE 0 CODE 0 text24 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hramtop 600 0 RAM 0 ramtop dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hrparam 0 0 COMRAM 1 rparam dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+SRAMalloc@nBytes 58 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_sem_init 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_sem_post 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_sem_wait 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__activetblptr 1 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__SRAMmerge@pSegA 48 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__SRAMmerge@pSegB 4E 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_rr_scheduler 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__SRAMmerge@uSegA 4C 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__SRAMmerge@uSegB 4D 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of___wmul 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext22 0 0 ABS 0 text22 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext25 0 0 ABS 0 text25 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_libera_processos 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_pipe_write E04 0 CODE 0 text23 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_pipe_create 1928 0 CODE 0 text5 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_create_task 1AAC 0 CODE 0 text8 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+SRAMalloc@pHeap 59 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+pipe_create@id 5D 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext10 1BEE 0 CODE 0 text10 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext11 1BDA 0 CODE 0 text11 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext12 1B56 0 CODE 0 text12 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext13 604 0 CODE 0 text13 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext14 1288 0 CODE 0 text14 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext15 1504 0 CODE 0 text15 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext16 1448 0 CODE 0 text16 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext17 1794 0 CODE 0 text17 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext18 107A 0 CODE 0 text18 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext19 CB0 0 CODE 0 text19 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext20 1826 0 CODE 0 text20 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext21 1928 0 CODE 0 text21 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext22 1BBC 0 CODE 0 text22 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext23 E04 0 CODE 0 text23 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext24 1664 0 CODE 0 text24 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext25 1AAC 0 CODE 0 text25 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext26 F48 0 CODE 0 text26 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pintcode_body B44 0 CODE 0 intcode_body dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+___lwmod 1448 0 CODE 0 text16 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_dispatcher B44 0 CODE 0 text13 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+SRAMalloc@segLen 54 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__SRAMmerge 15BC 0 CODE 0 text7 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lcomram 0 0 ABS 0 comram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lconfig 300000 0 CONFIG 0 config dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_rr_scheduler 136A 0 CODE 0 text14 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_LATBbits F8A 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_LATCbits F8B 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_confi_port 1BEE 0 CODE 0 text10 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_spista 2F 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+stackhi 5FF 0 ABS 0 - /tmp/xcXgpE1l2.obj
+stacklo 3AA 0 ABS 0 - /tmp/xcXgpE1l2.obj
+__Lintcode 8 0 CODE 0 intcode dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lintret 0 0 ABS 0 intret dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_setupOS 1B9E 0 CODE 0 text2 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_sem_init 19FC 0 CODE 0 text4 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_sem_post CB0 0 CODE 0 text19 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_sem_wait 107A 0 CODE 0 text18 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pbssBIGRAM 1AA 0 BIGRAM 1 bssBIGRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lspace_0 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lspace_1 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lspace_2 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_acender 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_pipe_write F48 0 CODE 0 text23 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_sem_init 1A54 0 CODE 0 text4 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_sem_post E04 0 CODE 0 text19 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_sem_wait 1188 0 CODE 0 text18 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+end_of_initialization 1B48 0 CODE 0 cinit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of__SRAMmerge 1664 0 CODE 0 text7 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lramtop 600 0 RAM 0 ramtop dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lrparam 0 0 COMRAM 1 rparam dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pcinit 1B04 0 CODE 0 cinit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext0 1188 0 CODE 0 text0 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext1 1BF4 0 CODE 0 text1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext2 1B9E 0 CODE 0 text2 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext3 19A2 0 CODE 0 text3 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext4 19FC 0 CODE 0 text4 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext5 18AC 0 CODE 0 text5 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext6 136A 0 CODE 0 text6 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext7 15BC 0 CODE 0 text7 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext8 1A54 0 CODE 0 text8 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ptext9 16FE 0 CODE 0 text9 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_confi_port 1BF4 0 CODE 0 text10 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__ramtop 600 0 RAM 0 ramtop /tmp/xcXgpE1l2.obj
+create_task@task 4E 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lpowerup C 0 CODE 0 powerup dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__psmallconst 600 0 SMALLCONST 0 smallconst dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_dianoite 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__SRAMmerge@uSum 4B 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+___param_bank 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of__initialization 1B48 0 CODE 0 cinit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_pipe_create 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_create_task 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+SRAMalloc@temp 56 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pcstackCOMRAM 37 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_acender 1B04 0 CODE 0 text25 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_main 1288 0 CODE 0 text0 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pintcode 8 0 CODE 0 intcode dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_delay 1B9E 0 CODE 0 text12 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_STACK_SIZE 603 0 SMALLCONST 0 smallconst dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_led_1 1826 0 CODE 0 text17 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_led_2 18AC 0 CODE 0 text20 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_led_3 19A2 0 CODE 0 text21 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TMR0L FD6 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_TRISD F95 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__HRAM 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hbss 0 0 RAM 1 bss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hram 0 0 ABS 0 ram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__LRAM 1 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lbss 0 0 RAM 1 bss dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lram 0 0 ABS 0 ram dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lsfr 0 0 ABS 0 sfr dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_delay 1B56 0 CODE 0 text12 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_led_1 1794 0 CODE 0 text17 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_led_2 1826 0 CODE 0 text20 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_led_3 1928 0 CODE 0 text21 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_testL 1B 0 COMRAM 1 bssCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_dispatcher 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_dianoite 1BBC 0 CODE 0 text22 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__initialization 1B04 0 CODE 0 cinit dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+?_SRAMalloc 50 0 COMRAM 1 cstackCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pbssBANK1 100 0 BANK1 1 bssBANK1 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__pdataCOMRAM 6D 0 COMRAM 1 dataCOMRAM dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+_SRAMInitHeap 19A2 0 CODE 0 text3 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hsmallconst 604 0 SMALLCONST 0 smallconst dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__end_of_dianoite 1BDA 0 CODE 0 text22 dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__size_of_start_os 0 0 ABS 0 - dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+__Hintcode C 0 CODE 0 intcode dist/default/production/Real-Time-Embedded-Systems-master.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+idloc 0 200000 200000 8 1
+stack 2 3AA 3AA 256 1
+text13 0 604 604 15F6 1
+reset_vec 0 0 0 4 1
+bssBANK1 1 100 100 AA 1
+intcode 0 8 8 C 1
+smallconst 0 600 600 4 1
+bssBIGRAM 1 1AA 1AA 200 1
+bssCOMRAM 1 1 1 6E 1
+config 0 300000 300000 E 1

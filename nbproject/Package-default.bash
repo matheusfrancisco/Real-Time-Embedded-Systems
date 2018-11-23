@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/S.O-Embarcados-master.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=S.O-Embarcados-master.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=s.o-embarcados-master/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Real-Time-Embedded-Systems-master.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=Real-Time-Embedded-Systems-master.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=real-time-embedded-systems-master/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/s.o-embarcados-master/bin
+makeDirectory ${TMPDIR}/real-time-embedded-systems-master/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/s.o-embarcados-master.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/real-time-embedded-systems-master.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/s.o-embarcados-master.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/real-time-embedded-systems-master.tar *
 checkReturnCode
 
 # Cleanup

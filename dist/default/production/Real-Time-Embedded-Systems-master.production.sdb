@@ -1,0 +1,657 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"17 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+[e E3008 . `uc
+READY 1
+RUNNING 2
+SLEEPING 3
+WAITING 4
+WAITING_PIPE 5
+FINISHED 6
+]
+"18 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+[e E3008 . `uc
+READY 1
+RUNNING 2
+SLEEPING 3
+WAITING 4
+WAITING_PIPE 5
+FINISHED 6
+]
+"32 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+[e E3008 . `uc
+READY 1
+RUNNING 2
+SLEEPING 3
+WAITING 4
+WAITING_PIPE 5
+FINISHED 6
+]
+"108 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+[e E3008 . `uc
+READY 1
+RUNNING 2
+SLEEPING 3
+WAITING 4
+WAITING_PIPE 5
+FINISHED 6
+]
+"62 /opt/microchip/xc8/v1.45/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 /opt/microchip/xc8/v1.45/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 /opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 /opt/microchip/xc8/v1.45/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.45/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.45/sources/common/lwmod.c
+[v ___lwmod __lwmod `R(ui  1 e 2 0 ]
+"10 /opt/microchip/xc8/v1.45/sources/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 /opt/microchip/xc8/v1.45/sources/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.45/sources/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.45/sources/common/Umul16.c
+[v ___wmul __wmul `R(ui  1 e 2 0 ]
+"15 /opt/microchip/xc8/v1.45/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"21 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+[v _create_task create_task `(v  1 e 1 0 ]
+"37
+[v _dispatcher dispatcher `R(v  1 e 1 0 ]
+"63
+[v _delay delay `R(v  1 e 1 0 ]
+"86
+[v _setupOS setupOS `(v  1 e 1 0 ]
+"129
+[v _int_high int_high `II(v  1 e 1 0 ]
+"155
+[v _start_os start_os `(v  1 e 1 0 ]
+"13 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/lcd.c
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+"35
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+"96
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+"18 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+[v _main main `(v  1 e 1 0 ]
+"181 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+[v _SRAMalloc SRAMalloc `N(*.39uc  1 e 2 0 ]
+"277
+[v _SRAMfree SRAMfree `(v  1 e 1 0 ]
+"303
+[v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
+"349
+[v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
+"91 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+[v _pipe_create pipe_create `(v  1 e 1 0 ]
+"101
+[v _pipe_read pipe_read `R(v  1 e 1 0 ]
+"121
+[v _pipe_write pipe_write `R(v  1 e 1 0 ]
+"146
+[v _libera_processos libera_processos `R(v  1 e 1 0 ]
+"13 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+[v _contagemR contagemR `R(ui  1 e 2 0 ]
+"23
+[v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
+"8 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+[v _sem_init sem_init `(v  1 e 1 0 ]
+"20
+[v _sem_wait sem_wait `R(v  1 e 1 0 ]
+"38
+[v _sem_post sem_post `R(v  1 e 1 0 ]
+"24 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+[v _confi_port confi_port `(v  1 e 1 0 ]
+"31
+[v _aviaoidle aviaoidle `R(v  1 e 1 0 ]
+"48
+[v _led_1 led_1 `R(v  1 e 1 0 ]
+"101
+[v _led_2 led_2 `R(v  1 e 1 0 ]
+"151
+[v _led_3 led_3 `R(v  1 e 1 0 ]
+"208
+[v _dianoite dianoite `R(v  1 e 1 0 ]
+"219
+[v _acender acender `R(v  1 e 1 0 ]
+[s S52 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"313 /opt/microchip/xc8/v1.45/include/pic18f4520.h
+[s S448 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S457 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S466 . 1 `uc 1 FLT0 1 0 :1:0 
+]
+[s S468 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S471 . 1 `S52 1 . 1 0 `S448 1 . 1 0 `S457 1 . 1 0 `S466 1 . 1 0 `S468 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES471  1 e 1 @3969 ]
+[s S594 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"495
+[s S634 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S643 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S652 . 1 `uc 1 T1CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+]
+[s S656 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[u S660 . 1 `S594 1 . 1 0 `S634 1 . 1 0 `S643 1 . 1 0 `S652 1 . 1 0 `S656 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES660  1 e 1 @3970 ]
+[s S511 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"667
+[s S520 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S529 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S534 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S537 . 1 `S511 1 . 1 0 `S520 1 . 1 0 `S529 1 . 1 0 `S534 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES537  1 e 1 @3971 ]
+[s S1269 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+]
+"830
+[s S1274 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 CS 1 0 :1:2 
+`uc 1 MCLR 1 0 :1:3 
+]
+[s S1279 . 1 `uc 1 NOT_RD 1 0 :1:0 
+]
+[s S1281 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_WR 1 0 :1:1 
+]
+[s S1284 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_CS 1 0 :1:2 
+]
+[s S1287 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_MCLR 1 0 :1:3 
+]
+[s S1290 . 1 `uc 1 nRD 1 0 :1:0 
+`uc 1 nWR 1 0 :1:1 
+`uc 1 nCS 1 0 :1:2 
+`uc 1 nMCLR 1 0 :1:3 
+]
+[s S1295 . 1 `uc 1 AN5 1 0 :1:0 
+`uc 1 AN6 1 0 :1:1 
+`uc 1 AN7 1 0 :1:2 
+`uc 1 VPP 1 0 :1:3 
+]
+[s S1300 . 1 `uc 1 PD2 1 0 :1:0 
+`uc 1 PC2 1 0 :1:1 
+`uc 1 CCP10 1 0 :1:2 
+`uc 1 CCP9E 1 0 :1:3 
+]
+[s S1305 . 1 `uc 1 RDE 1 0 :1:0 
+`uc 1 WRE 1 0 :1:1 
+`uc 1 PB2 1 0 :1:2 
+`uc 1 PC3E 1 0 :1:3 
+]
+[u S1310 . 1 `S1269 1 . 1 0 `S1274 1 . 1 0 `S1279 1 . 1 0 `S1281 1 . 1 0 `S1284 1 . 1 0 `S1287 1 . 1 0 `S1290 1 . 1 0 `S1295 1 . 1 0 `S1300 1 . 1 0 `S1305 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES1310  1 e 1 @3972 ]
+[s S876 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"1114
+[s S885 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S894 . 1 `S876 1 . 1 0 `S885 1 . 1 0 ]
+[v _LATBbits LATBbits `VES894  1 e 1 @3978 ]
+[s S702 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"1226
+[s S711 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S720 . 1 `S702 1 . 1 0 `S711 1 . 1 0 ]
+[v _LATCbits LATCbits `VES720  1 e 1 @3979 ]
+[s S43 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1729
+[u S61 . 1 `S43 1 . 1 0 `S52 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES61  1 e 1 @3987 ]
+[s S585 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1951
+[u S603 . 1 `S585 1 . 1 0 `S594 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES603  1 e 1 @3988 ]
+"2141
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S261 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"6189
+[s S268 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 T0PS3 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 T016BIT 1 0 :1:6 
+]
+[u S275 . 1 `S261 1 . 1 0 `S268 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES275  1 e 1 @4053 ]
+"6256
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"6270
+[v _STATUS STATUS `VEuc  1 e 1 @4056 ]
+"6397
+[v _BSR BSR `VEuc  1 e 1 @4064 ]
+"6460
+[v _WREG WREG `VEuc  1 e 1 @4072 ]
+[s S200 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"6722
+[s S209 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S218 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S222 . 1 `S200 1 . 1 0 `S209 1 . 1 0 `S218 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES222  1 e 1 @4082 ]
+"6902
+[v _STKPTR STKPTR `VEuc  1 e 1 @4092 ]
+"6975
+[v _TOS TOS `VEum  1 e 3 @4093 ]
+"6983
+[v _TOSL TOSL `VEuc  1 e 1 @4093 ]
+"6990
+[v _TOSH TOSH `VEuc  1 e 1 @4094 ]
+"6997
+[v _TOSU TOSU `VEuc  1 e 1 @4095 ]
+"15 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+[v _quantum quantum `ui  1 e 2 0 ]
+[s S183 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
+"17
+[s S187 stack 5 `S183 1 STACK 3 0 `ui 1 stack_size 2 3 ]
+[s S190 tcb 17 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3008 1 task_state 1 8 `S187 1 task_stack 5 9 `uc 1 BSR_register 1 14 `uc 1 STATUS_register 1 15 `uc 1 WORK_register 1 16 ]
+[v _F_APTOS F_APTOS `[10]S190  1 e 170 0 ]
+"18
+[v _tasks_installed tasks_installed `ui  1 e 2 0 ]
+"19
+[v _task_running task_running `ui  1 e 2 0 ]
+"134 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+[v __uDynamicHeap _uDynamicHeap `[512]uc  1 e 512 0 ]
+[s S29 _queue 6 `*.39ui 1 task 2 0 `ui 1 size 2 2 `ui 1 first 2 4 ]
+"15 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+[s S33 sem 8 `i 1 contador 2 0 `S29 1 queue 6 2 ]
+[v _spista spista `S33  1 e 8 0 ]
+[s S36 pipe 12 `ui 1 p_id 2 0 `*.39uc 1 p_msg_queue 2 2 `ui 1 p_pos_write 2 4 `ui 1 p_pos_read 2 6 `ui 1 p_size 2 8 `ui 1 p_count 2 10 ]
+"19
+[v _testL testL `S36  1 e 12 0 ]
+"20
+[v _t1 t1 `S33  1 e 8 0 ]
+"18 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"74
+} 0
+"155 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+[v _start_os start_os `(v  1 e 1 0 ]
+{
+"160
+} 0
+"86
+[v _setupOS setupOS `(v  1 e 1 0 ]
+{
+"127
+} 0
+"303 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+[v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
+{
+"306
+[v SRAMInitHeap@count count `ui  1 a 2 17 ]
+"305
+[v SRAMInitHeap@pHeap pHeap `N*.39uc  1 a 2 19 ]
+"326
+} 0
+"8 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+[v _sem_init sem_init `(v  1 e 1 0 ]
+{
+[s S29 _queue 6 `*.39ui 1 task 2 0 `ui 1 size 2 2 `ui 1 first 2 4 ]
+[s S33 sem 8 `i 1 contador 2 0 `S29 1 queue 6 2 ]
+[v sem_init@s s `*.39S33  1 p 2 36 ]
+[v sem_init@value value `i  1 p 2 38 ]
+"18
+} 0
+"91 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+[v _pipe_create pipe_create `(v  1 e 1 0 ]
+{
+[s S36 pipe 12 `ui 1 p_id 2 0 `*.39uc 1 p_msg_queue 2 2 `ui 1 p_pos_write 2 4 `ui 1 p_pos_read 2 6 `ui 1 p_size 2 8 `ui 1 p_count 2 10 ]
+[v pipe_create@pipe pipe `*.39S36  1 p 2 36 ]
+[v pipe_create@id id `ui  1 p 2 38 ]
+[v pipe_create@size size `ui  1 p 2 40 ]
+"99
+} 0
+"181 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/memory.c
+[v _SRAMalloc SRAMalloc `N(*.39uc  1 e 2 0 ]
+{
+[v SRAMalloc@nBytes nBytes `Nuc  1 a 1 wreg ]
+[s S1151 _BITS 1 `uc 1 count 1 0 :7:0 
+`uc 1 alloc 1 0 :1:7 
+]
+"183
+[u S1154 _SALLOC 1 `uc 1 byte 1 0 `S1151 1 bits 1 0 ]
+[v SRAMalloc@pHeap pHeap `N*.39S1154  1 a 2 34 ]
+"184
+[v SRAMalloc@temp temp `N*.39S1154  1 a 2 31 ]
+"185
+[v SRAMalloc@segHeader segHeader `S1154  1 a 1 30 ]
+"186
+[v SRAMalloc@segLen segLen `uc  1 a 1 29 ]
+"181
+[v SRAMalloc@nBytes nBytes `Nuc  1 a 1 wreg ]
+"189
+[v SRAMalloc@nBytes nBytes `Nuc  1 a 1 33 ]
+"253
+} 0
+"349
+[v __SRAMmerge _SRAMmerge `N(uc  1 e 1 0 ]
+{
+[s S1151 _BITS 1 `uc 1 count 1 0 :7:0 
+`uc 1 alloc 1 0 :1:7 
+]
+"351
+[u S1154 _SALLOC 1 `uc 1 byte 1 0 `S1151 1 bits 1 0 ]
+[v __SRAMmerge@pSegB pSegB `N*.39S1154  1 a 2 23 ]
+"352
+[v __SRAMmerge@uSegB uSegB `S1154  1 a 1 22 ]
+[v __SRAMmerge@uSegA uSegA `S1154  1 a 1 21 ]
+[v __SRAMmerge@uSum uSum `S1154  1 a 1 20 ]
+"349
+[v __SRAMmerge@pSegA pSegA `N*.39S1154  1 p 2 17 ]
+"393
+} 0
+"21 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+[v _create_task create_task `(v  1 e 1 0 ]
+{
+[s S183 stack_data 3 `uc 1 TOSU_register 1 0 `uc 1 TOSL_register 1 1 `uc 1 TOSH_register 1 2 ]
+"24
+[s S187 stack 5 `S183 1 STACK 3 0 `ui 1 stack_size 2 3 ]
+[s S190 tcb 17 `ui 1 task_id 2 0 `ui 1 task_prior 2 2 `*.2*.2(v 1 task_f 2 4 `ui 1 delay_time 2 6 `E3008 1 task_state 1 8 `S187 1 task_stack 5 9 `uc 1 BSR_register 1 14 `uc 1 STATUS_register 1 15 `uc 1 WORK_register 1 16 ]
+[v create_task@task task `S190  1 a 17 23 ]
+"21
+[v create_task@id id `ui  1 p 2 17 ]
+[v create_task@prior prior `ui  1 p 2 19 ]
+[v create_task@task_f task_f `*.37R(v  1 p 2 21 ]
+"35
+} 0
+"15 /opt/microchip/xc8/v1.45/sources/common/Umul16.c
+[v ___wmul __wmul `R(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 0 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 -2 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 -4 ]
+"53
+} 2
+"24 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+[v _confi_port confi_port `(v  1 e 1 0 ]
+{
+"29
+} 0
+"31
+[v _aviaoidle aviaoidle `R(v  1 e 1 0 ]
+{
+"46
+} 0
+"63 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+[v _delay delay `R(v  1 e 1 0 ]
+{
+[v delay@time_ms time_ms `ui  1 p 2 -2 ]
+"71
+} 0
+"37
+[v _dispatcher dispatcher `R(v  1 e 1 0 ]
+{
+[v dispatcher@state state `E3008  1 p 1 -1 ]
+"56
+} 0
+"23 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/scheduler.c
+[v _rr_scheduler rr_scheduler `R(ui  1 e 2 0 ]
+{
+"25
+[v rr_scheduler@next_task_to_run next_task_to_run `ui  1 a 2 0 ]
+"26
+[v rr_scheduler@j j `ui  1 a 2 2 ]
+"27
+[v rr_scheduler@cont cont `ui  1 a 2 4 ]
+"37
+} 6
+"13
+[v _contagemR contagemR `R(ui  1 e 2 0 ]
+{
+"16
+[v contagemR@i i `i  1 a 2 0 ]
+"15
+[v contagemR@x x `ui  1 a 2 2 ]
+"21
+} 4
+"8 /opt/microchip/xc8/v1.45/sources/common/lwmod.c
+[v ___lwmod __lwmod `R(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 0 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 -2 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 -4 ]
+"26
+} 1
+"48 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+[v _led_1 led_1 `R(v  1 e 1 0 ]
+{
+"99
+} 0
+"20 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/semaphore.c
+[v _sem_wait sem_wait `R(v  1 e 1 0 ]
+{
+"27
+[v sem_wait@pos pos `ui  1 a 2 0 ]
+[s S29 _queue 6 `*.39ui 1 task 2 0 `ui 1 size 2 2 `ui 1 first 2 4 ]
+"20
+[s S33 sem 8 `i 1 contador 2 0 `S29 1 queue 6 2 ]
+[v sem_wait@s s `*.39S33  1 p 2 -2 ]
+"36
+} 2
+"38
+[v _sem_post sem_post `R(v  1 e 1 0 ]
+{
+"44
+[v sem_post@value value `ui  1 a 2 0 ]
+[s S29 _queue 6 `*.39ui 1 task 2 0 `ui 1 size 2 2 `ui 1 first 2 4 ]
+"38
+[s S33 sem 8 `i 1 contador 2 0 `S29 1 queue 6 2 ]
+[v sem_post@s s `*.39S33  1 p 2 -2 ]
+"54
+} 2
+"101 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+[v _led_2 led_2 `R(v  1 e 1 0 ]
+{
+"149
+} 0
+"151
+[v _led_3 led_3 `R(v  1 e 1 0 ]
+{
+"205
+} 0
+"208
+[v _dianoite dianoite `R(v  1 e 1 0 ]
+{
+"217
+} 0
+"121 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+[v _pipe_write pipe_write `R(v  1 e 1 0 ]
+{
+[s S36 pipe 12 `ui 1 p_id 2 0 `*.39uc 1 p_msg_queue 2 2 `ui 1 p_pos_write 2 4 `ui 1 p_pos_read 2 6 `ui 1 p_size 2 8 `ui 1 p_count 2 10 ]
+[v pipe_write@pipe pipe `*.39S36  1 p 2 -2 ]
+[v pipe_write@msg msg `uc  1 p 1 -3 ]
+"139
+} 0
+"146
+[v _libera_processos libera_processos `R(v  1 e 1 0 ]
+{
+"148
+[v libera_processos@i i `i  1 a 2 0 ]
+"152
+} 2
+"219 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/tasks.c
+[v _acender acender `R(v  1 e 1 0 ]
+{
+"223
+[v acender@dado dado `uc  1 a 1 0 ]
+"239
+} 1
+"101 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/pipe.c
+[v _pipe_read pipe_read `R(v  1 e 1 0 ]
+{
+[s S36 pipe 12 `ui 1 p_id 2 0 `*.39uc 1 p_msg_queue 2 2 `ui 1 p_pos_write 2 4 `ui 1 p_pos_read 2 6 `ui 1 p_size 2 8 `ui 1 p_count 2 10 ]
+[v pipe_read@pipe pipe `*.39S36  1 p 2 -2 ]
+[v pipe_read@msg msg `*.39uc  1 p 2 -4 ]
+"119
+} 0
+"129 /home/evohc/MPLABXProjects/Real-Time-Embedded-Systems-master/kernel.c
+[v _int_high int_high `II(v  1 e 1 0 ]
+{
+"131
+[v int_high@i i `ui  1 a 2 15 ]
+"153
+} 0

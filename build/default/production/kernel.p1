@@ -3190,9 +3190,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;kernel.c: 105: T0CONbits.TMR0ON = 1;
 "105
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;kernel.c: 110: create_task(1,5, &task_idle);
-"110
-[e ( _create_task (3 , , -> -> 1 `i `ui -> -> 5 `i `ui &U _task_idle ]
 [; ;kernel.c: 122: TRISBbits.RB0 = 0;
 "122
 [e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
