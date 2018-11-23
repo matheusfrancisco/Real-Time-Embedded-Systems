@@ -32,4 +32,5 @@ microcontroladores da família PIC.
 
 ## implementação
 #### Sistema de controle de vôo
+Arquivo AeropotoSO2.pdsprj
 ![Simulação proteus](soproteus.jpeg)
