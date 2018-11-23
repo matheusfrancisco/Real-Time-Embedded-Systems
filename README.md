@@ -32,4 +32,4 @@ microcontroladores da família PIC.
 
 ## implementação
 #### Sistema de controle de vôo
-
+![Simulação proteus](soproteus.jpeg)
